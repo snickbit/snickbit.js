@@ -3,7 +3,7 @@
 import variableTypes, {BasicVariableType, PrimitiveVariableType, VariableType} from './data/variable-types'
 import {parseOptions} from './functions'
 import {IObject, objectFilter, objectMerge, objectMergeDeep} from './objects'
-import {arrayMerge, arrayMergeDeep, IArray} from './arrays'
+import {arrayMerge, arrayMergeDeep} from "./arrays";
 
 /** @category Variables */
 export type VariableTypeDefinition = { name: string }
@@ -213,7 +213,7 @@ export function isCallable(value: any, options?: Partial<isCallableOptions>): bo
  * Merge two or more variables together
  * @category Variables
  */
-export function merge(...values: IObject[] | IArray): IObject | IArray {
+export function merge(...values: IObject[] | any[]): IObject | any[] {
 	let toReturn
 	let returnType
 	for (let value of values) {
@@ -239,7 +239,7 @@ export function merge(...values: IObject[] | IArray): IObject | IArray {
  * Merge two or more variables together, recursing child values
  * @category Variables
  */
-export function mergeDeep(...values: IObject[] | IArray): IObject | IArray {
+export function mergeDeep(...values: IObject[] | any[]): IObject | any[] {
 	let toReturn
 	let returnType
 	for (let value of values) {

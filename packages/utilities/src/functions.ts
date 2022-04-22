@@ -1,8 +1,10 @@
 // noinspection JSUnusedGlobalSymbols
 
-import {arrayUnique, IArray} from './arrays'
+
+import {arrayUnique} from './arrays'
 import {isArray, isEmpty, isObject, isType} from './variables'
 import {IObject} from "./objects";
+import {VariableType} from "./data/variable-types";
 
 /**
  * Parse options for a function
@@ -37,7 +39,7 @@ export function parseOptions(given: IObject | any, defaults: IObject, non_object
  * Catch an async function or promise and force it to resolve, returning undefined if it fails
  * @category Functions
  */
-export function tryWait(fn: Function, ...args: IArray[]): Promise<any> {
+export function tryWait(fn: Function, ...args: any[][]): Promise<any> {
 	return new Promise(async (resolve) => {
 		try {
 			let result = await fn(...args)
@@ -63,7 +65,7 @@ export function functionClone(fn: Function): Function {
  * Send each item in an array to a function, await the results
  * @category Functions
  */
-export function promiseAll(arr: IArray, fn: (value: any, index: number, array: IArray) => any): Promise<Awaited<any>[]> {
+export function promiseAll(arr: any[], fn: (value: any, index: number, array: any[]) => any): Promise<Awaited<any>[]> {
 	return isArray(arr) && !isEmpty(arr) && Promise.all(arr.map(fn))
 }
 

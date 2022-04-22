@@ -2,7 +2,6 @@
 
 import {isDefined, isJSONString, isType} from './variables'
 import {parseOptions} from './functions'
-import {IArray} from "./arrays";
 
 /**
  * Parse a string into it's primitive type if possible. If not, return the original variable.
@@ -49,7 +48,7 @@ export function parse(value: any): any {
  * Parse a string into JSON
  * @category Parsing
  */
-export function JSONParse(json: string, strict?: boolean): object | IArray | undefined {
+export function JSONParse(json: string, strict?: boolean): object | any[] | undefined {
 	if (!isDefined(json)) return json as undefined
 
 	try {
@@ -61,7 +60,7 @@ export function JSONParse(json: string, strict?: boolean): object | IArray | und
 			return undefined
 		}
 	}
-	return json as unknown as object | IArray
+	return json as unknown as object | any[]
 }
 
 
