@@ -24,7 +24,7 @@
 		"build:meta": "yarn build --metafile",
 		"prod": "yarn build --minify",
 		"watch": "yarn build --watch",
-		"docs": "typedoc src/index.ts --tsconfig ../../tsconfig.json --out ./docs && shx mv docs/README.md DOCS.md && shx rm -rf docs",
+		"docs": "typedoc && shx mv docs/README.md DOCS.md && shx rm -rf docs",
 		"version": "yarn prod && yarn docs"
 	},
 	"dependencies": {
