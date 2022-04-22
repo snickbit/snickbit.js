@@ -12,9 +12,25 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![Issues][issues-shield]][issues-url]
 
+## Table of Contents
+
+<details>
+<summary>Libraries</summary>
+
+- [@snickbit/utilities](#utilities)
+- [@snickbit/out](#out)
+
+</details>
+
 [License](#license)
 
 ---
+
+## Libraries
+
+### [@snickbit/utilities](https://github.com/snickbit/snickbit.js/tree/main/packages/utilities)
+
+A library of basic helper functions with very few dependencies. Written in TypeScript.
 
 ## License
 
