@@ -5,22 +5,21 @@
 	"license": "MIT",
 	"exports": {
 		".": {
-			"require": "./lib/index.js",
-			"import": "./src/index.js"
+			"require": "./dist/index.js",
+			"import": "./lib/index.js"
 		},
 		"./dist": {
 			"require": "./dist/*.js",
-			"import": "./dist/*.js"
+			"import": "./lib/*.js"
 		}
 	},
-	"main": "./lib/index.js",
-	"module": "./src/index.js",
+	"main": "./dist/index.js",
+	"module": "./lib/index.js",
 	"types": "./types/index.d.ts",
 	"files": [
 		"lib",
 		"dist",
-		"types",
-		"src"
+		"types"
 	],
 	"engines": {
 		"node": ">= 12"
