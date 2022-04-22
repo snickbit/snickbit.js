@@ -38,28 +38,25 @@ export class Cycle {
 		return this.items.length - 1
 	}
 
-	next(save: boolean = true) {
-		const nextIndex = this.nextIndex
-		if (save) this.index = nextIndex
-		return this.items[nextIndex]
+	getIndex(index: number, save: boolean = true) {
+		if (save) this.index = index
+		return this.items[index]
 	}
 
-	prev(save: boolean = true) {
-		const prevIndex = this.prevIndex
-		if (save) this.index = prevIndex
-		return this.items[prevIndex]
+	next(save?: boolean) {
+		return this.getIndex(this.#started ? this.nextIndex : this.current(), save)
+	}
+
+	prev(save?: boolean) {
+		return this.getIndex(this.prevIndex, save)
 	}
 
 	first(save: boolean = false) {
-		const firstIndex = this.firstIndex
-		if (save) this.index = firstIndex
-		return this.items[firstIndex]
+		return this.getIndex(this.firstIndex, save)
 	}
 
 	last(save: boolean = false) {
-		const lastIndex = this.lastIndex
-		if (save) this.index = lastIndex
-		return this.items[lastIndex]
+		return this.getIndex(this.lastIndex, save)
 	}
 
 	current() {
@@ -67,9 +64,7 @@ export class Cycle {
 	}
 
 	get(index: number, save: boolean = false) {
-		const itemIndex = index % this.items.length
-		if (save) this.index = itemIndex
-		return this.items[itemIndex]
+		return this.getIndex(index % this.items.length, save)
 	}
 
 	set(index: number, value: any) {
