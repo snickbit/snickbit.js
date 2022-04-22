@@ -1,0 +1,16 @@
+{
+	"specials": [
+		"bin",
+		"babel"
+	],
+	"ignores": [
+		"node_modules",
+		"bin/*",
+		"concurrently",
+		"@types/*",
+		"typedoc*",
+		"esbuild-jest"
+	],
+	"oneline": true,
+	"ignore-bin-package": true
+}
