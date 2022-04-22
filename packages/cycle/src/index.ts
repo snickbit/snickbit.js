@@ -6,17 +6,17 @@ export class Cycle {
 	items: any[] = []
 	index: number
 
-	constructor(items: any[]);
-	constructor(preset: string);
-	constructor(preset: object);
-	constructor(items: any[] | string | object) {
+	constructor(items?: any[]);
+	constructor(preset?: string);
+	constructor(itemsOrPreset?: any[] | string);
+	constructor(itemsOrPreset?: any[] | string) {
 		this.index = 0
-		if (!items) {
+		if (!itemsOrPreset) {
 			this.items = []
-		} else if (isType(items, 'array')) {
-			this.items = (items as Array<any>).slice()
-		} else if (isType(items, 'string')) {
-			this.items = presets[items as keyof typeof presets]
+		} else if (isType(itemsOrPreset, 'array')) {
+			this.items = (itemsOrPreset as Array<any>).slice()
+		} else if (isType(itemsOrPreset, 'string')) {
+			this.items = presets[itemsOrPreset as keyof typeof presets]
 		} else {
 			throw new TypeError('Invalid type for items, expected array or string')
 		}
