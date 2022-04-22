@@ -21,7 +21,7 @@
 		"prod": "ultra -r version",
 		"test": "jest --passWithNoTests --silent --noStackTrace --colors",
 		"depcheck": "ultra -r depcheck",
-		"publish": "yarn clean:build && yarn test && yarn prod && lerna publish"
+		"publish": "yarn clean:builds && yarn prod && yarn test && lerna publish"
 	},
 	"ultra": {
 		"concurrent": [
