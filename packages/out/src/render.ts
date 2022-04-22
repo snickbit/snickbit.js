@@ -75,7 +75,7 @@ export const horizontalLine = (symbol: string, min?: number, max?: number): stri
 export function centerText(text: string, symbol: string = ' ', padding: number = 2) {
 	const parts = text.split('\n')
 	const text_length = Math.max(parts.reduce((a, b) => Math.max(a, stripAnsi(b).length), 0), 1)
-	const pad_len = Math.floor((terminalWidth() - text_length) / 2) - 2
-	const str_pad = (symbol || ' ').repeat(pad_len) + ' '.repeat(padding)
+	const pad_len = Math.max(Math.floor((terminalWidth() - text_length) / 2) - 2, 0)
+	const str_pad = (symbol || ' ').repeat(pad_len) + ' '.repeat(padding);
 	return parts.map(part => str_pad + part + str_pad.split("").reverse().join("")).join('\n')
 }
