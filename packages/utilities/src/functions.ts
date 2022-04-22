@@ -70,7 +70,7 @@ export function promiseAll(arr: any[], fn: (value: any, index: number, array: an
  * Parses an array of arguments for an overloaded function into an object
  * @category Functions
  */
-export function overloadOptions(options: IArray, schemas: object[]): object {
+export function overloadOptions(options: any[], schemas: object[]): object {
 	let matches
 
 	// check for schemas that have the same length and same first type
