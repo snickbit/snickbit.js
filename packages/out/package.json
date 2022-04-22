@@ -1,0 +1,66 @@
+{
+	"name": "@snickbit/out",
+	"description": "Cross-platform pretty output for your terminal or browser console.",
+	"version": "2.0.0",
+	"license": "MIT",
+	"exports": {
+		".": {
+			"require": "./lib/index.js",
+			"import": "./src/index.js"
+		},
+		"./dist": {
+			"require": "./dist/*.js",
+			"import": "./dist/*.js"
+		}
+	},
+	"main": "./lib/index.js",
+	"module": "./src/index.js",
+	"types": "./types/index.d.ts",
+	"files": [
+		"lib",
+		"dist",
+		"types",
+		"src"
+	],
+	"engines": {
+		"node": ">= 12"
+	},
+	"scripts": {
+		"clean": "shx rm -rf lib dist",
+		"docs": "typedoc --tsconfig ./tsconfig.json && shx mv docs/classes/Out.md DOCS.md && shx rm -rf docs",
+		"build:base": "esbuild src/index.ts --bundle --external:readline",
+		"build:dist": "yarn build:base --outfile=dist/index.js --platform=node --target=node10 --format=cjs",
+		"build:lib": "yarn build:base --outfile=lib/index.js --platform=browser",
+		"build": "concurrently -n dist,lib \"yarn build:lib\" \"yarn build:dist\"",
+		"prod": "concurrently -n dist,lib \"yarn build:lib --minify\" \"yarn build:dist --minify\"",
+		"test": "jest",
+		"types": "shx rm -rf types && tsc && shx mkdir types && shx cp .types/Out.d.ts .types/Out.d.ts.map ./types/ && shx rm -rf .types",
+		"start": "node ./examples/node.js",
+		"watch": "concurrently -n lib,dist \"yarn watch:lib\" \"yarn watch:dist\"",
+		"watch:lib": "yarn build:lib --watch",
+		"watch:dist": "yarn build:dist --watch",
+		"version": "yarn clean && yarn types && yarn prod"
+	},
+	"dependencies": {
+		"@snickbit/cycle": "^0.0.1",
+		"@snickbit/utilities": "^3.0.1",
+		"ansi-styles-template": "^1.0.0",
+		"browser-or-node": "^2.0.0",
+		"chalk": "^4.1.2",
+		"node-inspect-extracted": "^1.1.0",
+		"picomatch-browser": "^2.2.6",
+		"strip-ansi": "^6.0.1"
+	},
+	"devDependencies": {
+		"concurrently": "^7.1.0",
+		"esbuild": "^0.14.37",
+		"esbuild-jest": "^0.5.0",
+		"jest": "^27.4.7"
+	},
+	"jest": {
+		"verbose": true,
+		"transform": {
+			"^.+\\.js?$": "esbuild-jest"
+		}
+	}
+}

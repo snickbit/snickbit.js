@@ -1,0 +1,42 @@
+{
+	"include": [
+		"src/Out.ts"
+	],
+	"compilerOptions": {
+		"allowJs": true,
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"outDir": ".types",
+		"declarationMap": true,
+		"removeComments": true,
+		"target": "es2021",
+		"moduleResolution": "node",
+		"newLine": "lf",
+		"module": "commonjs",
+		"downlevelIteration": true,
+		"sourceMap": true,
+		"strict": true,
+		"strictNullChecks": false,
+		"noImplicitAny": false,
+		"noImplicitThis": false,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noImplicitReturns": true,
+		"esModuleInterop": true
+	},
+	"typedocOptions": {
+		"entryPoints": [
+			"src/index.ts"
+		],
+		"out": "docs",
+		"githubPages": false,
+		"hideBreadcrumbs": true,
+		"hideGenerator": true,
+		"excludeProtected": true,
+		"excludeInternal": true,
+		"excludePrivate": true,
+		"disableSources": true,
+		"defaultCategory": "Modules",
+		"readme": "none"
+	}
+}
