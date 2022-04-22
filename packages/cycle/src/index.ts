@@ -4,6 +4,7 @@ import * as presets from './presets'
 export class Cycle {
 	items: any[] = []
 	index: number
+	#started: boolean
 
 	constructor(items?: any[]);
 	constructor(preset?: string);
@@ -43,6 +44,7 @@ export class Cycle {
 
 	getIndex(index: number, save: boolean = true) {
 		if (save) this.index = index
+		this.#started = true
 		return this.items[index]
 	}
 
