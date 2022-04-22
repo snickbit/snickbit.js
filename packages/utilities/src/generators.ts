@@ -1,9 +1,6 @@
-// noinspection JSUnusedGlobalSymbols
-
 import {nanoid} from 'nanoid'
 import {clone} from './variables'
 import {IObject} from "./objects";
-import {IArray} from "./arrays";
 
 /**
  * Create uuid
@@ -42,11 +39,11 @@ export type CombinationOptions = {
  * Generate an array of all possible property values. Provide an object with each property as a key and an array of possible values as the value.
  * @category Generators
  */
-export function combinations(options: CombinationOptions): IArray {
+export function combinations(options: CombinationOptions): any[] {
 	return combinationsLoop(options)
 }
 
-function combinationsLoop(options: CombinationOptions, optionIndex: number = 0, current: IObject = {}): IArray {
+function combinationsLoop(options: CombinationOptions, optionIndex: number = 0, current: IObject = {}): any[] {
 	const allKeys = Object.keys(options)
 	const optionKey = allKeys[optionIndex]
 	const values = options[optionKey]

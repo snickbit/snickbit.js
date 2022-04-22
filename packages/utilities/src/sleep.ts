@@ -1,4 +1,3 @@
-// noinspection JSUnusedGlobalSymbols
 /**
  * sleep for a given time
  * @category Parsing

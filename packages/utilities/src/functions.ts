@@ -1,14 +1,13 @@
-// noinspection JSUnusedGlobalSymbols
-
-import {arrayUnique, IArray} from './arrays'
+import {arrayUnique} from './arrays'
 import {isArray, isEmpty, isObject, isType} from './variables'
 import {IObject} from "./objects";
+import {VariableType} from "./data/variable-types";
 
 /**
  * Parse options for a function
  * @category Functions
  */
-export function parseOptions(given: IObject | any, defaults: IObject, non_object_key: string): object | any {
+export function parseOptions(given: IObject | any, defaults: IObject, non_object_key?: string): object | any {
 	if (!isObject(defaults)) {
 		throw new TypeError('defaults must be an object')
 	}
@@ -37,7 +36,7 @@ export function parseOptions(given: IObject | any, defaults: IObject, non_object
  * Catch an async function or promise and force it to resolve, returning undefined if it fails
  * @category Functions
  */
-export function tryWait(fn: Function, ...args: IArray[]): Promise<any> {
+export function tryWait(fn: Function, ...args: any[][]): Promise<any> {
 	return new Promise(async (resolve) => {
 		try {
 			let result = await fn(...args)
@@ -63,15 +62,19 @@ export function functionClone(fn: Function): Function {
  * Send each item in an array to a function, await the results
  * @category Functions
  */
-export function promiseAll(arr: IArray, fn: (value: any, index: number, array: IArray) => any): Promise<Awaited<any>[]> {
+export function promiseAll(arr: any[], fn: (value: any, index: number, array: any[]) => any): Promise<Awaited<any>[]> {
 	return isArray(arr) && !isEmpty(arr) && Promise.all(arr.map(fn))
+}
+
+export interface OverloadSchema {
+	[key: string]: VariableType
 }
 
 /**
  * Parses an array of arguments for an overloaded function into an object
  * @category Functions
  */
-export function overloadOptions(options: IArray, schemas: object[]): object {
+export function overloadOptions(options: any[], schemas: OverloadSchema[]): object {
 	let matches
 
 	// check for schemas that have the same length and same first type
@@ -81,7 +84,7 @@ export function overloadOptions(options: IArray, schemas: object[]): object {
 		// check for type matches only
 		matches = matches.length ? matches : schemas.slice()
 		for (let [index, option] of options.entries()) {
-			matches = matches.filter(schema => isType(option, Object.values(schema)[index]))
+			matches = matches.filter((schema: OverloadSchema) => isType(option, Object.values(schema)[index]))
 			if (matches.length === 1) {
 				break
 			}

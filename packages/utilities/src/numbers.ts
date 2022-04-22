@@ -1,5 +1,3 @@
-// noinspection JSUnusedGlobalSymbols
-
 /**
  * Pad a number with zeros.
  * @category Numbers

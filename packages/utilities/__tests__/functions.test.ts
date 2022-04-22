@@ -1,5 +1,6 @@
+import {overloadOptions, OverloadSchema, parseOptions} from "../src";
+
 describe('parseOptions', () => {
-	const {parseOptions} = require('../lib')
 	test('parseOptions({test: true, two: false}, {test: false, other: false}) should return {test: true, other: false, two: false}', () => {
 		const test_object = {
 			test: true,
@@ -33,6 +34,7 @@ describe('parseOptions', () => {
 	test('parseOptions(undefined, true) should return throw a TypeError', () => {
 		const test_object = undefined
 		const default_object = true
+		// @ts-ignore
 		expect(() => parseOptions(test_object, default_object)).toThrow(TypeError)
 	})
 
@@ -55,8 +57,6 @@ describe('parseOptions', () => {
 })
 
 describe('overloadOptions', () => {
-	const {overloadOptions} = require('../lib')
-
 	const baseChannel = 'test'
 	const baseContext = {
 		test: false,
@@ -67,7 +67,7 @@ describe('overloadOptions', () => {
 		other: false,
 		two: false
 	}
-	const baseSchemas = [
+	const baseSchemas: OverloadSchema[] = [
 		{
 			channel: 'string',
 			context: 'object',
@@ -110,18 +110,5 @@ describe('overloadOptions', () => {
 			context: baseExpected.context
 		}
 		expect(overloadOptions([baseChannel, baseContext], baseSchemas)).toEqual(expected)
-	})
-
-	test('overloadOptions("test") = ERROR', () => {
-		const schemas = [
-			{
-				channel: 'object'
-			},
-			{
-				context: 'object',
-				config: 'object'
-			}
-		]
-		expect(() => overloadOptions([baseChannel, baseContext, baseConfig], schemas)).toThrow()
 	})
 })

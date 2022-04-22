@@ -1,9 +1,7 @@
-// noinspection JSUnusedGlobalSymbols
-
 import variableTypes, {BasicVariableType, PrimitiveVariableType, VariableType} from './data/variable-types'
 import {parseOptions} from './functions'
 import {IObject, objectFilter, objectMerge, objectMergeDeep} from './objects'
-import {arrayMerge, arrayMergeDeep, IArray} from './arrays'
+import {arrayMerge, arrayMergeDeep} from "./arrays";
 
 /** @category Variables */
 export type VariableTypeDefinition = { name: string }
@@ -130,7 +128,7 @@ export const isBase64 = (content: string) => /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/
  */
 export function isDate(value: any) {
 	try {
-		return value instanceof Date || (new Date("fdsaj")).toString() !== 'Invalid Date'
+		return value instanceof Date || (new Date(value)).toString() !== 'Invalid Date'
 	} catch (e) {
 		return false
 	}
@@ -213,7 +211,7 @@ export function isCallable(value: any, options?: Partial<isCallableOptions>): bo
  * Merge two or more variables together
  * @category Variables
  */
-export function merge(...values: IObject[] | IArray): IObject | IArray {
+export function merge(...values: IObject[] | any[]): IObject | any[] {
 	let toReturn
 	let returnType
 	for (let value of values) {
@@ -239,7 +237,7 @@ export function merge(...values: IObject[] | IArray): IObject | IArray {
  * Merge two or more variables together, recursing child values
  * @category Variables
  */
-export function mergeDeep(...values: IObject[] | IArray): IObject | IArray {
+export function mergeDeep(...values: IObject[] | any[]): IObject | any[] {
 	let toReturn
 	let returnType
 	for (let value of values) {

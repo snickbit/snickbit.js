@@ -1,8 +1,5 @@
-// noinspection JSUnusedGlobalSymbols
-
 import {isFunction, isObject, mergeDeep, typeOf} from './variables'
 import {JSONParse, JSONStringify} from './parsing'
-import {IArray} from "./arrays";
 
 /** @category Objects */
 export type IObject = {
@@ -154,7 +151,7 @@ export const objectClone = (...objects: IObject[]): IObject => {
  * Copy object as JSON (uses JSON.parse/JSON.stringify but won't throw any errors)
  * @category Objects
  */
-export function objectCopy(obj: IObject, force?: boolean): IObject | IArray | undefined {
+export function objectCopy(obj: IObject, force?: boolean): IObject | any[] | undefined {
 	return JSONParse(JSONStringify(obj, force))
 }
 
@@ -178,7 +175,11 @@ export function objectMerge(...objects: IObject[]): IObject {
  */
 export function objectMergeDeep(...objects: IObject[]): IObject {
 	const toReturn: IObject = {}
-	const keys: string[] = objects.reduce((acc: IArray, obj: IObject) => acc.concat(Object.keys(obj)), [])
+	const keys: string[] = []
+	for (let obj of objects) {
+		keys.push(...Object.keys(obj))
+	}
+
 	for (let obj of objects) {
 		for (const key of keys) {
 			toReturn[key] = mergeDeep(toReturn[key], obj[key])
