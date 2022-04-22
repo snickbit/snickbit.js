@@ -175,7 +175,11 @@ export function objectMerge(...objects: IObject[]): IObject {
  */
 export function objectMergeDeep(...objects: IObject[]): IObject {
 	const toReturn: IObject = {}
-	const keys: string[] = objects.reduce((acc: IArray, obj: IObject) => acc.concat(Object.keys(obj)), [])
+	const keys: string[] = []
+	for (let obj of objects) {
+		keys.push(...Object.keys(obj))
+	}
+
 	for (let obj of objects) {
 		for (const key of keys) {
 			toReturn[key] = mergeDeep(toReturn[key], obj[key])
