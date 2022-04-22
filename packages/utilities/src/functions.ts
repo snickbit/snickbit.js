@@ -34,15 +34,18 @@ export function parseOptions(given: IObject | any, defaults: IObject, non_object
 }
 
 /**
- * wrap an 'await' with a try catch, returns undefined if an error is thrown
+ * Catch an async function or promise and force it to resolve, returning undefined if it fails
  * @category Functions
  */
-export async function tryWait(fn: Function, ...args: IArray[]): Promise<any> {
-	try {
-		return await fn(...args)
-	} catch (err) {
-		return undefined
-	}
+export function tryWait(fn: Function, ...args: IArray[]): Promise<any> {
+	return new Promise(async (resolve) => {
+		try {
+			let result = await fn(...args)
+			resolve(result)
+		} catch (e) {
+			resolve(undefined)
+		}
+	})
 }
 
 /**
