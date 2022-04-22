@@ -18,6 +18,7 @@
 		"node": ">= 12"
 	},
 	"scripts": {
+		"start": "node ./examples/index.js",
 		"clean": "shx rm -rf ./dist",
 		"test": "jest",
 		"docs": "typedoc --tsconfig ../../tsconfig.json && shx mv docs/README.md DOCS.md && shx rm -rf docs",
