@@ -4,6 +4,9 @@
 	"engines": {
 		"node": ">= 12"
 	},
+	"publishConfig": {
+		"access": "public"
+	},
 	"workspaces": {
 		"packages": [
 			"packages/*"
