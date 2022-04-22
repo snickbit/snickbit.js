@@ -7,7 +7,7 @@ import {VariableType} from "./data/variable-types";
  * Parse options for a function
  * @category Functions
  */
-export function parseOptions(given: IObject | any, defaults: IObject, non_object_key: string): object | any {
+export function parseOptions(given: IObject | any, defaults: IObject, non_object_key?: string): object | any {
 	if (!isObject(defaults)) {
 		throw new TypeError('defaults must be an object')
 	}
