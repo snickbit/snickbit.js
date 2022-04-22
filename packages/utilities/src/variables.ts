@@ -135,9 +135,9 @@ export function isDate(value: any) {
 }
 
 /**
- * Count the number of keys in an object
- * Count the number of entries in an array
- * Count the number of values in a Set
+ * Count the number of keys in an object \
+ * Count the number of entries in an array \
+ * Count the number of values in a Set \
  * Get the length of a string
  * @category Variables
  */
