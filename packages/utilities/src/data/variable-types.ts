@@ -1,4 +1,4 @@
-export type BasicVariableType = "bigint" | "boolean" | "number" | "string";
+export type BasicVariableType = 'bigint' | 'boolean' | 'number' | 'string';
 export const basic: BasicVariableType[] = [
 	'bigint',
 	'boolean',
@@ -6,13 +6,13 @@ export const basic: BasicVariableType[] = [
 	'string'
 ]
 
-export type EmptyVariableType = "undefined" | "null";
+export type EmptyVariableType = 'undefined' | 'null';
 export const empty: EmptyVariableType[] = [
 	'undefined',
 	'null'
 ]
 
-export type AdvancedVariableType = "array" | "object" | "symbol" | "date";
+export type AdvancedVariableType = 'array' | 'object' | 'symbol' | 'date';
 export const advanced: AdvancedVariableType[] = [
 	'array',
 	'object',
@@ -20,7 +20,7 @@ export const advanced: AdvancedVariableType[] = [
 	'date'
 ]
 
-export type CallableVariableType = "promise" | "asyncfunction" | "function";
+export type CallableVariableType = 'promise' | 'asyncfunction' | 'function';
 export const callable: CallableVariableType[] = [
 	'promise',
 	'asyncfunction',

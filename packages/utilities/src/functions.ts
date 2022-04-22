@@ -1,7 +1,7 @@
 import {arrayUnique} from './arrays'
 import {isArray, isEmpty, isObject, isType} from './variables'
-import {IObject} from "./objects";
-import {VariableType} from "./data/variable-types";
+import {IObject} from './objects'
+import {VariableType} from './data/variable-types'
 
 /**
  * Parse options for a function
@@ -37,7 +37,7 @@ export function parseOptions(given: IObject | any, defaults: IObject, non_object
  * @category Functions
  */
 export function tryWait(fn: Function, ...args: any[][]): Promise<any> {
-	return new Promise(async (resolve) => {
+	return new Promise(async resolve => {
 		try {
 			let result = await fn(...args)
 			resolve(result)

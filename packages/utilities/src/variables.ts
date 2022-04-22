@@ -1,7 +1,7 @@
 import variableTypes, {BasicVariableType, PrimitiveVariableType, VariableType} from './data/variable-types'
 import {parseOptions} from './functions'
 import {IObject, objectFilter, objectMerge, objectMergeDeep} from './objects'
-import {arrayMerge, arrayMergeDeep} from "./arrays";
+import {arrayMerge, arrayMergeDeep} from './arrays'
 
 /** @category Variables */
 export type VariableTypeDefinition = { name: string }
@@ -128,7 +128,7 @@ export const isBase64 = (content: string) => /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/
  */
 export function isDate(value: any) {
 	try {
-		return value instanceof Date || (new Date(value)).toString() !== 'Invalid Date'
+		return value instanceof Date || new Date(value).toString() !== 'Invalid Date'
 	} catch (e) {
 		return false
 	}
@@ -184,7 +184,7 @@ export function typeOf(value: any): VariableType | string {
 }
 
 interface isCallableOptions {
-	strict: false,
+	strict: false
 	async: false
 }
 
@@ -195,10 +195,14 @@ interface isCallableOptions {
 export function isCallable(value: any, options?: Partial<isCallableOptions>): boolean {
 	if (!value) return false
 
-	options = parseOptions(options, {
-		strict: false,
-		async: false
-	}, 'async')
+	options = parseOptions(
+		options,
+		{
+			strict: false,
+			async: false
+		},
+		'async'
+	)
 
 	if (options.async) {
 		return isAsyncFunction(value) || isFunction(value, options.strict)

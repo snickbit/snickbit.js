@@ -2,8 +2,7 @@
  * Pad a number with zeros.
  * @category Numbers
  */
-export const numberPad = (n: number): string | number => n < 10 ? '0' + n : n
-
+export const numberPad = (n: number): string | number => (n < 10 ? '0' + n : n)
 
 /**
  * Format a number as bytes.
@@ -14,17 +13,12 @@ export function formatBytes(bytes: number, decimals: number = 2): string {
 
 	const k = 1000
 	const dm = decimals < 0 ? 0 : decimals
-	const sizes = [
-		'Bytes', 'KB', 'MB',
-		'GB', 'TB', 'PB',
-		'EB', 'ZB', 'YB'
-	]
+	const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
 
 	const i = Math.floor(Math.log(bytes) / Math.log(k))
 
 	return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]
 }
-
 
 /**
  * Format a number as currency.

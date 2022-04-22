@@ -15,17 +15,16 @@ npm add @snickbit/cycle
 ## Basic Usage
 
 ```js
-import {Cycle} from '@snickbit/cycle';
+import {Cycle} from '@snickbit/cycle'
 
-const cycle = new Cycle([1, 2, 3]);
+const cycle = new Cycle([1, 2, 3])
 
-console.log(cycle.next()); // 1
-console.log(cycle.next()); // 2
-console.log(cycle.next()); // 3
-console.log(cycle.next()); // 1
-console.log(cycle.current()); // 1
-console.log(cycle.prev()); // 3
-
+console.log(cycle.next()) // 1
+console.log(cycle.next()) // 2
+console.log(cycle.next()) // 3
+console.log(cycle.next()) // 1
+console.log(cycle.current()) // 1
+console.log(cycle.prev()) // 3
 ```
 
 ## Presets
@@ -35,7 +34,7 @@ Cycle comes with few presets for common uses. More to come as needed.
 ### Usage
 
 ```js
-const hexColorCycle = new Cycle('hex');
+const hexColorCycle = new Cycle('hex')
 ```
 
 ### ansi

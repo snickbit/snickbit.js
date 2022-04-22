@@ -21,27 +21,23 @@ export function formatCase(text, case_type) {
 		case 'lower':
 			return text.toLowerCase()
 		case 'camel':
-			return text.replace(/\s(.)/g, function ($1) {
-				return $1.toUpperCase()
-			}).replace(/\s/g, '')
+			return text.replace(/\s(.)/g, $1 => $1.toUpperCase()).replace(/\s/g, '')
 		case 'snake':
 			return text.replace(/\s/g, '_').toLowerCase()
 		case 'kebab':
 			return text.replace(/\s/g, '-').toLowerCase()
 		case 'title':
-			return text.replace(/\s(.)/g, function ($1) {
-				return $1.toUpperCase()
-			})
+			return text.replace(/\s(.)/g, $1 => $1.toUpperCase())
 		case 'sentence':
 			return text.charAt(0).toUpperCase() + text.slice(1)
 		case 'pascal':
-			return text.replace(/\s(.)/g, function ($1) {
-				return $1.toUpperCase()
-			}).replace(/\s/g, '')
+			return text
+			.replace(/\s(.)/g, $1 => $1.toUpperCase()).replace(/\s/g, '')
 		case 'constant':
-			return text.replace(/\s(.)/g, function ($1) {
-				return $1.toUpperCase()
-			}).replace(/\s/g, '_').toUpperCase()
+			return text
+			.replace(/\s(.)/g, $1 => $1.toUpperCase())
+			.replace(/\s/g, '_')
+			.toUpperCase()
 		case 'slug':
 			return text.replace(/\s/g, '-').toLowerCase()
 		case 'symbol':
@@ -74,8 +70,11 @@ export const horizontalLine = (symbol: string, min?: number, max?: number): stri
  */
 export function centerText(text: string, symbol: string = ' ', padding: number = 2) {
 	const parts = text.split('\n')
-	const text_length = Math.max(parts.reduce((a, b) => Math.max(a, stripAnsi(b).length), 0), 1)
+	const text_length = Math.max(
+		parts.reduce((a, b) => Math.max(a, stripAnsi(b).length), 0),
+		1
+	)
 	const pad_len = Math.max(Math.floor((terminalWidth() - text_length) / 2) - 2, 0)
-	const str_pad = (symbol || ' ').repeat(pad_len) + ' '.repeat(padding);
-	return parts.map(part => str_pad + part + str_pad.split("").reverse().join("")).join('\n')
+	const str_pad = (symbol || ' ').repeat(pad_len) + ' '.repeat(padding)
+	return parts.map(part => str_pad + part + str_pad.split('').reverse().join('')).join('\n')
 }

@@ -57,7 +57,7 @@ export function objectGetMethod(obj: IObject, method: string, strict?: boolean):
 	if (typeOf(method) !== 'string') throw new Error(`Method name must be a string, got ${typeOf(method)}`)
 	return objectMethods(obj)
 	.map(method_name => ({original: method_name, lower: method_name.toLowerCase()}))
-	.filter(method_def => strict ? method_def.original === method : method_def.lower === method.toLowerCase())
+	.filter(method_def => (strict ? method_def.original === method : method_def.lower === method.toLowerCase()))
 	.map(method_def => obj[method_def.original])
 	.pop()
 }

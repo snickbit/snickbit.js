@@ -6,9 +6,9 @@ export class Cycle {
 	index: number
 	#started: boolean
 
-	constructor(items?: any[]);
-	constructor(preset?: string);
-	constructor(itemsOrPreset?: any[] | string);
+	constructor(items?: any[])
+	constructor(preset?: string)
+	constructor(itemsOrPreset?: any[] | string)
 	constructor(itemsOrPreset?: any[] | string) {
 		this.index = 0
 		if (!itemsOrPreset) {
@@ -89,8 +89,8 @@ export class Cycle {
 	}
 }
 
-export function cycle(items?: any[]): Cycle;
-export function cycle(prefix?: string): Cycle;
+export function cycle(items?: any[]): Cycle
+export function cycle(prefix?: string): Cycle
 export function cycle(itemsOrPreset?: any[] | string) {
 	return new Cycle(itemsOrPreset)
 }

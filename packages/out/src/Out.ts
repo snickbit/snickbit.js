@@ -4,12 +4,11 @@ import {inspect} from 'node-inspect-extracted'
 import {_console, CaseType, colorCycle, defaultState, modifiers, OutPersistent, OutSettings, OutState, OutStyle, settings, styles} from './config'
 import {_inspect, centerText, formatCase, horizontalLine} from './render'
 import {getVerbosity, setVerbosity} from './verbosity'
-import {example, lineWidth, terminalWidth} from "./helpers";
-import chalk from "chalk";
-import stripAnsi from "strip-ansi";
-import {getLabel} from "./icons";
+import {example, lineWidth, terminalWidth} from './helpers'
+import chalk from 'chalk'
+import stripAnsi from 'strip-ansi'
+import {getLabel} from './icons'
 import {template} from 'ansi-styles-template'
-
 
 /**
  * Cross-platform pretty output for your terminal or browser console.
@@ -19,91 +18,91 @@ export interface Out extends Function {
 	/**
 	 * Log level output
 	 */
-	log: Out;
+	log: Out
 	/**
 	 * Info level output
 	 */
-	info: Out;
+	info: Out
 	/**
 	 * Silly level output
 	 */
-	silly: Out;
+	silly: Out
 	/**
 	 * Trace level output
 	 */
-	trace: Out;
+	trace: Out
 	/**
 	 * Warn level output
 	 */
-	warn: Out;
+	warn: Out
 	/**
 	 * Debug level output
 	 */
-	debug: Out;
+	debug: Out
 	/**
 	 * Verbose level output
 	 */
-	verbose: Out;
+	verbose: Out
 	/**
 	 * Notice level output
 	 */
-	notice: Out;
+	notice: Out
 	/**
 	 * Exception level output
 	 */
-	exception: Out;
+	exception: Out
 	/**
 	 * Error level output
 	 */
-	error: Out;
+	error: Out
 	/**
 	 * Same as error level output but also throws an error
 	 */
-	throw: Out;
+	throw: Out
 	/**
 	 * Fatal level output. In Node.js this will also exit the process with a 1 exit code.
 	 */
-	fatal: Out;
+	fatal: Out
 	/**
 	 * Success level output
 	 */
-	success: Out;
+	success: Out
 	/**
 	 * Done level output. In Node.js this will also exit the process with a 0 exit code.
 	 */
-	done: Out;
+	done: Out
 	/**
 	 * (Node.js only) Exit the process with the given code, defaults to 0
 	 */
-	exit: Out;
+	exit: Out
 	/**
 	 * Disable exiting
 	 */
-	noExit: Out;
+	noExit: Out
 	/**
 	 * Break the output into multiple lines
 	 */
-	broken: Out;
+	broken: Out
 	/**
 	 * Center the text in the terminal, only works in Node.js. In the browser the text will be relatively centered with itself, but not in the entire console window.
 	 */
-	center: Out;
+	center: Out
 	/**
 	 * Print the output with a double horizontal line below it
 	 */
-	title: Out;
+	title: Out
 	/**
 	 * Print the output with a horizontal line above and below it
 	 */
-	block: Out;
+	block: Out
 	/**
 	 * Force the output to be rendered regardless of verbosity
 	 */
-	force: Out;
+	force: Out
 	/**
 	 * Print an empty line
 	 */
-	ln: Out;
+	ln: Out
 
 	(...messages: any[]): Out
 
@@ -113,14 +112,13 @@ export interface Out extends Function {
 }
 
 type RenderData = {
-	messages: any[],
-	length: number,
-	label: string,
-	spacer: string,
-	heading: string,
+	messages: any[]
+	length: number
+	label: string
+	spacer: string
+	heading: string
 	broken: boolean
 }
-
 
 /**
  * Cross-platform pretty output for your terminal or browser console.
@@ -143,11 +141,11 @@ export class Out extends Function {
 
 	#lastLink: string = null
 
-	constructor();
-	constructor(options: Partial<OutSettings>);
-	constructor(name: string);
-	constructor(name: string, options: Partial<OutSettings>);
-	constructor(name?: string | Partial<OutSettings>, options?: Partial<OutSettings>);
+	constructor()
+	constructor(options: Partial<OutSettings>)
+	constructor(name: string)
+	constructor(name: string, options: Partial<OutSettings>)
+	constructor(name?: string | Partial<OutSettings>, options?: Partial<OutSettings>)
 	constructor(name?: string | Partial<OutSettings>, options?: Partial<OutSettings>) {
 		super()
 
@@ -222,11 +220,11 @@ export class Out extends Function {
 		return this.#proxy
 	}
 
-	clone();
-	clone(options: Partial<OutSettings>);
-	clone(name: string);
-	clone(name: string, options: Partial<OutSettings>);
-	clone(name?: string | Partial<OutSettings>, options?: Partial<OutSettings>);
+	clone()
+	clone(options: Partial<OutSettings>)
+	clone(name: string)
+	clone(name: string, options: Partial<OutSettings>)
+	clone(name?: string | Partial<OutSettings>, options?: Partial<OutSettings>)
 	clone(name?: string | Partial<OutSettings>, options?: Partial<OutSettings>) {
 		if (isString(name)) {
 			options = options as Partial<OutSettings>
@@ -251,14 +249,14 @@ export class Out extends Function {
 	}
 
 	rule(symbol?: string, min?: number, max?: number): Out {
-		return this.write(horizontalLine((symbol || '-'), (min ?? 20), max))
+		return this.write(horizontalLine(symbol || '-', min ?? 20, max))
 	}
 
 	/**
 	 * Output the store
 	 */
-	_(message: string): void;
-	_(exit: boolean): void;
+	_(message: string): void
+	_(exit: boolean): void
 	_(arg?: boolean | string) {
 		let exit = false,
 			message = ''
@@ -268,16 +266,22 @@ export class Out extends Function {
 			message = arg as string
 		}
 
-		_console.log(inspect({
-			state: this.state,
-			persistent: this.persistent,
-			isVerbose: this.isVerbose(),
-			getVerbosity: this.getVerbosity(),
-			modifiers
-		}, {
-			depth: null,
-			colors: true
-		}), message)
+		_console.log(
+			inspect(
+				{
+					state: this.state,
+					persistent: this.persistent,
+					isVerbose: this.isVerbose(),
+					getVerbosity: this.getVerbosity(),
+					modifiers
+				},
+				{
+					depth: null,
+					colors: true
+				}
+			),
+			message
+		)
 		if (exit) {
 			if (isNode) process.exit(0)
 			if (isBrowser) throw new Error('Cannot exit in browser')
@@ -288,7 +292,7 @@ export class Out extends Function {
 	 * Set the minimum verbosity level
 	 */
 	verbosity(verbosity?: number): Out {
-		this.state.verbosity = verbosity === undefined ? (this.state.verbosity || 0) + 1 : (verbosity || 0)
+		this.state.verbosity = verbosity === undefined ? (this.state.verbosity || 0) + 1 : verbosity || 0
 		this.lock('verbosity')
 		return this.#proxy
 	}
@@ -394,7 +398,7 @@ export class Out extends Function {
 	 * Set verbosity of extra outputs
 	 */
 	extraVerbosity(extras_verbosity?: number): Out {
-		this.state.extras_verbosity = typeof extras_verbosity === 'undefined' ? (this.state.extras_verbosity || 0) + 1 : (extras_verbosity || 0)
+		this.state.extras_verbosity = typeof extras_verbosity === 'undefined' ? (this.state.extras_verbosity || 0) + 1 : extras_verbosity || 0
 		if (!this.isLocked('extras_verbosity')) {
 			this.lock('extras_verbosity')
 		}
@@ -536,7 +540,7 @@ export class Out extends Function {
 					case 'verbosity':
 						break
 					case 'color':
-						this.state[prop] = style.dominant ? style[prop] : (this.state?.dominant ? this.state[prop] : (style[prop] || this.state[prop]))
+						this.state[prop] = style.dominant ? style[prop] : this.state?.dominant ? this.state[prop] : style[prop] || this.state[prop]
 						if (!this.state[prop]) {
 							this.state[prop] = styles.log[prop]
 						}
@@ -606,7 +610,7 @@ export class Out extends Function {
 				color: color ? chalk.hex(color) : colorNoop,
 				prefix: this.persistent.prefix?.color ? chalk.hex(this.persistent.prefix.color) : colorNoop
 			}
-		};
+		}
 
 		/**
 		 * Format the message
@@ -646,7 +650,7 @@ export class Out extends Function {
 			}
 
 			return string
-		};
+		}
 
 		function formatError(err: { [key: string]: any }, verbosity: number = 0) {
 			if (verbosity === 0) {
@@ -701,7 +705,7 @@ export class Out extends Function {
 					_console.log(colorize.color(horizontalLine('-', messages.length)))
 				}
 			}
-		};
+		}
 
 		/**
 		 * Print the footer if it exists
@@ -715,7 +719,7 @@ export class Out extends Function {
 			} else if (this.state.block) {
 				_console.log(colorize.color(horizontalLine('-', clean_length)))
 			}
-		};
+		}
 
 		if (this.state.force || this.isVerbose(this.state.verbosity)) {
 			const colorize = getColorize()
@@ -763,9 +767,9 @@ export class Out extends Function {
 
 			if (!this.state.title && !this.state.center && !this.state.block) {
 				data.spacer = colorize.color('|')
-				data.label = ""
+				data.label = ''
 				if (this.persistent.prefix) {
-					data.label += (this.persistent.prefix ? colorize.prefix(this.persistent.prefix.text) + ' ' : '')
+					data.label += this.persistent.prefix ? colorize.prefix(this.persistent.prefix.text) + ' ' : ''
 				}
 
 				data.label += colorize.color('#')
@@ -807,7 +811,7 @@ export class Out extends Function {
 					}
 					has_printed_label = true
 				} else if (has_printed_group) {
-					output_label = data.spacer + " ".repeat(Math.max(stripAnsi(data.label).length - 1, 0))
+					output_label = data.spacer + ' '.repeat(Math.max(stripAnsi(data.label).length - 1, 0))
 				}
 
 				if (output_label) {

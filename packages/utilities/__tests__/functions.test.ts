@@ -1,4 +1,4 @@
-import {overloadOptions, OverloadSchema, parseOptions} from "../src";
+import {overloadOptions, OverloadSchema, parseOptions} from '../src'
 
 describe('parseOptions', () => {
 	test('parseOptions({test: true, two: false}, {test: false, other: false}) should return {test: true, other: false, two: false}', () => {

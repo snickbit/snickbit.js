@@ -1,6 +1,6 @@
 import {default as justCamelCase} from 'just-camel-case'
 import reserved from './data/reserved'
-import pluralize from "pluralize";
+import pluralize from 'pluralize'
 
 // noinspection PhpCoveredCharacterInClassInspection
 /**
@@ -55,7 +55,12 @@ export const singular = (str: string, inclusive?: boolean) => pluralize(str, 1, 
  * Convert a string to initials
  * @category Parsing
  */
-export const initials = (str: string): string => str.split(/[^a-zA-Z]/).filter(Boolean).map(word => word[0].toUpperCase()).join('')
+export const initials = (str: string): string =>
+	str
+	.split(/[^a-zA-Z]/)
+	.filter(Boolean)
+	.map(word => word[0].toUpperCase())
+	.join('')
 
 /**
  * Limit a string to a certain length
@@ -117,7 +122,8 @@ export function spaceCase(str: string): string {
  * @category Parsing
  */
 export function slugify(text: string, replace: string = '-'): string {
-	return spaceCase(text).toLowerCase()
+	return spaceCase(text)
+	.toLowerCase()
 	.replace(/\s+/g, replace) // Replace spaces with -
 	.replace(/[^\w\-]+/g, replace) // Remove all non-word chars
 	.replace(new RegExp(`${replace}${replace}+`, 'g'), replace) // Replace - with a single -

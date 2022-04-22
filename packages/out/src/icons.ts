@@ -117,5 +117,3 @@ export function isUnicodeSupported(): boolean {
 
 	return is_unicode_supported
 }
-
-

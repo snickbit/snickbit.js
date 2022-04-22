@@ -55,7 +55,7 @@ export function processVerbosity() {
 		const apps = app_values.split(',')
 		for (let app of apps) {
 			const [name, level] = app.split(':')
-			verbosity.apps[name] = Math.max((verbosity.apps[name] ?? 0), parse(level))
+			verbosity.apps[name] = Math.max(verbosity.apps[name] ?? 0, parse(level))
 		}
 	}
 	if (process_verbosity) {
@@ -66,7 +66,9 @@ export function processVerbosity() {
 }
 
 function stringifyAppValues() {
-	return Object.keys(verbosity.apps).map(app => `${app}:${verbosity.apps[app]}`).join(',')
+	return Object.keys(verbosity.apps)
+	.map(app => `${app}:${verbosity.apps[app]}`)
+	.join(',')
 }
 
 export function setProcessVerbosity(value, app = null) {

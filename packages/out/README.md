@@ -16,8 +16,8 @@ npm add @snickbit/out
 
 Simply import the `out` function and call it with your message.
 
-```js 
-import out from '@snickbit/out';
+```js
+import out from '@snickbit/out'
 
 // Multiple import/require options
 // import {out} from '@snickbit/out';
@@ -39,7 +39,6 @@ out.heading('non block heading').info('hello')
 out.block('my block')
 out.verbose.text('Verbose text')
 out.info('Inspecting object', out)
-
 ```
 
 ### Browsers
@@ -47,19 +46,19 @@ out.info('Inspecting object', out)
 In browsers, you just need to include it in your document somewhere and an instance of `out` is created and attached to the `window` object so it can be used globally in most environments.
 
 ```html
-
 <html lang="en">
-<head>
-	<script src="../lib/index.js" type="text/javascript"></script>
-	<title></title>
-</head>
-<body>
-<div>My Out testing page</div>
-<script lang="js">
-	out.write('Hello, world!')
-	window.out.info('I love out!')
-</script>
-
+	<head>
+		<script src="../lib/index.js" type="text/javascript"></script>
+		<title></title>
+	</head>
+	<body>
+		<div>My Out testing page</div>
+		<script lang="js">
+			out.write('Hello, world!')
+			window.out.info('I love out!')
+		</script>
+	</body>
+</html>
 ```
 
 ## Browser

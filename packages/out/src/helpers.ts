@@ -1,13 +1,13 @@
 import {isNode} from 'browser-or-node'
 import {defaultWidth, styles} from './config'
-import {out} from "./index";
+import {out} from './index'
 
 /**
  */
 export const lineWidth = (min?: number, max?: number): number => {
 	max = max ? Math.min(max, terminalWidth()) : terminalWidth()
 	min = min ?? 0
-	return Math.max(Math.min(min, defaultWidth), max);
+	return Math.max(Math.min(min, defaultWidth), max)
 }
 
 /**
@@ -21,7 +21,6 @@ export const terminalWidth = () => (isNode && process.stdout.isTTY ? process.std
  */
 export const noop = () => {
 }
-
 
 export function example() {
 	out.block.write('Note: Verbosity detection is disabled for this example.')
@@ -47,14 +46,14 @@ export function example() {
 	out.ln('There are also a set of modifiers to adjust the behavior or style:')
 	out.title.info('out.title.info()')
 	out.ln('>>> out.heading("heading").write("message")')
-	out.heading("heading").write("message")
+	out.heading('heading').write('message')
 	out.block.write('out.block.write()')
 	out.broken.write('out.broken.write()', 'with', 'multiple', 'arguments')
 	out.ln('out.ln("Prints a line before the message")')
 
 	out.ln('Go crazy with chaining....')
 	out.ln('>>> out.info("info").write("message").ln("Prints a line before the message").block.success("We did it!")')
-	out.info("info").write("message").ln("New Line").block.success("Success!")
+	out.info('info').write('message').ln('New Line').block.success('Success!')
 
 	out.ln('Special methods:')
 	out.prefix('out').write('out.prefix("out").write()')
@@ -77,7 +76,6 @@ export function example() {
 
 	out.ln('You can also use new Out("prefix") to create a new instance with a prefix. This is also useful as it registers itself as a global logger.')
 	out('This will allow someone to use the --vo=yourprefix:level syntax to set the verbosity of yourprefix in Node. Check the docs for more details.')
-
 
 	out.ln.info('By default colors are only used as accents of the messages.')
 	out.config('textColor', true)

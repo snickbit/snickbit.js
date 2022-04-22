@@ -1,6 +1,6 @@
 import {nanoid} from 'nanoid'
 import {clone} from './variables'
-import {IObject} from "./objects";
+import {IObject} from './objects'
 
 /**
  * Create uuid

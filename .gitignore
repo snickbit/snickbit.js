@@ -12,5 +12,5 @@ yarn.lock
 # Compiled files
 dist/
 
-##Keep changesets
+# Keep
 !.changeset/

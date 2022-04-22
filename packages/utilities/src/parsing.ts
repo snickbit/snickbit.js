@@ -61,8 +61,7 @@ export function JSONParse(json: string, strict?: boolean): object | any[] | unde
 	return json as unknown as object | any[]
 }
 
-
-type JSONStringifyOptions = boolean | { force: boolean, pretty: boolean | number }
+type JSONStringifyOptions = boolean | { force: boolean; pretty: boolean | number }
 
 /**
  * Parse a variable into a JSON string

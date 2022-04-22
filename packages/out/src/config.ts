@@ -1,40 +1,40 @@
 import {Cycle} from '@snickbit/cycle'
 import {isBrowser} from 'browser-or-node'
-import {Out} from "./Out";
+import {Out} from './Out'
 
-export type CaseType = ("symbol" | "none" | "title" | "upper" | "lower" | "camel" | "snake" | "kebab" | "sentence" | "pascal" | "constant" | "slug");
+export type CaseType = 'symbol' | 'none' | 'title' | 'upper' | 'lower' | 'camel' | 'snake' | 'kebab' | 'sentence' | 'pascal' | 'constant' | 'slug'
 
 export type OutState = {
-	force: boolean;
-	dominant: boolean;
-	color: string;
-	accent: string;
-	label: string;
-	title: boolean;
-	heading: string;
-	block: boolean;
-	exit: boolean | number;
-	broken: boolean;
-	throw: boolean;
-	center: boolean;
-	verbosity: number;
-	extras: any[];
-	extras_verbosity: number;
-	formatter: (messages: string) => string;
-	before: (() => void);
-	after: (() => void);
-	case: CaseType;
-	[key: string]: any;
-};
+	force: boolean
+	dominant: boolean
+	color: string
+	accent: string
+	label: string
+	title: boolean
+	heading: string
+	block: boolean
+	exit: boolean | number
+	broken: boolean
+	throw: boolean
+	center: boolean
+	verbosity: number
+	extras: any[]
+	extras_verbosity: number
+	formatter: (messages: string) => string
+	before: () => void
+	after: () => void
+	case: CaseType
+	[key: string]: any
+}
 export type OutPersistent = {
-	name: string;
-	prefix: OutPersistentPrefix;
-	verbosity: number;
-};
+	name: string
+	prefix: OutPersistentPrefix
+	verbosity: number
+}
 export type OutPersistentPrefix = {
-	color: string;
-	text: string;
-};
+	color: string
+	text: string
+}
 
 export const defaultState: Partial<OutState> = {
 	color: null,
@@ -50,7 +50,6 @@ export const defaultState: Partial<OutState> = {
 	after: null
 }
 
-
 export const defaultWidth = isBrowser ? 100 : 20
 
 export const _console = console
@@ -65,36 +64,36 @@ export const default_inspection_options = {
 export const colorCycle = new Cycle('hex')
 
 export type OutStyle = {
-	[key: string]: string | number | boolean;
-	color: string;
-	force: boolean;
-	dominant: boolean;
-	label: string;
-	exit: boolean | number;
-	broken: boolean;
-	verbosity: number;
-	title: boolean;
-	block: boolean;
-	throw: boolean;
-	center: boolean;
-	breadcrumbs: string;
-};
+	[key: string]: string | number | boolean
+	color: string
+	force: boolean
+	dominant: boolean
+	label: string
+	exit: boolean | number
+	broken: boolean
+	verbosity: number
+	title: boolean
+	block: boolean
+	throw: boolean
+	center: boolean
+	breadcrumbs: string
+}
 
 export interface OutStyles {
-	log: (...messages: any) => void;
-	info: (...messages: any) => void;
-	silly: (...messages: any) => void;
-	trace: (...messages: any) => void;
-	warn: (...messages: any) => void;
-	debug: (...messages: any) => void;
-	verbose: (...messages: any) => void;
-	notice: (...messages: any) => void;
-	exception: (...messages: any) => void;
-	error: (...messages: any) => void;
-	throw: (...messages: any) => void;
-	fatal: (...messages: any) => void;
-	success: (...messages: any) => void;
-	done: (...messages: any) => void;
+	log: (...messages: any) => void
+	info: (...messages: any) => void
+	silly: (...messages: any) => void
+	trace: (...messages: any) => void
+	warn: (...messages: any) => void
+	debug: (...messages: any) => void
+	verbose: (...messages: any) => void
+	notice: (...messages: any) => void
+	exception: (...messages: any) => void
+	error: (...messages: any) => void
+	throw: (...messages: any) => void
+	fatal: (...messages: any) => void
+	success: (...messages: any) => void
+	done: (...messages: any) => void
 }
 
 export const styles: Record<string, Partial<OutStyle>> = {
@@ -179,7 +178,7 @@ export const styles: Record<string, Partial<OutStyle>> = {
 	}
 }
 
-export type OutModifier = any | ((out: Out) => Out);
+export type OutModifier = any | ((out: Out) => Out)
 
 export const modifiers: Record<string, OutModifier> = {
 	exit: true,
@@ -204,8 +203,8 @@ export const modifiers: Record<string, OutModifier> = {
 }
 
 export type OutSettings = {
-	[key: string]: boolean | number | string;
-	textColor: boolean,
+	[key: string]: boolean | number | string
+	textColor: boolean
 	verbosity: number
 }
 
@@ -213,5 +212,3 @@ export const settings: OutSettings = {
 	textColor: false,
 	verbosity: 0
 }
-
-
