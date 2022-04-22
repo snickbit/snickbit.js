@@ -29,15 +29,32 @@
 
 ## Libraries
 
-### [@snickbit/utilities](https://github.com/snickbit/snickbit.js/tree/main/packages/utilities)
-
+<div id="utilities">
+	<h3>
+		<a href="https://github.com/snickbit/snickbit.js/tree/main/packages/utilities">
+			@snickbit/utilities
+		</a>
+	</h3>
+</div>
 A library of basic helper functions with very few dependencies. Written in TypeScript.
 
-### [@snickbit/cycle](https://github.com/snickbit/snickbit.js/tree/main/packages/cycle)
+<div id="cycle">
+	<h3>
+		<a href="https://github.com/snickbit/snickbit.js/tree/main/packages/cycle">
+			@snickbit/cycle
+		</a>
+	</h3>
+</div>
 
 Helper function and class to cycle through an array of values. Written in TypeScript.
 
-### [@snickbit/out](https://github.com/snickbit/snickbit.js/tree/main/packages/out)
+<div id="out">
+	<h3>
+		<a href="https://github.com/snickbit/snickbit.js/tree/main/packages/out">
+			@snickbit/out
+		</a>
+	</h3>
+</div>
 
 Cross-platform pretty output for your terminal or browser console.
 
