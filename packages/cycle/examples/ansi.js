@@ -1,7 +1,6 @@
 const {Cycle} = require('../dist')
+let instance = new Cycle('ansi')
 
-const colorCycle = new Cycle('hex')
-
-console.log(colorCycle.next())
-console.log(colorCycle.next())
-console.log(colorCycle.next())
+console.log(instance.next())
+console.log(instance.next())
+console.log(instance.next())
