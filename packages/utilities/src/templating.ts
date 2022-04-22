@@ -1,4 +1,3 @@
-// noinspection JSUnusedGlobalSymbols
 import {objectFlatten} from './objects'
 
 /**

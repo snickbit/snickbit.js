@@ -1,5 +1,3 @@
-// noinspection JSUnusedGlobalSymbols
-
 import {mergeDeep, typeOf} from "./variables";
 
 /**

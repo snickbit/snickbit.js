@@ -1,5 +1,3 @@
-// noinspection JSUnusedGlobalSymbols
-
 import {isBase64} from './variables'
 import {Readable} from 'stream'
 

@@ -1,5 +1,3 @@
-// noinspection JSUnusedGlobalSymbols
-
 import {isDefined, isJSONString, isType} from './variables'
 import {parseOptions} from './functions'
 

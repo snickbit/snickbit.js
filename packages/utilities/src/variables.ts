@@ -1,5 +1,3 @@
-// noinspection JSUnusedGlobalSymbols
-
 import variableTypes, {BasicVariableType, PrimitiveVariableType, VariableType} from './data/variable-types'
 import {parseOptions} from './functions'
 import {IObject, objectFilter, objectMerge, objectMergeDeep} from './objects'

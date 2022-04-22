@@ -1,5 +1,3 @@
-// noinspection JSUnusedGlobalSymbols
-
 import {nanoid} from 'nanoid'
 import {clone} from './variables'
 import {IObject} from "./objects";

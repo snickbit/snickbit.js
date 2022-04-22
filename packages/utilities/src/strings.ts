@@ -1,4 +1,3 @@
-// noinspection JSUnusedGlobalSymbols
 import {default as justCamelCase} from 'just-camel-case'
 import reserved from './data/reserved'
 import pluralize from "pluralize";

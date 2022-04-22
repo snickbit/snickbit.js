@@ -1,5 +1,3 @@
-// noinspection JSUnusedGlobalSymbols
-
 import {isFunction, isObject, mergeDeep, typeOf} from './variables'
 import {JSONParse, JSONStringify} from './parsing'
 
