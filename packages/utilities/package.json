@@ -1,6 +1,6 @@
 {
 	"name": "@snickbit/utilities",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"description": "A collection of simple JavaScript helpers",
 	"homepage": "https://github.com/snickbit/snickbit.js",
 	"license": "MIT",
@@ -42,9 +42,9 @@
 		"pluralize": "^8.0.0"
 	},
 	"devDependencies": {
-		"@types/pluralize": "^0.0.29",
 		"@types/jest": "^27.4.1",
 		"@types/node": "^17.0.25",
+		"@types/pluralize": "^0.0.29",
 		"concurrently": "^7.1.0",
 		"esbuild": "^0.14.37",
 		"jest": "^27.5.1",
