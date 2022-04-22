@@ -49,7 +49,7 @@ export class Cycle {
 	}
 
 	next(save?: boolean) {
-		return this.getIndex(this.#started ? this.nextIndex : this.current(), save)
+		return this.getIndex(this.#started ? this.nextIndex : this.currentIndex, save)
 	}
 
 	prev(save?: boolean) {
