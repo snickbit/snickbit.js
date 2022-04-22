@@ -21,7 +21,7 @@
 		"start": "node ./examples/index.js",
 		"clean": "shx rm -rf ./dist",
 		"test": "jest",
-		"docs": "typedoc --tsconfig ../../tsconfig.json && shx mv docs/README.md DOCS.md && shx rm -rf docs",
+		"docs": "typedoc src/index.ts --tsconfig ../../tsconfig.json --out ./docs && shx mv docs/README.md DOCS.md && shx rm -rf docs",
 		"build": "tsup",
 		"build:meta": "yarn build --metafile",
 		"prod": "yarn build --minify",
@@ -41,6 +41,7 @@
 		"tsup": "^5.12.6",
 		"typedoc": "^0.22.15",
 		"typedoc-plugin-markdown": "^3.12.0",
+		"typedoc-plugin-no-inherit": "^1.3.1",
 		"typescript": "^4.6.3"
 	},
 	"jest": {

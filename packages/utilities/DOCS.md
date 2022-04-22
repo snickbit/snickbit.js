@@ -2,9 +2,9 @@
 
 ## Table of contents
 
-### Arrays Type aliases
+### Interfaces
 
-- [IArray](README.md#iarray)
+- [OverloadSchema](interfaces/OverloadSchema.md)
 
 ### Generators Type aliases
 
@@ -134,14 +134,6 @@
 - [mergeDeep](README.md#mergedeep)
 - [typeOf](README.md#typeof)
 
-## Arrays Type aliases
-
-### IArray
-
-Ƭ **IArray**: `any`[]
-
-___
-
 ## Generators Type aliases
 
 ### CombinationOptions
@@ -194,7 +186,7 @@ ___
 
 ### arrayDuplicates
 
-▸ **arrayDuplicates**(`arr`, `predicate?`): [`IArray`](README.md#iarray)
+▸ **arrayDuplicates**(`arr`, `predicate?`): `any`[]
 
 Return the duplicate values from an array
 
@@ -202,18 +194,18 @@ Return the duplicate values from an array
 
 | Name | Type |
 | :------ | :------ |
-| `arr` | [`IArray`](README.md#iarray) |
+| `arr` | `any`[] |
 | `predicate?` | (`item`: `any`) => `boolean` |
 
 #### Returns
 
-[`IArray`](README.md#iarray)
+`any`[]
 
 ___
 
 ### arrayMerge
 
-▸ **arrayMerge**(...`arrs`): [`IArray`](README.md#iarray)
+▸ **arrayMerge**(...`arrs`): `any`[]
 
 Merge two or more arrays together
 
@@ -221,17 +213,17 @@ Merge two or more arrays together
 
 | Name | Type |
 | :------ | :------ |
-| `...arrs` | [`IArray`](README.md#iarray)[] |
+| `...arrs` | `any`[][] |
 
 #### Returns
 
-[`IArray`](README.md#iarray)
+`any`[]
 
 ___
 
 ### arrayMergeDeep
 
-▸ **arrayMergeDeep**(...`arrs`): [`IArray`](README.md#iarray)
+▸ **arrayMergeDeep**(...`arrs`): `any`[]
 
 Merge two or more arrays together, recursing child values
 
@@ -239,17 +231,17 @@ Merge two or more arrays together, recursing child values
 
 | Name | Type |
 | :------ | :------ |
-| `...arrs` | [`IArray`](README.md#iarray)[] |
+| `...arrs` | `any`[][] |
 
 #### Returns
 
-[`IArray`](README.md#iarray)
+`any`[]
 
 ___
 
 ### arrayRemove
 
-▸ **arrayRemove**(`arr`, `value`): [`IArray`](README.md#iarray)
+▸ **arrayRemove**(`arr`, `value`): `any`[]
 
 Finds and returns an element from an array, removing it in the process
 
@@ -257,18 +249,18 @@ Finds and returns an element from an array, removing it in the process
 
 | Name | Type |
 | :------ | :------ |
-| `arr` | [`IArray`](README.md#iarray) |
+| `arr` | `any`[] |
 | `value` | `any` |
 
 #### Returns
 
-[`IArray`](README.md#iarray)
+`any`[]
 
 ___
 
 ### arrayShuffle
 
-▸ **arrayShuffle**(`arr`): [`IArray`](README.md#iarray)
+▸ **arrayShuffle**(`arr`): `any`[]
 
 Shuffles/randomizes an array
 
@@ -276,11 +268,11 @@ Shuffles/randomizes an array
 
 | Name | Type |
 | :------ | :------ |
-| `arr` | [`IArray`](README.md#iarray) |
+| `arr` | `any`[] |
 
 #### Returns
 
-[`IArray`](README.md#iarray)
+`any`[]
 
 ___
 
@@ -302,7 +294,7 @@ arrayToObject([{id: 1, name: 'John'}, {id: 2, name: 'Jane'}], 'name')
 
 | Name | Type |
 | :------ | :------ |
-| `arr` | [`IArray`](README.md#iarray) |
+| `arr` | `any`[] |
 | `key` | `string` \| `number` |
 | `value` | `string` \| `number` |
 
@@ -314,7 +306,7 @@ ___
 
 ### arrayUnique
 
-▸ **arrayUnique**(`arr`, `key?`): [`IArray`](README.md#iarray)
+▸ **arrayUnique**(`arr`, `key?`): `any`[]
 
 Returns unique values from an array. Optionally pass a key when the array is an object array.
 
@@ -322,18 +314,18 @@ Returns unique values from an array. Optionally pass a key when the array is an 
 
 | Name | Type |
 | :------ | :------ |
-| `arr` | [`IArray`](README.md#iarray) |
+| `arr` | `any`[] |
 | `key?` | `string` |
 
 #### Returns
 
-[`IArray`](README.md#iarray)
+`any`[]
 
 ___
 
 ### arrayUniqueInsensitive
 
-▸ **arrayUniqueInsensitive**(`arr`, `key?`): [`IArray`](README.md#iarray)
+▸ **arrayUniqueInsensitive**(`arr`, `key?`): `any`[]
 
 Returns unique values from an array, ignoring case. Optionally pass a key when the array is an object array.
 
@@ -341,18 +333,18 @@ Returns unique values from an array, ignoring case. Optionally pass a key when t
 
 | Name | Type |
 | :------ | :------ |
-| `arr` | [`IArray`](README.md#iarray) |
+| `arr` | `any`[] |
 | `key?` | `string` |
 
 #### Returns
 
-[`IArray`](README.md#iarray)
+`any`[]
 
 ___
 
 ### arrayWrap
 
-▸ **arrayWrap**(`values`): [`IArray`](README.md#iarray)
+▸ **arrayWrap**(`values`): `any`[]
 
 Wrap a variable in an array if it is not already an array
 
@@ -364,7 +356,7 @@ Wrap a variable in an array if it is not already an array
 
 #### Returns
 
-[`IArray`](README.md#iarray)
+`any`[]
 
 ___
 
@@ -378,7 +370,7 @@ Checks if the given array only contains a single value, optionally pass a value 
 
 | Name | Type |
 | :------ | :------ |
-| `arr` | [`IArray`](README.md#iarray) |
+| `arr` | `any`[] |
 | `value?` | `any` |
 
 #### Returns
@@ -455,8 +447,8 @@ Parses an array of arguments for an overloaded function into an object
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`IArray`](README.md#iarray) |
-| `schemas` | `object`[] |
+| `options` | `any`[] |
+| `schemas` | [`OverloadSchema`](interfaces/OverloadSchema.md)[] |
 
 #### Returns
 
@@ -466,7 +458,7 @@ ___
 
 ### parseOptions
 
-▸ **parseOptions**(`given`, `defaults`, `non_object_key`): `object` \| `any`
+▸ **parseOptions**(`given`, `defaults`, `non_object_key?`): `object` \| `any`
 
 Parse options for a function
 
@@ -476,7 +468,7 @@ Parse options for a function
 | :------ | :------ |
 | `given` | `any` |
 | `defaults` | [`IObject`](README.md#iobject) |
-| `non_object_key` | `string` |
+| `non_object_key?` | `string` |
 
 #### Returns
 
@@ -494,8 +486,8 @@ Send each item in an array to a function, await the results
 
 | Name | Type |
 | :------ | :------ |
-| `arr` | [`IArray`](README.md#iarray) |
-| `fn` | (`value`: `any`, `index`: `number`, `array`: [`IArray`](README.md#iarray)) => `any` |
+| `arr` | `any`[] |
+| `fn` | (`value`: `any`, `index`: `number`, `array`: `any`[]) => `any` |
 
 #### Returns
 
@@ -507,14 +499,14 @@ ___
 
 ▸ **tryWait**(`fn`, ...`args`): `Promise`<`any`\>
 
-wrap an 'await' with a try catch, returns undefined if an error is thrown
+Catch an async function or promise and force it to resolve, returning undefined if it fails
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `fn` | `Function` |
-| `...args` | [`IArray`](README.md#iarray)[] |
+| `...args` | `any`[][] |
 
 #### Returns
 
@@ -526,7 +518,7 @@ ___
 
 ### combinations
 
-▸ **combinations**(`options`): [`IArray`](README.md#iarray)
+▸ **combinations**(`options`): `any`[]
 
 Generate an array of all possible property values. Provide an object with each property as a key and an array of possible values as the value.
 
@@ -538,7 +530,7 @@ Generate an array of all possible property values. Provide an object with each p
 
 #### Returns
 
-[`IArray`](README.md#iarray)
+`any`[]
 
 ___
 
@@ -709,7 +701,7 @@ ___
 
 ### objectCopy
 
-▸ **objectCopy**(`obj`, `force?`): [`IObject`](README.md#iobject) \| [`IArray`](README.md#iarray) \| `undefined`
+▸ **objectCopy**(`obj`, `force?`): [`IObject`](README.md#iobject) \| `any`[] \| `undefined`
 
 Copy object as JSON (uses JSON.parse/JSON.stringify but won't throw any errors)
 
@@ -722,7 +714,7 @@ Copy object as JSON (uses JSON.parse/JSON.stringify but won't throw any errors)
 
 #### Returns
 
-[`IObject`](README.md#iobject) \| [`IArray`](README.md#iarray) \| `undefined`
+[`IObject`](README.md#iobject) \| `any`[] \| `undefined`
 
 ___
 
@@ -976,7 +968,7 @@ ___
 
 ### JSONParse
 
-▸ **JSONParse**(`json`, `strict?`): `object` \| [`IArray`](README.md#iarray) \| `undefined`
+▸ **JSONParse**(`json`, `strict?`): `object` \| `any`[] \| `undefined`
 
 Parse a string into JSON
 
@@ -989,7 +981,7 @@ Parse a string into JSON
 
 #### Returns
 
-`object` \| [`IArray`](README.md#iarray) \| `undefined`
+`object` \| `any`[] \| `undefined`
 
 ___
 
@@ -1169,7 +1161,7 @@ ___
 
 ### plural
 
-▸ **plural**(`text`, `count?`, `inclusive?`): `string`
+▸ **plural**(`text`, `count?`, `inclusive?`): `any`
 
 Create a pluralized string
 
@@ -1185,7 +1177,7 @@ Create a pluralized string
 
 #### Returns
 
-`string`
+`any`
 
 ___
 
@@ -1209,7 +1201,7 @@ ___
 
 ### singular
 
-▸ **singular**(`str`, `inclusive?`): `string`
+▸ **singular**(`str`, `inclusive?`): `any`
 
 Create a singularized string
 
@@ -1222,7 +1214,7 @@ Create a singularized string
 
 #### Returns
 
-`string`
+`any`
 
 ___
 
@@ -1745,7 +1737,7 @@ ___
 
 ### merge
 
-▸ **merge**(...`values`): [`IObject`](README.md#iobject) \| [`IArray`](README.md#iarray)
+▸ **merge**(...`values`): [`IObject`](README.md#iobject) \| `any`[]
 
 Merge two or more variables together
 
@@ -1753,17 +1745,17 @@ Merge two or more variables together
 
 | Name | Type |
 | :------ | :------ |
-| `...values` | [`IArray`](README.md#iarray) \| [`IObject`](README.md#iobject)[] |
+| `...values` | `any`[] \| [`IObject`](README.md#iobject)[] |
 
 #### Returns
 
-[`IObject`](README.md#iobject) \| [`IArray`](README.md#iarray)
+[`IObject`](README.md#iobject) \| `any`[]
 
 ___
 
 ### mergeDeep
 
-▸ **mergeDeep**(...`values`): [`IObject`](README.md#iobject) \| [`IArray`](README.md#iarray)
+▸ **mergeDeep**(...`values`): [`IObject`](README.md#iobject) \| `any`[]
 
 Merge two or more variables together, recursing child values
 
@@ -1771,11 +1763,11 @@ Merge two or more variables together, recursing child values
 
 | Name | Type |
 | :------ | :------ |
-| `...values` | [`IArray`](README.md#iarray) \| [`IObject`](README.md#iobject)[] |
+| `...values` | `any`[] \| [`IObject`](README.md#iobject)[] |
 
 #### Returns
 
-[`IObject`](README.md#iobject) \| [`IArray`](README.md#iarray)
+[`IObject`](README.md#iobject) \| `any`[]
 
 ___
 

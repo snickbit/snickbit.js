@@ -13,6 +13,7 @@ import {template} from 'ansi-styles-template'
 
 /**
  * Cross-platform pretty output for your terminal or browser console.
+ * @noInheritDoc
  */
 export interface Out extends Function {
 	/**
@@ -123,10 +124,13 @@ type RenderData = {
 
 /**
  * Cross-platform pretty output for your terminal or browser console.
+ * @noInheritDoc
  */
 export class Out extends Function {
+	/** @internal */
 	state: Partial<OutState> = {...defaultState}
 
+	/** @internal */
 	persistent: Partial<OutPersistent> = {
 		name: null,
 		prefix: undefined,

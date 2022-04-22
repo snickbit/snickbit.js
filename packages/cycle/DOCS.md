@@ -14,13 +14,25 @@
 
 ### cycle
 
-▸ **cycle**(`items`): [`Cycle`](classes/Cycle.md)
+▸ **cycle**(`items?`): [`Cycle`](classes/Cycle.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `items` | `any`[] |
+| `items?` | `any`[] |
+
+#### Returns
+
+[`Cycle`](classes/Cycle.md)
+
+▸ **cycle**(`prefix?`): [`Cycle`](classes/Cycle.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `prefix?` | `string` |
 
 #### Returns
 
