@@ -30,6 +30,10 @@ export class Cycle {
 		return (this.index + 1) % this.items.length
 	}
 
+	get currentIndex() {
+		return this.index
+	}
+
 	get firstIndex() {
 		return 0
 	}
@@ -60,7 +64,7 @@ export class Cycle {
 	}
 
 	current() {
-		return this.items[this.index]
+		return this.items[this.currentIndex]
 	}
 
 	get(index: number, save: boolean = false) {
