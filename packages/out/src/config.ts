@@ -1,6 +1,6 @@
 import {Cycle} from '@snickbit/cycle'
 import {isBrowser} from 'browser-or-node'
-import {Out} from "./index";
+import {Out} from "./Out";
 
 export type CaseType = ("symbol" | "none" | "title" | "upper" | "lower" | "camel" | "snake" | "kebab" | "sentence" | "pascal" | "constant" | "slug");
 
