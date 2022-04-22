@@ -89,6 +89,8 @@ export class Cycle {
 	}
 }
 
-export function cycle(items: any[]) {
-	return new Cycle(items)
+export function cycle(items?: any[]): Cycle;
+export function cycle(prefix?: string): Cycle;
+export function cycle(itemsOrPreset?: any[] | string) {
+	return new Cycle(itemsOrPreset)
 }
