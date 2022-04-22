@@ -27,6 +27,7 @@ yarn.lock
 ## Compiled files
 dist/
 lib/
+types/
 
 ## secrets
 .npmrc
