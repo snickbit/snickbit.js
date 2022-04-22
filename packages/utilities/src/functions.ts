@@ -66,11 +66,15 @@ export function promiseAll(arr: any[], fn: (value: any, index: number, array: an
 	return isArray(arr) && !isEmpty(arr) && Promise.all(arr.map(fn))
 }
 
+export interface OverloadSchema {
+	[key: string]: VariableType
+}
+
 /**
  * Parses an array of arguments for an overloaded function into an object
  * @category Functions
  */
-export function overloadOptions(options: any[], schemas: object[]): object {
+export function overloadOptions(options: any[], schemas: OverloadSchema[]): object {
 	let matches
 
 	// check for schemas that have the same length and same first type
@@ -80,7 +84,7 @@ export function overloadOptions(options: any[], schemas: object[]): object {
 		// check for type matches only
 		matches = matches.length ? matches : schemas.slice()
 		for (let [index, option] of options.entries()) {
-			matches = matches.filter(schema => isType(option, Object.values(schema)[index]))
+			matches = matches.filter((schema: OverloadSchema) => isType(option, Object.values(schema)[index]))
 			if (matches.length === 1) {
 				break
 			}
