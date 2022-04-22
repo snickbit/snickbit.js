@@ -1,34 +1,16 @@
-# General Ignores
-
-## hidden folders & junk files
+# hidden folders & junk files
 .*/
-.DS_Store
-.thumbs.db
+.*
 
-## Log files
+# Log files
 logs/
-*.log*
 
-## Editor directories and files
-.idea
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.lnk
-*.iml
-
-## Dependencies
+# Dependencies
 node_modules/
-
-## lock files
 yarn.lock
 
-## Compiled files
+# Compiled files
 dist/
 
-## secrets
-.npmrc
-
-## Keep changesets
+##Keep changesets
 !.changeset/
