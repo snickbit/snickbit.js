@@ -18,6 +18,7 @@
 <summary>Libraries</summary>
 
 - [@snickbit/utilities](#utilities)
+- [@snickbit/cycle](#cycle)
 - [@snickbit/out](#out)
 
 </details>
@@ -35,6 +36,10 @@ A library of basic helper functions with very few dependencies. Written in TypeS
 ### [@snickbit/cycle](https://github.com/snickbit/snickbit.js/tree/main/packages/cycle)
 
 Helper function and class to cycle through an array of values. Written in TypeScript.
+
+### [@snickbit/out](https://github.com/snickbit/snickbit.js/tree/main/packages/out)
+
+Cross-platform pretty output for your terminal or browser console.
 
 ## License
 
