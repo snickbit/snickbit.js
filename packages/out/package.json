@@ -3,42 +3,30 @@
 	"description": "Cross-platform pretty output for your terminal or browser console.",
 	"version": "2.0.1",
 	"license": "MIT",
-	"exports": {
-		".": {
-			"require": "./dist/index.js",
-			"import": "./lib/index.js"
-		},
-		"./dist": {
-			"require": "./dist/*.js",
-			"import": "./lib/*.js"
-		}
-	},
 	"main": "./dist/index.js",
-	"module": "./lib/index.js",
-	"types": "./types/index.d.ts",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
 	"files": [
-		"lib",
-		"dist",
-		"types"
+		"dist"
 	],
+	"exports": {
+		"require": "./cjs/index.js",
+		"import": "./esm/index.js",
+		"types": "./types/index.d.ts"
+	},
 	"engines": {
 		"node": ">= 12"
 	},
 	"scripts": {
-		"clean": "shx rm -rf lib dist",
-		"docs": "typedoc --tsconfig ./tsconfig.json && shx mv docs/classes/Out.md DOCS.md && shx rm -rf docs",
-		"build:base": "esbuild src/index.ts --bundle --external:readline",
-		"build:dist": "yarn build:base --outfile=dist/index.js --platform=node --target=node10 --format=cjs",
-		"build:lib": "yarn build:base --outfile=lib/index.js --platform=browser",
-		"build": "concurrently -n dist,lib \"yarn build:lib\" \"yarn build:dist\"",
-		"prod": "concurrently -n dist,lib \"yarn build:lib --minify\" \"yarn build:dist --minify\"",
-		"test": "jest",
-		"types": "shx rm -rf types && tsc && shx mkdir types && shx cp .types/Out.d.ts .types/Out.d.ts.map ./types/ && shx rm -rf .types",
 		"start": "node ./examples/node.js",
-		"watch": "concurrently -n lib,dist \"yarn watch:lib\" \"yarn watch:dist\"",
-		"watch:lib": "yarn build:lib --watch",
-		"watch:dist": "yarn build:dist --watch",
-		"version": "yarn clean && yarn types && yarn prod"
+		"clean": "shx rm -rf ./dist",
+		"test": "jest",
+		"build": "tsup",
+		"build:meta": "yarn build --metafile",
+		"prod": "yarn build --minify",
+		"watch": "yarn build --watch",
+		"docs": "typedoc --tsconfig ./tsconfig.json && shx mv docs/classes/Out.md DOCS.md && shx rm -rf docs",
+		"version": "yarn prod && yarn docs"
 	},
 	"dependencies": {
 		"@snickbit/cycle": "^0.0.1",
@@ -51,15 +39,28 @@
 		"strip-ansi": "^6.0.1"
 	},
 	"devDependencies": {
-		"concurrently": "^7.1.0",
-		"esbuild": "^0.14.37",
-		"esbuild-jest": "^0.5.0",
-		"jest": "^27.4.7"
+		"@types/jest": "^27.4.1",
+		"jest": "^27.5.1",
+		"shx": "^0.3.4",
+		"ts-jest": "^27.1.4",
+		"tsup": "^5.12.6",
+		"typedoc": "^0.22.15",
+		"typedoc-plugin-markdown": "^3.12.0",
+		"typescript": "^4.6.3"
 	},
 	"jest": {
-		"verbose": true,
-		"transform": {
-			"^.+\\.js?$": "esbuild-jest"
-		}
+		"preset": "ts-jest",
+		"testEnvironment": "node"
+	},
+	"tsup": {
+		"entry": [
+			"src/index.ts"
+		],
+		"clean": true,
+		"dts": true,
+		"format": [
+			"esm",
+			"cjs"
+		]
 	}
 }

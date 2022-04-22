@@ -2,39 +2,30 @@
 	"name": "@snickbit/utilities",
 	"version": "3.0.1",
 	"description": "A collection of simple JavaScript helpers",
-	"homepage": "https://github.com/snickbit/snickbit.js",
 	"license": "MIT",
 	"main": "./dist/index.js",
-	"module": "./lib/index.js",
-	"types": "./types/index.d.ts",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
 	"files": [
-		"dist",
-		"lib",
-		"types"
+		"dist"
 	],
 	"exports": {
-		".": {
-			"require": "./dist/index.js",
-			"import": "./lib/index.js",
-			"types": "./types/index.d.ts"
-		},
-		"./*": {
-			"require": "./dist/*.js",
-			"import": "./lib/*.js",
-			"types": "./types/*.d.ts"
-		}
+		"require": "./cjs/index.js",
+		"import": "./esm/index.js",
+		"types": "./types/index.d.ts"
+	},
+	"engines": {
+		"node": ">= 12"
 	},
 	"scripts": {
-		"clean": "shx rm -rf lib dist types",
-		"docs": "typedoc --tsconfig ./tsconfig.json && shx mv docs/README.md DOCS.md && shx rm -rf docs",
-		"build": "concurrently -n esm,cjs \"yarn build:lib\" \"yarn build:dist\"",
-		"build:lib": "tsc --module es6 --target es6 --outDir lib --declaration --declarationDir types",
-		"build:dist": "tsc --module commonjs --target es5 --outDir dist",
-		"watch": "concurrently -n esm,cjs \"yarn watch:lib\" \"yarn watch:dist\"",
-		"watch:lib": "yarn build:lib --watch",
-		"watch:dist": "yarn build:dist --watch",
+		"clean": "shx rm -rf ./dist",
 		"test": "jest",
-		"version": "yarn clean && yarn build && yarn docs"
+		"build": "tsup",
+		"build:meta": "yarn build --metafile",
+		"prod": "yarn build --minify",
+		"watch": "yarn build --watch",
+		"docs": "typedoc --tsconfig ./tsconfig.json && shx mv docs/README.md DOCS.md && shx rm -rf docs",
+		"version": "yarn prod && yarn docs"
 	},
 	"dependencies": {
 		"just-camel-case": "^6.0.1",
@@ -43,14 +34,27 @@
 	},
 	"devDependencies": {
 		"@types/jest": "^27.4.1",
-		"@types/node": "^17.0.25",
-		"@types/pluralize": "^0.0.29",
-		"concurrently": "^7.1.0",
-		"esbuild": "^0.14.37",
 		"jest": "^27.5.1",
 		"shx": "^0.3.4",
 		"ts-jest": "^27.1.4",
+		"tsup": "^5.12.6",
 		"typedoc": "^0.22.15",
-		"typedoc-plugin-markdown": "^3.12.0"
+		"typedoc-plugin-markdown": "^3.12.0",
+		"typescript": "^4.6.3"
+	},
+	"jest": {
+		"preset": "ts-jest",
+		"testEnvironment": "node"
+	},
+	"tsup": {
+		"entry": [
+			"src/index.ts"
+		],
+		"clean": true,
+		"dts": true,
+		"format": [
+			"esm",
+			"cjs"
+		]
 	}
 }

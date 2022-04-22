@@ -1,15 +1,11 @@
 {
 	"specials": [
-		"bin",
-		"babel"
+		"bin"
 	],
 	"ignores": [
-		"node_modules",
-		"bin/*",
-		"concurrently",
-		"@types/*",
-		"typedoc*",
-		"esbuild-jest"
+		"typedoc",
+		"typedoc-plugin-markdown",
+		"@types/jest"
 	],
 	"oneline": true,
 	"ignore-bin-package": true
