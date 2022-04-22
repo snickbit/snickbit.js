@@ -31,14 +31,16 @@
 		],
 		"prod": [
 			"refresh",
-			"lr:bail version"
+			"lr:bail:1 version"
 		],
 		"publish": [
-			"refresh",
+			"test",
+			"prod",
 			"lc:publish:1 --no-private --ignore-prepublish $*"
 		],
 		"publish:$bump": [
-			"refresh",
+			"test",
+			"prod",
 			"lc:publish:1 $bump -y --no-private --ignore-prepublish $*"
 		],
 		"refresh": [
