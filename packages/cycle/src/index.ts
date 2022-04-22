@@ -1,4 +1,3 @@
-// @ts-ignore
 import {arrayShuffle, isType} from '@snickbit/utilities'
 import * as presets from './presets'
 
