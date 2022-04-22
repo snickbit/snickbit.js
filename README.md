@@ -32,6 +32,10 @@
 
 A library of basic helper functions with very few dependencies. Written in TypeScript.
 
+### [@snickbit/cycle](https://github.com/snickbit/snickbit.js/tree/main/packages/cycle)
+
+Helper function and class to cycle through an array of values. Written in TypeScript.
+
 ## License
 
 Copyright (c) 2022 Nicholas Lowe
