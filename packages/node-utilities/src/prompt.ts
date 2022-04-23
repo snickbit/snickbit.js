@@ -1,6 +1,4 @@
-import inquirer, {PromptModule} from 'inquirer'
-import validator from 'validator'
-import {isFunction, objectFindKey} from '@snickbit/utilities'
+import prompts from 'prompts'
 
 /** @category Prompt */
 export interface PromptSchema {
@@ -8,12 +6,32 @@ export interface PromptSchema {
 }
 
 /** @category Prompt */
-export interface PromptSchemaRecord extends Omit<inquirer.Question, 'name' | 'validate'> {
+export interface ChoiceCollection {
+	[key: string]: ChoiceOption
+}
+
+/** @category Prompt */
+export interface ChoiceDefinition {
+	title: string
+	value: string
+}
+
+/** @category Prompt */
+export type ChoiceOption = string | ChoiceDefinition
+
+/** @category Prompt */
+export type Question = prompts.PromptObject<string>
+
+/** @category Prompt */
+export type Answers = prompts.Answers<string>
+
+/** @category Prompt */
+export interface PromptSchemaRecord extends Omit<Question, 'name' | 'validate'> {
 	name: string;
-	validate: ((input: any, answers?: inquirer.Answers) => string | boolean | Promise<string | boolean>) | string;
+	validate: ((input: any, answers?: Answers) => string | boolean | Promise<string | boolean>) | string;
 	required: boolean;
 	error: string;
-	choices?: inquirer.ChoiceCollection<inquirer.Answers>
+	choices?: ChoiceCollection
 }
 
 /** @category Prompt */
@@ -26,43 +44,6 @@ export interface QuestionOptions extends Omit<PromptSchemaRecord, 'name'> {
 
 /** @internal */
 type IObject = { [key: string]: any }
-
-/**
- * Prompts the user for input using Inquirer (advanced).
- * @category Prompt
- */
-export async function prompt(schema: PromptSchema, defaults: IObject = {}): Promise<PromptModule> {
-	let questions = []
-
-	for (let [name, question] of Object.entries(schema)) {
-		let question_config = {
-			name,
-			message: name,
-			default: defaults[name]
-		}
-
-		if (typeof question.validate === 'string') {
-			const validation_method = objectFindKey(validator, (key) => key.toLowerCase() === `is${question.validate}`.toLowerCase())
-			if (validation_method && isFunction(validation_method)) {
-				question.validate = (val) => (validation_method as unknown as Function)(val) || (question.error || 'Invalid Input')
-			}
-		} else if (question.required) {
-			question.validate = val => !!val || 'Required'
-			delete question.required
-		} else {
-			question.validate = () => true
-		}
-
-		const combined = Object.assign(question_config, question)
-		if (!combined.name) {
-			throw new Error('Question name is required')
-		}
-
-		questions.push(combined)
-	}
-
-	return inquirer.prompt(questions)
-}
 
 /**
  * Prompt the user for confirmation using Inquirer.
@@ -79,15 +60,12 @@ export async function confirm(question: string, options: Partial<QuestionOptions
 		}
 	}
 
-	const {value} = await inquirer.prompt([
-		{
-			type: 'confirm',
-			name: 'value',
-			message: question,
-			default: options.default
-		}
-	])
-	return value
+	return (await prompts({
+		type: 'confirm',
+		name: 'value',
+		message: question,
+		initial: options.default
+	}))?.value ?? false
 }
 
 /**
@@ -113,6 +91,5 @@ export async function ask(question: string, options?: Partial<QuestionOptions>):
 		options.name = 'value'
 	}
 
-	const answers = await inquirer.prompt([options])
-	return answers[options.name]
+	return (await prompts(options))?.value ?? ''
 }
