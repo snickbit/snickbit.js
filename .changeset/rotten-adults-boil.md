@@ -1,5 +1,0 @@
----
-"snickbit": patch
----
-
-First release
