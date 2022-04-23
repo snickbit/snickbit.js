@@ -172,7 +172,7 @@ interface isCallableOptions {
  * Check if a variable is callable
  * @category Variables
  */
-export function isCallable(value: any, options?: Partial<isCallableOptions>): boolean {
+export function isCallable(value: any, options?: Partial<isCallableOptions> | boolean): boolean {
 	if (!value) return false
 
 	options = parseOptions(
@@ -182,7 +182,7 @@ export function isCallable(value: any, options?: Partial<isCallableOptions>): bo
 			async: false
 		},
 		'async'
-	)
+	) as Partial<isCallableOptions>
 
 	if (options.async) {
 		return isAsyncFunction(value) || isFunction(value, options.strict)
