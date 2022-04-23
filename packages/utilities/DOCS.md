@@ -1398,9 +1398,9 @@ Checks if variable is an array and is not empty
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | `any` | value to check |
+| Name | Type |
+| :------ | :------ |
+| `value` | `any` |
 
 #### Returns
 
@@ -1473,7 +1473,7 @@ Check if a variable is callable
 | Name | Type |
 | :------ | :------ |
 | `value` | `any` |
-| `options?` | `Partial`<`isCallableOptions`\> |
+| `options?` | `boolean` \| `Partial`<`isCallableOptions`\> |
 
 #### Returns
 
@@ -1561,10 +1561,10 @@ Check if a variable is a function
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | `any` | value to check |
-| `strict?` | `boolean` | - |
+| Name | Type |
+| :------ | :------ |
+| `value` | `any` |
+| `strict?` | `boolean` |
 
 #### Returns
 

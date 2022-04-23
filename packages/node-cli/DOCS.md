@@ -1,5 +1,7 @@
 # Class: Cli
 
+Simple Node.js CLI framework for creating command line applications.
+
 ## Table of contents
 
 ### Constructors
@@ -18,14 +20,10 @@
 
 - [action](Cli.md#action)
 - [actions](Cli.md#actions)
-- [addAction](Cli.md#addaction)
-- [addActionArgument](Cli.md#addactionargument)
 - [arg](Cli.md#arg)
 - [args](Cli.md#args)
 - [banner](Cli.md#banner)
-- [#cleanState](Cli.md#cleanstate)
 - [defaultAction](Cli.md#defaultaction)
-- [getMethod](Cli.md#getmethod)
 - [hideBanner](Cli.md#hidebanner)
 - [includeWorkingPackage](Cli.md#includeworkingpackage)
 - [name](Cli.md#name)
@@ -33,7 +31,6 @@
 - [option](Cli.md#option)
 - [options](Cli.md#options)
 - [run](Cli.md#run)
-- [#runAction](Cli.md#runaction)
 - [version](Cli.md#version)
 
 ## Constructors
@@ -41,6 +38,8 @@
 ### constructor
 
 • **new Cli**(`name?`)
+
+Create a new Cli instance.
 
 #### Parameters
 
@@ -70,6 +69,8 @@
 
 ▸ **action**(`action`): [`Cli`](Cli.md)
 
+Add a new action
+
 #### Parameters
 
 | Name | Type |
@@ -98,13 +99,15 @@ ___
 
 ### actions
 
-▸ **actions**(`opts`): [`Cli`](Cli.md)
+▸ **actions**(`actions`): [`Cli`](Cli.md)
+
+Add new actions. Will override existing.
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `opts` | `any` |
+| `actions` | `StateActions` |
 
 #### Returns
 
@@ -112,43 +115,18 @@ ___
 
 ___
 
-### addAction
-
-▸ **addAction**(`opts`, `parent?`): `void`
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `opts` | `any` | `undefined` |
-| `parent` | `any` | `null` |
-
-#### Returns
-
-`void`
-
-___
-
-### addActionArgument
-
-▸ **addActionArgument**(): `void`
-
-#### Returns
-
-`void`
-
-___
-
 ### arg
 
-▸ **arg**(`key`, `opt`): [`Cli`](Cli.md)
+▸ **arg**(`key`, `arg`): [`Cli`](Cli.md)
+
+Add new positional argument
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `key` | `any` |
-| `opt` | `any` |
+| `key` | `string` |
+| `arg` | `Partial`<`StateArg`\> |
 
 #### Returns
 
@@ -158,13 +136,15 @@ ___
 
 ### args
 
-▸ **args**(`opts`): [`Cli`](Cli.md)
+▸ **args**(`args`): [`Cli`](Cli.md)
+
+Add new positional arguments. Will override existing.
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `opts` | `any` |
+| `args` | `StateArgs` |
 
 #### Returns
 
@@ -176,11 +156,13 @@ ___
 
 ▸ **banner**(`message`): [`Cli`](Cli.md)
 
+Set the description / banner message of the application
+
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `message` | `any` |
+| `message` | `string` |
 
 #### Returns
 
@@ -188,19 +170,11 @@ ___
 
 ___
 
-### #cleanState
-
-▸ **#cleanState**(): `void`
-
-#### Returns
-
-`void`
-
-___
-
 ### defaultAction
 
 ▸ **defaultAction**(`name`): [`Cli`](Cli.md)
+
+Set the default action
 
 #### Parameters
 
@@ -214,25 +188,11 @@ ___
 
 ___
 
-### getMethod
-
-▸ **getMethod**(`opts`): `any`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `opts` | `any` |
-
-#### Returns
-
-`any`
-
-___
-
 ### hideBanner
 
 ▸ **hideBanner**(`value?`): [`Cli`](Cli.md)
+
+Hide the banner message
 
 #### Parameters
 
@@ -250,6 +210,8 @@ ___
 
 ▸ **includeWorkingPackage**(`value?`): [`Cli`](Cli.md)
 
+Attempt to pull the name and version from the closest package.json file to the current working directory.
+
 #### Parameters
 
 | Name | Type | Default value |
@@ -266,11 +228,13 @@ ___
 
 ▸ **name**(`name`): [`Cli`](Cli.md)
 
+Set the name of the application
+
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `name` | `any` |
+| `name` | `string` |
 
 #### Returns
 
@@ -281,6 +245,8 @@ ___
 ### noBail
 
 ▸ **noBail**(`value?`): [`Cli`](Cli.md)
+
+Don't kill the process on error
 
 #### Parameters
 
@@ -296,14 +262,16 @@ ___
 
 ### option
 
-▸ **option**(`key`, `opt`): [`Cli`](Cli.md)
+▸ **option**(`key`, `option`): [`Cli`](Cli.md)
+
+Add a new flag/option
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `key` | `any` |
-| `opt` | `any` |
+| `key` | `string` |
+| `option` | `Partial`<`StateOption`\> |
 
 #### Returns
 
@@ -313,13 +281,15 @@ ___
 
 ### options
 
-▸ **options**(`opts`): [`Cli`](Cli.md)
+▸ **options**(`options`): [`Cli`](Cli.md)
+
+Add new flags/options. Will override existing.
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `opts` | `any` |
+| `options` | `StateOptions` |
 
 #### Returns
 
@@ -345,33 +315,17 @@ Run the CLI program, parsing the argv, and running any defined actions
 
 ___
 
-### #runAction
-
-▸ **#runAction**(`args`): `Promise`<`any`\>
-
-Run an action defined in the CLI program
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `args` | `IObject` |
-
-#### Returns
-
-`Promise`<`any`\>
-
-___
-
 ### version
 
 ▸ **version**(`version`): [`Cli`](Cli.md)
 
+Set the version of the application
+
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `version` | `any` |
+| `version` | `string` \| `number` |
 
 #### Returns
 
