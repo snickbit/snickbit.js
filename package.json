@@ -18,6 +18,7 @@
 		"clean:modules": "shx rm -rf **/node_modules **/yarn-error.log",
 		"clean:lock": "shx rm -f yarn.lock",
 		"clean:logs": "shx rm -rf **/yarn-error.log **/.ultra.cache.json",
+		"build": "ultra -r build",
 		"prod": "ultra -r version",
 		"test": "jest --passWithNoTests --silent --noStackTrace --colors",
 		"depcheck": "ultra -r depcheck",
