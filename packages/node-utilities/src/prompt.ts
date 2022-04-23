@@ -32,7 +32,7 @@ export interface PromptSchemaRecord extends Omit<Question, 'name' | 'validate'> 
 	validate: ((input: any, answers?: Answers) => string | boolean | Promise<string | boolean>) | string;
 	required: boolean;
 	error: string;
-	choices?: ChoiceCollection
+	choices?: ChoiceCollection | string[];
 }
 
 /** @category Prompt */
