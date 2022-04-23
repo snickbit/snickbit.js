@@ -5,6 +5,7 @@
 	"ignores": [
 		"typedoc",
 		"typedoc-plugin-markdown",
+		"typedoc-plugin-no-inherit",
 		"@types/jest"
 	],
 	"oneline": true,
