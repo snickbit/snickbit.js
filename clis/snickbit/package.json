@@ -22,7 +22,7 @@
 		"build:meta": "yarn build --metafile",
 		"prod": "yarn build --minify",
 		"watch": "yarn build --watch",
-		"version": "yarn prod && yarn docs"
+		"version": "yarn prod"
 	},
 	"dependencies": {
 		"@snickbit/cycle": "^0.0.3",
