@@ -6,6 +6,14 @@ import {VariableType} from './data/variable-types'
 /**
  * Parse options for a function
  * @category Functions
+ *
+ * @param {IObject | any} given - The given options
+ * @param {IObject} defaults - The default options
+ * @param {string} [non_object_key] - Optional key to use if the given options are not an object, will be added to the defaults object
+ *
+ * @example
+ * const options = parseOptions(true, {param: 'default'}, 'my_param')
+ * // {param: 'default', my_param: true}
  */
 export function parseOptions(given: IObject | any, defaults: IObject, non_object_key?: string): object | any {
 	if (!isObject(defaults)) {
