@@ -23,13 +23,13 @@
 
 - [ProgressOptions](interfaces/ProgressOptions.md)
 
-### Prompt Interfaces
+### Prompts Interfaces
 
-- [ChoiceCollection](interfaces/ChoiceCollection.md)
+- [Answers](interfaces/Answers.md)
 - [ChoiceDefinition](interfaces/ChoiceDefinition.md)
-- [PromptSchema](interfaces/PromptSchema.md)
-- [PromptSchemaRecord](interfaces/PromptSchemaRecord.md)
-- [QuestionOptions](interfaces/QuestionOptions.md)
+- [ChoiceRecords](interfaces/ChoiceRecords.md)
+- [PromptsLocales](interfaces/PromptsLocales.md)
+- [Question](interfaces/Question.md)
 
 ### Spinner Interfaces
 
@@ -41,11 +41,15 @@
 - [ImportRecords](README.md#importrecords)
 - [RecordOfImportRecords](README.md#recordofimportrecords)
 
-### Prompt Type aliases
+### Modules Type aliases
 
-- [Answers](README.md#answers)
+- [PromptType](README.md#prompttype)
+- [PromptsFunction](README.md#promptsfunction)
+- [PromptsPromise](README.md#promptspromise)
+
+### Prompts Type aliases
+
 - [ChoiceOption](README.md#choiceoption)
-- [Question](README.md#question)
 
 ### Environment Variables
 
@@ -90,7 +94,7 @@
 - [multiprogress](README.md#multiprogress)
 - [progress](README.md#progress)
 
-### Prompt Functions
+### Prompts Functions
 
 - [ask](README.md#ask)
 - [confirm](README.md#confirm)
@@ -119,23 +123,63 @@ ___
 
 ___
 
-## Prompt Type aliases
+## Modules Type aliases
 
-### Answers
+### PromptType
 
-Ƭ **Answers**: `prompts.Answers`<`string`\>
+Ƭ **PromptType**: ``"text"`` \| ``"password"`` \| ``"invisible"`` \| ``"number"`` \| ``"confirm"`` \| ``"list"`` \| ``"toggle"`` \| ``"select"`` \| ``"multiselect"`` \| ``"autocompleteMultiselect"`` \| ``"autocomplete"`` \| ``"date"``
 
 ___
+
+### PromptsFunction
+
+Ƭ **PromptsFunction**: (`prev`: `string`, `answers`: [`Answers`](interfaces/Answers.md), `previousQuestion`: [`Question`](interfaces/Question.md)) => `string`
+
+#### Type declaration
+
+▸ (`prev`, `answers`, `previousQuestion`): `string`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `prev` | `string` |
+| `answers` | [`Answers`](interfaces/Answers.md) |
+| `previousQuestion` | [`Question`](interfaces/Question.md) |
+
+##### Returns
+
+`string`
+
+___
+
+### PromptsPromise
+
+Ƭ **PromptsPromise**: (`prev`: `string`, `answers`: [`Answers`](interfaces/Answers.md), `previousQuestion`: [`Question`](interfaces/Question.md)) => `Promise`<`string`\>
+
+#### Type declaration
+
+▸ (`prev`, `answers`, `previousQuestion`): `Promise`<`string`\>
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `prev` | `string` |
+| `answers` | [`Answers`](interfaces/Answers.md) |
+| `previousQuestion` | [`Question`](interfaces/Question.md) |
+
+##### Returns
+
+`Promise`<`string`\>
+
+___
+
+## Prompts Type aliases
 
 ### ChoiceOption
 
 Ƭ **ChoiceOption**: `string` \| [`ChoiceDefinition`](interfaces/ChoiceDefinition.md)
-
-___
-
-### Question
-
-Ƭ **Question**: `prompts.PromptObject`<`string`\>
 
 ## Environment Variables
 
@@ -484,20 +528,35 @@ Progress bar. Uses cli-progress to create multiple progress bars.
 
 ___
 
-## Prompt Functions
+## Prompts Functions
 
 ### ask
 
-▸ **ask**(`question`, `options?`): `Promise`<`string` \| `any`\>
+▸ **ask**(`question`, `defaultAnswer?`): `Promise`<`string` \| `any`\>
 
-Prompt the user for input using Inquirer.
+Prompt the user for input using Prompts.
+
+**`see`** https://github.com/terkelg/prompts
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `question` | `string` |
-| `options?` | `Partial`<[`QuestionOptions`](interfaces/QuestionOptions.md)\> |
+| `defaultAnswer?` | `string` |
+
+#### Returns
+
+`Promise`<`string` \| `any`\>
+
+▸ **ask**(`question`, `options?`): `Promise`<`string` \| `any`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `question` | `string` |
+| `options?` | `Partial`<[`Question`](interfaces/Question.md)\> |
 
 #### Returns
 
@@ -507,16 +566,31 @@ ___
 
 ### confirm
 
-▸ **confirm**(`question`, `options?`): `Promise`<`boolean`\>
+▸ **confirm**(`question`, `defaultAnswer?`): `Promise`<`boolean`\>
 
-Prompt the user for confirmation using Inquirer.
+Prompt the user for confirmation using Prompts.
+
+**`see`** https://github.com/terkelg/prompts
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `question` | `string` |
-| `options` | `Partial`<[`QuestionOptions`](interfaces/QuestionOptions.md)\> |
+| `defaultAnswer?` | `boolean` |
+
+#### Returns
+
+`Promise`<`boolean`\>
+
+▸ **confirm**(`question`, `options?`): `Promise`<`boolean`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `question` | `string` |
+| `options?` | `Partial`<[`Question`](interfaces/Question.md)\> |
 
 #### Returns
 

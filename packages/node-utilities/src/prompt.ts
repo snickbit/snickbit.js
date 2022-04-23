@@ -1,88 +1,133 @@
 import prompts from 'prompts'
 import {parseOptions} from '@snickbit/utilities'
+import Stream from 'stream'
 
-/** @category Prompt */
-export interface PromptSchema {
-	[key: string]: Partial<PromptSchemaRecord>
+export type PromptsFunction = (prev: string, answers: Answers, previousQuestion: Question) => string
+export type PromptsPromise = (prev: string, answers: Answers, previousQuestion: Question) => Promise<string>
+
+export type PromptType = 'text' | 'password' | 'invisible' | 'number' | 'confirm' | 'list' | 'toggle' | 'select' | 'multiselect' | 'autocompleteMultiselect' | 'autocomplete' | 'date'
+
+/**
+ * @category Prompts
+ * @see https://github.com/terkelg/prompts
+ */
+export interface Question {
+	type: PromptType | ((prev: string, answers: Answers, previousQuestion: Question) => PromptType),
+	name: String | PromptsFunction,
+	message: String | PromptsFunction,
+	initial: String | PromptsFunction | PromptsPromise,
+	format: PromptsFunction | PromptsPromise,
+	onRender: PromptsFunction
+	onState: PromptsFunction
+	stdin: Stream
+	stdout: Stream
+
+	// text
+	style: 'default' | 'password' | 'invisible' | 'emoji'
+
+	// number
+	float: boolean
+	round: number
+	increment: number
+
+	// list
+	separator: string
+
+	// toggle
+	active: string
+	inactive: string
+
+	// autocomplete
+	suggest: (input, choices) => Promise<string[]>
+	limit: number
+	clearFirst: boolean
+	fallback: string
+
+	// date
+	locales: PromptsLocales
+	mask: string
+
+	// multiselect
+	instructions: string | boolean
+	optionsPerPage: number
+
+	// number | multiselect
+	min: number
+	max: number
+
+	// select | multiselect | autocomplete
+	choices: ChoiceDefinition | ChoiceOption[]
+
+	//  select | multiselect
+	hint: string
+	warn: string
 }
 
-/** @category Prompt */
-export interface ChoiceCollection {
+/** @category Prompts */
+export interface PromptsLocales {
+	months: string[],
+	monthsShort: string[],
+	weekdays: string[],
+	weekdaysShort: string[]
+}
+
+/** @category Prompts */
+export interface Answers {
+	[key: string]: string
+}
+
+/** @category Prompts */
+export interface ChoiceRecords {
 	[key: string]: ChoiceOption
 }
 
-/** @category Prompt */
+/** @category Prompts */
 export interface ChoiceDefinition {
 	title: string
 	value: string
 }
 
-/** @category Prompt */
+/** @category Prompts */
 export type ChoiceOption = string | ChoiceDefinition
 
-/** @category Prompt */
-export type Question = prompts.PromptObject<string>
-
-/** @category Prompt */
-export type Answers = prompts.Answers<string>
-
-/** @category Prompt */
-export interface PromptSchemaRecord extends Omit<Question, 'name' | 'validate'> {
-	name: string;
-	validate: ((input: any, answers?: Answers) => string | boolean | Promise<string | boolean>) | string;
-	required: boolean;
-	error: string;
-	choices?: ChoiceCollection | string[];
-}
-
-/** @category Prompt */
-export interface QuestionOptions extends Omit<PromptSchemaRecord, 'name'> {
-	message?: string;
-	name?: string;
-
-	filter?(input: any): any;
-}
-
-/** @internal */
-type IObject = { [key: string]: any }
-
 /**
- * Prompt the user for confirmation using Inquirer.
- * @category Prompt
+ * Prompt the user for confirmation using Prompts.
+ * @see https://github.com/terkelg/prompts
+ * @category Prompts
  */
-export async function confirm(question: string, options: Partial<QuestionOptions> = {}): Promise<boolean> {
-	if (typeof options === 'boolean') {
-		options = {
-			default: options
-		}
-	} else {
-		options = {
-			default: false, ...options
-		}
-	}
-
-	return (await prompts({
-		type: 'confirm',
-		name: 'value',
-		message: question,
-		initial: options.default
-	}))?.value ?? false
-}
-
-/**
- * Prompt the user for input using Inquirer.
- * @category Prompt
- */
-export async function ask(question: string, defaultAnswer?: string): Promise<string | any>;
-export async function ask(question: string, options?: Partial<QuestionOptions>): Promise<string | any>;
-export async function ask(question: string, optionsOrDefault?: Partial<QuestionOptions> | string): Promise<string | any> {
+export async function confirm(question: string, defaultAnswer?: boolean): Promise<boolean>;
+export async function confirm(question: string, options?: Partial<Question>): Promise<boolean>;
+export async function confirm(question: string, optionsOrDefault?: Partial<Question> | boolean): Promise<boolean> {
 	const options = parseOptions(optionsOrDefault, {
-		type: 'input',
+		type: 'confirm',
 		name: 'value',
 		message: question
 	}, 'initial')
 
-	// double check that the options have a name
+	// double check that it has a name
+	if (!options.name) {
+		options.name = 'value'
+	}
+
+	return (await prompts())?.value ?? false
+}
+
+/**
+ * Prompt the user for input using Prompts.
+ * @see https://github.com/terkelg/prompts
+ * @category Prompts
+ */
+export async function ask(question: string, defaultAnswer?: string): Promise<string | any>;
+export async function ask(question: string, options?: Partial<Question>): Promise<string | any>;
+export async function ask(question: string, optionsOrDefault?: Partial<Question> | string): Promise<string | any> {
+	const options = parseOptions(optionsOrDefault, {
+		type: 'input',
+		name: 'value',
+		style: 'default',
+		message: question
+	}, 'initial')
+
+	// double check that it has a name
 	if (!options.name) {
 		options.name = 'value'
 	}
