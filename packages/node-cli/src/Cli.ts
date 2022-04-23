@@ -181,7 +181,7 @@ export class Cli {
 	/**
 	 * Run the CLI program, parsing the argv, and running any defined actions
 	 */
-	async run(callback: Function): Promise<any> {
+	async run(callback?: Function): Promise<any> {
 		const args = await this.#parseArgs()
 
 		if (this.state.actions && Object.keys(this.state.actions).length && args.action) {
