@@ -1,6 +1,7 @@
 # hidden folders & junk files
 .*/
 .*
+*.iml
 
 # Log files
 logs/
