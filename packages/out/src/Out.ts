@@ -151,6 +151,9 @@ export class Out extends Function {
 
 		if (isString(name)) {
 			this.persistent.name = name as string
+			if (name) {
+				this.prefix(name as string)
+			}
 		} else if (name) {
 			options = name as Partial<OutSettings>
 		}
