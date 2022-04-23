@@ -109,7 +109,7 @@ export async function confirm(question: string, optionsOrDefault?: Partial<Quest
 		options.name = 'value'
 	}
 
-	return (await prompts())?.value ?? false
+	return (await prompts(options))?.value ?? false
 }
 
 /**
