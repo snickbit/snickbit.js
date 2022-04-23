@@ -25,8 +25,7 @@
 		"build": "tsup",
 		"build:meta": "yarn build --metafile",
 		"prod": "yarn build --minify",
-		"watch": "yarn build --watch",
-		"version": "yarn prod && yarn docs"
+		"watch": "yarn build --watch"
 	},
 	"dependencies": {
 		"@snickbit/utilities": "^3.0.3",

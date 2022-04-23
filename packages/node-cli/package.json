@@ -24,8 +24,7 @@
 		"build:meta": "yarn build --metafile",
 		"prod": "yarn build --minify",
 		"watch": "yarn build --watch",
-		"docs": "typedoc && shx mv docs/classes/Cli.md DOCS.md && shx rm -rf docs",
-		"version": "yarn prod && yarn docs"
+		"docs": "typedoc && shx mv docs/classes/Cli.md DOCS.md && shx rm -rf docs"
 	},
 	"dependencies": {
 		"@snickbit/node-utilities": "^4.2.18",

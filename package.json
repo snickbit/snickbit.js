@@ -19,19 +19,17 @@
 		"clean:modules": "shx rm -rf **/node_modules **/yarn-error.log",
 		"clean:lock": "shx rm -f yarn.lock",
 		"clean:logs": "shx rm -rf **/yarn-error.log **/.ultra.cache.json",
-		"build": "yarn build:libs && yarn build:clis",
-		"build:libs": "ultra --filter packages/* -r build",
-		"build:clis": "ultra --filter clis/* -r build",
-		"prod": "ultra -r version",
+		"build": "ultra -r -b build",
+		"prod": "ultra -r --rebuild prod",
+		"docs": "ultra -r docs && git add -A && git commit -m 'docs: update'",
 		"test": "jest --passWithNoTests --silent --noStackTrace --colors",
 		"depcheck": "ultra -r depcheck",
-		"publish": "yarn clean:builds && yarn prod && yarn test && lerna publish"
+		"publish": "yarn clean:builds && yarn prod && yarn test && yarn docs && lerna publish"
 	},
 	"ultra": {
 		"concurrent": [
 			"purge"
-		],
-		"silent": true
+		]
 	},
 	"jest": {
 		"verbose": true,
