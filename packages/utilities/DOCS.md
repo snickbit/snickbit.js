@@ -462,13 +462,17 @@ ___
 
 Parse options for a function
 
+**`example`**
+const options = parseOptions(true, {param: 'default'}, 'my_param')
+// {param: 'default', my_param: true}
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `given` | `any` |
-| `defaults` | [`IObject`](README.md#iobject) |
-| `non_object_key?` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `given` | `any` | The given options |
+| `defaults` | [`IObject`](README.md#iobject) | The default options |
+| `non_object_key?` | `string` | - |
 
 #### Returns
 
