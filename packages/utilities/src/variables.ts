@@ -14,8 +14,6 @@ export const isDefined = (value: any): boolean => typeof value !== 'undefined' &
 
 /**
  * Check if a value is empty
- * @param value
- * @returns {boolean|any}
  * @category Variables
  */
 export const isEmpty = (value: any): boolean => isNullDefined(value) || value === '' || (Array.isArray(value) && !value.length) || (isObject(value) && !Object.keys(value).length)
@@ -52,58 +50,42 @@ export const isPrimitive = (value: any, includeNullUndefined?: boolean): boolean
 
 /**
  * Check if a variable is an object and is not null or undefined
- * @param value
- * @param {boolean} [strict=true]
- * @returns {boolean}
  * @category Variables
  */
 export const isObject = (value: any, strict = true) => value && typeof value === 'object' && (!strict || !(isArray(value) || isFunction(value) || isDate(value)))
 
 /**
  * Checks if variable is an array and is not empty
- * @param value - value to check
- * @returns {boolean}
  * @category Variables
  */
 export const isArray = (value: any) => Array.isArray(value) && !!value.length
 
 /**
  * Check if a variable is a string
- * @param value
- * @return {boolean}
  * @category Variables
  */
 export const isString = (value: any) => typeof value === 'string'
 
 /**
  * Check if a variable is a number
- * @param value
- * @return {boolean}
  * @category Variables
  */
 export const isNumber = (value: any) => !isNaN(parseInt(value))
 
 /**
  * Check if a variable is a function
- * @param value - value to check
- * @param [strict] - if true, will only return true if the value is a function and is not a constructor
- * @returns {boolean}
  * @category Variables
  */
 export const isFunction = (value: any, strict?: boolean) => strict ? value instanceof Function : typeof value === 'function' || (typeof value?.call === 'function' && typeof value?.apply === 'function')
 
 /**
  * Check if a variable is a class
- * @param {any} value
- * @return {boolean}
  * @category Variables
  */
 export const isClass = (value: any) => isFunction(value) && /^\s*class\s+/.test(value.toString())
 
 /**
  * Check if a variable is a Set
- * @param {any} value
- * @return {boolean}
  * @category Variables
  */
 export const isSet = (value: any) => value instanceof Set
@@ -116,8 +98,6 @@ export const isType = (value: any, type: VariableType | string | VariableTypeDef
 
 /**
  * Check if a variable is a Base64 string
- * @param content
- * @return {boolean}
  * @category Variables
  */
 export const isBase64 = (content: string) => /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/.test(content)
