@@ -1,4 +1,4 @@
-#!/bin/env node
+#!/usr/bin/env node
 
 import {cli} from '@snickbit/node-cli'
 import {ask} from '@snickbit/node-utilities'
