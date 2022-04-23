@@ -68,7 +68,7 @@ export async function prompt(schema: PromptSchema, defaults: IObject = {}): Prom
  * Prompt the user for confirmation using Inquirer.
  * @category Prompt
  */
-export async function confirm(question: string, options: Partial<QuestionOptions> = {}): Promise<IObject> {
+export async function confirm(question: string, options: Partial<QuestionOptions> = {}): Promise<boolean> {
 	if (typeof options === 'boolean') {
 		options = {
 			default: options
@@ -94,7 +94,7 @@ export async function confirm(question: string, options: Partial<QuestionOptions
  * Prompt the user for input using Inquirer.
  * @category Prompt
  */
-export async function ask(question: string, options?: Partial<QuestionOptions>): Promise<IObject> {
+export async function ask(question: string, options?: Partial<QuestionOptions>): Promise<string | any> {
 	if (typeof options === 'string') {
 		options = {
 			type: options as string
