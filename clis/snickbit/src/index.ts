@@ -70,22 +70,22 @@ cli()
 	out.block.noExit.fatal.label('').write(message)
 
 	const answer = await ask('What next?', {
-		type: 'rawlist',
+		type: 'select',
 		choices: [
 			{
-				name: 'Check out my GitHub',
+				title: 'Check out my GitHub',
 				value: 'github'
 			},
 			{
-				name: 'Check out my LinkedIn',
+				title: 'Check out my LinkedIn',
 				value: 'linkedin'
 			},
 			{
-				name: 'Send me an email',
+				title: 'Send me an email',
 				value: 'email'
 			},
 			{
-				name: 'Exit',
+				title: 'Exit',
 				value: 'exit'
 			}
 		]
