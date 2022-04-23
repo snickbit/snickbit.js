@@ -17,9 +17,18 @@
 <details>
 <summary>Libraries</summary>
 
-- [@snickbit/utilities](#utilities)
 - [@snickbit/cycle](#cycle)
+- [@snickbit/node-cli](#node-cli)
+- [@snickbit/node-utilities](#node-utilities)
 - [@snickbit/out](#out)
+- [@snickbit/utilities](#utilities)
+
+</details>
+
+<details>
+<summary>CLIs</summary>
+
+- [snickbit](#snickbit)
 
 </details>
 
@@ -29,15 +38,6 @@
 
 ## Libraries
 
-<div id="utilities">
-	<h3>
-		<a href="https://github.com/snickbit/snickbit.js/tree/main/packages/utilities">
-			@snickbit/utilities
-		</a>
-	</h3>
-</div>
-A library of basic helper functions with very few dependencies. Written in TypeScript.
-
 <div id="cycle">
 	<h3>
 		<a href="https://github.com/snickbit/snickbit.js/tree/main/packages/cycle">
@@ -46,7 +46,27 @@ A library of basic helper functions with very few dependencies. Written in TypeS
 	</h3>
 </div>
 
-Helper function and class to cycle through an array of values. Written in TypeScript.
+Helper function and class to cycle through an array of values.
+
+<div id="node-cli">
+	<h3>
+		<a href="https://github.com/snickbit/snickbit.js/tree/main/packages/node-cli">
+			@snickbit/node-cli
+		</a>
+	</h3>
+</div>
+
+Simple Node.js CLI framework for creating command line applications.
+
+<div id="node-utilities">
+	<h3>
+		<a href="https://github.com/snickbit/snickbit.js/tree/main/packages/node-utilities">
+			@snickbit/node-utilities
+		</a>
+	</h3>
+</div>
+
+Simple Node.js CLI framework for creating command line applications.
 
 <div id="out">
 	<h3>
@@ -57,6 +77,28 @@ Helper function and class to cycle through an array of values. Written in TypeSc
 </div>
 
 Cross-platform pretty output for your terminal or browser console.
+
+<div id="utilities">
+	<h3>
+		<a href="https://github.com/snickbit/snickbit.js/tree/main/packages/utilities">
+			@snickbit/utilities
+		</a>
+	</h3>
+</div>
+
+A library of basic helper functions with very few dependencies.
+
+## CLIs
+
+<div id="snickbit">
+	<h3>
+		<a href="https://github.com/snickbit/snickbit.js/tree/main/packages/snickbit">
+			snickbit
+		</a>
+	</h3>
+</div>
+
+My personal npx business card
 
 ## License
 
