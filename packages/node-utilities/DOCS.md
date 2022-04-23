@@ -25,6 +25,8 @@
 
 ### Prompt Interfaces
 
+- [ChoiceCollection](interfaces/ChoiceCollection.md)
+- [ChoiceDefinition](interfaces/ChoiceDefinition.md)
 - [PromptSchema](interfaces/PromptSchema.md)
 - [PromptSchemaRecord](interfaces/PromptSchemaRecord.md)
 - [QuestionOptions](interfaces/QuestionOptions.md)
@@ -38,6 +40,12 @@
 - [ImportRecord](README.md#importrecord)
 - [ImportRecords](README.md#importrecords)
 - [RecordOfImportRecords](README.md#recordofimportrecords)
+
+### Prompt Type aliases
+
+- [Answers](README.md#answers)
+- [ChoiceOption](README.md#choiceoption)
+- [Question](README.md#question)
 
 ### Environment Variables
 
@@ -86,7 +94,6 @@
 
 - [ask](README.md#ask)
 - [confirm](README.md#confirm)
-- [prompt](README.md#prompt)
 
 ### Spinner Functions
 
@@ -109,6 +116,26 @@ ___
 ### RecordOfImportRecords
 
 Ƭ **RecordOfImportRecords**: `Record`<`string`, [`ImportRecords`](README.md#importrecords)\>
+
+___
+
+## Prompt Type aliases
+
+### Answers
+
+Ƭ **Answers**: `prompts.Answers`<`string`\>
+
+___
+
+### ChoiceOption
+
+Ƭ **ChoiceOption**: `string` \| [`ChoiceDefinition`](interfaces/ChoiceDefinition.md)
+
+___
+
+### Question
+
+Ƭ **Question**: `prompts.PromptObject`<`string`\>
 
 ## Environment Variables
 
@@ -461,7 +488,7 @@ ___
 
 ### ask
 
-▸ **ask**(`question`, `options?`): `Promise`<`IObject`\>
+▸ **ask**(`question`, `options?`): `Promise`<`string` \| `any`\>
 
 Prompt the user for input using Inquirer.
 
@@ -474,13 +501,13 @@ Prompt the user for input using Inquirer.
 
 #### Returns
 
-`Promise`<`IObject`\>
+`Promise`<`string` \| `any`\>
 
 ___
 
 ### confirm
 
-▸ **confirm**(`question`, `options?`): `Promise`<`IObject`\>
+▸ **confirm**(`question`, `options?`): `Promise`<`boolean`\>
 
 Prompt the user for confirmation using Inquirer.
 
@@ -493,26 +520,7 @@ Prompt the user for confirmation using Inquirer.
 
 #### Returns
 
-`Promise`<`IObject`\>
-
-___
-
-### prompt
-
-▸ **prompt**(`schema`, `defaults?`): `Promise`<`PromptModule`\>
-
-Prompts the user for input using Inquirer (advanced).
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `schema` | [`PromptSchema`](interfaces/PromptSchema.md) |
-| `defaults` | `IObject` |
-
-#### Returns
-
-`Promise`<`PromptModule`\>
+`Promise`<`boolean`\>
 
 ___
 

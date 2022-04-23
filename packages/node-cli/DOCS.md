@@ -299,7 +299,7 @@ ___
 
 ### run
 
-▸ **run**(`callback`): `Promise`<`any`\>
+▸ **run**(`callback?`): `Promise`<`any`\>
 
 Run the CLI program, parsing the argv, and running any defined actions
 
@@ -307,7 +307,7 @@ Run the CLI program, parsing the argv, and running any defined actions
 
 | Name | Type |
 | :------ | :------ |
-| `callback` | `Function` |
+| `callback?` | `Function` |
 
 #### Returns
 
