@@ -5,7 +5,8 @@ export interface StateArgs {
 }
 
 export interface StateArg {
-	describe: string;
+	describe?: string;
+	description?: string;
 	choices: string[] | StateArgChoice[];
 	type: string;
 	default: any;
