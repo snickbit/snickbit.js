@@ -1,4 +1,5 @@
 import prompts from 'prompts'
+import {parseOptions} from '@snickbit/utilities'
 
 /** @category Prompt */
 export interface PromptSchema {
@@ -72,21 +73,16 @@ export async function confirm(question: string, options: Partial<QuestionOptions
  * Prompt the user for input using Inquirer.
  * @category Prompt
  */
-export async function ask(question: string, options?: Partial<QuestionOptions>): Promise<string | any> {
-	if (typeof options === 'string') {
-		options = {
-			type: options as string
-		}
-	} else if (!options) {
-		options = {}
-	}
-
-	options = Object.assign({
+export async function ask(question: string, defaultAnswer?: string): Promise<string | any>;
+export async function ask(question: string, options?: Partial<QuestionOptions>): Promise<string | any>;
+export async function ask(question: string, optionsOrDefault?: Partial<QuestionOptions> | string): Promise<string | any> {
+	const options = parseOptions(optionsOrDefault, {
 		type: 'input',
 		name: 'value',
 		message: question
-	}, options)
+	}, 'initial')
 
+	// double check that the options have a name
 	if (!options.name) {
 		options.name = 'value'
 	}
