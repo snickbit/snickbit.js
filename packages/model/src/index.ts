@@ -4,7 +4,9 @@ import {Out} from '@snickbit/out'
 
 export type ModelId = number | string | undefined
 
-export type Key = Array<number | string | symbol> | number | string | symbol;
+export type ModelKey = Array<ModelPath> | ModelPath
+
+export type ModelPath = number | string | symbol;
 
 export type ModelValue = any;
 
@@ -179,9 +181,9 @@ export class Model {
 	/**
 	 * Get a path from an object
 	 */
-	get(key: Key): ModelValue;
+	get(key: ModelKey): ModelValue;
 
-	get(key?: Key): ModelValue {
+	get(key?: ModelKey): ModelValue {
 		const parsedKey = this.checkKey(key)
 		const data = this.data.get(parsedKey)
 		if (!parsedKey && this.append && this.append.length) {
@@ -207,14 +209,14 @@ export class Model {
 	/**
 	 * Find specific data in the model
 	 */
-	find(key: Key, predicate: ObjectPredicate): ModelValue;
+	find(key: ModelKey, predicate: ObjectPredicate): ModelValue;
 
-	find(keyOrPredicate: Key | ObjectPredicate, predicate?: ObjectPredicate): ModelValue {
-		let key: Key
+	find(keyOrPredicate: ModelKey | ObjectPredicate, predicate?: ObjectPredicate): ModelValue {
+		let key: ModelKey
 		if (isFunction(keyOrPredicate)) {
 			predicate = keyOrPredicate as ObjectPredicate
 		} else {
-			key = keyOrPredicate as Key
+			key = keyOrPredicate as ModelKey
 		}
 		const value = this.get(key)
 		if (isObject(value)) {
@@ -233,14 +235,14 @@ export class Model {
 	/**
 	 * Find a key/index matching a value
 	 */
-	findKey(key: Key, predicate: ObjectPredicate): ModelValue;
+	findKey(key: ModelKey, predicate: ObjectPredicate): ModelValue;
 
-	findKey(keyOrPredicate: Key | ObjectPredicate, predicate?: ObjectPredicate): string | symbol | number | undefined {
-		let key: Key
+	findKey(keyOrPredicate: ModelKey | ObjectPredicate, predicate?: ObjectPredicate): string | symbol | number | undefined {
+		let key: ModelKey
 		if (isFunction(keyOrPredicate)) {
 			predicate = keyOrPredicate as ObjectPredicate
 		} else {
-			key = keyOrPredicate as Key
+			key = keyOrPredicate as ModelKey
 		}
 		const value = this.get(key)
 		if (isObject(value)) {
@@ -259,9 +261,9 @@ export class Model {
 	/**
 	 * Get the first value in a set
 	 */
-	first(key?: Key): ModelValue;
+	first(key?: ModelKey): ModelValue;
 
-	first(key?: Key): ModelValue {
+	first(key?: ModelKey): ModelValue {
 		const value = this.get(key)
 		if (isObject(value)) {
 			return Object.values(value).shift()
@@ -279,9 +281,9 @@ export class Model {
 	/**
 	 * Get the last value in a set
 	 */
-	last(key: Key): ModelValue;
+	last(key: ModelKey): ModelValue;
 
-	last(key?: Key): ModelValue {
+	last(key?: ModelKey): ModelValue {
 		const value = this.get(key)
 		if (isObject(value)) {
 			return Object.values(value).pop()
@@ -299,9 +301,9 @@ export class Model {
 	/**
 	 * Set the value of a key
 	 */
-	set(key: Key, value: ModelValue, overwrite?: boolean): this;
+	set(key: ModelKey, value: ModelValue, overwrite?: boolean): this;
 
-	set(keyOrData: object | Model | Key, value?: ModelValue, overwrite: boolean = true): this {
+	set(keyOrData: object | Model | ModelKey, value?: ModelValue, overwrite: boolean = true): this {
 		if (isObject(keyOrData)) {
 			let data = keyOrData as object | Model
 
@@ -321,7 +323,7 @@ export class Model {
 				this.data = objectPath(data)
 			}
 		} else {
-			let key = keyOrData as Key
+			let key = keyOrData as ModelKey
 			this.data.set(this.checkKey(key), value, !overwrite)
 		}
 		return this
@@ -330,7 +332,7 @@ export class Model {
 	/**
 	 * Tests path existence
 	 */
-	has(key: Key): boolean {
+	has(key: ModelKey): boolean {
 		return this.data.has(this.checkKey(key))
 	}
 
@@ -342,7 +344,7 @@ export class Model {
 	/**
 	 * Get the keys under a specific path in the model
 	 */
-	keys(key?: Key): string[] {
+	keys(key?: ModelKey): string[] {
 		const data = this.get(key)
 		return data ? Object.keys(data) : []
 	}
@@ -355,9 +357,9 @@ export class Model {
 	/**
 	 * Count the items in a set
 	 */
-	count(key: Key): number;
+	count(key: ModelKey): number;
 
-	count(key?: Key): number {
+	count(key?: ModelKey): number {
 		const value = this.get(key)
 		if (isArray(value)) {
 			return value.length
@@ -376,9 +378,9 @@ export class Model {
 	/**
 	 * Remove all the items in a set
 	 */
-	empty(key: Key): this
+	empty(key: ModelKey): this
 
-	empty(key?: Key): this {
+	empty(key?: ModelKey): this {
 		this.data.empty(this.checkKey(key))
 		return this
 	}
@@ -391,16 +393,16 @@ export class Model {
 	/**
 	 * Get the first non-undefined property of a set
 	 */
-	coalesce(key: Key, defaultValue?: ModelValue): ModelValue
+	coalesce(key: ModelKey, defaultValue?: ModelValue): ModelValue
 
-	coalesce(key?: Key, defaultValue?: ModelValue): ModelValue {
+	coalesce(key?: ModelKey, defaultValue?: ModelValue): ModelValue {
 		return this.data.coalesce(this.checkKey(key), defaultValue)
 	}
 
 	/**
 	 * Insert an item in an array path
 	 */
-	insert(key: Key, value: ModelValue, at?: number) {
+	insert(key: ModelKey, value: ModelValue, at?: number) {
 		this.data.insert(this.checkKey(key), value, at)
 		return this
 	}
@@ -408,7 +410,7 @@ export class Model {
 	/**
 	 * Push a value to an array path
 	 */
-	push(key: Key, ...values) {
+	push(key: ModelKey, ...values) {
 		this.data.push(this.checkKey(key), ...values)
 		return this
 	}
@@ -416,7 +418,7 @@ export class Model {
 	/**
 	 * Get the value of a path and remove it
 	 */
-	pull(key: Key, defaultValue?: ModelValue): ModelValue {
+	pull(key: ModelKey, defaultValue?: ModelValue): ModelValue {
 		const value = this.get(key) || defaultValue
 		this.remove(key)
 		return value
@@ -430,11 +432,11 @@ export class Model {
 	/**
 	 * Patch/merge the value of a path
 	 */
-	patch(key: Key, value: ModelValue): this
+	patch(key: ModelKey, value: ModelValue): this
 
-	patch(keyOrData: object | Key, value?: ModelValue): this {
+	patch(keyOrData: object | ModelKey, value?: ModelValue): this {
 		let data
-		let key: Key
+		let key: ModelKey
 		if (isObject(keyOrData)) {
 			data = keyOrData
 			key = null
@@ -442,7 +444,7 @@ export class Model {
 			// warn if the value is set
 			if (value !== undefined) this.out.extra({data, value}).warn('Cannot set an object and a value at the same time. Value is ignored.')
 		} else {
-			key = keyOrData as Key
+			key = keyOrData as ModelKey
 			data = value
 		}
 
@@ -467,7 +469,7 @@ export class Model {
 	/**
 	 * Increment a number path
 	 */
-	increment(key: Key, value: number = 1): this {
+	increment(key: ModelKey, value: number = 1): this {
 		let current = this.get(key)
 		if (Number.isNaN(current)) current = 0
 		return this.set(key, current + value)
@@ -476,7 +478,7 @@ export class Model {
 	/**
 	 * Decrement a number path
 	 */
-	decrement(key: Key, value: number = 1): this {
+	decrement(key: ModelKey, value: number = 1): this {
 		let current = this.get(key)
 		if (Number.isNaN(current)) current = 0
 		return this.set(key, current - value)
@@ -485,7 +487,7 @@ export class Model {
 	/**
 	 * Set a value if it doesn't exist, do nothing if it does
 	 */
-	ensureExists(key: Key, value: ModelValue): this {
+	ensureExists(key: ModelKey, value: ModelValue): this {
 		this.data.ensureExists(this.checkKey(key), value)
 		return this
 	}
@@ -493,7 +495,7 @@ export class Model {
 	/**
 	 * Remove a value from a path
 	 */
-	remove(key: Key) {
+	remove(key: ModelKey) {
 		this.data.del(this.checkKey(key))
 		return this
 	}
