@@ -1,0 +1,56 @@
+{
+	"name": "root",
+	"private": true,
+	"engines": {
+		"node": ">= 12"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"workspaces": [
+		"packages/*",
+		"clis/*"
+	],
+	"scripts": {
+		"purge": "yarn clean:builds && yarn clean:modules && yarn clean:lock && yarn clean:logs",
+		"clean:builds": "ultra -r clean",
+		"clean:modules": "shx rm -rf **/node_modules **/yarn-error.log",
+		"clean:lock": "shx rm -f yarn.lock",
+		"clean:logs": "shx rm -rf **/yarn-error.log **/.ultra.cache.json",
+		"build": "ultra -r -b build",
+		"prod": "ultra -r --rebuild prod",
+		"docs": "ultra -r docs && git status --porcelain || git add -A && git commit -m \"docs: update\"",
+		"test": "jest --passWithNoTests --silent --noStackTrace --colors",
+		"depcheck": "ultra -r depcheck",
+		"publish": "yarn clean:builds && yarn prod && yarn test && yarn docs && lerna publish"
+	},
+	"ultra": {
+		"concurrent": [
+			"purge"
+		]
+	},
+	"jest": {
+		"verbose": true,
+		"preset": "ts-jest",
+		"testEnvironment": "node",
+		"projects": [
+			"packages/*"
+		]
+	},
+	"devDependencies": {
+		"@changesets/changelog-git": "^0.1.11",
+		"@changesets/cli": "^2.22.0",
+		"@lerna-lite/cli": "^1.0.5",
+		"@nrwl/js": "^14.0.1",
+		"@types/jest": "^27.4.1",
+		"add": "^2.0.6",
+		"depcheck": "^1.4.2",
+		"esbuild": "^0.14.37",
+		"jest": "^27.5.1",
+		"shx": "^0.3.4",
+		"ts-jest": "^27.1.4",
+		"typescript": "^4.6.3",
+		"ultra-runner": "^3.10.5",
+		"yarn": "^1.22.18"
+	}
+}
