@@ -1,7 +1,7 @@
 {
 	"name": "snickbit",
 	"description": "My personal npx business card",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"license": "MIT",
 	"preferGlobal": true,
 	"bin": {
@@ -26,7 +26,7 @@
 	"dependencies": {
 		"@snickbit/cycle": "^0.0.5",
 		"@snickbit/node-cli": "^1.0.26",
-		"@snickbit/node-utilities": "^4.2.20",
+		"@snickbit/node-utilities": "^4.2.21",
 		"@snickbit/out": "^2.0.5",
 		"ansi-styles-template": "^1.0.0",
 		"figlet": "^1.5.2",
