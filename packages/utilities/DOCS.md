@@ -14,6 +14,15 @@
 
 - [CombinationOptions](README.md#combinationoptions)
 
+### Modules Type aliases
+
+- [AdvancedVariableType](README.md#advancedvariabletype)
+- [BasicVariableType](README.md#basicvariabletype)
+- [CallableVariableType](README.md#callablevariabletype)
+- [EmptyVariableType](README.md#emptyvariabletype)
+- [PrimitiveVariableType](README.md#primitivevariabletype)
+- [VariableType](README.md#variabletype)
+
 ### Objects Type aliases
 
 - [IObject](README.md#iobject)
@@ -26,6 +35,15 @@
 ### Variables Type aliases
 
 - [VariableTypeDefinition](README.md#variabletypedefinition)
+
+### Variables
+
+- [advanced](README.md#advanced)
+- [all](README.md#all)
+- [basic](README.md#basic)
+- [callable](README.md#callable)
+- [empty](README.md#empty)
+- [primitive](README.md#primitive)
 
 ### Arrays Functions
 
@@ -175,6 +193,44 @@ ___
 
 ___
 
+## Modules Type aliases
+
+### AdvancedVariableType
+
+Ƭ **AdvancedVariableType**: ``"array"`` \| ``"object"`` \| ``"symbol"`` \| ``"date"``
+
+___
+
+### BasicVariableType
+
+Ƭ **BasicVariableType**: ``"bigint"`` \| ``"boolean"`` \| ``"number"`` \| ``"string"``
+
+___
+
+### CallableVariableType
+
+Ƭ **CallableVariableType**: ``"promise"`` \| ``"asyncfunction"`` \| ``"function"``
+
+___
+
+### EmptyVariableType
+
+Ƭ **EmptyVariableType**: ``"undefined"`` \| ``"null"``
+
+___
+
+### PrimitiveVariableType
+
+Ƭ **PrimitiveVariableType**: [`BasicVariableType`](README.md#basicvariabletype) \| [`EmptyVariableType`](README.md#emptyvariabletype)
+
+___
+
+### VariableType
+
+Ƭ **VariableType**: [`PrimitiveVariableType`](README.md#primitivevariabletype) \| [`AdvancedVariableType`](README.md#advancedvariabletype) \| [`CallableVariableType`](README.md#callablevariabletype)
+
+___
+
 ## Objects Type aliases
 
 ### IObject
@@ -232,6 +288,42 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `name` | `string` |
+
+## Variables
+
+### advanced
+
+• `Const` **advanced**: [`AdvancedVariableType`](README.md#advancedvariabletype)[]
+
+___
+
+### all
+
+• `Const` **all**: [`VariableType`](README.md#variabletype)[]
+
+___
+
+### basic
+
+• `Const` **basic**: [`BasicVariableType`](README.md#basicvariabletype)[]
+
+___
+
+### callable
+
+• `Const` **callable**: [`CallableVariableType`](README.md#callablevariabletype)[]
+
+___
+
+### empty
+
+• `Const` **empty**: [`EmptyVariableType`](README.md#emptyvariabletype)[]
+
+___
+
+### primitive
+
+• `Const` **primitive**: [`PrimitiveVariableType`](README.md#primitivevariabletype)[]
 
 ## Arrays Functions
 
@@ -1831,7 +1923,7 @@ ___
 
 ### typeOf
 
-▸ **typeOf**(`value`): `VariableType` \| `string`
+▸ **typeOf**(`value`): [`VariableType`](README.md#variabletype)
 
 Return a variable's type
 
@@ -1843,4 +1935,4 @@ Return a variable's type
 
 #### Returns
 
-`VariableType` \| `string`
+[`VariableType`](README.md#variabletype)

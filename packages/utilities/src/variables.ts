@@ -153,7 +153,7 @@ export function isJSONString(value: any, returnValue = false) {
  * Return a variable's type
  * @category Variables
  */
-export function typeOf(value: any): VariableType | string {
+export function typeOf(value: any): VariableType {
 	const varType = typeof value
 	if (variableTypes.primitive.includes(varType as PrimitiveVariableType)) return varType
 	if (Array.isArray(value)) return 'array'
