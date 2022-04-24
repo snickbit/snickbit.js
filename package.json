@@ -4,10 +4,6 @@
 	"engines": {
 		"node": ">= 12"
 	},
-	"workspaces": [
-		"packages/*",
-		"clis/*"
-	],
 	"scripts": {
 		"publish": "lerna publish"
 	},
