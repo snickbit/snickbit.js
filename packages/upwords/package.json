@@ -1,0 +1,55 @@
+{
+	"name": "@snickbit/upwords",
+	"description": "Helper function to convert a string to title case, attempting to preserve acronyms and special case words.",
+	"version": "2.0.3",
+	"license": "MIT",
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"exports": {
+		"require": "./dist/index.js",
+		"import": "./dist/index.mjs",
+		"types": "./dist/index.d.ts"
+	},
+	"engines": {
+		"node": ">= 12"
+	},
+	"scripts": {
+		"clean": "shx rm -rf ./dist",
+		"test": "jest",
+		"build": "tsup",
+		"build:meta": "yarn build --metafile",
+		"prod": "yarn build --minify",
+		"watch": "yarn build --watch",
+		"docs": "typedoc && shx mv docs/README.md DOCS.md && shx rm -rf docs"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.17.9",
+		"@babel/preset-env": "^7.16.11",
+		"babel-jest": "^27.5.1",
+		"babel-plugin-add-module-exports": "^1.0.4",
+		"jest": "^27.5.1",
+		"shx": "^0.3.4",
+		"tsup": "^5.12.6",
+		"typedoc": "^0.22.15",
+		"typedoc-plugin-markdown": "^3.12.0",
+		"typescript": "^4.6.3"
+	},
+	"jest": {
+		"testEnvironment": "node"
+	},
+	"tsup": {
+		"entry": [
+			"src/index.js"
+		],
+		"clean": true,
+		"dts": true,
+		"format": [
+			"esm",
+			"cjs"
+		]
+	}
+}
