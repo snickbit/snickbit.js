@@ -6,6 +6,10 @@
 
 - [OverloadSchema](interfaces/OverloadSchema.md)
 
+### Arrays Type aliases
+
+- [ArrayPredicate](README.md#arraypredicate)
+
 ### Generators Type aliases
 
 - [CombinationOptions](README.md#combinationoptions)
@@ -13,6 +17,7 @@
 ### Objects Type aliases
 
 - [IObject](README.md#iobject)
+- [ObjectPredicate](README.md#objectpredicate)
 
 ### Templating Type aliases
 
@@ -134,6 +139,30 @@
 - [mergeDeep](README.md#mergedeep)
 - [typeOf](README.md#typeof)
 
+## Arrays Type aliases
+
+### ArrayPredicate
+
+Ƭ **ArrayPredicate**: (`value`: `any`, `index?`: `number`, `array?`: `any`[]) => `unknown`
+
+#### Type declaration
+
+▸ (`value`, `index?`, `array?`): `unknown`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `any` |
+| `index?` | `number` |
+| `array?` | `any`[] |
+
+##### Returns
+
+`unknown`
+
+___
+
 ## Generators Type aliases
 
 ### CombinationOptions
@@ -155,6 +184,28 @@ ___
 #### Index signature
 
 ▪ [key: `string`]: `any`
+
+___
+
+### ObjectPredicate
+
+Ƭ **ObjectPredicate**: (`key`: `string` \| `symbol`, `value?`: `any`, `obj?`: `object`) => `unknown`
+
+#### Type declaration
+
+▸ (`key`, `value?`, `obj?`): `unknown`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `key` | `string` \| `symbol` |
+| `value?` | `any` |
+| `obj?` | `object` |
+
+##### Returns
+
+`unknown`
 
 ___
 
@@ -195,7 +246,7 @@ Return the duplicate values from an array
 | Name | Type |
 | :------ | :------ |
 | `arr` | `any`[] |
-| `predicate?` | (`item`: `any`) => `boolean` |
+| `predicate?` | [`ArrayPredicate`](README.md#arraypredicate) |
 
 #### Returns
 
@@ -752,7 +803,7 @@ Filter an object by a given predicate
 | Name | Type |
 | :------ | :------ |
 | `obj` | [`IObject`](README.md#iobject) |
-| `predicate` | (`k`: `any`, `v`: `string`) => `boolean` |
+| `predicate` | [`ObjectPredicate`](README.md#objectpredicate) |
 
 #### Returns
 
@@ -771,7 +822,7 @@ Finds an object property's value that matches the given predicate
 | Name | Type |
 | :------ | :------ |
 | `obj` | [`IObject`](README.md#iobject) |
-| `predicate` | `string` \| `Function` |
+| `predicate` | `string` \| [`ObjectPredicate`](README.md#objectpredicate) |
 
 #### Returns
 
@@ -790,7 +841,7 @@ Finds an object property's entry [key, value] that matches the given predicate
 | Name | Type |
 | :------ | :------ |
 | `obj` | [`IObject`](README.md#iobject) |
-| `predicate` | `string` \| `Function` |
+| `predicate` | `string` \| [`ObjectPredicate`](README.md#objectpredicate) |
 
 #### Returns
 
@@ -809,7 +860,7 @@ Finds an object property's name that matches the given predicate
 | Name | Type |
 | :------ | :------ |
 | `obj` | [`IObject`](README.md#iobject) |
-| `predicate` | `string` \| `Function` |
+| `predicate` | `string` \| [`ObjectPredicate`](README.md#objectpredicate) |
 
 #### Returns
 

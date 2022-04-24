@@ -6,11 +6,14 @@ export type IObject = {
 	[key: string]: any
 }
 
+/** @category Objects */
+export type ObjectPredicate = (key: string | symbol, value?: any, obj?: object) => unknown
+
 /**
  * Finds an object property's name that matches the given predicate
  * @category Objects
  */
-export function objectFindKey(obj: IObject, predicate: string | Function): string | undefined {
+export function objectFindKey(obj: IObject, predicate: string | ObjectPredicate): string | undefined {
 	const results = objectFindEntry(obj, predicate)
 	return results ? results[0] : undefined
 }
@@ -22,7 +25,7 @@ export function objectFindKey(obj: IObject, predicate: string | Function): strin
  * @returns {any}
  * @category Objects
  */
-export function objectFind(obj: IObject, predicate: string | Function): any | undefined {
+export function objectFind(obj: IObject, predicate: string | ObjectPredicate): any | undefined {
 	const results = objectFindEntry(obj, predicate)
 	return results ? results[1] : undefined
 }
@@ -31,13 +34,13 @@ export function objectFind(obj: IObject, predicate: string | Function): any | un
  * Finds an object property's entry [key, value] that matches the given predicate
  * @category Objects
  */
-export function objectFindEntry(obj: IObject, predicate: string | Function): any | undefined {
+export function objectFindEntry(obj: IObject, predicate: string | ObjectPredicate): any | undefined {
 	if (!isFunction(predicate)) {
 		let value = predicate
 		predicate = (v: any) => v === value
 	}
 
-	return Object.entries(obj).find(([k, v]) => (predicate as Function)(v, k))
+	return Object.entries(obj).find(([k, v]) => (predicate as ObjectPredicate)(k, v, obj))
 }
 
 /**
@@ -66,7 +69,7 @@ export function objectGetMethod(obj: IObject, method: string, strict?: boolean):
  * Filter an object by a given predicate
  * @category Objects
  */
-export function objectFilter(obj: IObject, predicate: (k: any, v: string) => boolean = () => true): IObject {
+export function objectFilter(obj: IObject, predicate: ObjectPredicate = () => true): IObject {
 	if (!isObject(obj)) throw new TypeError('objectFilter: obj must be an object')
 	if (!isFunction(predicate)) throw new TypeError('objectFilter: predicate must be a function')
 
@@ -74,7 +77,7 @@ export function objectFilter(obj: IObject, predicate: (k: any, v: string) => boo
 
 	for (const key of Object.keys(obj)) {
 		const value = obj[key]
-		if (predicate(value, key)) {
+		if ((predicate as ObjectPredicate)(key, value, obj)) {
 			toReturn[key] = value
 		}
 	}

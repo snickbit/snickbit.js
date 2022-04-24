@@ -1,16 +1,19 @@
-import {mergeDeep, typeOf} from './variables'
+import {isFunction, mergeDeep, typeOf} from './variables'
+
+/** @category Arrays */
+export type ArrayPredicate = (value: any, index?: number, array?: any[]) => unknown
 
 /**
  * Checks if the given array only contains a single value, optionally pass a value or predicate to check against
  * @category Arrays
  */
 export function isSingle(arr: any[], value?: any): boolean
-export function isSingle(arr: any[], predicate?: (item: any) => boolean): boolean {
+export function isSingle(arr: any[], predicate?: ArrayPredicate): boolean {
 	if (arr.length !== 1) {
 		return false
 	}
 
-	return !predicate || (typeof predicate === 'function' ? predicate(arr[0]) : arr.includes(predicate))
+	return !predicate || (isFunction(predicate) ? !!(predicate as ArrayPredicate)(arr[0], 0, arr) : arr.includes(predicate))
 }
 
 /**
@@ -48,9 +51,10 @@ export const arrayWrap = (values: any[] | any): any[] => (Array.isArray(values) 
  * Return the duplicate values from an array
  * @category Arrays
  */
-export function arrayDuplicates(arr: any[], predicate?: (item: any) => boolean): any[] {
+export function arrayDuplicates(arr: any[], predicate?: ArrayPredicate): any[] {
 	const unique: any[] = [],
 		duplicates: any[] = []
+	predicate = predicate || (value => value)
 	for (const item of arr) {
 		if (unique.includes(predicate(item))) {
 			duplicates.push(item)
