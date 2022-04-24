@@ -2,6 +2,7 @@
 
 export * from './arrays'
 export * from './buffer'
+export * from './data'
 export * from './functions'
 export * from './generators'
 export * from './numbers'
