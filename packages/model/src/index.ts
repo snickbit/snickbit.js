@@ -84,7 +84,7 @@ export function model(data: object, options?: Partial<ModelOptions>) {
  * @description @snickbit/model
  * Create a simple object model
  */
-export default class Model {
+export class Model {
 	protected options: Partial<ModelOptions> = {}
 	protected readonly defaults: { [key: string]: ModelValue }
 	protected readonly is_new: boolean
