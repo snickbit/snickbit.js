@@ -93,7 +93,7 @@ export class Model {
 	data: ObjectPathBound<object>
 	append: string[] = []
 
-	constructor(data: object, options?: Partial<ModelOptions>) {
+	constructor(data?: object, options?: Partial<ModelOptions>) {
 		this.options = {
 			name: this.constructor.name,
 			id: '_id',
