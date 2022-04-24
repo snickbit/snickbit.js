@@ -121,7 +121,7 @@ export async function ask(question: string, defaultAnswer?: string): Promise<str
 export async function ask(question: string, options?: Partial<Question>): Promise<string | any>;
 export async function ask(question: string, optionsOrDefault?: Partial<Question> | string): Promise<string | any> {
 	const options = parseOptions(optionsOrDefault, {
-		type: 'input',
+		type: 'text',
 		name: 'value',
 		style: 'default',
 		message: question
