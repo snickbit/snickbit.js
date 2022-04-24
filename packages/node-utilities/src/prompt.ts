@@ -84,7 +84,7 @@ export interface ChoiceRecords {
 /** @category Prompts */
 export interface ChoiceDefinition {
 	title: string
-	value: string
+	value: string | number | boolean
 }
 
 /** @category Prompts */
