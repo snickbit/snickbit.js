@@ -7,12 +7,10 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"workspaces": {
-		"packages": [
-			"packages/*",
-			"clis/*"
-		]
-	},
+	"workspaces": [
+		"packages/*",
+		"clis/*"
+	],
 	"scripts": {
 		"purge": "yarn clean:builds && yarn clean:modules && yarn clean:lock && yarn clean:logs",
 		"clean:builds": "ultra -r clean",
