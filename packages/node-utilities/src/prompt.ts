@@ -1,5 +1,5 @@
 import prompts from 'prompts'
-import {parseOptions} from '@snickbit/utilities'
+import {isObject, parseOptions} from '@snickbit/utilities'
 import Stream from 'stream'
 
 export type PromptsFunction = (prev: string, answers: Answers, previousQuestion: Question) => string
@@ -89,6 +89,21 @@ export interface ChoiceDefinition {
 
 /** @category Prompts */
 export type ChoiceOption = string | ChoiceDefinition
+
+
+export async function prompt(questions: Question[] | QuestionRecords): Promise<Answers> {
+	if (isObject(questions)) {
+		const answers: Answers = {}
+		for (const key in questions) {
+			answers[key] = await prompts(questions[key])
+		}
+
+		return answers
+	}
+
+	return prompts(questions)
+}
+
 
 /**
  * Prompt the user for confirmation using Prompts.
