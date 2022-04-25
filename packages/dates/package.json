@@ -1,7 +1,7 @@
 {
 	"name": "@snickbit/dates",
 	"description": "Extended Date and Time functionality for Dayjs",
-	"version": "1.0.21",
+	"version": "1.0.22",
 	"license": "MIT",
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
