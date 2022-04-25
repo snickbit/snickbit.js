@@ -5,7 +5,7 @@
 		"node": ">= 12"
 	},
 	"scripts": {
-		"publish": "lerna publish"
+		"release": "lerna publish"
 	},
 	"devDependencies": {
 		"@changesets/changelog-git": "^0.1.11",
