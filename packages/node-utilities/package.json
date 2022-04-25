@@ -37,8 +37,7 @@
 		"is-wsl": "^2.2.0",
 		"lodash.throttle": "^4.1.1",
 		"nanospinner": "^1.1.0",
-		"prompts": "^2.4.2",
-		"validator": "^13.7.0"
+		"prompts": "^2.4.2"
 	},
 	"devDependencies": {
 		"@types/jest": "^27.4.1",
