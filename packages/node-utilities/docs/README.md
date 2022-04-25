@@ -30,6 +30,7 @@
 - [ChoiceRecords](interfaces/ChoiceRecords.md)
 - [PromptsLocales](interfaces/PromptsLocales.md)
 - [Question](interfaces/Question.md)
+- [QuestionRecords](interfaces/QuestionRecords.md)
 
 ### Spinner Interfaces
 
@@ -88,6 +89,10 @@
 ### Imports Functions
 
 - [parseImports](README.md#parseimports)
+
+### Modules Functions
+
+- [prompt](README.md#prompt)
 
 ### Progress Functions
 
@@ -483,6 +488,24 @@ Parse imports from `import * as name from 'path'` statements into a more managea
 #### Returns
 
 [`ImportRecord`](README.md#importrecord)
+
+___
+
+## Modules Functions
+
+### prompt
+
+▸ **prompt**(`questions`): `Promise`<[`Answers`](interfaces/Answers.md)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `questions` | [`Question`](interfaces/Question.md)[] \| [`QuestionRecords`](interfaces/QuestionRecords.md) |
+
+#### Returns
+
+`Promise`<[`Answers`](interfaces/Answers.md)\>
 
 ___
 

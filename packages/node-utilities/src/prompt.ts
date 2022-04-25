@@ -7,6 +7,11 @@ export type PromptsPromise = (prev: string, answers: Answers, previousQuestion: 
 
 export type PromptType = 'text' | 'password' | 'invisible' | 'number' | 'confirm' | 'list' | 'toggle' | 'select' | 'multiselect' | 'autocompleteMultiselect' | 'autocomplete' | 'date'
 
+/** @category Prompts */
+export interface QuestionRecords {
+	[key: string]: Question
+}
+
 /**
  * @category Prompts
  * @see https://github.com/terkelg/prompts
