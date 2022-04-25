@@ -5,6 +5,6 @@
 		"node": ">= 12"
 	},
 	"scripts": {
-		"release": "lerna publish"
+		"release": "lerna publish -y"
 	}
 }
