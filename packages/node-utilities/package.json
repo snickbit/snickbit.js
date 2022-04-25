@@ -3,6 +3,9 @@
 	"version": "4.2.22",
 	"description": "A collection of simple Node.js helpers",
 	"license": "MIT",
+	"publishConfig": {
+		"access": "public"
+	},
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",

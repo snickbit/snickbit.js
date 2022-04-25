@@ -3,6 +3,9 @@
 	"version": "1.0.26",
 	"description": "Simple object modeling library",
 	"license": "MIT",
+	"publishConfig": {
+		"access": "public"
+	},
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",

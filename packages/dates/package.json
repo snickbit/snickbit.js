@@ -3,6 +3,9 @@
 	"description": "Extended Date and Time functionality for Dayjs",
 	"version": "1.0.23",
 	"license": "MIT",
+	"publishConfig": {
+		"access": "public"
+	},
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
