@@ -11,11 +11,21 @@ export const makeBuffer = (content: string): Buffer => Buffer.from(content, isBa
  * Make a buffer from a file stream
  * @category Buffer
  */
-export function bufferStream(stream: Readable): Promise<Buffer> {
+export function bufferStream(blob: Blob): Promise<Buffer>;
+export function bufferStream(readable: Blob | Readable | ReadableStream): Promise<Buffer>;
+export function bufferStream(readable: ReadableStream): Promise<Buffer>;
+export function bufferStream(inputData: Blob | Readable | ReadableStream): Promise<Buffer> {
 	const chunks: any[] = []
+	let _stream: Readable
+	if (inputData instanceof Blob) {
+		_stream = inputData.stream() as Readable
+	} else {
+		_stream = inputData as Readable
+	}
+
 	return new Promise((resolve, reject) => {
-		stream.on('data', chunk => chunks.push(Buffer.from(chunk)))
-		stream.on('error', err => reject(err))
-		stream.on('end', () => resolve(Buffer.concat(chunks)))
+		_stream.on('data', chunk => chunks.push(Buffer.from(chunk)))
+		_stream.on('error', err => reject(err))
+		_stream.on('end', () => resolve(Buffer.concat(chunks)))
 	})
 }
