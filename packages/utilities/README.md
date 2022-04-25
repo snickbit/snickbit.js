@@ -14,7 +14,7 @@ npm add @snickbit/utilities
 
 ## Documentation
 
-### [API Docs](https://github.com/snickbit/snickbit.js/blob/main/packages/utilities/DOCS.md)
+### [API Docs](https://github.com/snickbit/snickbit.js/blob/main/packages/utilities/docs/README.md)
 
 ### [CHANGELOG](https://github.com/snickbit/snickbit.js/blob/main/packages/utilities/CHANGELOG.md)
 

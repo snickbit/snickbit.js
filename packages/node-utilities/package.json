@@ -24,7 +24,7 @@
 		"build:meta": "yarn build --metafile",
 		"prod": "yarn build --minify",
 		"watch": "yarn build --watch",
-		"docs": "typedoc && shx mv docs/README.md DOCS.md && shx rm -rf docs"
+		"docs": "typedoc"
 	},
 	"dependencies": {
 		"@snickbit/out": "^2.0.5",

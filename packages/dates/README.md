@@ -29,7 +29,7 @@ console.log(duration.toWords(true)) // '2 seconds' - consult the docs for more o
 
 ## Documentation
 
-### [API Docs](https://github.com/snickbit/snickbit.js/blob/main/packages/dates/DOCS.md)
+### [API Docs](https://github.com/snickbit/snickbit.js/blob/main/packages/dates/docs/README.md)
 
 ### [CHANGELOG](https://github.com/snickbit/snickbit.js/blob/main/packages/dates/CHANGELOG.md)
 
