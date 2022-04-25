@@ -1,6 +1,8 @@
 # Class: Model
 
-**`description`** @snickbit/model Create a simple object model
+Create a simple object model
+
+**`description`** @snickbit/model
 
 ## Table of contents
 

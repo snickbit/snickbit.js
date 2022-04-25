@@ -75,16 +75,16 @@ function defaultValues(schema: Partial<ModelSchema>) {
 }
 
 /**
- * @description @snickbit/model
  * Create a simple object model
+ * @description @snickbit/model
  */
 export function model(data: object, options?: Partial<ModelOptions>) {
 	return new Model(data, options)
 }
 
 /**
- * @description @snickbit/model
  * Create a simple object model
+ * @description @snickbit/model
  */
 export class Model {
 	protected options: Partial<ModelOptions> = {}
