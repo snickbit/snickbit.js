@@ -121,7 +121,7 @@ export function isDate(value: any) {
  * Get the length of a string
  * @category Variables
  */
-export function count(value: any, strict: boolean = true): number {
+export function count(value: any, strict = true): number {
 	if (isNumber(value)) {
 		return value
 	} else if (isSet(value)) {
@@ -198,7 +198,7 @@ export function isCallable(value: any, options?: Partial<isCallableOptions> | bo
 export function merge(...values: IObject[] | any[]): IObject | any[] {
 	let toReturn
 	let returnType
-	for (let value of values) {
+	for (const value of values) {
 		if (!isNullDefined(value)) {
 			if (!returnType || typeOf(value) !== returnType) {
 				toReturn = value
@@ -224,7 +224,7 @@ export function merge(...values: IObject[] | any[]): IObject | any[] {
 export function mergeDeep(...values: IObject[] | any[]): IObject | any[] {
 	let toReturn
 	let returnType
-	for (let value of values) {
+	for (const value of values) {
 		if (!isNullDefined(value)) {
 			if (!returnType || typeOf(value) !== returnType) {
 				toReturn = value

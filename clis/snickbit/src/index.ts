@@ -3,7 +3,6 @@
 import {cli} from '@snickbit/node-cli'
 import {ask} from '@snickbit/node-utilities'
 import {out} from '@snickbit/out'
-import {Cycle} from '@snickbit/cycle'
 import {template} from 'ansi-styles-template'
 import figlet from 'figlet'
 import banner from 'figlet/importable-fonts/Banner.js'
@@ -11,7 +10,6 @@ import open from 'open'
 
 figlet.parseFont('Banner', banner)
 
-const colors = new Cycle('ansi')
 const goodbyes = [
 	'Thank you for using Snickbit!',
 	'Have a nice day!',
@@ -92,7 +90,7 @@ cli()
 	})
 	switch (answer) {
 		case 'github':
-			const child = await open(data.github.value, {wait: true})
+			await open(data.github.value, {wait: true})
 			break
 		case 'linkedin':
 			await open(data.linkedin.value, {wait: true})

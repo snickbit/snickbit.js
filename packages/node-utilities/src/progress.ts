@@ -91,6 +91,24 @@ export class Progress {
 		this.#create()
 	}
 
+	#create(): this {
+		if (!this.out.isVerbose()) {
+			this.bar = new cliProgress.SingleBar(makeProgressConfig(this.options), cliProgress.Presets.shades_classic)
+		}
+		return this
+	}
+
+	#formatValue(v, options, type): any {
+		switch (this.options.valueFormat) {
+			case 'bytes':
+			case 'byte':
+				if (type === 'value' || type === 'total') {
+					return formatBytes(v)
+				}
+		}
+		return cliProgress.Format.ValueFormat(v, options, type)
+	}
+
 	/**
 	 * Get the ETA
 	 */
@@ -111,7 +129,7 @@ export class Progress {
 	/**
 	 * Tick the progress
 	 */
-	tick(value: number = 1, payload?: object): this {
+	tick(value = 1, payload?: object): this {
 		if (this.bar) this.bar.increment(value, payload)
 		if (payload) {
 			this.out.verbose(`Increment progress by ${value} and payload to:`, payload)
@@ -177,23 +195,5 @@ export class Progress {
 			this.out.success(...messages)
 		}
 		return this
-	}
-
-	#create(): this {
-		if (!this.out.isVerbose()) {
-			this.bar = new cliProgress.SingleBar(makeProgressConfig(this.options), cliProgress.Presets.shades_classic)
-		}
-		return this
-	}
-
-	#formatValue(v, options, type): any {
-		switch (this.options.valueFormat) {
-			case 'bytes':
-			case 'byte':
-				if (type === 'value' || type === 'total') {
-					return formatBytes(v)
-				}
-		}
-		return cliProgress.Format.ValueFormat(v, options, type)
 	}
 }

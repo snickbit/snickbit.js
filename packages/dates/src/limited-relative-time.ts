@@ -29,7 +29,7 @@ const defaultOptions: LimitedRelativeOptions = {
 
 export default (options, Dayjs, dayjs) => {
 	/** @internal */
-	const makeNow = thisDay => (thisDay.hasOwnProperty('isUTC') && thisDay.isUTC() ? dayjs.utc() : dayjs())
+	const makeNow = thisDay => ('isUTC' in thisDay && thisDay.isUTC() ? dayjs.utc() : dayjs())
 
 	/** @internal */
 	function showRelative(from, to, options) {

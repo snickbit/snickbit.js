@@ -43,7 +43,7 @@ export const camelCase = (text: string): string => justCamelCase(text)
  * @see https://github.com/plurals/pluralize
  * @category Parsing
  */
-export const plural = (text: string, count: number = 2, inclusive?: boolean) => pluralize(text, count, inclusive)
+export const plural = (text: string, count = 2, inclusive?: boolean) => pluralize(text, count, inclusive)
 
 /**
  * Create a singularized string
@@ -66,13 +66,13 @@ export const initials = (str: string): string =>
  * Limit a string to a certain length
  * @category Parsing
  */
-export const limitString = (str: string, limit: number = 100, suffix: string = '...'): string => str.length > limit ? str.substring(0, limit) + suffix : str
+export const limitString = (str: string, limit = 100, suffix = '...'): string => str.length > limit ? str.substring(0, limit) + suffix : str
 
 /**
  * Limit a string to a certain amount of words
  * @category Parsing
  */
-export function limitWords(str: string, limit: number = 100, suffix: string = '...'): string {
+export function limitWords(str: string, limit = 100, suffix = '...'): string {
 	const words = str.split(/\s+/)
 	return words.length > limit ? words.slice(0, limit).join(' ') + suffix : str
 }
@@ -81,7 +81,7 @@ export function limitWords(str: string, limit: number = 100, suffix: string = '.
  * Pad a string on both sides with the given character and length
  * @category Parsing
  */
-export function padString(text: string, padding: number = 2, character: string = ' '): string {
+export function padString(text: string, padding = 2, character = ' '): string {
 	const pad = !Number.isNaN(padding) && padding > 0 ? character.repeat(padding) : ''
 	return pad + text + pad
 }
@@ -121,11 +121,11 @@ export function spaceCase(str: string): string {
  * Create slug from string
  * @category Parsing
  */
-export function slugify(text: string, replace: string = '-'): string {
+export function slugify(text: string, replace = '-'): string {
 	return spaceCase(text)
 	.toLowerCase()
 	.replace(/\s+/g, replace) // Replace spaces with -
-	.replace(/[^\w\-]+/g, replace) // Remove all non-word chars
+	.replace(/[^\w-]+/g, replace) // Remove all non-word chars
 	.replace(new RegExp(`${replace}${replace}+`, 'g'), replace) // Replace - with a single -
 	.replace(new RegExp(`^${replace}+`), '') // Trim - from start of text
 	.replace(new RegExp(`${replace}+$`), '') // Trim - from end of text

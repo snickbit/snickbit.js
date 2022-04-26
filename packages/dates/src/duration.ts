@@ -81,7 +81,7 @@ function toWords(longOrOptions?: ToWordsOptions | boolean): string {
 	}
 	const values: DateWords = {}
 	for (const key in abbreviations) {
-		let value = this.get(key)
+		const value = this.get(key)
 		const label = options.long ? ` ${plural(key, value)}` : abbreviations[key]
 		values[key] = {
 			value,

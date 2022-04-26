@@ -31,7 +31,7 @@ export const user_data_dir: string = app_data_dir
 export const verbose: number = parseInt(process.env.VERBOSE) || 0
 
 /** @category Environment */
-export const bashrc_path: string = `${home_dir}/.bashrc`
+export const bashrc_path = `${home_dir}/.bashrc`
 
 /**
  * Check if the current process is a Electron app

@@ -122,7 +122,7 @@ export class Model {
 	 */
 	get id(): ModelId {
 		const id_fields = [`.${this.options.id}`, '._id', '.id']
-		for (let id_field of id_fields) {
+		for (const id_field of id_fields) {
 			if (this.has(id_field)) return this.get(id_field)
 		}
 		return undefined
@@ -187,7 +187,7 @@ export class Model {
 		const parsedKey = this.checkKey(key)
 		const data = this.data.get(parsedKey)
 		if (!parsedKey && this.append && this.append.length) {
-			for (let appendable of this.append) {
+			for (const appendable of this.append) {
 				if (this[appendable]) {
 					const value = this[appendable]
 					if (isCallable(value)) {
@@ -303,7 +303,7 @@ export class Model {
 	 */
 	set(key: ModelKey, value: ModelValue, overwrite?: boolean): this;
 
-	set(keyOrData: object | Model | ModelKey, value?: ModelValue, overwrite: boolean = true): this {
+	set(keyOrData: object | Model | ModelKey, value?: ModelValue, overwrite = true): this {
 		if (isObject(keyOrData)) {
 			let data = keyOrData as object | Model
 
@@ -323,7 +323,7 @@ export class Model {
 				this.data = objectPath(data)
 			}
 		} else {
-			let key = keyOrData as ModelKey
+			const key = keyOrData as ModelKey
 			this.data.set(this.checkKey(key), value, !overwrite)
 		}
 		return this
@@ -469,7 +469,7 @@ export class Model {
 	/**
 	 * Increment a number path
 	 */
-	increment(key: ModelKey, value: number = 1): this {
+	increment(key: ModelKey, value = 1): this {
 		let current = this.get(key)
 		if (Number.isNaN(current)) current = 0
 		return this.set(key, current + value)
@@ -478,7 +478,7 @@ export class Model {
 	/**
 	 * Decrement a number path
 	 */
-	decrement(key: ModelKey, value: number = 1): this {
+	decrement(key: ModelKey, value = 1): this {
 		let current = this.get(key)
 		if (Number.isNaN(current)) current = 0
 		return this.set(key, current - value)
@@ -546,7 +546,7 @@ export class Model {
 
 		const schema_keys = Object.keys(schema)
 		let has_extra_keys = false
-		for (let key of this.keys()) {
+		for (const key of this.keys()) {
 			if (!schema_keys.includes(key)) {
 				errors.push(`Unknown key ${key}`)
 				has_extra_keys = true

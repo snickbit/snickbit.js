@@ -18,9 +18,9 @@ export interface QuestionRecords {
  */
 export interface Question {
 	type: PromptType | ((prev: string, answers: Answers, previousQuestion: Question) => PromptType),
-	name: String | PromptsFunction,
-	message: String | PromptsFunction,
-	initial: String | PromptsFunction | PromptsPromise,
+	name: string | PromptsFunction,
+	message: string | PromptsFunction,
+	initial: string | PromptsFunction | PromptsPromise,
 	format: PromptsFunction | PromptsPromise,
 	onRender: PromptsFunction
 	onState: PromptsFunction

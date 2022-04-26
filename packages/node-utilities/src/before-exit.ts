@@ -14,7 +14,7 @@ function useEmitter() {
  * Add a function to be called before the process exits.
  * @category Before Exit
  */
-export function beforeExit(callback: Function) {
+export function beforeExit(callback: () => void) {
 	const emitter = useEmitter()
 
 	//so the program will not close instantly
@@ -22,8 +22,7 @@ export function beforeExit(callback: Function) {
 
 	// attach user callback to the process event emitter
 	// if no callback, it will still exit gracefully on Ctrl-C
-	callback = callback || (() => {
-	})
+	callback = callback || (() => void 0)
 	emitter.on('cleanup', callback)
 
 	// do app specific cleaning before exiting

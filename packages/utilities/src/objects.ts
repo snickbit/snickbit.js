@@ -36,7 +36,7 @@ export function objectFind(obj: IObject, predicate: string | ObjectPredicate): a
  */
 export function objectFindEntry(obj: IObject, predicate: string | ObjectPredicate): any | undefined {
 	if (!isFunction(predicate)) {
-		let value = predicate
+		const value = predicate
 		predicate = (v: any) => v === value
 	}
 
@@ -61,8 +61,7 @@ export function objectGetMethod(obj: IObject, method: string, strict?: boolean):
 	return objectMethods(obj)
 	.map(method_name => ({original: method_name, lower: method_name.toLowerCase()}))
 	.filter(method_def => (strict ? method_def.original === method : method_def.lower === method.toLowerCase()))
-	.map(method_def => obj[method_def.original])
-	.pop()
+	.map(method_def => obj[method_def.original]).pop()
 }
 
 /**
@@ -124,9 +123,9 @@ export function objectExcept(obj: IObject, excluded: string[]): IObject {
  * Flattens an object into a single level using dot notation for nested properties.
  * @category Objects
  */
-export function objectFlatten(obj: IObject, prefix: string = ''): IObject {
+export function objectFlatten(obj: IObject, prefix = ''): IObject {
 	const toReturn: IObject = {}
-	for (let [key, value] of Object.entries(obj)) {
+	for (const [key, value] of Object.entries(obj)) {
 		if (isObject(value)) {
 			Object.assign(toReturn, objectFlatten(value, `${prefix}${key}.`))
 		} else {
@@ -164,7 +163,7 @@ export function objectCopy(obj: IObject, force?: boolean): IObject | any[] | und
  */
 export function objectMerge(...objects: IObject[]): IObject {
 	let toReturn: IObject = {}
-	for (let obj of objects) {
+	for (const obj of objects) {
 		if (obj && typeOf(obj) === 'object') {
 			toReturn = {...toReturn, ...obj}
 		}
@@ -179,11 +178,11 @@ export function objectMerge(...objects: IObject[]): IObject {
 export function objectMergeDeep(...objects: IObject[]): IObject {
 	const toReturn: IObject = {}
 	const keys: string[] = []
-	for (let obj of objects) {
+	for (const obj of objects) {
 		keys.push(...Object.keys(obj))
 	}
 
-	for (let obj of objects) {
+	for (const obj of objects) {
 		for (const key of keys) {
 			toReturn[key] = mergeDeep(toReturn[key], obj[key])
 		}
@@ -196,7 +195,7 @@ export function objectMergeDeep(...objects: IObject[]): IObject {
  * @category Objects
  */
 export function objectMethods(obj: IObject): string[] {
-	let properties = new Set()
+	const properties = new Set()
 	let currentObj = obj
 	do {
 		Object.getOwnPropertyNames(currentObj).map(item => properties.add(item))
@@ -212,7 +211,7 @@ export function objectMethods(obj: IObject): string[] {
  * @category Objects
  */
 export function objectPull(obj: IObject, key: string): any {
-	if (!obj || !key || !isObject(obj) || !obj.hasOwnProperty(key)) return undefined
+	if (!obj || !key || !isObject(obj) || !(key in obj)) return undefined
 	const value = obj[key]
 	delete obj[key]
 	return value

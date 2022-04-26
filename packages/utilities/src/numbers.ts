@@ -8,7 +8,7 @@ export const numberPad = (n: number): string | number => (n < 10 ? '0' + n : n)
  * Format a number as bytes.
  * @category Numbers
  */
-export function formatBytes(bytes: number, decimals: number = 2): string {
+export function formatBytes(bytes: number, decimals = 2): string {
 	if (bytes === 0) return '0 Bytes'
 
 	const k = 1000
@@ -24,16 +24,16 @@ export function formatBytes(bytes: number, decimals: number = 2): string {
  * Format a number as currency.
  * @category Numbers
  */
-export const formatCurrency = (amount: number, symbol: string = '$', decimals: number = 2) => symbol + parseFloat(String(amount || '0')).toFixed(decimals)
+export const formatCurrency = (amount: number, symbol = '$', decimals = 2) => symbol + parseFloat(String(amount || '0')).toFixed(decimals)
 
 /**
  * Format a number as a percentage.
  * @category Numbers
  */
-export const formatPercentage = (amount: number, decimals: number = 2) => parseFloat(String(amount || '0')).toFixed(decimals) + '%'
+export const formatPercentage = (amount: number, decimals = 2) => parseFloat(String(amount || '0')).toFixed(decimals) + '%'
 
 /**
  * limit the amount of decimals to the given number, default 2
  * @category Numbers
  */
-export const maxDecimals = (value: number, max_places: number = 2) => +parseFloat(String(value)).toFixed(max_places)
+export const maxDecimals = (value: number, max_places = 2) => +parseFloat(String(value)).toFixed(max_places)

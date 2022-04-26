@@ -16,7 +16,7 @@ function upperFirst(string) {
 	return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
-const stripPseudoSpaces = string => string.replace(/[_\-]+$/, ' ').replace(/^[_\-]+/, ' ').replace(/(\s)+/g, '$1')
+const stripPseudoSpaces = string => string.replace(/[_-]+$/, ' ').replace(/^[_-]+/, ' ').replace(/(\s)+/g, '$1')
 
 const upwords = function (str, options = {fast: false}) {
 	options = Object.assign({}, default_options, options || {})

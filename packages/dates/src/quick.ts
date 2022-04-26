@@ -14,7 +14,7 @@ const formats = {
 export default (_option, Dayjs, dayjs) => {
 	dayjs.extend(isToday)
 
-	for (let [name, definition] of Object.entries(formats)) {
+	for (const [name, definition] of Object.entries(formats)) {
 		dayjs[name] = () => dayjs.format(definition)
 		Dayjs.prototype[name] = function () {
 			return this.format(definition)

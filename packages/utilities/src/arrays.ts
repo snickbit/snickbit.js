@@ -71,7 +71,7 @@ export function arrayDuplicates(arr: any[], predicate?: ArrayPredicate): any[] {
  */
 export function arrayRemove(arr: any[], value: any): any[] {
 	if (!arr || !value) return arr
-	let index = arr.indexOf(value)
+	const index = arr.indexOf(value)
 	if (index >= 0) {
 		arr.splice(index, 1)
 	}
@@ -104,7 +104,7 @@ export function arrayShuffle(arr: any[]): any[] {
  */
 export function arrayMerge(...arrs: any[][]): any[] {
 	let toReturn: any[] = []
-	for (let arr of arrs) {
+	for (const arr of arrs) {
 		if (arr && typeOf(arr) === 'array') {
 			toReturn = [...toReturn, ...arr]
 		}

@@ -2,9 +2,9 @@ import {arrayShuffle, isType} from '@snickbit/utilities'
 import * as presets from './presets'
 
 export class Cycle {
+	#started: boolean
 	items: any[] = []
 	index: number
-	#started: boolean
 
 	constructor(items?: any[])
 	constructor(preset?: string)
@@ -42,7 +42,7 @@ export class Cycle {
 		return this.items.length - 1
 	}
 
-	getIndex(index: number, save: boolean = true) {
+	getIndex(index: number, save = true) {
 		if (save) this.index = index
 		this.#started = true
 		return this.items[index]
@@ -56,11 +56,11 @@ export class Cycle {
 		return this.getIndex(this.prevIndex, save)
 	}
 
-	first(save: boolean = false) {
+	first(save = false) {
 		return this.getIndex(this.firstIndex, save)
 	}
 
-	last(save: boolean = false) {
+	last(save = false) {
 		return this.getIndex(this.lastIndex, save)
 	}
 
@@ -68,7 +68,7 @@ export class Cycle {
 		return this.items[this.currentIndex]
 	}
 
-	get(index: number, save: boolean = false) {
+	get(index: number, save = false) {
 		return this.getIndex(index % this.items.length, save)
 	}
 

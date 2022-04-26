@@ -77,7 +77,7 @@ export function findUp(name: string | PathLike, options?: Partial<FindUpOptions>
 	}, 'cwd') as FindUpOptions
 	options.d = options.d || 0
 
-	let directory = path.resolve(options.cwd || '')
+	const directory = path.resolve(options.cwd || '')
 	const parsed = path.parse(directory)
 	const resolved = path.join(directory, name as string)
 	if (fileExists(resolved)) {

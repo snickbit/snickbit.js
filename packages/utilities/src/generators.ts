@@ -6,7 +6,7 @@ import {IObject} from './objects'
  * Create uuid
  * @category Generators
  */
-export function uuid(prefix: string = ''): string {
+export function uuid(prefix = ''): string {
 	return `${prefix}${nanoid()}`
 }
 
@@ -14,7 +14,7 @@ export function uuid(prefix: string = ''): string {
  * Generate a random string
  * @category Generators
  */
-export function randomString(length: number = 10): string {
+export function randomString(length = 10): string {
 	let text = ''
 	while (text.length < length) {
 		text += makeRandomSegment()
@@ -43,7 +43,7 @@ export function combinations(options: CombinationOptions): any[] {
 	return combinationsLoop(options)
 }
 
-function combinationsLoop(options: CombinationOptions, optionIndex: number = 0, current: IObject = {}): any[] {
+function combinationsLoop(options: CombinationOptions, optionIndex = 0, current: IObject = {}): any[] {
 	const allKeys = Object.keys(options)
 	const optionKey = allKeys[optionIndex]
 	const values = options[optionKey]

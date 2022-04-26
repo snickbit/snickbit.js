@@ -31,7 +31,7 @@ export function parse(value: any): any {
 		return JSONParse(value)
 	}
 
-	let num = parseFloat(value)
+	const num = parseFloat(value)
 	if (!Number.isNaN(num) && isFinite(num)) {
 		if (value.toLowerCase().indexOf('0x') === 0) {
 			return parseInt(value, 16)
@@ -78,6 +78,7 @@ export function JSONStringify(data: any, options: Partial<JSONStringifyOptions> 
 		try {
 			data = JSON.stringify(data, null, parsedOptions.pretty)
 		} catch (e) {
+			return undefined
 		}
 	}
 
@@ -88,4 +89,4 @@ export function JSONStringify(data: any, options: Partial<JSONStringifyOptions> 
  * Pretty print a JSON string
  * @category Parsing
  */
-export const JSONPrettify = (data: any, spacer: number = 2): string => JSONStringify(data, {pretty: spacer})
+export const JSONPrettify = (data: any, spacer = 2): string => JSONStringify(data, {pretty: spacer})

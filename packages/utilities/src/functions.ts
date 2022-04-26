@@ -31,7 +31,7 @@ export function parseOptions(given: IObject | any, defaults: IObject, non_object
 	}
 
 	// merge the given options with the defaults
-	for (let key of arrayUnique(Object.keys(defaults).concat(Object.keys(given)))) {
+	for (const key of arrayUnique(Object.keys(defaults).concat(Object.keys(given)))) {
 		if (given[key] === undefined) {
 			given[key] = defaults[key]
 		}
@@ -40,14 +40,19 @@ export function parseOptions(given: IObject | any, defaults: IObject, non_object
 	return given
 }
 
+export type FunctionType = (...args: any[]) => any
+
+export type TryWaitFunction = (...args: any[]) => Promise<any> | any
+
 /**
  * Catch an async function or promise and force it to resolve, returning undefined if it fails
  * @category Functions
  */
-export function tryWait(fn: Function, ...args: any[][]): Promise<any> {
+export function tryWait(fn: TryWaitFunction, ...args: any[][]): Promise<any> {
+	/* eslint no-async-promise-executor: off */
 	return new Promise(async resolve => {
 		try {
-			let result = await fn(...args)
+			const result = await fn(...args)
 			resolve(result)
 		} catch (e) {
 			resolve(undefined)
@@ -59,10 +64,9 @@ export function tryWait(fn: Function, ...args: any[][]): Promise<any> {
  * Clone a function
  * @category Functions
  */
-export function functionClone(fn: Function): Function {
-	return function () {
-		// @ts-ignore
-		return fn.apply(this, arguments)
+export function functionClone(fn: FunctionType): FunctionType {
+	return function (...args: any[]): any {
+		return fn.apply(this, ...args)
 	}
 }
 
@@ -91,7 +95,7 @@ export function overloadOptions(options: any[], schemas: OverloadSchema[]): obje
 	if (matches.length !== 1) {
 		// check for type matches only
 		matches = matches.length ? matches : schemas.slice()
-		for (let [index, option] of options.entries()) {
+		for (const [index, option] of options.entries()) {
 			matches = matches.filter((schema: OverloadSchema) => isType(option, Object.values(schema)[index]))
 			if (matches.length === 1) {
 				break
@@ -104,9 +108,9 @@ export function overloadOptions(options: any[], schemas: OverloadSchema[]): obje
 		matches = [schemas.find(schema => isType(options[0], Object.values(schema)[0]))]
 	}
 
-	let schema = matches[0] || schemas[0] || {}
+	const schema = matches[0] || schemas[0] || {}
 	const results: IObject = {}
-	for (let name in schema) {
+	for (const name in schema) {
 		results[name] = options.shift()
 	}
 
