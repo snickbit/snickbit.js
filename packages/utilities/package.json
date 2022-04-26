@@ -36,7 +36,7 @@
 		"pluralize": "^8.0.0"
 	},
 	"devDependencies": {
-		"@snickbit/indexer": "^2.0.70",
+		"@remedyred/indexer": "^2.0.74",
 		"@types/jest": "^27.4.1",
 		"jest": "^27.5.1",
 		"shx": "^0.3.4",
