@@ -1,7 +1,7 @@
 import {Model} from '../src'
 
 describe('Model', () => {
-	let instance = new Model()
+	const instance = new Model()
 	it('instance should be an instanceof Model', () => expect(instance).toBeInstanceOf(Model))
 	it('should have a property id', () => expect('id' in instance).toBeTruthy())
 	it('should have a property data', () => expect(instance.data).toBeDefined())

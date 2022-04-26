@@ -29,14 +29,14 @@ describe('toWords', () => {
 	})
 
 	describe('toWords.options', () => {
-		let options = combinations({
+		const options = combinations({
 			reduce: [true, false],
 			long: [true, false],
 			milliseconds: [true, false]
 		})
 
-		for (let option of options) {
-			let expected = {
+		for (const option of options) {
+			const expected = {
 				seconds: {
 					value: '2',
 					label: ' seconds'
