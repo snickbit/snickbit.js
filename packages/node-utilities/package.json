@@ -20,7 +20,6 @@
 	"scripts": {
 		"clean": "shx rm -rf ./dist",
 		"build": "tsup",
-		"build": "tsup",
 		"build:meta": "yarn build --metafile",
 		"prod": "yarn build --minify",
 		"watch": "yarn build --watch",
