@@ -44,6 +44,8 @@
 
 ### Modules Type aliases
 
+- [AnyFunction](README.md#anyfunction)
+- [IObject](README.md#iobject)
 - [PromptType](README.md#prompttype)
 - [PromptsFunction](README.md#promptsfunction)
 - [PromptsPromise](README.md#promptspromise)
@@ -112,7 +114,7 @@
 
 ### ImportRecord
 
-Ƭ **ImportRecord**: `Record`<`string`, `Function`\>
+Ƭ **ImportRecord**: `Record`<`string`, [`AnyFunction`](README.md#anyfunction)\>
 
 ___
 
@@ -129,6 +131,36 @@ ___
 ___
 
 ## Modules Type aliases
+
+### AnyFunction
+
+Ƭ **AnyFunction**: (...`args`: `any`[]) => `any`
+
+#### Type declaration
+
+▸ (...`args`): `any`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `...args` | `any`[] |
+
+##### Returns
+
+`any`
+
+___
+
+### IObject
+
+Ƭ **IObject**: `Object`
+
+#### Index signature
+
+▪ [key: `string`]: `any`
+
+___
 
 ### PromptType
 
@@ -252,7 +284,7 @@ Add a function to be called before the process exits.
 
 | Name | Type |
 | :------ | :------ |
-| `callback` | `Function` |
+| `callback` | () => `void` |
 
 #### Returns
 

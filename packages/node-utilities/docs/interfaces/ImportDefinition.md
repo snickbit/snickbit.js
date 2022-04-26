@@ -1,8 +1,24 @@
 # Interface: ImportDefinition
 
+## Callable
+
+### ImportDefinition
+
+▸ **ImportDefinition**(...`args`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `...args` | `any`[] |
+
+#### Returns
+
+`any`
+
 ## Indexable
 
-▪ [key: `string`]: `Object` \| `Function` \| `any`[]
+▪ [key: `string`]: `any`
 
 ## Table of contents
 
@@ -15,7 +31,7 @@
 
 ### default
 
-• **default**: `Object` \| `Function` \| `any`[]
+• **default**: `any`[] \| [`AnyFunction`](../README.md#anyfunction) \| [`IObject`](../README.md#iobject)
 
 ___
 

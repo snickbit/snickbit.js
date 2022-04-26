@@ -97,7 +97,7 @@ ___
 
 ### initial
 
-• **initial**: `String` \| [`PromptsFunction`](../README.md#promptsfunction) \| [`PromptsPromise`](../README.md#promptspromise)
+• **initial**: `string` \| [`PromptsFunction`](../README.md#promptsfunction) \| [`PromptsPromise`](../README.md#promptspromise)
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 ### message
 
-• **message**: `String` \| [`PromptsFunction`](../README.md#promptsfunction)
+• **message**: `string` \| [`PromptsFunction`](../README.md#promptsfunction)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 ### name
 
-• **name**: `String` \| [`PromptsFunction`](../README.md#promptsfunction)
+• **name**: `string` \| [`PromptsFunction`](../README.md#promptsfunction)
 
 ___
 

@@ -20,7 +20,9 @@
 - [BasicVariableType](README.md#basicvariabletype)
 - [CallableVariableType](README.md#callablevariabletype)
 - [EmptyVariableType](README.md#emptyvariabletype)
+- [FunctionType](README.md#functiontype)
 - [PrimitiveVariableType](README.md#primitivevariabletype)
+- [TryWaitFunction](README.md#trywaitfunction)
 - [VariableType](README.md#variabletype)
 
 ### Objects Type aliases
@@ -219,9 +221,49 @@ ___
 
 ___
 
+### FunctionType
+
+Ƭ **FunctionType**: (...`args`: `any`[]) => `any`
+
+#### Type declaration
+
+▸ (...`args`): `any`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `...args` | `any`[] |
+
+##### Returns
+
+`any`
+
+___
+
 ### PrimitiveVariableType
 
 Ƭ **PrimitiveVariableType**: [`BasicVariableType`](README.md#basicvariabletype) \| [`EmptyVariableType`](README.md#emptyvariabletype)
+
+___
+
+### TryWaitFunction
+
+Ƭ **TryWaitFunction**: (...`args`: `any`[]) => `Promise`<`any`\> \| `any`
+
+#### Type declaration
+
+▸ (...`args`): `Promise`<`any`\> \| `any`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `...args` | `any`[] |
+
+##### Returns
+
+`Promise`<`any`\> \| `any`
 
 ___
 
@@ -588,7 +630,7 @@ ___
 
 ### functionClone
 
-▸ **functionClone**(`fn`): `Function`
+▸ **functionClone**(`fn`): [`FunctionType`](README.md#functiontype)
 
 Clone a function
 
@@ -596,11 +638,11 @@ Clone a function
 
 | Name | Type |
 | :------ | :------ |
-| `fn` | `Function` |
+| `fn` | [`FunctionType`](README.md#functiontype) |
 
 #### Returns
 
-`Function`
+[`FunctionType`](README.md#functiontype)
 
 ___
 
@@ -676,7 +718,7 @@ Catch an async function or promise and force it to resolve, returning undefined 
 
 | Name | Type |
 | :------ | :------ |
-| `fn` | `Function` |
+| `fn` | [`TryWaitFunction`](README.md#trywaitfunction) |
 | `...args` | `any`[][] |
 
 #### Returns

@@ -17,7 +17,6 @@
 	"scripts": {
 		"start": "node bin/snickbit.js",
 		"clean": "shx rm -rf ./dist",
-		"test": "jest",
 		"build": "esbuild --bundle --outfile=bin/snickbit.js src/index.ts --target=node12 --platform=node",
 		"build:meta": "yarn build --metafile",
 		"prod": "yarn build --minify",
