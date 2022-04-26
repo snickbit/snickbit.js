@@ -22,7 +22,7 @@
 	},
 	"scripts": {
 		"clean": "shx rm -rf ./dist",
-		"test": "jest",
+		"build": "tsup",
 		"build": "tsup",
 		"build:meta": "yarn build --metafile",
 		"prod": "yarn build --minify",
