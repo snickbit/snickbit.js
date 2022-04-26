@@ -3,9 +3,6 @@
 	"version": "0.0.7",
 	"description": "Helper function and class to cycle through an array of values",
 	"license": "MIT",
-	"publishConfig": {
-		"access": "public"
-	},
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
@@ -25,6 +22,7 @@
 		"clean": "shx rm -rf ./dist",
 		"test": "jest",
 		"docs": "typedoc",
+		"depcheck": "depcheck",
 		"build": "tsup",
 		"build:meta": "yarn build --metafile",
 		"prod": "yarn build --minify",

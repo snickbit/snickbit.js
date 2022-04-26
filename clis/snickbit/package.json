@@ -20,10 +20,10 @@
 		"build": "esbuild --bundle --outfile=bin/snickbit.js src/index.ts --target=node12 --platform=node",
 		"build:meta": "yarn build --metafile",
 		"prod": "yarn build --minify",
+		"depcheck": "depcheck",
 		"watch": "yarn build --watch"
 	},
 	"dependencies": {
-		"@snickbit/cycle": "^0.0.7",
 		"@snickbit/node-cli": "^1.0.26",
 		"@snickbit/node-utilities": "^4.2.23",
 		"@snickbit/out": "^2.0.5",

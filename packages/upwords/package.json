@@ -2,9 +2,6 @@
 	"name": "@snickbit/upwords",
 	"description": "Helper function to convert a string to title case, attempting to preserve acronyms and special case words.",
 	"version": "2.0.5",
-	"publishConfig": {
-		"access": "public"
-	},
 	"license": "MIT",
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
@@ -26,6 +23,7 @@
 		"build": "tsup",
 		"build:meta": "yarn build --metafile",
 		"prod": "yarn build --minify",
+		"depcheck": "depcheck",
 		"watch": "yarn build --watch"
 	},
 	"devDependencies": {

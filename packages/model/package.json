@@ -3,9 +3,6 @@
 	"version": "1.0.27",
 	"description": "Simple object modeling library",
 	"license": "MIT",
-	"publishConfig": {
-		"access": "public"
-	},
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
@@ -27,7 +24,8 @@
 		"build:meta": "yarn build --metafile",
 		"prod": "yarn build --minify",
 		"watch": "yarn build --watch",
-		"docs": "typedoc"
+		"docs": "typedoc",
+		"depcheck": "depcheck"
 	},
 	"dependencies": {
 		"@snickbit/out": "^2.0.5",

@@ -3,9 +3,6 @@
 	"version": "3.0.7",
 	"description": "A collection of simple JavaScript helpers",
 	"license": "MIT",
-	"publishConfig": {
-		"access": "public"
-	},
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
@@ -28,6 +25,7 @@
 		"prod": "yarn build --minify",
 		"watch": "yarn build --watch",
 		"docs": "typedoc",
+		"depcheck": "depcheck",
 		"index": "indexer src"
 	},
 	"dependencies": {
