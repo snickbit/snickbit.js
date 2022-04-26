@@ -6,7 +6,7 @@ import path from 'path'
  * Save file to disk as JSON
  * @category Files
  */
-export const saveFileJson = (filepath: PathOrFileDescriptor, content: string | NodeJS.ArrayBufferView, options: WriteFileOptions = 'utf8') => saveFile(filepath, JSON.stringify(content, null, '\t') + '\n', options)
+export const saveFileJson = (filepath: PathOrFileDescriptor, content: any, options: WriteFileOptions = 'utf8') => saveFile(filepath, JSON.stringify(content, null, '\t') + '\n', options)
 
 /** @category Files */
 export const fileExists = (filepath: PathLike) => fs.existsSync(filepath)
