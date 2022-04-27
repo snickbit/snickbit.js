@@ -9,7 +9,7 @@
 	},
 	"main": "./bin/snickbit.js",
 	"files": [
-		"dist"
+		"bin"
 	],
 	"engines": {
 		"node": ">= 12"
@@ -18,10 +18,10 @@
 		"start": "node bin/snickbit.js",
 		"clean": "shx rm -rf ./dist",
 		"build": "esbuild --bundle --outfile=bin/snickbit.js src/index.ts --target=node12 --platform=node",
-		"build:meta": "yarn build --metafile",
-		"prod": "yarn build --minify",
+		"build:meta": "yarpm build --metafile",
+		"prod": "yarpm build --minify",
 		"depcheck": "depcheck",
-		"watch": "yarn build --watch"
+		"watch": "yarpm build --watch"
 	},
 	"dependencies": {
 		"@snickbit/node-cli": "^1.0.26",

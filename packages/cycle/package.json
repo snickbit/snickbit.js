@@ -24,9 +24,9 @@
 		"docs": "typedoc",
 		"depcheck": "depcheck",
 		"build": "tsup",
-		"build:meta": "yarn build --metafile",
-		"prod": "yarn build --minify",
-		"watch": "yarn build --watch"
+		"build:meta": "yarpm build --metafile",
+		"prod": "yarpm build --minify",
+		"watch": "yarpm build --watch"
 	},
 	"dependencies": {
 		"@snickbit/utilities": "^3.0.7",

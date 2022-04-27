@@ -21,10 +21,10 @@
 		"clean": "shx rm -rf ./dist",
 		"test": "jest",
 		"build": "tsup",
-		"build:meta": "yarn build --metafile",
-		"prod": "yarn build --minify",
+		"build:meta": "yarpm build --metafile",
+		"prod": "yarpm build --minify",
 		"depcheck": "depcheck",
-		"watch": "yarn build --watch"
+		"watch": "yarpm build --watch"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.17.9",
