@@ -477,7 +477,7 @@ Save file to disk as JSON
 | Name | Type | Default value |
 | :------ | :------ | :------ |
 | `filepath` | `PathOrFileDescriptor` | `undefined` |
-| `content` | `string` \| `ArrayBufferView` | `undefined` |
+| `content` | `any` | `undefined` |
 | `options` | `WriteFileOptions` | `'utf8'` |
 
 #### Returns

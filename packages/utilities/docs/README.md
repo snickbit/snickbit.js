@@ -311,11 +311,7 @@ ___
 
 ### interpolateReplacements
 
-Ƭ **interpolateReplacements**: `Object`
-
-#### Index signature
-
-▪ [key: `string`]: `string`
+Ƭ **interpolateReplacements**: `Record`<`string`, `string` \| `number` \| `any`\>
 
 ___
 
