@@ -17,7 +17,8 @@ export const escapeRegExp = (str: string) => String(str).replace(/[.*+?^${}()|[\
 export const escapeReplacement = (str: string) => String(str).replace(/\$/g, '$$$$')
 
 /** @category Templating */
-export type interpolateReplacements = { [key: string]: string }
+export type interpolateReplacements = Record<string, string | number | any>
+
 
 /**
  * interpolate string with data from object using {{key}} syntax or ${key} syntax
