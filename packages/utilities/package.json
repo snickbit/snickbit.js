@@ -1,6 +1,6 @@
 {
 	"name": "@snickbit/utilities",
-	"version": "3.0.8",
+	"version": "3.0.9",
 	"description": "A collection of simple JavaScript helpers",
 	"license": "MIT",
 	"main": "./dist/index.js",
