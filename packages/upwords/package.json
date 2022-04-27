@@ -1,7 +1,7 @@
 {
 	"name": "@snickbit/upwords",
 	"description": "Helper function to convert a string to title case, attempting to preserve acronyms and special case words.",
-	"version": "2.0.8",
+	"version": "2.0.9",
 	"license": "MIT",
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
