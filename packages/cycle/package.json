@@ -1,6 +1,6 @@
 {
 	"name": "@snickbit/cycle",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"description": "Helper function and class to cycle through an array of values",
 	"license": "MIT",
 	"main": "./dist/index.js",
@@ -29,7 +29,7 @@
 		"watch": "yarpm build --watch"
 	},
 	"dependencies": {
-		"@snickbit/utilities": "^3.0.7",
+		"@snickbit/utilities": "^3.0.8",
 		"typedoc": "^0.22.15",
 		"typedoc-plugin-markdown": "^3.12.0"
 	},

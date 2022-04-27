@@ -1,6 +1,6 @@
 {
 	"name": "@snickbit/node-utilities",
-	"version": "4.2.23",
+	"version": "4.2.24",
 	"description": "A collection of simple Node.js helpers",
 	"license": "MIT",
 	"main": "./dist/index.js",
@@ -28,7 +28,7 @@
 	},
 	"dependencies": {
 		"@snickbit/out": "^2.0.5",
-		"@snickbit/utilities": "^3.0.7",
+		"@snickbit/utilities": "^3.0.8",
 		"ansi-styles-template": "^1.0.0",
 		"cli-progress": "^3.10.0",
 		"is-wsl": "^2.2.0",
