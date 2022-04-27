@@ -18,10 +18,10 @@
 		"start": "node bin/snickbit.js",
 		"clean": "shx rm -rf ./dist",
 		"build": "esbuild --bundle --outfile=bin/snickbit.js src/index.ts --target=node12 --platform=node",
-		"build:meta": "yarpm build --metafile",
-		"prod": "yarpm build --minify",
+		"build:meta": "yarpm run build --metafile",
+		"prod": "yarpm run build --minify",
 		"depcheck": "depcheck",
-		"watch": "yarpm build --watch"
+		"watch": "yarpm run build --watch"
 	},
 	"dependencies": {
 		"@snickbit/node-cli": "^1.0.26",
