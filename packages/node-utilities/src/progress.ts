@@ -86,7 +86,6 @@ export class Progress {
 	constructor(options?: Partial<ProgressOptions>) {
 		/** @type {Partial<ProgressOptions>} */
 		this.options = parseOptions(options, {...default_progress_options})
-		out.info('Progress', this.options)
 		this.out = this.options.out || out.prefix(this.options.name || 'progress', 1)
 		this.options.config.formatValue = this.#formatValue.bind(this)
 		this.#create()
