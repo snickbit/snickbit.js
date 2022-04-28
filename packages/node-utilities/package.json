@@ -20,9 +20,9 @@
 	"scripts": {
 		"clean": "shx rm -rf ./dist",
 		"build": "tsup",
-		"build:meta": "yarpm run build --metafile",
-		"prod": "yarpm run build --minify",
-		"watch": "yarpm run build --watch",
+		"build:meta": "tsup --minify --metafile",
+		"prod": "tsup --minify",
+		"watch": "tsup --watch",
 		"docs": "typedoc",
 		"depcheck": "depcheck"
 	},
