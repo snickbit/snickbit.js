@@ -93,14 +93,39 @@ export interface ChoiceDefinition {
 }
 
 /** @category Prompts */
+export interface PromptState {
+	aborted: boolean
+}
+
+/** @category Prompts */
 export type ChoiceOption = string | ChoiceDefinition
 
+/**
+ * @category Prompts
+ * @see https://github.com/terkelg/prompts/issues/252
+ */
+function onState(state: PromptState) {
+	if (state.aborted) {
+		// If we don't re-enable the terminal cursor before exiting
+		// the program, the cursor will remain hidden
+		process.stdout.write('\x1B[?25h')
+		process.stdout.write('\n')
+		process.exit(1)
+	}
+}
+
+/** @internal */
+const defaultPromptOptions = {
+	type: 'text',
+	name: 'value',
+	onState
+}
 
 export async function prompt(questions: Question[] | QuestionRecords): Promise<Answers> {
 	if (isObject(questions)) {
 		const answers: Answers = {}
 		for (const key in questions) {
-			answers[key] = await prompts(questions[key])
+			answers[key] = await prompts({...defaultPromptOptions, ...questions[key]})
 		}
 
 		return answers
@@ -119,8 +144,8 @@ export async function confirm(question: string, defaultAnswer?: boolean): Promis
 export async function confirm(question: string, options?: Partial<Question>): Promise<boolean>;
 export async function confirm(question: string, optionsOrDefault?: Partial<Question> | boolean): Promise<boolean> {
 	const options = parseOptions(optionsOrDefault, {
+		...defaultPromptOptions,
 		type: 'confirm',
-		name: 'value',
 		message: question
 	}, 'initial')
 
@@ -141,8 +166,7 @@ export async function ask(question: string, defaultAnswer?: string): Promise<str
 export async function ask(question: string, options?: Partial<Question>): Promise<string | any>;
 export async function ask(question: string, optionsOrDefault?: Partial<Question> | string): Promise<string | any> {
 	const options = parseOptions(optionsOrDefault, {
-		type: 'text',
-		name: 'value',
+		...defaultPromptOptions,
 		style: 'default',
 		message: question
 	}, 'initial')
