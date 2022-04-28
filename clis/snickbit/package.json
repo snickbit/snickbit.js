@@ -18,8 +18,8 @@
 		"start": "node bin/snickbit.js",
 		"clean": "shx rm -rf ./dist",
 		"build": "esbuild --bundle --outfile=bin/snickbit.js src/index.ts --target=node12 --platform=node",
-		"build:meta": "tsup --minify --metafile",
-		"prod": "tsup --minify",
+		"build:meta": "npm run build --minify --metafile=.meta.json",
+		"prod": "npm run build --minify",
 		"depcheck": "depcheck",
 		"watch": "npm run build --watch"
 	},
