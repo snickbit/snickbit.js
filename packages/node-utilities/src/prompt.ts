@@ -22,8 +22,8 @@ export interface Question {
 	message: string | PromptsFunction,
 	initial: string | PromptsFunction | PromptsPromise,
 	format: PromptsFunction | PromptsPromise,
-	onRender: PromptsFunction
-	onState: PromptsFunction
+	onRender: (this: prompts, kluer: any) => void
+	onState: (state: PromptState) => void
 	stdin: Stream
 	stdout: Stream
 
@@ -89,7 +89,7 @@ export interface ChoiceRecords {
 /** @category Prompts */
 export interface ChoiceDefinition {
 	title: string
-	value: string | number | boolean
+	value: any
 }
 
 /** @category Prompts */
