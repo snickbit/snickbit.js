@@ -52,13 +52,13 @@ export interface ModelSchemaRecord {
  * @property {string|null} root - Define a root path for the model. All paths/keys will be prefixed with this path unless they are prefixed with a dot ".".
  */
 export interface ModelOptions {
-	id: ModelId
-	name: string
-	autoId: boolean
-	schema: Partial<ModelSchema>
-	strict: boolean
-	timestamps: boolean
-	root: string | null
+	id?: ModelId
+	name?: string
+	autoId?: boolean
+	schema?: Partial<ModelSchema>
+	strict?: boolean
+	timestamps?: boolean
+	root?: string | null
 }
 
 /** @internal */
@@ -87,9 +87,9 @@ export function model(data: object, options?: Partial<ModelOptions>) {
  * @description @snickbit/model
  */
 export class Model {
-	protected options: Partial<ModelOptions> = {}
+	protected options: ModelOptions = {}
 	protected readonly defaults: { [key: string]: ModelValue }
-	protected readonly is_new: boolean
+	protected is_new: boolean
 	protected out: Out
 	protected schema: Partial<ModelSchema>
 	data: ObjectPathBound<object>
