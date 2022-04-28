@@ -32,40 +32,40 @@ Model Options
 
 ### autoId
 
-• **autoId**: `boolean`
+• `Optional` **autoId**: `boolean`
 
 ___
 
 ### id
 
-• **id**: [`ModelId`](../README.md#modelid)
+• `Optional` **id**: [`ModelId`](../README.md#modelid)
 
 ___
 
 ### name
 
-• **name**: `string`
+• `Optional` **name**: `string`
 
 ___
 
 ### root
 
-• **root**: `string`
+• `Optional` **root**: `string`
 
 ___
 
 ### schema
 
-• **schema**: `Partial`<[`ModelSchema`](ModelSchema.md)\>
+• `Optional` **schema**: `Partial`<[`ModelSchema`](ModelSchema.md)\>
 
 ___
 
 ### strict
 
-• **strict**: `boolean`
+• `Optional` **strict**: `boolean`
 
 ___
 
 ### timestamps
 
-• **timestamps**: `boolean`
+• `Optional` **timestamps**: `boolean`
