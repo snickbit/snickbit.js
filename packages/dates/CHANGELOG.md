@@ -1,5 +1,13 @@
 # @snickbit/dates
 
+## 1.0.31
+
+### Patch Changes
+
+- [ef3ba51](https://github.com/snickbit/snickbit.js/commit/ef3ba51) **chore**:  update build config
+- [164874d](https://github.com/snickbit/snickbit.js/commit/164874d) **chore**:  update build config
+
+
 ## 1.0.29
 
 ### Patch Changes

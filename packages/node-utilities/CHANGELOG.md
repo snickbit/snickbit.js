@@ -1,5 +1,14 @@
 # @snickbit/node-utilities
 
+## 4.2.30
+
+### Patch Changes
+
+- [c7fb5bc](https://github.com/snickbit/snickbit.js/commit/c7fb5bc) **docs**:  update
+- [ef3ba51](https://github.com/snickbit/snickbit.js/commit/ef3ba51) **chore**:  update build config
+- [164874d](https://github.com/snickbit/snickbit.js/commit/164874d) **chore**:  update build config
+
+
 ## 4.2.29
 
 ### Patch Changes

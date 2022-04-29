@@ -1,5 +1,13 @@
 # @snickbit/utilities
 
+## 0.0.14
+
+### Patch Changes
+
+- [ef3ba51](https://github.com/snickbit/snickbit.js/commit/ef3ba51) **chore**:  update build config
+- [164874d](https://github.com/snickbit/snickbit.js/commit/164874d) **chore**:  update build config
+
+
 ## 0.0.12
 
 ### Patch Changes
