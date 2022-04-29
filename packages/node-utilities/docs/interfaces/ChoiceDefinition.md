@@ -17,4 +17,4 @@ ___
 
 ### value
 
-• **value**: `string` \| `number` \| `boolean`
+• **value**: `any`

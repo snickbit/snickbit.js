@@ -24,8 +24,6 @@
 - [message](Question.md#message)
 - [min](Question.md#min)
 - [name](Question.md#name)
-- [onRender](Question.md#onrender)
-- [onState](Question.md#onstate)
 - [optionsPerPage](Question.md#optionsperpage)
 - [round](Question.md#round)
 - [separator](Question.md#separator)
@@ -37,6 +35,8 @@
 
 ### Methods
 
+- [onRender](Question.md#onrender)
+- [onState](Question.md#onstate)
 - [suggest](Question.md#suggest)
 
 ## Properties
@@ -149,18 +149,6 @@ ___
 
 ___
 
-### onRender
-
-• **onRender**: [`PromptsFunction`](../README.md#promptsfunction)
-
-___
-
-### onState
-
-• **onState**: [`PromptsFunction`](../README.md#promptsfunction)
-
-___
-
 ### optionsPerPage
 
 • **optionsPerPage**: `number`
@@ -208,6 +196,39 @@ ___
 • **warn**: `string`
 
 ## Methods
+
+### onRender
+
+▸ **onRender**(`this`, `kluer`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `this` | `prompts` |
+| `kluer` | `any` |
+
+#### Returns
+
+`void`
+
+___
+
+### onState
+
+▸ **onState**(`state`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `state` | [`PromptState`](PromptState.md) |
+
+#### Returns
+
+`void`
+
+___
 
 ### suggest
 

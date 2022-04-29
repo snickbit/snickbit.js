@@ -28,6 +28,7 @@
 - [Answers](interfaces/Answers.md)
 - [ChoiceDefinition](interfaces/ChoiceDefinition.md)
 - [ChoiceRecords](interfaces/ChoiceRecords.md)
+- [PromptState](interfaces/PromptState.md)
 - [PromptsLocales](interfaces/PromptsLocales.md)
 - [Question](interfaces/Question.md)
 - [QuestionRecords](interfaces/QuestionRecords.md)

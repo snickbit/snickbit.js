@@ -564,7 +564,7 @@ ___
 
 ### bufferStream
 
-▸ **bufferStream**(`blob`): `Promise`<`Buffer`\>
+▸ **bufferStream**(`readable`): `Promise`<`Buffer`\>
 
 Make a buffer from a file stream
 
@@ -572,31 +572,7 @@ Make a buffer from a file stream
 
 | Name | Type |
 | :------ | :------ |
-| `blob` | `Blob` |
-
-#### Returns
-
-`Promise`<`Buffer`\>
-
-▸ **bufferStream**(`readable`): `Promise`<`Buffer`\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `readable` | `Blob` \| `Readable` \| `ReadableStream`<`any`\> |
-
-#### Returns
-
-`Promise`<`Buffer`\>
-
-▸ **bufferStream**(`readable`): `Promise`<`Buffer`\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `readable` | `ReadableStream`<`any`\> |
+| `readable` | `Readable` |
 
 #### Returns
 
