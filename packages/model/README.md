@@ -1,6 +1,10 @@
 # @snickbit/model
 
+<!--START_SECTION:readmes-description-->
+
 Simple object modeling library based on [object-path](https://github.com/mariocasciaro/object-path)
+
+<!--END_SECTION:readmes-description-->
 
 ## Installation
 
@@ -58,4 +62,4 @@ console.log(person.has('age')); // false
 
 Copyright (c) 2022 - **Nicholas Lowe** aka **Snickbit**
 
-[MIT License](https://github.com/snickbit/snickbit.js/blob/master/LICENSE)
+[MIT License](https://github.com/snickbit/snickbit.js/blob/main/LICENSE)

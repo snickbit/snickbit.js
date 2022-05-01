@@ -11,20 +11,29 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![Issues][issues-shield]][issues-url]
 
+<!--START_SECTION:readmes-toc-->
 ## Table of Contents
+
 * [Libraries](#libraries)
-	- [@snickbit/cycle](#cycle)
-	- [@snickbit/node-utilities](#node-utilities)
-	- [@snickbit/utilities](#utilities)
+	- [@snickbit/cycle](#snickbit-cycle)
+	- [@snickbit/dates](#snickbit-dates)
+	- [@snickbit/model](#snickbit-model)
+	- [@snickbit/node-utilities](#snickbit-node-utilities)
+	- [@snickbit/queue](#snickbit-queue)
+	- [@snickbit/upwords](#snickbit-upwords)
+	- [@snickbit/utilities](#snickbit-utilities)
 * [CLIs](#clis)
-	- [snickbit](#snickbit)
-* [License](#license)
+	- [npx snickbit](#npx-snickbit)
+
+<!--END_SECTION:readmes-toc-->
 
 ---
 
+<!--START_SECTION:readmes-packages-->
+
 ## Libraries
 
-<div id="cycle">
+<div id="@snickbit/cycle">
 	<h3>
 		<a href="https://github.com/snickbit/snickbit.js/tree/main/packages/cycle">
 			@snickbit/cycle
@@ -32,9 +41,35 @@
 	</h3>
 </div>
 
-Helper function and class to cycle through an array of values.
+Helper function and class to cycle through an array of values
 
-<div id="node-utilities">
+
+
+<div id="@snickbit/dates">
+	<h3>
+		<a href="https://github.com/snickbit/snickbit.js/tree/main/packages/dates">
+			@snickbit/dates
+		</a>
+	</h3>
+</div>
+
+Extended Date and Time functionality for Dayjs
+
+
+
+<div id="@snickbit/model">
+	<h3>
+		<a href="https://github.com/snickbit/snickbit.js/tree/main/packages/model">
+			@snickbit/model
+		</a>
+	</h3>
+</div>
+
+Simple object modeling library based on [object-path](https://github.com/mariocasciaro/object-path)
+
+
+
+<div id="@snickbit/node-utilities">
 	<h3>
 		<a href="https://github.com/snickbit/snickbit.js/tree/main/packages/node-utilities">
 			@snickbit/node-utilities
@@ -44,7 +79,33 @@ Helper function and class to cycle through an array of values.
 
 This is a collection of helper functions for Node.js. Some of these are just wrappers of other libraries with more intuitive APIs.
 
-<div id="utilities">
+
+
+<div id="@snickbit/queue">
+	<h3>
+		<a href="https://github.com/snickbit/snickbit.js/tree/main/packages/queue">
+			@snickbit/queue
+		</a>
+	</h3>
+</div>
+
+Simple function queueing & throttling
+
+
+
+<div id="@snickbit/upwords">
+	<h3>
+		<a href="https://github.com/snickbit/snickbit.js/tree/main/packages/upwords">
+			@snickbit/upwords
+		</a>
+	</h3>
+</div>
+
+Helper function to convert a string to title case, attempting to preserve acronyms and special case words like "of" and "iPhone".
+
+
+
+<div id="@snickbit/utilities">
 	<h3>
 		<a href="https://github.com/snickbit/snickbit.js/tree/main/packages/utilities">
 			@snickbit/utilities
@@ -52,19 +113,22 @@ This is a collection of helper functions for Node.js. Some of these are just wra
 	</h3>
 </div>
 
-A library of basic helper functions with very few dependencies.
+This is a collection of basic helper functions with very minimal dependencies.
 
 ## CLIs
 
-<div id="snickbit">
+<div id="npx snickbit">
 	<h3>
-		<a href="https://github.com/snickbit/snickbit.js/tree/main/packages/snickbit">
-			snickbit
+		<a href="https://github.com/snickbit/snickbit.js/tree/main/clis/snickbit">
+			npx snickbit
 		</a>
 	</h3>
 </div>
 
 My personal npx business card
+
+
+<!--END_SECTION:readmes-packages-->
 
 ## License
 

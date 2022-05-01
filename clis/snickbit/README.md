@@ -1,6 +1,10 @@
 # npx snickbit
 
+<!--START_SECTION:readmes-description-->
+
 My personal npx business card
+
+<!--END_SECTION:readmes-description-->
 
 ## Usage
 

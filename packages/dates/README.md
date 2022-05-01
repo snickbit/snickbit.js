@@ -1,6 +1,10 @@
 # @snickbit/dates
 
+<!--START_SECTION:readmes-description-->
+
 Extended Date and Time functionality for Dayjs
+
+<!--END_SECTION:readmes-description-->
 
 ## Installation
 
@@ -37,4 +41,4 @@ console.log(duration.toWords(true)) // '2 seconds' - consult the docs for more o
 
 Copyright (c) 2022 - **Nicholas Lowe** aka **Snickbit**
 
-[MIT License](https://github.com/snickbit/snickbit.js/blob/master/LICENSE)
+[MIT License](https://github.com/snickbit/snickbit.js/blob/main/LICENSE)

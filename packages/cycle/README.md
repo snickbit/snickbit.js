@@ -1,6 +1,10 @@
 # @snickbit/cycle
 
+<!--START_SECTION:readmes-description-->
+
 Helper function and class to cycle through an array of values
+
+<!--END_SECTION:readmes-description-->
 
 ## Installation
 
@@ -204,4 +208,4 @@ const hexColorCycle = new Cycle('hex')
 
 Copyright (c) 2022 - **Nicholas Lowe** aka **Snickbit**
 
-[MIT License](https://github.com/snickbit/snickbit.js/blob/master/LICENSE)
+[MIT License](https://github.com/snickbit/snickbit.js/blob/main/LICENSE)

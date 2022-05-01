@@ -1,6 +1,10 @@
 # @snickbit/node-utilities
 
+<!--START_SECTION:readmes-description-->
+
 This is a collection of helper functions for Node.js. Some of these are just wrappers of other libraries with more intuitive APIs.
+
+<!--END_SECTION:readmes-description-->
 
 ## Installation
 
@@ -22,4 +26,4 @@ npm add @snickbit/node-utilities
 
 Copyright (c) 2022 - **Nicholas Lowe** aka **Snickbit**
 
-[MIT License](https://github.com/snickbit/snickbit.js/blob/master/LICENSE)
+[MIT License](https://github.com/snickbit/snickbit.js/blob/main/LICENSE)

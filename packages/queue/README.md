@@ -1,6 +1,10 @@
 # @snickbit/queue
 
+<!--START_SECTION:readmes-description-->
+
 Simple function queueing & throttling
+
+<!--END_SECTION:readmes-description-->
 
 ## Installation
 
@@ -45,4 +49,4 @@ await Promise.all(promises)
 
 Copyright (c) 2022 - **Nicholas Lowe** aka **Snickbit**
 
-[MIT License](https://github.com/snickbit/snickbit.js/blob/master/LICENSE)
+[MIT License](https://github.com/snickbit/snickbit.js/blob/main/LICENSE)
