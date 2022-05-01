@@ -1,5 +1,12 @@
 # @snickbit/dates
 
+## 1.0.32
+
+### Patch Changes
+
+- [8a65a3c](https://github.com/snickbit/snickbit.js/commit/8a65a3c) **chore**:  update dependencies
+
+
 ## 1.0.31
 
 ### Patch Changes

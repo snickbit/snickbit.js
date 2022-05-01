@@ -1,6 +1,6 @@
 {
 	"name": "@snickbit/model",
-	"version": "1.0.33",
+	"version": "1.0.34",
 	"description": "Simple object modeling library",
 	"license": "MIT",
 	"main": "./dist/index.js",
@@ -28,7 +28,7 @@
 		"depcheck": "depcheck"
 	},
 	"dependencies": {
-		"@snickbit/out": "^2.0.17",
+		"@snickbit/out": "^2.0.18",
 		"@snickbit/utilities": "^3.0.14",
 		"object-path": "^0.11.8"
 	},
