@@ -34,5 +34,7 @@ export default [
 	'vs',
 	'CWD',
 	'PID',
-	'USD'
+	'USD',
+	'CLI',
+	'CLIs'
 ]
