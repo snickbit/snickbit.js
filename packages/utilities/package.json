@@ -34,7 +34,7 @@
 		"pluralize": "^8.0.0"
 	},
 	"devDependencies": {
-		"@remedyred/indexer": "^2.0.74",
+		"@remedyred/indexer": "^2.0.77",
 		"@types/jest": "^27.4.1",
 		"jest": "^27.5.1",
 		"shx": "^0.3.4",

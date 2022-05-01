@@ -29,7 +29,7 @@
 		"watch": "npm run build --watch"
 	},
 	"dependencies": {
-		"@snickbit/utilities": "^3.0.9",
+		"@snickbit/utilities": "^3.0.14",
 		"typedoc": "^0.22.15",
 		"typedoc-plugin-markdown": "^3.12.0"
 	},
