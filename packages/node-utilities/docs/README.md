@@ -71,6 +71,11 @@
 
 - [beforeExit](README.md#beforeexit)
 
+### Buffer Functions
+
+- [bufferStream](README.md#bufferstream)
+- [makeBuffer](README.md#makebuffer)
+
 ### Environment Functions
 
 - [interpolateEnv](README.md#interpolateenv)
@@ -290,6 +295,44 @@ Add a function to be called before the process exits.
 #### Returns
 
 `void`
+
+___
+
+## Buffer Functions
+
+### bufferStream
+
+▸ **bufferStream**(`readable`): `Promise`<`Buffer`\>
+
+Make a buffer from a file stream
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `readable` | `Readable` |
+
+#### Returns
+
+`Promise`<`Buffer`\>
+
+___
+
+### makeBuffer
+
+▸ **makeBuffer**(`content`): `Buffer`
+
+Make a buffer from a string.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `content` | `string` |
+
+#### Returns
+
+`Buffer`
 
 ___
 

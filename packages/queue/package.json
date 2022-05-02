@@ -20,7 +20,7 @@
 	"scripts": {
 		"clean": "shx rm -rf ./dist ",
 		"depcheck": "depcheck",
-		"test": "jest --passWithNoTests",
+		"test": "jest",
 		"build": "tsup",
 		"meta": "npm run prod -- --metafile",
 		"watch": "npm run build -- --watch",
@@ -28,14 +28,14 @@
 		"docs": "typedoc"
 	},
 	"dependencies": {
-		"@snickbit/utilities": "^3.0.14",
+		"@snickbit/utilities": "^3.0.16",
 		"denque": "^2.0.1"
 	},
 	"devDependencies": {
 		"@types/jest": "^27.4.1",
-		"ts-jest": "^27.1.4",
 		"jest": "^27.5.1",
 		"shx": "^0.3.4",
+		"ts-jest": "^27.1.4",
 		"tsup": "^5.12.6",
 		"typedoc": "^0.22.15",
 		"typedoc-plugin-markdown": "^3.12.0",

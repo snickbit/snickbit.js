@@ -12,8 +12,11 @@
 [![Issues][issues-shield]][issues-url]
 
 <!--START_SECTION:readmes-toc-->
+
 ## Table of Contents
 
+* [CLIs](#clis)
+	- [npx snickbit](#npx-snickbit)
 * [Libraries](#libraries)
 	- [@snickbit/cycle](#snickbit-cycle)
 	- [@snickbit/dates](#snickbit-dates)
@@ -22,14 +25,24 @@
 	- [@snickbit/queue](#snickbit-queue)
 	- [@snickbit/upwords](#snickbit-upwords)
 	- [@snickbit/utilities](#snickbit-utilities)
-* [CLIs](#clis)
-	- [npx snickbit](#npx-snickbit)
 
 <!--END_SECTION:readmes-toc-->
 
 ---
 
 <!--START_SECTION:readmes-packages-->
+
+## CLIs
+
+<div id="npx snickbit">
+	<h3>
+		<a href="https://github.com/snickbit/snickbit.js/tree/main/clis/snickbit">
+			npx snickbit
+		</a>
+	</h3>
+</div>
+
+My personal npx business card
 
 ## Libraries
 
@@ -114,18 +127,6 @@ Helper function to convert a string to title case, attempting to preserve acrony
 </div>
 
 This is a collection of basic helper functions with very minimal dependencies.
-
-## CLIs
-
-<div id="npx snickbit">
-	<h3>
-		<a href="https://github.com/snickbit/snickbit.js/tree/main/clis/snickbit">
-			npx snickbit
-		</a>
-	</h3>
-</div>
-
-My personal npx business card
 
 
 <!--END_SECTION:readmes-packages-->

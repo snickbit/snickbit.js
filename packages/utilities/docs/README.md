@@ -60,11 +60,6 @@
 - [arrayWrap](README.md#arraywrap)
 - [isSingle](README.md#issingle)
 
-### Buffer Functions
-
-- [bufferStream](README.md#bufferstream)
-- [makeBuffer](README.md#makebuffer)
-
 ### Functions Functions
 
 - [functionClone](README.md#functionclone)
@@ -557,44 +552,6 @@ Checks if the given array only contains a single value, optionally pass a value 
 #### Returns
 
 `boolean`
-
-___
-
-## Buffer Functions
-
-### bufferStream
-
-▸ **bufferStream**(`readable`): `Promise`<`Buffer`\>
-
-Make a buffer from a file stream
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `readable` | `Readable` |
-
-#### Returns
-
-`Promise`<`Buffer`\>
-
-___
-
-### makeBuffer
-
-▸ **makeBuffer**(`content`): `Buffer`
-
-Make a buffer from a string.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `content` | `string` |
-
-#### Returns
-
-`Buffer`
 
 ___
 
