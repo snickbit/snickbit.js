@@ -16,4 +16,4 @@ npx snickbit
 
 Copyright (c) 2022 - **Nicholas Lowe** aka **Snickbit**
 
-[MIT License](https://github.com/snickbit/snickbit.js/blob/master/LICENSE)
+[MIT License](https://github.com/snickbit/snickbit.js/blob/main/LICENSE)
