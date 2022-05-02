@@ -21,10 +21,10 @@
 		"clean": "shx rm -rf ./dist",
 		"test": "jest",
 		"build": "tsup",
-		"meta": "npm run prod --metafile",
-		"prod": "npm run build --minify",
+		"meta": "npm run prod -- --metafile",
+		"prod": "npm run build -- --minify",
 		"depcheck": "depcheck",
-		"watch": "npm run build --watch"
+		"watch": "npm run build -- --watch"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.17.9",

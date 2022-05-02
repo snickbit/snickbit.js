@@ -24,9 +24,9 @@
 		"docs": "typedoc",
 		"depcheck": "depcheck",
 		"build": "tsup",
-		"meta": "npm run prod --metafile",
-		"prod": "npm run build --minify",
-		"watch": "npm run build --watch"
+		"meta": "npm run prod -- --metafile",
+		"prod": "npm run build -- --minify",
+		"watch": "npm run build -- --watch"
 	},
 	"dependencies": {
 		"@snickbit/utilities": "^3.0.14",

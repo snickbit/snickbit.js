@@ -22,9 +22,9 @@
 		"depcheck": "depcheck",
 		"test": "jest --passWithNoTests",
 		"build": "tsup",
-		"meta": "npm run prod --metafile",
-		"watch": "npm run build --watch",
-		"prod": "npm run clean && npm run build --minify",
+		"meta": "npm run prod -- --metafile",
+		"watch": "npm run build -- --watch",
+		"prod": "npm run clean && npm run build -- --minify",
 		"docs": "typedoc"
 	},
 	"dependencies": {
