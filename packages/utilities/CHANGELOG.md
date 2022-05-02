@@ -1,5 +1,14 @@
 # @snickbit/utilities
 
+## 3.0.16
+
+### Patch Changes
+
+- [db8b5a7](https://github.com/snickbit/snickbit.js/commit/db8b5a7) **fix**:  remove buffer helper to maintain full browser compatibility
+- [b61521a](https://github.com/snickbit/snickbit.js/commit/b61521a) **chore**:  update build config
+- [67a87da](https://github.com/snickbit/snickbit.js/commit/67a87da) **docs**:  update
+
+
 ## 3.0.15
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @snickbit/node-utilities
 
+## 4.2.32
+
+### Patch Changes
+
+- [e670dbc](https://github.com/snickbit/snickbit.js/commit/e670dbc) **feat**:  add bufferStream and makeBuffer helper functions, previously from @snickbit/utilities
+- [a1b37df](https://github.com/snickbit/snickbit.js/commit/a1b37df) **chore**:  update dependencies
+- [b61521a](https://github.com/snickbit/snickbit.js/commit/b61521a) **chore**:  update build config
+- [67a87da](https://github.com/snickbit/snickbit.js/commit/67a87da) **docs**:  update
+
+
 ## 4.2.31
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @snickbit/model
 
+## 1.0.35
+
+### Patch Changes
+
+- [b61521a](https://github.com/snickbit/snickbit.js/commit/b61521a) **chore**:  update build config
+- [67a87da](https://github.com/snickbit/snickbit.js/commit/67a87da) **docs**:  update
+
+
 ## 1.0.34
 
 ### Patch Changes
