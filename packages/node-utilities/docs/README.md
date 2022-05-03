@@ -18,6 +18,7 @@
 ### Imports Interfaces
 
 - [ImportDefinition](interfaces/ImportDefinition.md)
+- [ParsedImport](interfaces/ParsedImport.md)
 
 ### Progress Interfaces
 
@@ -39,7 +40,6 @@
 
 ### Imports Type aliases
 
-- [ImportRecord](README.md#importrecord)
 - [ImportRecords](README.md#importrecords)
 - [RecordOfImportRecords](README.md#recordofimportrecords)
 
@@ -47,6 +47,7 @@
 
 - [AnyFunction](README.md#anyfunction)
 - [IObject](README.md#iobject)
+- [ParsedImportRecords](README.md#parsedimportrecords)
 - [PromptType](README.md#prompttype)
 - [PromptsFunction](README.md#promptsfunction)
 - [PromptsPromise](README.md#promptspromise)
@@ -96,6 +97,8 @@
 
 ### Imports Functions
 
+- [isImport](README.md#isimport)
+- [isImportDefinition](README.md#isimportdefinition)
 - [parseImports](README.md#parseimports)
 
 ### Modules Functions
@@ -118,15 +121,9 @@
 
 ## Imports Type aliases
 
-### ImportRecord
-
-Ƭ **ImportRecord**: `Record`<`string`, [`AnyFunction`](README.md#anyfunction)\>
-
-___
-
 ### ImportRecords
 
-Ƭ **ImportRecords**: `Record`<`string`, [`ImportDefinition`](interfaces/ImportDefinition.md)\>
+Ƭ **ImportRecords**: `Record`<`string`, [`ImportDefinition`](interfaces/ImportDefinition.md) \| [`AnyFunction`](README.md#anyfunction)\>
 
 ___
 
@@ -165,6 +162,12 @@ ___
 #### Index signature
 
 ▪ [key: `string`]: `any`
+
+___
+
+### ParsedImportRecords
+
+Ƭ **ParsedImportRecords**: `Record`<`string`, [`ParsedImport`](interfaces/ParsedImport.md)\>
 
 ___
 
@@ -548,9 +551,41 @@ ___
 
 ## Imports Functions
 
+### isImport
+
+▸ **isImport**(`data`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `data` | `any` |
+
+#### Returns
+
+`boolean`
+
+___
+
+### isImportDefinition
+
+▸ **isImportDefinition**(`data`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `data` | `any` |
+
+#### Returns
+
+`boolean`
+
+___
+
 ### parseImports
 
-▸ **parseImports**(`imports`, `parent?`): [`ImportRecord`](README.md#importrecord)
+▸ **parseImports**(`imports`, `parent?`): [`ParsedImportRecords`](README.md#parsedimportrecords)
 
 Parse imports from `import * as name from 'path'` statements into a more manageable format.
 
@@ -563,7 +598,7 @@ Parse imports from `import * as name from 'path'` statements into a more managea
 
 #### Returns
 
-[`ImportRecord`](README.md#importrecord)
+[`ParsedImportRecords`](README.md#parsedimportrecords)
 
 ___
 
