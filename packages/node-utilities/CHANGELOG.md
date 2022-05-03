@@ -1,5 +1,17 @@
 # @snickbit/node-utilities
 
+## 4.2.33
+
+### Patch Changes
+
+- [0c63eaf](https://github.com/snickbit/snickbit.js/commit/0c63eaf) **build**:  migrate to nx
+- [9447fbc](https://github.com/snickbit/snickbit.js/commit/9447fbc) **feat**(node-utilities):  add descriptions to parsed imports
+- [c808d21](https://github.com/snickbit/snickbit.js/commit/c808d21) **feat**(node-utilities):  adjust type definition for parseImports
+- [6c92d3f](https://github.com/snickbit/snickbit.js/commit/6c92d3f) **fix**(node-utilities):  parseImports return type
+- [9e06203](https://github.com/snickbit/snickbit.js/commit/9e06203) **feat**(node-utilities):  export isImport and isImportDefinition helpers
+- [447e7b0](https://github.com/snickbit/snickbit.js/commit/447e7b0) **docs**:  update chore: update dependencies chore: adjust configurations
+
+
 ## 4.2.32
 
 ### Patch Changes

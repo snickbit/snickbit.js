@@ -1,5 +1,15 @@
 # @snickbit/model
 
+## 1.0.36
+
+### Patch Changes
+
+- [0c63eaf](https://github.com/snickbit/snickbit.js/commit/0c63eaf) **build**:  migrate to nx
+- [474324c](https://github.com/snickbit/snickbit.js/commit/474324c) **docs**(model):  update
+- [8f2782b](https://github.com/snickbit/snickbit.js/commit/8f2782b) **fix**(model):  adjust type definition
+- [447e7b0](https://github.com/snickbit/snickbit.js/commit/447e7b0) **docs**:  update chore: update dependencies chore: adjust configurations
+
+
 ## 1.0.35
 
 ### Patch Changes

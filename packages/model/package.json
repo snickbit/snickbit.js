@@ -1,6 +1,6 @@
 {
 	"name": "@snickbit/model",
-	"version": "1.0.35",
+	"version": "1.0.36",
 	"description": "Simple object modeling library",
 	"license": "MIT",
 	"main": "./dist/index.js",
