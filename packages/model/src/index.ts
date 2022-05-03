@@ -35,10 +35,10 @@ export type ModelValidationMethod = (key: string, value: ModelValue) => boolean
  */
 export interface ModelSchemaRecord {
 	type: VariableType | VariableType[]
-	default: ModelValue
-	required: boolean
-	message: string
-	validate: ModelValidationMethod
+	default?: ModelValue
+	required?: boolean
+	message?: string
+	validate?: ModelValidationMethod
 }
 
 /**
