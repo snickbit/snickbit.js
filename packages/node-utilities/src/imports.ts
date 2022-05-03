@@ -1,12 +1,10 @@
 import {isObject, objectExcept} from '@snickbit/utilities'
 
-/**
- * @internal
- */
-const isImport = (data: any) => typeof data === 'function' || data?.constructor.name === 'AsyncFunction' || Array.isArray(data)
+/** @category Imports */
+export const isImport = (data: any) => typeof data === 'function' || data?.constructor.name === 'AsyncFunction' || Array.isArray(data)
 
-/** @internal */
-const isImportDefinition = (data: any) => 'run' in data || 'handler' in data || 'default' in data
+/** @category Imports */
+export const isImportDefinition = (data: any) => 'run' in data || 'handler' in data || 'default' in data
 
 export type AnyFunction = (...args: any[]) => any
 
