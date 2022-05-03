@@ -26,19 +26,19 @@ Model Schema Record
 
 ### default
 
-• **default**: `any`
+• `Optional` **default**: `any`
 
 ___
 
 ### message
 
-• **message**: `string`
+• `Optional` **message**: `string`
 
 ___
 
 ### required
 
-• **required**: `boolean`
+• `Optional` **required**: `boolean`
 
 ___
 
@@ -50,4 +50,4 @@ ___
 
 ### validate
 
-• **validate**: [`ModelValidationMethod`](../README.md#modelvalidationmethod)
+• `Optional` **validate**: [`ModelValidationMethod`](../README.md#modelvalidationmethod)
