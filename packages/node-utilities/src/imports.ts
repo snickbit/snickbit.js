@@ -16,6 +16,8 @@ export type IObject = {
 export interface ImportDefinition {
 	default: IObject | AnyFunction | Array<any>
 	name?: string
+	description?: string
+	describe?: string
 
 	[key: string]: any
 
@@ -50,6 +52,7 @@ export function parseImports(imports: ImportRecords | RecordOfImportRecords, par
 			const subImportName = data.name || importName
 			const t = isObject(data) ? objectExcept(data, ['run', 'handler', 'default']) : {}
 			t.name = parent_name ? `${parent_name}:${subImportName}` : subImportName
+			t.description = t.description || t.describe
 			t.handler = data.run || data.handler || data.default || data
 			importRecords[t.name] = t
 		} else {
