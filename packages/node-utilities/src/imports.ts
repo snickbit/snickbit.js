@@ -28,11 +28,20 @@ export type ImportRecords = Record<string, ImportDefinition | AnyFunction>
 /** @category Imports */
 export type RecordOfImportRecords = Record<string, ImportRecords>
 
+/** @category Imports */
+export interface ParsedImport {
+	name: string
+	description?: string
+	handler: AnyFunction
+}
+
+export type ParsedImportRecords = Record<string, ParsedImport>
+
 /**
  * Parse imports from `import * as name from 'path'` statements into a more manageable format.
  * @category Imports
  */
-export function parseImports(imports: ImportRecords | RecordOfImportRecords, parent?: string): ImportRecords {
+export function parseImports(imports: ImportRecords | RecordOfImportRecords, parent?: string): ParsedImportRecords {
 	const importRecords = {}
 	for (const [importItem, data] of Object.entries(imports)) {
 		const parent_name = parent ? parent : ''
