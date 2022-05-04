@@ -1,5 +1,13 @@
 # @snickbit/dates
 
+## 1.0.34
+
+### Patch Changes
+
+- [0c63eaf](https://github.com/snickbit/snickbit.js/commit/0c63eaf) **build**:  migrate to nx
+- [447e7b0](https://github.com/snickbit/snickbit.js/commit/447e7b0) **docs**:  update chore: update dependencies chore: adjust configurations
+
+
 ## 1.0.33
 
 ### Patch Changes
