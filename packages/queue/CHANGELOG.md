@@ -1,5 +1,14 @@
 # @snickbit/queue Changelog
 
+## 0.0.3
+
+### Patch Changes
+
+- [c6f76f8](https://github.com/snickbit/snickbit.js/commit/c6f76f8) **build**:  add dev watcher scripts with source maps
+- [0c63eaf](https://github.com/snickbit/snickbit.js/commit/0c63eaf) **build**:  migrate to nx
+- [447e7b0](https://github.com/snickbit/snickbit.js/commit/447e7b0) **docs**:  update chore: update dependencies chore: adjust configurations
+
+
 ## 0.0.2
 
 ### Patch Changes
