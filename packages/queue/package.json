@@ -23,7 +23,8 @@
 		"test": "jest",
 		"build": "tsup",
 		"meta": "npm run prod -- --metafile",
-		"watch": "npm run build -- --watch",
+		"dev": "npm run build -- --sourcemap",
+		"watch": "npm run dev -- --watch",
 		"prod": "npm run clean && npm run build -- --minify",
 		"docs": "typedoc"
 	},
