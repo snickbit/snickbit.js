@@ -28,6 +28,9 @@ export interface QueueConfiguration {
 	 */
 	strategy: 'dynamic' | 'chunked'
 
+	/** `true` to the queue immediately, or `false` to wait for `run()` to be called. Default is `true` */
+	autoStart: boolean
+
 	/** @internal */
 	throttle: boolean
 }

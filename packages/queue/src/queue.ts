@@ -37,7 +37,8 @@ const defaultOptions: QueueConfiguration = {
 	strict: false,
 	abortOnError: false,
 	strategy: 'dynamic',
-	throttle: false
+	throttle: false,
+	autoStart: true
 }
 
 export class Queue {
@@ -50,6 +51,7 @@ export class Queue {
 	private queue: DynamicCyclicQueue | ChunkedQueue
 	private aborted = false
 	private processes = 0
+	private process: QueuePromise<any>
 	private handlers: QueueHandlers = {
 		then: null,
 		thenEach: null,
@@ -290,6 +292,11 @@ export class Queue {
 
 		this.tasks++
 		this.queue.enqueue(taskDefinition)
+
+		if (this.options.autoStart) {
+			this.run()
+		}
+
 		return this
 	}
 
@@ -366,37 +373,40 @@ export class Queue {
 	 * Run your queue.
 	 */
 	run(): QueuePromise<any> {
-		return new QueuePromise(async (resolve, reject) => {
-			this.#reject = reject
-			this.processes = 0
-			const processQueue = async () => {
-				const promises = []
-				for (let task of this.queue.drainingIterator()) {
+		if (!this.process) {
+			this.process = new QueuePromise(async (resolve, reject) => {
+				this.#reject = reject
+				this.processes = 0
+				const processQueue = async () => {
+					const promises = []
+					for (let task of this.queue.drainingIterator()) {
+						if (this.aborted) {
+							break
+						}
+						if (this.options.concurrency >= 0 && this.processes >= this.options.concurrency) {
+							// wait for the next promise to finish
+							await this.wait()
+						}
+
+						this.processes++
+						promises.push(this.executeTask(task))
+					}
+
+					// Wait for all processes to finish
+					await Promise.all(promises)
+				}
+
+				while (this.queue.size() > 0) {
 					if (this.aborted) {
 						break
 					}
-					if (this.options.concurrency >= 0 && this.processes >= this.options.concurrency) {
-						// wait for the next promise to finish
-						await this.wait()
-					}
-
-					this.processes++
-					promises.push(this.executeTask(task))
+					await processQueue()
 				}
 
-				// Wait for all processes to finish
-				await Promise.all(promises)
-			}
-
-			while (this.queue.size() > 0) {
-				if (this.aborted) {
-					break
-				}
-				await processQueue()
-			}
-
-			resolve(this.#results)
-		}, this)
+				resolve(this.#results)
+			}, this)
+		}
+		return this.process
 	}
 
 	/**
