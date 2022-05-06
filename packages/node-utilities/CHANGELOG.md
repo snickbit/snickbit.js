@@ -1,5 +1,18 @@
 # @snickbit/node-utilities
 
+## 4.3.0
+
+### Minor Changes
+
+- [f50e3a9](https://github.com/snickbit/snickbit.js/commit/f50e3a9) **docs**:  update
+- [29c0d61](https://github.com/snickbit/snickbit.js/commit/29c0d61) **fix**:  add MultiProgressChildConfig type definition and re-declare the options
+- [8ab4a9e](https://github.com/snickbit/snickbit.js/commit/8ab4a9e) **fix**:  simplify ProgressOptions type definition
+- [ccca54c](https://github.com/snickbit/snickbit.js/commit/ccca54c) **feat**:  autostart progress by default, add option to disable
+- [cf54186](https://github.com/snickbit/snickbit.js/commit/cf54186) **fix**:  cleanup code and adjust type definitions
+- [c0d828f](https://github.com/snickbit/snickbit.js/commit/c0d828f) **feat**:  expand tick method with overloads
+- [c6f76f8](https://github.com/snickbit/snickbit.js/commit/c6f76f8) **build**:  add dev watcher scripts with source maps
+
+
 ## 4.2.33
 
 ### Patch Changes
