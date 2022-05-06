@@ -6,6 +6,7 @@ import cliProgress, {SingleBar} from 'cli-progress'
 /** @category Progress */
 export interface ProgressOptions {
 	name?: string
+	autoStart: boolean
 	message: string
 	valueFormat: string
 	total: number
@@ -99,6 +100,9 @@ export class Progress {
 		this.out = this.options.out || out.prefix(this.options.name || 'progress', 1)
 		this.options.config.formatValue = this.#formatValue.bind(this)
 		this.#create()
+		if (this.options.autoStart) {
+			this.start()
+		}
 	}
 
 	#create(): this {
