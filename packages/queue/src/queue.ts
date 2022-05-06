@@ -46,7 +46,7 @@ export class Queue {
 	}
 	private stopped: boolean
 	private tasks = 0
-	#results: any[]
+	#results: any[] = []
 	private queue: DynamicCyclicQueue | ChunkedQueue
 	private aborted = false
 	private processes = 0
