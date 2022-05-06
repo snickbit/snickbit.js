@@ -80,11 +80,11 @@ ___
 
 ### pending
 
-• `get` **pending**(): `number`
+• `get` **pending**(): `any`
 
 #### Returns
 
-`number`
+`any`
 
 ## Methods
 

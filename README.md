@@ -102,7 +102,7 @@ This is a collection of helper functions for Node.js. Some of these are just wra
 	</h3>
 </div>
 
-Simple function queueing & throttling
+Fluid queueing library for any function or promise
 
 
 
