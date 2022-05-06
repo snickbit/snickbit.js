@@ -88,8 +88,10 @@ export interface MultiProgressChildConfig extends ProgressConfig {
 export type MultiProgressChildOptions = Partial<MultiProgressChildConfig>
 
 
-/** @category Progress */
-class MultiProgressChild extends Progress {
+/**
+ * @internal
+ */
+export class MultiProgressChild extends Progress {
 	id: string
 	declare options: MultiProgressChildConfig
 
