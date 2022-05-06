@@ -376,11 +376,6 @@ export class Queue {
 						break
 					}
 					if (this.options.concurrency >= 0 && this.processes >= this.options.concurrency) {
-						console.log('Queue is at capacity, waiting for next processes to finish...', {
-							processes: this.processes,
-							concurrency: this.options.concurrency
-						})
-
 						// wait for the next promise to finish
 						await this.wait()
 					}
