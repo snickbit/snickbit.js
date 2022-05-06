@@ -1,5 +1,17 @@
 # @snickbit/queue Changelog
 
+## 1.0.0
+
+### Major Changes
+
+- [9bdab2f](https://github.com/snickbit/snickbit.js/commit/9bdab2f) **docs**:  update
+- [57f24cc](https://github.com/snickbit/snickbit.js/commit/57f24cc) **test**:  fix test by resetting static defaults after each config test
+- [bc3ac39](https://github.com/snickbit/snickbit.js/commit/bc3ac39) **test**:  reduce test time
+- [8d8c4e1](https://github.com/snickbit/snickbit.js/commit/8d8c4e1) **fix**:  initialize results array
+- [abe71ff](https://github.com/snickbit/snickbit.js/commit/abe71ff) **chore**:  rename test file
+- [c2268c9](https://github.com/snickbit/snickbit.js/commit/c2268c9) **feat**(queue):  completely rewrite using classes and a more expressive api
+
+
 ## 0.0.3
 
 ### Patch Changes
