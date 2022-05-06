@@ -1,5 +1,13 @@
 # @snickbit/node-utilities
 
+## 4.3.2
+
+### Patch Changes
+
+- [2590641](https://github.com/snickbit/snickbit.js/commit/2590641) **fix**:  export MultiProgressChild
+- [d4a042e](https://github.com/snickbit/snickbit.js/commit/d4a042e) **chore**:  update dependencies
+
+
 ## 4.3.1
 
 ### Patch Changes
