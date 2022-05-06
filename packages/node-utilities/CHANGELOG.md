@@ -1,5 +1,14 @@
 # @snickbit/node-utilities
 
+## 4.3.1
+
+### Patch Changes
+
+- [30b4883](https://github.com/snickbit/snickbit.js/commit/30b4883) **docs**:  update
+- [9d308cd](https://github.com/snickbit/snickbit.js/commit/9d308cd) **feat**:  add helper method for setting message
+- [1fc998a](https://github.com/snickbit/snickbit.js/commit/1fc998a) **feat**:  add set method to set current value of progress bar
+
+
 ## 4.3.0
 
 ### Minor Changes
