@@ -129,7 +129,24 @@ export class Progress {
 	/**
 	 * Tick the progress
 	 */
-	tick(value = 1, payload?: object): this {
+	tick(payload: ProgressPayload): this;
+	tick(value: number, payload?: ProgressPayload): this
+	tick(message: string, payload?: ProgressPayload): this
+	tick(valueMessageOrPayload: string | number | ProgressPayload, payload?: ProgressPayload): this {
+		let value = 1
+
+		if (typeof valueMessageOrPayload === 'object') {
+			payload = valueMessageOrPayload
+			if ('value' in payload) {
+				value = payload.value
+				delete payload.value
+			}
+		} else if (typeof valueMessageOrPayload === 'string') {
+			payload = {message: valueMessageOrPayload, ...(payload || {})}
+		} else if (typeof valueMessageOrPayload === 'number') {
+			value = valueMessageOrPayload
+		}
+
 		if (this.bar) this.bar.increment(value, payload)
 		if (payload) {
 			this.out.verbose(`Increment progress by ${value} and payload to:`, payload)
