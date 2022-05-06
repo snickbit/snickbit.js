@@ -45,5 +45,5 @@ export type QueueTaskFunction = () => QueueTaskPromise | any
 export type QueueTask = QueueTaskPromise | QueueTaskFunction
 
 export type ThenCallback = (result: any) => any | Promise<any>
-export type FinallyCallback = () => void | Promise<void>
+export type FinallyCallback = () => any | Promise<any>
 export type CatchCallback = (error: QueueException) => any | Promise<any>
