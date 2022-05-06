@@ -1,6 +1,6 @@
 {
 	"name": "@snickbit/queue",
-	"description": "Simple function queueing & throttling",
+	"description": "Fluid queueing library for any function or promise",
 	"version": "0.0.3",
 	"license": "MIT",
 	"main": "./dist/index.js",
@@ -26,13 +26,15 @@
 		"dev": "npm run build -- --sourcemap",
 		"watch": "npm run dev -- --watch",
 		"prod": "npm run clean && npm run build -- --minify",
+		"index": "indexer src",
 		"docs": "typedoc"
 	},
 	"dependencies": {
 		"@snickbit/utilities": "^3.0.16",
-		"denque": "^2.0.1"
+		"lite-fifo": "^0.2.2"
 	},
 	"devDependencies": {
+		"@remedyred/indexer": "^2.0.79",
 		"@types/jest": "^27.4.1",
 		"jest": "^27.5.1",
 		"shx": "^0.3.4",
@@ -40,6 +42,7 @@
 		"tsup": "^5.12.6",
 		"typedoc": "^0.22.15",
 		"typedoc-plugin-markdown": "^3.12.0",
+		"typedoc-plugin-no-inherit": "^1.3.1",
 		"typescript": "^4.6.3"
 	},
 	"jest": {

@@ -2,33 +2,149 @@
 
 ## Table of contents
 
+### Classes
+
+- [AbortQueueError](classes/AbortQueueError.md)
+- [Queue](classes/Queue.md)
+- [QueueError](classes/QueueError.md)
+- [QueueException](classes/QueueException.md)
+- [QueuePromise](classes/QueuePromise.md)
+
 ### Interfaces
 
-- [QueueOptions](interfaces/QueueOptions.md)
+- [QueueConfiguration](interfaces/QueueConfiguration.md)
+- [QueueErrorJSON](interfaces/QueueErrorJSON.md)
 
 ### Type aliases
 
-- [AnyFunction](README.md#anyfunction)
+- [CatchCallback](README.md#catchcallback)
+- [DynamicError](README.md#dynamicerror)
+- [ErrorMessage](README.md#errormessage)
+- [FinallyCallback](README.md#finallycallback)
+- [QueueConfigurationValue](README.md#queueconfigurationvalue)
+- [QueueOption](README.md#queueoption)
+- [QueueOptions](README.md#queueoptions)
+- [QueueOptionsValue](README.md#queueoptionsvalue)
+- [QueueTask](README.md#queuetask)
+- [QueueTaskFunction](README.md#queuetaskfunction)
+- [QueueTaskPromise](README.md#queuetaskpromise)
+- [ThenCallback](README.md#thencallback)
 
 ### Functions
 
-- [default](README.md#default)
+- [queue](README.md#queue)
 
 ## Type aliases
 
-### AnyFunction
+### CatchCallback
 
-Ƭ **AnyFunction**: (...`args`: `any`[]) => `any` \| `Promise`<`any`\>
+Ƭ **CatchCallback**: (`error`: [`QueueException`](classes/QueueException.md)) => `any` \| `Promise`<`any`\>
 
 #### Type declaration
 
-▸ (...`args`): `any` \| `Promise`<`any`\>
+▸ (`error`): `any` \| `Promise`<`any`\>
 
 ##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `...args` | `any`[] |
+| `error` | [`QueueException`](classes/QueueException.md) |
+
+##### Returns
+
+`any` \| `Promise`<`any`\>
+
+___
+
+### DynamicError
+
+Ƭ **DynamicError**: `Error` & { `[key: string]`: `any`; }
+
+___
+
+### ErrorMessage
+
+Ƭ **ErrorMessage**: `string` \| [`DynamicError`](README.md#dynamicerror) \| { `[key: string]`: `any`; } \| `any`[]
+
+___
+
+### FinallyCallback
+
+Ƭ **FinallyCallback**: () => `void` \| `Promise`<`void`\>
+
+#### Type declaration
+
+▸ (): `void` \| `Promise`<`void`\>
+
+##### Returns
+
+`void` \| `Promise`<`void`\>
+
+___
+
+### QueueConfigurationValue
+
+Ƭ **QueueConfigurationValue**: [`QueueConfiguration`](interfaces/QueueConfiguration.md)[keyof [`QueueConfiguration`](interfaces/QueueConfiguration.md)]
+
+___
+
+### QueueOption
+
+Ƭ **QueueOption**: keyof [`QueueConfiguration`](interfaces/QueueConfiguration.md)
+
+___
+
+### QueueOptions
+
+Ƭ **QueueOptions**: `Partial`<[`QueueConfiguration`](interfaces/QueueConfiguration.md)\>
+
+___
+
+### QueueOptionsValue
+
+Ƭ **QueueOptionsValue**: [`QueueOptions`](README.md#queueoptions)[keyof [`QueueOptions`](README.md#queueoptions)]
+
+___
+
+### QueueTask
+
+Ƭ **QueueTask**: [`QueueTaskPromise`](README.md#queuetaskpromise) \| [`QueueTaskFunction`](README.md#queuetaskfunction)
+
+___
+
+### QueueTaskFunction
+
+Ƭ **QueueTaskFunction**: () => [`QueueTaskPromise`](README.md#queuetaskpromise) \| `any`
+
+#### Type declaration
+
+▸ (): [`QueueTaskPromise`](README.md#queuetaskpromise) \| `any`
+
+##### Returns
+
+[`QueueTaskPromise`](README.md#queuetaskpromise) \| `any`
+
+___
+
+### QueueTaskPromise
+
+Ƭ **QueueTaskPromise**: `Promise`<`any`\>
+
+___
+
+### ThenCallback
+
+Ƭ **ThenCallback**: (`result`: `any`) => `any` \| `Promise`<`any`\>
+
+#### Type declaration
+
+▸ (`result`): `any` \| `Promise`<`any`\>
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `result` | `any` |
 
 ##### Returns
 
@@ -36,33 +152,16 @@
 
 ## Functions
 
-### default
+### queue
 
-▸ **default**(`options?`): (`fn`: [`AnyFunction`](README.md#anyfunction), ...`args`: `any`[]) => `Promise`<`any`\>
-
-Simple function queueing & throttling
+▸ **queue**(`options?`): [`Queue`](classes/Queue.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`QueueOptions`](interfaces/QueueOptions.md) |
+| `options?` | `Partial`<[`QueueConfiguration`](interfaces/QueueConfiguration.md)\> |
 
 #### Returns
 
-`fn`
-
-▸ (`fn`, ...`args`): `Promise`<`any`\>
-
-Add a task to the queue
-
-##### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `fn` | [`AnyFunction`](README.md#anyfunction) | The function to call |
-| `...args` | `any`[] | The arguments to pass to the function |
-
-##### Returns
-
-`Promise`<`any`\>
+[`Queue`](classes/Queue.md)
