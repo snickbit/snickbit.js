@@ -5,25 +5,38 @@ import cliProgress, {SingleBar} from 'cli-progress'
 
 /** @category Progress */
 export interface ProgressOptions {
-	name: string
+	name?: string
 	message: string
+	valueFormat: string
 	total: number
 	current: number
-	create: boolean
-	out: Out
+	out?: Out
+	config: CLIProgressOptions
+}
 
+export interface ProgressPayload {
 	[key: string]: any
+}
+
+interface CLIProgressOptions {
+	format: any,
+	etaBuffer: number,
+	fps: number,
+	barCompleteChar: string,
+	barIncompleteChar: string,
+	hideCursor: boolean,
+	linewrap: string
+	formatValue?: (v, options, type) => any
 }
 
 /**
  * @internal
  */
-export const default_progress_options = {
-	name: undefined,
+export const default_progress_options: ProgressOptions = {
 	message: 'Working...',
+	autoStart: true,
 	total: 100,
 	current: 0,
-	out: undefined,
 	valueFormat: 'number',
 	config: {
 		format: undefined,
@@ -78,13 +91,10 @@ export function progress(options?: Partial<ProgressOptions>) {
  */
 export class Progress {
 	options: Partial<ProgressOptions> = {}
-
 	out: Out
-
 	bar: SingleBar
 
 	constructor(options?: Partial<ProgressOptions>) {
-		/** @type {Partial<ProgressOptions>} */
 		this.options = parseOptions(options, {...default_progress_options})
 		this.out = this.options.out || out.prefix(this.options.name || 'progress', 1)
 		this.options.config.formatValue = this.#formatValue.bind(this)
