@@ -31,7 +31,9 @@ Multi-Progress bar. Uses cli-progress to create multiple progress bars.
 - [eta](MultiProgress.md#eta)
 - [fail](MultiProgress.md#fail)
 - [finish](MultiProgress.md#finish)
+- [message](MultiProgress.md#message)
 - [remove](MultiProgress.md#remove)
+- [set](MultiProgress.md#set)
 - [setTotal](MultiProgress.md#settotal)
 - [start](MultiProgress.md#start)
 - [stop](MultiProgress.md#stop)
@@ -182,6 +184,28 @@ Succeed and stop the progress bar
 
 ___
 
+### message
+
+▸ **message**(`message`): [`MultiProgress`](MultiProgress.md)
+
+Set the progress bar message
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `message` | `string` |
+
+#### Returns
+
+[`MultiProgress`](MultiProgress.md)
+
+#### Inherited from
+
+[Progress](Progress.md).[message](Progress.md#message)
+
+___
+
 ### remove
 
 ▸ **remove**(`instance`): [`MultiProgress`](MultiProgress.md)
@@ -197,6 +221,29 @@ Remove a child progress bar
 #### Returns
 
 [`MultiProgress`](MultiProgress.md)
+
+___
+
+### set
+
+▸ **set**(`value`, `payload?`): `void`
+
+Set the progress bar current value
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
+| `payload?` | [`ProgressPayload`](../interfaces/ProgressPayload.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Progress](Progress.md).[set](Progress.md#set)
 
 ___
 
@@ -324,7 +371,7 @@ ___
 
 ### update
 
-▸ **update**(`current`, `payload?`): [`MultiProgress`](MultiProgress.md)
+▸ **update**(`payload?`): [`MultiProgress`](MultiProgress.md)
 
 Update the progress bar
 
@@ -332,8 +379,7 @@ Update the progress bar
 
 | Name | Type |
 | :------ | :------ |
-| `current` | `number` \| `object` |
-| `payload?` | `object` |
+| `payload?` | [`ProgressPayload`](../interfaces/ProgressPayload.md) |
 
 #### Returns
 

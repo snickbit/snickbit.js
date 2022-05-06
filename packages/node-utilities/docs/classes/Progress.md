@@ -27,6 +27,8 @@ Progress bar. Uses cli-progress and @snickbit/out to output progress.
 - [eta](Progress.md#eta)
 - [fail](Progress.md#fail)
 - [finish](Progress.md#finish)
+- [message](Progress.md#message)
+- [set](Progress.md#set)
 - [setTotal](Progress.md#settotal)
 - [start](Progress.md#start)
 - [stop](Progress.md#stop)
@@ -110,6 +112,43 @@ Succeed and stop the progress bar
 #### Returns
 
 [`Progress`](Progress.md)
+
+___
+
+### message
+
+▸ **message**(`message`): [`Progress`](Progress.md)
+
+Set the progress bar message
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `message` | `string` |
+
+#### Returns
+
+[`Progress`](Progress.md)
+
+___
+
+### set
+
+▸ **set**(`value`, `payload?`): `void`
+
+Set the progress bar current value
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
+| `payload?` | [`ProgressPayload`](../interfaces/ProgressPayload.md) |
+
+#### Returns
+
+`void`
 
 ___
 
@@ -213,7 +252,7 @@ ___
 
 ### update
 
-▸ **update**(`current`, `payload?`): [`Progress`](Progress.md)
+▸ **update**(`payload?`): [`Progress`](Progress.md)
 
 Update the progress bar
 
@@ -221,8 +260,7 @@ Update the progress bar
 
 | Name | Type |
 | :------ | :------ |
-| `current` | `number` \| `object` |
-| `payload?` | `object` |
+| `payload?` | [`ProgressPayload`](../interfaces/ProgressPayload.md) |
 
 #### Returns
 
