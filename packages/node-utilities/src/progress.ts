@@ -198,6 +198,14 @@ export class Progress {
 	}
 
 	/**
+	 * Set the progress bar message
+	 * @param {string} message
+	 */
+	message(message: string) {
+		return this.update({message})
+	}
+
+	/**
 	 * Set the progress bar total
 	 */
 	setTotal(total: number): this {
