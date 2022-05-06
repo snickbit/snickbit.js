@@ -4,7 +4,7 @@ import {template} from 'ansi-styles-template'
 import cliProgress, {SingleBar} from 'cli-progress'
 
 /** @category Progress */
-export interface ProgressOptions {
+export interface ProgressConfig {
 	name?: string
 	autoStart: boolean
 	message: string
@@ -14,6 +14,8 @@ export interface ProgressOptions {
 	out?: Out
 	config: CLIProgressOptions
 }
+
+export type ProgressOptions = Partial<ProgressConfig>
 
 export interface ProgressPayload {
 	[key: string]: any
@@ -33,7 +35,7 @@ interface CLIProgressOptions {
 /**
  * @internal
  */
-export const default_progress_options: ProgressOptions = {
+export const default_progress_options: ProgressConfig = {
 	message: 'Working...',
 	autoStart: true,
 	total: 100,
@@ -81,7 +83,7 @@ export function makeProgressConfig(options) {
  * @see https://github.com/npkgz/cli-progress
  * @category Progress
  */
-export function progress(options?: Partial<ProgressOptions>) {
+export function progress(options?: ProgressOptions) {
 	return new Progress(options)
 }
 
@@ -91,11 +93,11 @@ export function progress(options?: Partial<ProgressOptions>) {
  * @category Progress
  */
 export class Progress {
-	options: Partial<ProgressOptions> = {}
+	options: ProgressConfig
 	out: Out
 	bar: SingleBar
 
-	constructor(options?: Partial<ProgressOptions>) {
+	constructor(options?: ProgressOptions) {
 		this.options = parseOptions(options, {...default_progress_options})
 		this.out = this.options.out || out.prefix(this.options.name || 'progress', 1)
 		this.options.config.formatValue = this.#formatValue.bind(this)
@@ -133,7 +135,7 @@ export class Progress {
 	/**
 	 * Start the progress bar
 	 */
-	start(options?: Partial<ProgressOptions>): this {
+	start(options?: ProgressOptions): this {
 		options = parseOptions(options, this.options)
 		if (options.message) this.out.debug(options.message)
 		if (this.bar) this.bar.start(options.total, options.current, options)
