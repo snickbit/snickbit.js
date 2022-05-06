@@ -43,7 +43,7 @@ Progress bar. Uses cli-progress and @snickbit/out to output progress.
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `Partial`<[`ProgressOptions`](../interfaces/ProgressOptions.md)\> |
+| `options?` | `Partial`<[`ProgressConfig`](../interfaces/ProgressConfig.md)\> |
 
 ## Properties
 
@@ -55,7 +55,7 @@ ___
 
 ### options
 
-• **options**: `Partial`<[`ProgressOptions`](../interfaces/ProgressOptions.md)\> = `{}`
+• **options**: [`ProgressConfig`](../interfaces/ProgressConfig.md)
 
 ___
 
@@ -141,7 +141,7 @@ Start the progress bar
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `Partial`<[`ProgressOptions`](../interfaces/ProgressOptions.md)\> |
+| `options?` | `Partial`<[`ProgressConfig`](../interfaces/ProgressConfig.md)\> |
 
 #### Returns
 
@@ -169,16 +169,41 @@ ___
 
 ### tick
 
-▸ **tick**(`value?`, `payload?`): [`Progress`](Progress.md)
+▸ **tick**(`payload`): [`Progress`](Progress.md)
 
 Tick the progress
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `value` | `number` | `1` |
-| `payload?` | `object` | `undefined` |
+| Name | Type |
+| :------ | :------ |
+| `payload` | [`ProgressPayload`](../interfaces/ProgressPayload.md) |
+
+#### Returns
+
+[`Progress`](Progress.md)
+
+▸ **tick**(`value`, `payload?`): [`Progress`](Progress.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
+| `payload?` | [`ProgressPayload`](../interfaces/ProgressPayload.md) |
+
+#### Returns
+
+[`Progress`](Progress.md)
+
+▸ **tick**(`message`, `payload?`): [`Progress`](Progress.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `message` | `string` |
+| `payload?` | [`ProgressPayload`](../interfaces/ProgressPayload.md) |
 
 #### Returns
 

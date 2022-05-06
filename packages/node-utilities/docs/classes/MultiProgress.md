@@ -48,7 +48,7 @@ Multi-Progress bar. Uses cli-progress to create multiple progress bars.
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `Partial`<[`ProgressOptions`](../interfaces/ProgressOptions.md)\> |
+| `options?` | `Partial`<[`ProgressConfig`](../interfaces/ProgressConfig.md)\> |
 
 #### Overrides
 
@@ -86,7 +86,7 @@ ___
 
 ### options
 
-• **options**: `Partial`<[`ProgressOptions`](../interfaces/ProgressOptions.md)\> = `{}`
+• **options**: [`ProgressConfig`](../interfaces/ProgressConfig.md)
 
 #### Inherited from
 
@@ -114,7 +114,7 @@ Create a child progress bar
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `Partial`<[`ProgressOptions`](../interfaces/ProgressOptions.md)\> |
+| `options?` | `Partial`<[`ProgressConfig`](../interfaces/ProgressConfig.md)\> |
 
 #### Returns
 
@@ -232,7 +232,7 @@ Start the progress bar
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `Partial`<[`ProgressOptions`](../interfaces/ProgressOptions.md)\> |
+| `options?` | `Partial`<[`ProgressConfig`](../interfaces/ProgressConfig.md)\> |
 
 #### Returns
 
@@ -268,16 +268,49 @@ ___
 
 ### tick
 
-▸ **tick**(`value?`, `payload?`): [`MultiProgress`](MultiProgress.md)
+▸ **tick**(`payload`): [`MultiProgress`](MultiProgress.md)
 
 Tick the progress
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `value` | `number` | `1` |
-| `payload?` | `object` | `undefined` |
+| Name | Type |
+| :------ | :------ |
+| `payload` | [`ProgressPayload`](../interfaces/ProgressPayload.md) |
+
+#### Returns
+
+[`MultiProgress`](MultiProgress.md)
+
+#### Inherited from
+
+[Progress](Progress.md).[tick](Progress.md#tick)
+
+▸ **tick**(`value`, `payload?`): [`MultiProgress`](MultiProgress.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
+| `payload?` | [`ProgressPayload`](../interfaces/ProgressPayload.md) |
+
+#### Returns
+
+[`MultiProgress`](MultiProgress.md)
+
+#### Inherited from
+
+[Progress](Progress.md).[tick](Progress.md#tick)
+
+▸ **tick**(`message`, `payload?`): [`MultiProgress`](MultiProgress.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `message` | `string` |
+| `payload?` | [`ProgressPayload`](../interfaces/ProgressPayload.md) |
 
 #### Returns
 

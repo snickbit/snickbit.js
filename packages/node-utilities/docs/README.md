@@ -20,9 +20,14 @@
 - [ImportDefinition](interfaces/ImportDefinition.md)
 - [ParsedImport](interfaces/ParsedImport.md)
 
+### Modules Interfaces
+
+- [MultiProgressChildConfig](interfaces/MultiProgressChildConfig.md)
+- [ProgressPayload](interfaces/ProgressPayload.md)
+
 ### Progress Interfaces
 
-- [ProgressOptions](interfaces/ProgressOptions.md)
+- [ProgressConfig](interfaces/ProgressConfig.md)
 
 ### Prompts Interfaces
 
@@ -47,7 +52,9 @@
 
 - [AnyFunction](README.md#anyfunction)
 - [IObject](README.md#iobject)
+- [MultiProgressChildOptions](README.md#multiprogresschildoptions)
 - [ParsedImportRecords](README.md#parsedimportrecords)
+- [ProgressOptions](README.md#progressoptions)
 - [PromptType](README.md#prompttype)
 - [PromptsFunction](README.md#promptsfunction)
 - [PromptsPromise](README.md#promptspromise)
@@ -165,9 +172,21 @@ ___
 
 ___
 
+### MultiProgressChildOptions
+
+Ƭ **MultiProgressChildOptions**: `Partial`<[`MultiProgressChildConfig`](interfaces/MultiProgressChildConfig.md)\>
+
+___
+
 ### ParsedImportRecords
 
 Ƭ **ParsedImportRecords**: `Record`<`string`, [`ParsedImport`](interfaces/ParsedImport.md)\>
+
+___
+
+### ProgressOptions
+
+Ƭ **ProgressOptions**: `Partial`<[`ProgressConfig`](interfaces/ProgressConfig.md)\>
 
 ___
 
@@ -634,7 +653,7 @@ Multi-Progress bar. Uses cli-progress to create multiple progress bars.
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `Partial`<[`ProgressOptions`](interfaces/ProgressOptions.md)\> |
+| `options?` | `Partial`<[`ProgressConfig`](interfaces/ProgressConfig.md)\> |
 
 #### Returns
 
@@ -654,7 +673,7 @@ Progress bar. Uses cli-progress to create multiple progress bars.
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `Partial`<[`ProgressOptions`](interfaces/ProgressOptions.md)\> |
+| `options?` | `Partial`<[`ProgressConfig`](interfaces/ProgressConfig.md)\> |
 
 #### Returns
 
