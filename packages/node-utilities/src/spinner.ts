@@ -4,7 +4,7 @@ import {createSpinner} from 'nanospinner'
 import {isString} from '@snickbit/utilities'
 
 /** @category Spinner */
-export interface SpinnerOptions {
+export interface SpinnerConfig {
 	text: string;
 	color: string;
 	stream: any;
@@ -12,6 +12,10 @@ export interface SpinnerOptions {
 	frames: string[];
 	mark: string;
 }
+
+/** @category Spinner */
+export type SpinnerOptions = Partial<SpinnerConfig>
+
 
 const updateText = throttle((instance, text) => {
 	instance.update({text})
@@ -26,7 +30,7 @@ const updateSpinner = throttle((instance, options) => {
  * @see https://github.com/usmanyunusov/nanospinner
  * @category Spinner
  */
-export function spinner(options?: Partial<SpinnerOptions> | string) {
+export function spinner(options?: SpinnerOptions | string) {
 	return new Spinner(options)
 }
 
@@ -40,7 +44,7 @@ export class Spinner {
 	preload_message = ''
 	out: Out
 
-	constructor(options?: Partial<SpinnerOptions> | string) {
+	constructor(options?: SpinnerOptions | string) {
 		options = this.#parseOptions(options)
 		this.preload_message = options.text
 		this.spinner = createSpinner(options.text, options)
@@ -56,9 +60,29 @@ export class Spinner {
 	}
 
 	/**
+	 * Parse the options
+	 */
+	#parseOptions(options?: SpinnerOptions | string, fallback_text?: string) {
+		if (!options) {
+			options = {}
+		}
+
+		if (isString(options)) {
+			options = {text: options as string}
+		}
+		options = options as SpinnerOptions
+
+		if (options?.text) {
+			options.text = this.#getMessage(options.text, fallback_text)
+		}
+
+		return options
+	}
+
+	/**
 	 * Update the spinner
 	 */
-	update(options: Partial<SpinnerOptions> | string): this {
+	update(options: SpinnerOptions | string): this {
 		options = this.#parseOptions(options)
 		updateSpinner(this.spinner, options)
 		return this
@@ -67,7 +91,7 @@ export class Spinner {
 	/**
 	 * Start the spinner
 	 */
-	start(options: Partial<SpinnerOptions> | string): this {
+	start(options?: SpinnerOptions | string): this {
 		options = this.#parseOptions(options)
 		this.preload_message = options.text
 		if (this.spinner) {
@@ -81,14 +105,14 @@ export class Spinner {
 	/**
 	 * Fail and stop the spinner
 	 */
-	fail(options: Partial<SpinnerOptions> | string): this {
+	fail(options?: SpinnerOptions | string): this {
 		return this.error(options)
 	}
 
 	/**
 	 * Error and stop the spinner
 	 */
-	error(options: Partial<SpinnerOptions> | string): this {
+	error(options?: SpinnerOptions | string): this {
 		options = this.#parseOptions(options, 'Something went wrong.')
 		if (this.spinner) {
 			this.spinner.error(options.text)
@@ -101,25 +125,12 @@ export class Spinner {
 	/**
 	 * Stop the spinner
 	 */
-	stop(options: Partial<SpinnerOptions> | string): this {
+	stop(options?: SpinnerOptions | string): this {
 		options = this.#parseOptions(options)
 		if (this.spinner) {
 			this.spinner.stop(options.text)
 		} else if (options.text) {
 			this.out.warn(options.text)
-		}
-		return this
-	}
-
-	/**
-	 * Succeed and stop the spinner
-	 */
-	finish(options: Partial<SpinnerOptions> | string): this {
-		options = this.#parseOptions(options, 'Finished!')
-		if (this.spinner) {
-			this.spinner.success(options)
-		} else if (options.text) {
-			this.out.success(options.text)
 		}
 		return this
 	}
@@ -132,22 +143,15 @@ export class Spinner {
 	}
 
 	/**
-	 * Parse the options
+	 * Succeed and stop the spinner
 	 */
-	#parseOptions(options?: Partial<SpinnerOptions> | string, fallback_text?: string) {
-		if (!options) {
-			options = {}
+	finish(options?: SpinnerOptions | string): this {
+		options = this.#parseOptions(options, 'Finished!')
+		if (this.spinner) {
+			this.spinner.success(options)
+		} else if (options.text) {
+			this.out.success(options.text)
 		}
-
-		if (isString(options)) {
-			options = {text: options as string}
-		}
-		options = options as Partial<SpinnerOptions>
-
-		if (options?.text) {
-			options.text = this.#getMessage(options.text, fallback_text)
-		}
-
-		return options
+		return this
 	}
 }
