@@ -330,7 +330,6 @@ export class Queue {
 		return this
 	}
 
-
 	/**
 	 * Set the queue's concurrency.
 	 * @param {number} concurrency - The maximum number of tasks to run at the same time.
@@ -339,7 +338,6 @@ export class Queue {
 		this.options.concurrency = concurrency
 		return this
 	}
-
 
 	/**
 	 * Set the queue's throttling
