@@ -1,5 +1,13 @@
 # @snickbit/model
 
+## 1.0.37
+
+### Patch Changes
+
+- [d4a042e](https://github.com/snickbit/snickbit.js/commit/d4a042e) **chore**:  update dependencies
+- [c6f76f8](https://github.com/snickbit/snickbit.js/commit/c6f76f8) **build**:  add dev watcher scripts with source maps
+
+
 ## 1.0.36
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @snickbit/utilities
 
+## 3.0.17
+
+### Patch Changes
+
+- [d4a042e](https://github.com/snickbit/snickbit.js/commit/d4a042e) **chore**:  update dependencies
+- [c6f76f8](https://github.com/snickbit/snickbit.js/commit/c6f76f8) **build**:  add dev watcher scripts with source maps
+- [447e7b0](https://github.com/snickbit/snickbit.js/commit/447e7b0) **docs**:  update chore: update dependencies chore: adjust configurations
+
+
 ## 3.0.16
 
 ### Patch Changes
