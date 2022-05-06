@@ -220,7 +220,10 @@ export class Queue {
 		this.#results.push(result)
 	}
 
-	private wait() {
+	/**
+	 * Wait for the next task to complete.
+	 */
+	wait(): Promise<any> {
 		return new Promise((resolve, reject) => this.waiting = {resolve, reject})
 	}
 
