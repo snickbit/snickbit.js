@@ -146,7 +146,7 @@ export class Progress {
 	 * Tick the progress
 	 */
 	tick(payload: ProgressPayload): this;
-	tick(value: number, payload?: ProgressPayload): this
+	tick(value?: number, payload?: ProgressPayload): this
 	tick(message: string, payload?: ProgressPayload): this
 	tick(valueMessageOrPayload: string | number | ProgressPayload, payload?: ProgressPayload): this {
 		let value = 1
