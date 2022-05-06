@@ -1,8 +1,6 @@
 import {sleep} from '@snickbit/utilities'
 import {Queue} from '../src'
 
-jest.setTimeout(15000)
-
 describe('Queue', () => {
 	it('should be a class', () => expect(typeof Queue).toBe('function'))
 
@@ -143,16 +141,14 @@ describe('Queue', () => {
 
 
 	it('should work through queue, fifo', async () => {
-		jest.setTimeout(15000)
-
 		const queue = new Queue()
 		const results: number[] = []
 		const expected = []
-		const tests = 8
+		const tests = 4
 
 		queue.push(async () => {
 			console.log('Start Really Long Task 1')
-			await sleep(11000)
+			await sleep(300)
 			console.log('End Really Long Task 1')
 			results.push(1)
 		})
