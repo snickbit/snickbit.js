@@ -80,12 +80,20 @@ export class MultiProgress extends Progress {
 	}
 }
 
+export interface MultiProgressChildConfig extends ProgressConfig {
+	parent: string
+	id: string
+}
+
+export type MultiProgressChildOptions = Partial<MultiProgressChildConfig>
+
+
 /** @category Progress */
 class MultiProgressChild extends Progress {
 	id: string
-	declare options: ProgressConfig
+	declare options: MultiProgressChildConfig
 
-	constructor(options?: ProgressOptions) {
+	constructor(options?: MultiProgressChildOptions) {
 		super(options)
 	}
 
