@@ -173,17 +173,26 @@ export class Progress {
 	}
 
 	/**
-	 * Update the progress bar
+	 * Set the progress bar current value
 	 */
-	update(current: number | object, payload?: object): this {
+	set(value: number, payload?: ProgressPayload) {
 		if (this.bar) {
 			if (payload) {
-				this.bar.update(current, payload)
-				this.out.verbose(`Set progress current to ${current} and payload to:`, payload)
+				this.bar.update(value, payload)
+				this.out.verbose(`Set progress current to ${value} and payload to:`, payload)
 			} else {
-				this.bar.update(current)
-				this.out.verbose(`Set progress current to ${current}`)
+				this.bar.update(value)
+				this.out.verbose(`Set progress current to ${value}`)
 			}
+		}
+	}
+
+	/**
+	 * Update the progress bar
+	 */
+	update(payload?: ProgressPayload): this {
+		if (this.bar) {
+			this.bar.update(null, payload)
 		}
 		return this
 	}
