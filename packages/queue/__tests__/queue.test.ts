@@ -9,7 +9,7 @@ describe('Queue', () => {
 
 	describe('Queue.config', () => {
 		const staticQueue = Queue
-		beforeEach(() => Queue.config({
+		afterEach(() => Queue.config({
 			concurrency: 4,
 			limit: 0,
 			interval: 0,
@@ -124,7 +124,7 @@ describe('Queue', () => {
 		queue.push([
 			async () => {
 				console.log('start queue promise 1')
-				await sleep(300)
+				await sleep(400)
 				console.log('end queue promise 1')
 				results.push(1)
 			},
