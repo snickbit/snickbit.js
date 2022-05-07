@@ -333,13 +333,13 @@ Tick the progress
 
 [Progress](Progress.md).[tick](Progress.md#tick)
 
-▸ **tick**(`value`, `payload?`): [`MultiProgress`](MultiProgress.md)
+▸ **tick**(`value?`, `payload?`): [`MultiProgress`](MultiProgress.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `value` | `number` |
+| `value?` | `number` |
 | `payload?` | [`ProgressPayload`](../interfaces/ProgressPayload.md) |
 
 #### Returns

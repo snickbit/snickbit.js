@@ -1,15 +1,15 @@
-# Interface: SpinnerOptions
+# Interface: SpinnerConfig
 
 ## Table of contents
 
 ### Properties
 
-- [color](SpinnerOptions.md#color)
-- [frames](SpinnerOptions.md#frames)
-- [interval](SpinnerOptions.md#interval)
-- [mark](SpinnerOptions.md#mark)
-- [stream](SpinnerOptions.md#stream)
-- [text](SpinnerOptions.md#text)
+- [color](SpinnerConfig.md#color)
+- [frames](SpinnerConfig.md#frames)
+- [interval](SpinnerConfig.md#interval)
+- [mark](SpinnerConfig.md#mark)
+- [stream](SpinnerConfig.md#stream)
+- [text](SpinnerConfig.md#text)
 
 ## Properties
 

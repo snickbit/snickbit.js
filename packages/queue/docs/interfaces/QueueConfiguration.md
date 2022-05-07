@@ -5,6 +5,7 @@
 ### Properties
 
 - [abortOnError](QueueConfiguration.md#abortonerror)
+- [autoStart](QueueConfiguration.md#autostart)
 - [concurrency](QueueConfiguration.md#concurrency)
 - [interval](QueueConfiguration.md#interval)
 - [limit](QueueConfiguration.md#limit)
@@ -18,6 +19,14 @@
 • **abortOnError**: `boolean`
 
 Stop the queue if a task fails.
+
+___
+
+### autoStart
+
+• **autoStart**: `boolean`
+
+`true` to the queue immediately, or `false` to wait for `run()` to be called. Default is `true`
 
 ___
 

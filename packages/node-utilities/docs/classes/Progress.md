@@ -222,13 +222,13 @@ Tick the progress
 
 [`Progress`](Progress.md)
 
-▸ **tick**(`value`, `payload?`): [`Progress`](Progress.md)
+▸ **tick**(`value?`, `payload?`): [`Progress`](Progress.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `value` | `number` |
+| `value?` | `number` |
 | `payload?` | [`ProgressPayload`](../interfaces/ProgressPayload.md) |
 
 #### Returns

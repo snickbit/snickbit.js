@@ -70,15 +70,15 @@ ___
 
 ### FinallyCallback
 
-Ƭ **FinallyCallback**: () => `void` \| `Promise`<`void`\>
+Ƭ **FinallyCallback**: () => `any` \| `Promise`<`any`\>
 
 #### Type declaration
 
-▸ (): `void` \| `Promise`<`void`\>
+▸ (): `any` \| `Promise`<`any`\>
 
 ##### Returns
 
-`void` \| `Promise`<`void`\>
+`any` \| `Promise`<`any`\>
 
 ___
 

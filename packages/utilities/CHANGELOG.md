@@ -8,7 +8,6 @@
 - [c6f76f8](https://github.com/snickbit/snickbit.js/commit/c6f76f8) **build**:  add dev watcher scripts with source maps
 - [447e7b0](https://github.com/snickbit/snickbit.js/commit/447e7b0) **docs**:  update chore: update dependencies chore: adjust configurations
 
-
 ## 3.0.16
 
 ### Patch Changes
@@ -17,13 +16,11 @@
 - [b61521a](https://github.com/snickbit/snickbit.js/commit/b61521a) **chore**:  update build config
 - [67a87da](https://github.com/snickbit/snickbit.js/commit/67a87da) **docs**:  update
 
-
 ## 3.0.15
 
 ### Patch Changes
 
 - [8a65a3c](https://github.com/snickbit/snickbit.js/commit/8a65a3c) **chore**:  update dependencies
-
 
 ## 3.0.14
 
@@ -33,7 +30,6 @@
 - [ef3ba51](https://github.com/snickbit/snickbit.js/commit/ef3ba51) **chore**:  update build config
 - [164874d](https://github.com/snickbit/snickbit.js/commit/164874d) **chore**:  update build config
 - [a10d1e5](https://github.com/snickbit/snickbit.js/commit/a10d1e5) **fix**(utilities):  simplify bufferStream
-
 
 ## 3.0.12
 

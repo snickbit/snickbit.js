@@ -84,9 +84,11 @@
 ▸ **add**(`value`, `unit?`): `Dayjs`
 
 Returns a cloned Day.js object with a specified amount of time added.
+
 ```
 dayjs().add(7, 'day')// => Dayjs
 ```
+
 Units are case insensitive, and support plural and short forms.
 
 Docs: https://day.js.org/docs/en/manipulate/add
@@ -129,10 +131,12 @@ ___
 ▸ **clone**(): `Dayjs`
 
 All Day.js objects are immutable. Still, `dayjs#clone` can create a clone of the current object if you need one.
+
 ```
 dayjs().clone()// => Dayjs
 dayjs(dayjs('2019-01-25')) // passing a Dayjs object to a constructor will also clone it
 ```
+
 Docs: https://day.js.org/docs/en/parse/dayjs-clone
 
 #### Returns
@@ -150,15 +154,19 @@ ___
 ▸ **date**(): `number`
 
 Get the date of the month.
+
 ```
 dayjs().date()// => 1-31
 ```
+
 Docs: https://day.js.org/docs/en/get-set/date
 
 Accepts numbers from 1 to 31. If the range is exceeded, it will bubble up to the next months.
+
 ```
 dayjs().date(1)// => Dayjs
 ```
+
 Docs: https://day.js.org/docs/en/get-set/date
 
 #### Returns
@@ -174,9 +182,11 @@ dayjs.Dayjs.date
 Set the date of the month.
 
 Accepts numbers from 1 to 31. If the range is exceeded, it will bubble up to the next months.
+
 ```
 dayjs().date(1)// => Dayjs
 ```
+
 Docs: https://day.js.org/docs/en/get-set/date
 
 #### Parameters
@@ -212,9 +222,11 @@ ___
 Get the day of the week.
 
 Returns numbers from 0 (Sunday) to 6 (Saturday).
+
 ```
 dayjs().day()// 0-6
 ```
+
 Docs: https://day.js.org/docs/en/get-set/day
 
 #### Returns
@@ -230,9 +242,11 @@ dayjs.Dayjs.day
 Set the day of the week.
 
 Accepts numbers from 0 (Sunday) to 6 (Saturday). If the range is exceeded, it will bubble up to next weeks.
+
 ```
 dayjs().day(0)// => Dayjs
 ```
+
 Docs: https://day.js.org/docs/en/get-set/day
 
 #### Parameters
@@ -256,9 +270,11 @@ ___
 ▸ **daysInMonth**(): `number`
 
 Get the number of days in the current month.
+
 ```
 dayjs('2019-01-25').daysInMonth() // 31
 ```
+
 Docs: https://day.js.org/docs/en/display/days-in-month
 
 #### Returns
@@ -278,6 +294,7 @@ ___
 This indicates the difference between two date-time in the specified unit.
 
 To get the difference in milliseconds, use `dayjs#diff`
+
 ```
 const date1 = dayjs('2019-01-25')
 const date2 = dayjs('2018-06-05')
@@ -286,10 +303,12 @@ date1.diff() // milliseconds to current time
 ```
 
 To get the difference in another unit of measurement, pass that measurement as the second argument.
+
 ```
 const date1 = dayjs('2019-01-25')
 date1.diff('2018-06-05', 'month') // 7
 ```
+
 Units are case insensitive, and support plural and short forms.
 
 Docs: https://day.js.org/docs/en/display/difference
@@ -334,9 +353,11 @@ ___
 ▸ **endOf**(`unit`): `Dayjs`
 
 Returns a cloned Day.js object and set it to the end of a unit of time.
+
 ```
 dayjs().endOf('month')// => Dayjs
 ```
+
 Units are case insensitive, and support plural and short forms.
 
 Docs: https://day.js.org/docs/en/manipulate/end-of
@@ -364,11 +385,13 @@ ___
 Get the formatted date according to the string of tokens passed in.
 
 To escape characters, wrap them in square brackets (e.g. [MM]).
+
 ```
 dayjs().format()// => current date in ISO8601, without fraction seconds e.g. '2020-04-02T08:02:17-05:00'
 dayjs('2019-01-25').format('[YYYYescape] YYYY-MM-DDTHH:mm:ssZ[Z]')// 'YYYYescape 2019-01-25T00:00:00-02:00Z'
 dayjs('2019-01-25').format('DD/MM/YYYY') // '25/01/2019'
 ```
+
 Docs: https://day.js.org/docs/en/display/format
 
 #### Parameters
@@ -468,15 +491,19 @@ ___
 String getter, returns the corresponding information getting from Day.js object.
 
 In general:
+
 ```
 dayjs().get(unit) === dayjs()[unit]()
 ```
+
 Units are case insensitive, and support plural and short forms.
+
 ```
 dayjs().get('year')
 dayjs().get('month') // start 0
 dayjs().get('date')
 ```
+
 Docs: https://day.js.org/docs/en/get-set/get
 
 #### Parameters
@@ -500,15 +527,19 @@ ___
 ▸ **hour**(): `number`
 
 Get the hour.
+
 ```
 dayjs().hour()// => 0-23
 ```
+
 Docs: https://day.js.org/docs/en/get-set/hour
 
 Accepts numbers from 0 to 23. If the range is exceeded, it will bubble up to the next day.
+
 ```
 dayjs().hour(12)// => Dayjs
 ```
+
 Docs: https://day.js.org/docs/en/get-set/hour
 
 #### Returns
@@ -524,9 +555,11 @@ dayjs.Dayjs.hour
 Set the hour.
 
 Accepts numbers from 0 to 23. If the range is exceeded, it will bubble up to the next day.
+
 ```
 dayjs().hour(12)// => Dayjs
 ```
+
 Docs: https://day.js.org/docs/en/get-set/hour
 
 #### Parameters
@@ -550,13 +583,17 @@ ___
 ▸ **isAfter**(`date`, `unit?`): `boolean`
 
 This indicates whether the Day.js object is after the other supplied date-time.
+
 ```
 dayjs().isAfter(dayjs('2011-01-01')) // default milliseconds
 ```
+
 If you want to limit the granularity to a unit other than milliseconds, pass it as the second parameter.
+
 ```
 dayjs().isAfter('2011-01-01', 'year')// => boolean
 ```
+
 Units are case insensitive, and support plural and short forms.
 
 Docs: https://day.js.org/docs/en/query/is-after
@@ -583,13 +620,17 @@ ___
 ▸ **isBefore**(`date`, `unit?`): `boolean`
 
 This indicates whether the Day.js object is before the other supplied date-time.
+
 ```
 dayjs().isBefore(dayjs('2011-01-01')) // default milliseconds
 ```
+
 If you want to limit the granularity to a unit other than milliseconds, pass it as the second parameter.
+
 ```
 dayjs().isBefore('2011-01-01', 'year')// => boolean
 ```
+
 Units are case insensitive, and support plural and short forms.
 
 Docs: https://day.js.org/docs/en/query/is-before
@@ -616,13 +657,17 @@ ___
 ▸ **isSame**(`date`, `unit?`): `boolean`
 
 This indicates whether the Day.js object is the same as the other supplied date-time.
+
 ```
 dayjs().isSame(dayjs('2011-01-01')) // default milliseconds
 ```
+
 If you want to limit the granularity to a unit other than milliseconds, pass it as the second parameter.
+
 ```
 dayjs().isSame('2011-01-01', 'year')// => boolean
 ```
+
 Docs: https://day.js.org/docs/en/query/is-same
 
 #### Parameters
@@ -675,9 +720,11 @@ ___
 ▸ **isValid**(): `boolean`
 
 This returns a `boolean` indicating whether the Day.js object contains a valid date or not.
+
 ```
 dayjs().isValid()// => boolean
 ```
+
 Docs: https://day.js.org/docs/en/parse/is-valid
 
 #### Returns
@@ -740,15 +787,19 @@ ___
 ▸ **millisecond**(): `number`
 
 Get the milliseconds.
+
 ```
 dayjs().millisecond()// => 0-999
 ```
+
 Docs: https://day.js.org/docs/en/get-set/millisecond
 
 Accepts numbers from 0 to 999. If the range is exceeded, it will bubble up to the next seconds.
+
 ```
 dayjs().millisecond(1)// => Dayjs
 ```
+
 Docs: https://day.js.org/docs/en/get-set/millisecond
 
 #### Returns
@@ -764,9 +815,11 @@ dayjs.Dayjs.millisecond
 Set the milliseconds.
 
 Accepts numbers from 0 to 999. If the range is exceeded, it will bubble up to the next seconds.
+
 ```
 dayjs().millisecond(1)// => Dayjs
 ```
+
 Docs: https://day.js.org/docs/en/get-set/millisecond
 
 #### Parameters
@@ -790,15 +843,19 @@ ___
 ▸ **minute**(): `number`
 
 Get the minutes.
+
 ```
 dayjs().minute()// => 0-59
 ```
+
 Docs: https://day.js.org/docs/en/get-set/minute
 
 Accepts numbers from 0 to 59. If the range is exceeded, it will bubble up to the next hour.
+
 ```
 dayjs().minute(59)// => Dayjs
 ```
+
 Docs: https://day.js.org/docs/en/get-set/minute
 
 #### Returns
@@ -814,9 +871,11 @@ dayjs.Dayjs.minute
 Set the minutes.
 
 Accepts numbers from 0 to 59. If the range is exceeded, it will bubble up to the next hour.
+
 ```
 dayjs().minute(59)// => Dayjs
 ```
+
 Docs: https://day.js.org/docs/en/get-set/minute
 
 #### Parameters
@@ -842,9 +901,11 @@ ___
 Get the month.
 
 Months are zero indexed, so January is month 0.
+
 ```
 dayjs().month()// => 0-11
 ```
+
 Docs: https://day.js.org/docs/en/get-set/month
 
 #### Returns
@@ -862,9 +923,11 @@ Set the month.
 Months are zero indexed, so January is month 0.
 
 Accepts numbers from 0 to 11. If the range is exceeded, it will bubble up to the next year.
+
 ```
 dayjs().month(0)// => Dayjs
 ```
+
 Docs: https://day.js.org/docs/en/get-set/month
 
 #### Parameters
@@ -914,12 +977,15 @@ ___
 ▸ **second**(): `number`
 
 Get the seconds.
+
 ```
 dayjs().second()// => 0-59
 ```
+
 Docs: https://day.js.org/docs/en/get-set/second
 
 Accepts numbers from 0 to 59. If the range is exceeded, it will bubble up to the next minutes.
+
 ```
 dayjs().second(1)// Dayjs
 ```
@@ -937,6 +1003,7 @@ dayjs.Dayjs.second
 Set the seconds.
 
 Accepts numbers from 0 to 59. If the range is exceeded, it will bubble up to the next minutes.
+
 ```
 dayjs().second(1)// Dayjs
 ```
@@ -964,15 +1031,19 @@ ___
 Generic setter, accepting unit as first argument, and value as second, returns a new instance with the applied changes.
 
 In general:
+
 ```
 dayjs().set(unit, value) === dayjs()[unit](value)
 ```
+
 Units are case insensitive, and support plural and short forms.
+
 ```
 dayjs().set('date', 1)
 dayjs().set('month', 3) // April
 dayjs().set('second', 30)
 ```
+
 Docs: https://day.js.org/docs/en/get-set/set
 
 #### Parameters
@@ -1027,9 +1098,11 @@ ___
 ▸ **startOf**(`unit`): `Dayjs`
 
 Returns a cloned Day.js object and set it to the start of a unit of time.
+
 ```
 dayjs().startOf('year')// => Dayjs
 ```
+
 Units are case insensitive, and support plural and short forms.
 
 Docs: https://day.js.org/docs/en/manipulate/start-of
@@ -1055,9 +1128,11 @@ ___
 ▸ **subtract**(`value`, `unit?`): `Dayjs`
 
 Returns a cloned Day.js object with a specified amount of time subtracted.
+
 ```
 dayjs().subtract(7, 'year')// => Dayjs
 ```
+
 Units are case insensitive, and support plural and short forms.
 
 Docs: https://day.js.org/docs/en/manipulate/subtract
@@ -1141,6 +1216,7 @@ ___
 ▸ **toDate**(): `Date`
 
 To get a copy of the native `Date` object parsed from the Day.js object use `dayjs#toDate`.
+
 ```
 dayjs('2019-01-25').toDate()// => Date
 ```
@@ -1160,9 +1236,11 @@ ___
 ▸ **toISOString**(): `string`
 
 To format as an ISO 8601 string.
+
 ```
 dayjs('2019-01-25').toISOString() // '2019-01-25T02:00:00.000Z'
 ```
+
 Docs: https://day.js.org/docs/en/display/as-iso-string
 
 #### Returns
@@ -1180,9 +1258,11 @@ ___
 ▸ **toJSON**(): `string`
 
 To serialize as an ISO 8601 string.
+
 ```
 dayjs('2019-01-25').toJSON() // '2019-01-25T02:00:00.000Z'
 ```
+
 Docs: https://day.js.org/docs/en/display/as-json
 
 #### Returns
@@ -1253,9 +1333,11 @@ ___
 ▸ **toString**(): `string`
 
 Returns a string representation of the date.
+
 ```
 dayjs('2019-01-25').toString() // 'Fri, 25 Jan 2019 02:00:00 GMT'
 ```
+
 Docs: https://day.js.org/docs/en/display/as-string
 
 #### Returns
@@ -1273,9 +1355,11 @@ ___
 ▸ **unix**(): `number`
 
 This returns the Unix timestamp (the number of **seconds** since the Unix Epoch) of the Day.js object.
+
 ```
 dayjs('2019-01-25').unix() // 1548381600
 ```
+
 This value is floored to the nearest second, and does not include a milliseconds component.
 
 Docs: https://day.js.org/docs/en/display/unix-timestamp
@@ -1295,9 +1379,11 @@ ___
 ▸ **utcOffset**(): `number`
 
 Get the UTC offset in minutes.
+
 ```
 dayjs().utcOffset()
 ```
+
 Docs: https://day.js.org/docs/en/manipulate/utc-offset
 
 #### Returns
@@ -1315,10 +1401,12 @@ ___
 ▸ **valueOf**(): `number`
 
 This returns the number of **milliseconds** since the Unix Epoch of the Day.js object.
+
 ```
 dayjs('2019-01-25').valueOf() // 1548381600000
 +dayjs(1548381600000) // 1548381600000
 ```
+
 To get a Unix timestamp (the number of seconds since the epoch) from a Day.js object, you should use Unix Timestamp `dayjs#unix()`.
 
 Docs: https://day.js.org/docs/en/display/unix-timestamp-milliseconds
@@ -1338,9 +1426,11 @@ ___
 ▸ **year**(): `number`
 
 Get the year.
+
 ```
 dayjs().year()// => 2020
 ```
+
 Docs: https://day.js.org/docs/en/get-set/year
 
 #### Returns
@@ -1354,9 +1444,11 @@ dayjs.Dayjs.year
 ▸ **year**(`value`): `Dayjs`
 
 Set the year.
+
 ```
 dayjs().year(2000)// => Dayjs
 ```
+
 Docs: https://day.js.org/docs/en/get-set/year
 
 #### Parameters

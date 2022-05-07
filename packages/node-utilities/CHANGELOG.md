@@ -7,7 +7,6 @@
 - [2590641](https://github.com/snickbit/snickbit.js/commit/2590641) **fix**:  export MultiProgressChild
 - [d4a042e](https://github.com/snickbit/snickbit.js/commit/d4a042e) **chore**:  update dependencies
 
-
 ## 4.3.1
 
 ### Patch Changes
@@ -15,7 +14,6 @@
 - [30b4883](https://github.com/snickbit/snickbit.js/commit/30b4883) **docs**:  update
 - [9d308cd](https://github.com/snickbit/snickbit.js/commit/9d308cd) **feat**:  add helper method for setting message
 - [1fc998a](https://github.com/snickbit/snickbit.js/commit/1fc998a) **feat**:  add set method to set current value of progress bar
-
 
 ## 4.3.0
 
@@ -29,7 +27,6 @@
 - [c0d828f](https://github.com/snickbit/snickbit.js/commit/c0d828f) **feat**:  expand tick method with overloads
 - [c6f76f8](https://github.com/snickbit/snickbit.js/commit/c6f76f8) **build**:  add dev watcher scripts with source maps
 
-
 ## 4.2.33
 
 ### Patch Changes
@@ -41,7 +38,6 @@
 - [9e06203](https://github.com/snickbit/snickbit.js/commit/9e06203) **feat**(node-utilities):  export isImport and isImportDefinition helpers
 - [447e7b0](https://github.com/snickbit/snickbit.js/commit/447e7b0) **docs**:  update chore: update dependencies chore: adjust configurations
 
-
 ## 4.2.32
 
 ### Patch Changes
@@ -51,13 +47,11 @@
 - [b61521a](https://github.com/snickbit/snickbit.js/commit/b61521a) **chore**:  update build config
 - [67a87da](https://github.com/snickbit/snickbit.js/commit/67a87da) **docs**:  update
 
-
 ## 4.2.31
 
 ### Patch Changes
 
 - [8a65a3c](https://github.com/snickbit/snickbit.js/commit/8a65a3c) **chore**:  update dependencies
-
 
 ## 4.2.30
 
@@ -67,7 +61,6 @@
 - [ef3ba51](https://github.com/snickbit/snickbit.js/commit/ef3ba51) **chore**:  update build config
 - [164874d](https://github.com/snickbit/snickbit.js/commit/164874d) **chore**:  update build config
 
-
 ## 4.2.29
 
 ### Patch Changes
@@ -76,7 +69,6 @@
 - [3925c24](https://github.com/snickbit/snickbit.js/commit/3925c24) **feat**(node-utilities):  add CTRL+C support to prompts
 - [18226ec](https://github.com/snickbit/snickbit.js/commit/18226ec) **fix**(node-utilities):  correct prompts types
 - [9d53930](https://github.com/snickbit/snickbit.js/commit/9d53930) **fix**(node-utilities):  missing progress message
-
 
 ## 4.2.28
 

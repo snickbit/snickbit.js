@@ -41,7 +41,7 @@
 
 ### Spinner Interfaces
 
-- [SpinnerOptions](interfaces/SpinnerOptions.md)
+- [SpinnerConfig](interfaces/SpinnerConfig.md)
 
 ### Imports Type aliases
 
@@ -62,6 +62,10 @@
 ### Prompts Type aliases
 
 - [ChoiceOption](README.md#choiceoption)
+
+### Spinner Type aliases
+
+- [SpinnerOptions](README.md#spinneroptions)
 
 ### Environment Variables
 
@@ -245,6 +249,14 @@ ___
 ### ChoiceOption
 
 Ƭ **ChoiceOption**: `string` \| [`ChoiceDefinition`](interfaces/ChoiceDefinition.md)
+
+___
+
+## Spinner Type aliases
+
+### SpinnerOptions
+
+Ƭ **SpinnerOptions**: `Partial`<[`SpinnerConfig`](interfaces/SpinnerConfig.md)\>
 
 ## Environment Variables
 
@@ -765,7 +777,7 @@ Spinner. Uses nanospinner to show spinners in the terminal.
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `string` \| `Partial`<[`SpinnerOptions`](interfaces/SpinnerOptions.md)\> |
+| `options?` | `string` \| `Partial`<[`SpinnerConfig`](interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 

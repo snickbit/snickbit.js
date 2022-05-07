@@ -9,7 +9,6 @@
 - [0c63eaf](https://github.com/snickbit/snickbit.js/commit/0c63eaf) **build**:  migrate to nx
 - [447e7b0](https://github.com/snickbit/snickbit.js/commit/447e7b0) **docs**:  update chore: update dependencies chore: adjust configurations
 
-
 ## 0.0.16
 
 ### Patch Changes
@@ -18,13 +17,11 @@
 - [b61521a](https://github.com/snickbit/snickbit.js/commit/b61521a) **chore**:  update build config
 - [67a87da](https://github.com/snickbit/snickbit.js/commit/67a87da) **docs**:  update
 
-
 ## 0.0.15
 
 ### Patch Changes
 
 - [8a65a3c](https://github.com/snickbit/snickbit.js/commit/8a65a3c) **chore**:  update dependencies
-
 
 ## 0.0.14
 
@@ -32,7 +29,6 @@
 
 - [ef3ba51](https://github.com/snickbit/snickbit.js/commit/ef3ba51) **chore**:  update build config
 - [164874d](https://github.com/snickbit/snickbit.js/commit/164874d) **chore**:  update build config
-
 
 ## 0.0.12
 

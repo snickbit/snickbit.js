@@ -7,7 +7,6 @@
 - [c6f76f8](https://github.com/snickbit/snickbit.js/commit/c6f76f8) **build**:  add dev watcher scripts with source maps
 - [0c63eaf](https://github.com/snickbit/snickbit.js/commit/0c63eaf) **build**:  migrate to nx
 
-
 ## 0.0.17
 
 ### Patch Changes
@@ -15,7 +14,6 @@
 - [0115495](https://github.com/snickbit/snickbit.js/commit/0115495) **docs**:  update
 - [b61521a](https://github.com/snickbit/snickbit.js/commit/b61521a) **chore**:  update build config
 - [67a87da](https://github.com/snickbit/snickbit.js/commit/67a87da) **docs**:  update
-
 
 ## 0.0.13
 

@@ -36,7 +36,7 @@ Spinner. Uses nanospinner to show spinners in the terminal.
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `string` \| `Partial`<[`SpinnerOptions`](../interfaces/SpinnerOptions.md)\> |
+| `options?` | `string` \| `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 ## Properties
 
@@ -60,7 +60,7 @@ ___
 
 ### error
 
-▸ **error**(`options`): [`Spinner`](Spinner.md)
+▸ **error**(`options?`): [`Spinner`](Spinner.md)
 
 Error and stop the spinner
 
@@ -68,7 +68,7 @@ Error and stop the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `string` \| `Partial`<[`SpinnerOptions`](../interfaces/SpinnerOptions.md)\> |
+| `options?` | `string` \| `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
@@ -78,7 +78,7 @@ ___
 
 ### fail
 
-▸ **fail**(`options`): [`Spinner`](Spinner.md)
+▸ **fail**(`options?`): [`Spinner`](Spinner.md)
 
 Fail and stop the spinner
 
@@ -86,7 +86,7 @@ Fail and stop the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `string` \| `Partial`<[`SpinnerOptions`](../interfaces/SpinnerOptions.md)\> |
+| `options?` | `string` \| `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
@@ -96,7 +96,7 @@ ___
 
 ### finish
 
-▸ **finish**(`options`): [`Spinner`](Spinner.md)
+▸ **finish**(`options?`): [`Spinner`](Spinner.md)
 
 Succeed and stop the spinner
 
@@ -104,7 +104,7 @@ Succeed and stop the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `string` \| `Partial`<[`SpinnerOptions`](../interfaces/SpinnerOptions.md)\> |
+| `options?` | `string` \| `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
@@ -114,7 +114,7 @@ ___
 
 ### start
 
-▸ **start**(`options`): [`Spinner`](Spinner.md)
+▸ **start**(`options?`): [`Spinner`](Spinner.md)
 
 Start the spinner
 
@@ -122,7 +122,7 @@ Start the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `string` \| `Partial`<[`SpinnerOptions`](../interfaces/SpinnerOptions.md)\> |
+| `options?` | `string` \| `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
@@ -132,7 +132,7 @@ ___
 
 ### stop
 
-▸ **stop**(`options`): [`Spinner`](Spinner.md)
+▸ **stop**(`options?`): [`Spinner`](Spinner.md)
 
 Stop the spinner
 
@@ -140,7 +140,7 @@ Stop the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `string` \| `Partial`<[`SpinnerOptions`](../interfaces/SpinnerOptions.md)\> |
+| `options?` | `string` \| `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
@@ -176,7 +176,7 @@ Update the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `string` \| `Partial`<[`SpinnerOptions`](../interfaces/SpinnerOptions.md)\> |
+| `options` | `string` \| `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 

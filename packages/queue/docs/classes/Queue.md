@@ -30,6 +30,7 @@
 - [strategy](Queue.md#strategy)
 - [thenEach](Queue.md#theneach)
 - [throttle](Queue.md#throttle)
+- [wait](Queue.md#wait)
 - [config](Queue.md#config)
 
 ## Constructors
@@ -338,6 +339,18 @@ myQueue.throttle(1, 1000)
 #### Returns
 
 [`Queue`](Queue.md)
+
+___
+
+### wait
+
+▸ **wait**(): `Promise`<`any`\>
+
+Wait for the next task to complete.
+
+#### Returns
+
+`Promise`<`any`\>
 
 ___
 

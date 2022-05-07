@@ -52,14 +52,6 @@ export class Spinner {
 	}
 
 	/**
-	 * Set the spinner text
-	 */
-	text(message: string): this {
-		updateText(this.spinner, this.#getMessage(message))
-		return this
-	}
-
-	/**
 	 * Parse the options
 	 */
 	#parseOptions(options?: SpinnerOptions | string, fallback_text?: string) {
@@ -77,6 +69,21 @@ export class Spinner {
 		}
 
 		return options
+	}
+
+	/**
+	 * Parse the message, using the fallback if necessary
+	 */
+	#getMessage(message: string, fallback?: string): string {
+		return message || this.preload_message || fallback || ''
+	}
+
+	/**
+	 * Set the spinner text
+	 */
+	text(message: string): this {
+		updateText(this.spinner, this.#getMessage(message))
+		return this
 	}
 
 	/**
@@ -133,13 +140,6 @@ export class Spinner {
 			this.out.warn(options.text)
 		}
 		return this
-	}
-
-	/**
-	 * Parse the message, using the fallback if necessary
-	 */
-	#getMessage(message: string, fallback?: string): string {
-		return message || this.preload_message || fallback || ''
 	}
 
 	/**
