@@ -1,5 +1,13 @@
 # @snickbit/dates
 
+## 1.0.36
+
+### Patch Changes
+
+- [7e02502](https://github.com/snickbit/snickbit.js/commit/7e02502) **chore**(dep):  update dependencies
+- [da8a0b3](https://github.com/snickbit/snickbit.js/commit/da8a0b3) **style**:  reformat
+
+
 ## 1.0.35
 
 ### Patch Changes

@@ -1,5 +1,21 @@
 # @snickbit/queue Changelog
 
+## 1.0.1
+
+### Patch Changes
+
+- [7e02502](https://github.com/snickbit/snickbit.js/commit/7e02502) **chore**(dep):  update dependencies
+- [30d7c65](https://github.com/snickbit/snickbit.js/commit/30d7c65) **test**:  fifo test should have autoStart: false
+- [62a27e0](https://github.com/snickbit/snickbit.js/commit/62a27e0) **fix**:  swap while with do/while
+- [da8a0b3](https://github.com/snickbit/snickbit.js/commit/da8a0b3) **style**:  reformat
+- [dac9897](https://github.com/snickbit/snickbit.js/commit/dac9897) **style**:  cleanup code
+- [46bd633](https://github.com/snickbit/snickbit.js/commit/46bd633) **fix**:  adjust finallyEach type definition to allow any callback
+- [70fde4d](https://github.com/snickbit/snickbit.js/commit/70fde4d) **feat**:  auto start queue on push
+- [acab7dd](https://github.com/snickbit/snickbit.js/commit/acab7dd) **fix**:  remove console log
+- [5a2ea58](https://github.com/snickbit/snickbit.js/commit/5a2ea58) **feat**:  make wait method public
+- [d4a042e](https://github.com/snickbit/snickbit.js/commit/d4a042e) **chore**:  update dependencies
+
+
 ## 1.0.0
 
 ### Major Changes

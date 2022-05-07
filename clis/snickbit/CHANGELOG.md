@@ -1,5 +1,13 @@
 # snickbit
 
+## 0.0.19
+
+### Patch Changes
+
+- [da8a0b3](https://github.com/snickbit/snickbit.js/commit/da8a0b3) **style**:  reformat
+- [d4a042e](https://github.com/snickbit/snickbit.js/commit/d4a042e) **chore**:  update dependencies
+
+
 ## 0.0.18
 
 ### Patch Changes
