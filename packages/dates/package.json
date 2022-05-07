@@ -29,8 +29,8 @@
 		"depcheck": "depcheck"
 	},
 	"dependencies": {
-		"@snickbit/utilities": "^3.0.16",
-		"dayjs": "^1.11.0"
+		"@snickbit/utilities": "^3.0.17",
+		"dayjs": "^1.11.2"
 	},
 	"devDependencies": {
 		"@types/jest": "^27.4.1",

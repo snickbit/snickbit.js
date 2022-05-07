@@ -30,7 +30,7 @@
 		"watch": "npm run dev -- --watch"
 	},
 	"dependencies": {
-		"@snickbit/utilities": "^3.0.16"
+		"@snickbit/utilities": "^3.0.17"
 	},
 	"devDependencies": {
 		"@types/jest": "^27.4.1",
