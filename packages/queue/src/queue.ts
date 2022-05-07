@@ -394,12 +394,12 @@ export class Queue {
 					await Promise.all(promises)
 				}
 
-				while (this.queue.size() > 0) {
+				do {
 					if (this.aborted) {
 						break
 					}
 					await processQueue()
-				}
+				} while (this.queue.size() > 0)
 
 				resolve(this.#results)
 			}, this)
