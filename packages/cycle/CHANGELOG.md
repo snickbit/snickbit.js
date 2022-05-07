@@ -1,5 +1,13 @@
 # @snickbit/utilities
 
+## 0.0.18
+
+### Patch Changes
+
+- [7e02502](https://github.com/snickbit/snickbit.js/commit/7e02502) **chore**(dep):  update dependencies
+- [da8a0b3](https://github.com/snickbit/snickbit.js/commit/da8a0b3) **style**:  reformat
+
+
 ## 0.0.17
 
 ### Patch Changes

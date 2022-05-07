@@ -1,5 +1,15 @@
 # @snickbit/node-utilities
 
+## 4.3.3
+
+### Patch Changes
+
+- [7e02502](https://github.com/snickbit/snickbit.js/commit/7e02502) **chore**(dep):  update dependencies
+- [da8a0b3](https://github.com/snickbit/snickbit.js/commit/da8a0b3) **style**:  reformat
+- [3d9b594](https://github.com/snickbit/snickbit.js/commit/3d9b594) **fix**:  make spinner options optional
+- [f207683](https://github.com/snickbit/snickbit.js/commit/f207683) **fix**(progress):  make tick value optional
+
+
 ## 4.3.2
 
 ### Patch Changes

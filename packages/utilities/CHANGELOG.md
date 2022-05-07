@@ -1,5 +1,12 @@
 # @snickbit/utilities
 
+## 3.0.18
+
+### Patch Changes
+
+- [da8a0b3](https://github.com/snickbit/snickbit.js/commit/da8a0b3) **style**:  reformat
+
+
 ## 3.0.17
 
 ### Patch Changes
