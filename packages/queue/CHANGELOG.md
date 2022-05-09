@@ -1,5 +1,16 @@
 # @snickbit/queue Changelog
 
+## 1.1.0
+
+### Minor Changes
+
+- [6de13f8](https://github.com/snickbit/snickbit.js/commit/6de13f8) **docs**:  update
+- [c43e010](https://github.com/snickbit/snickbit.js/commit/c43e010) **chore**(deps):  update lite-fifo to v0.3.0
+- [743e8a3](https://github.com/snickbit/snickbit.js/commit/743e8a3) **test**:  update tests to reflect recent changes
+- [49c4a7c](https://github.com/snickbit/snickbit.js/commit/49c4a7c) **feat**:  implement Queue.add(), change behavior of Queue.push()
+- [42f18c6](https://github.com/snickbit/snickbit.js/commit/42f18c6) **fix**:  improve queue processing to be more consistent
+
+
 ## 1.0.1
 
 ### Patch Changes
