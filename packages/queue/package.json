@@ -31,7 +31,7 @@
 	},
 	"dependencies": {
 		"@snickbit/utilities": "^3.0.17",
-		"lite-fifo": "^0.2.2"
+		"lite-fifo": "^0.3.0"
 	},
 	"devDependencies": {
 		"@remedyred/indexer": "^2.0.79",
