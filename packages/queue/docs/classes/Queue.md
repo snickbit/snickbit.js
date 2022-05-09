@@ -21,6 +21,7 @@
 
 - [abort](Queue.md#abort)
 - [abortOnError](Queue.md#abortonerror)
+- [add](Queue.md#add)
 - [catchEach](Queue.md#catcheach)
 - [clear](Queue.md#clear)
 - [concurrency](Queue.md#concurrency)
@@ -81,11 +82,11 @@ ___
 
 ### pending
 
-• `get` **pending**(): `any`
+• `get` **pending**(): `number`
 
 #### Returns
 
-`any`
+`number`
 
 ## Methods
 
@@ -118,6 +119,69 @@ Enable (or disable) the queue's abortOnError option.
 | Name | Type |
 | :------ | :------ |
 | `abortOnError` | `boolean` |
+
+#### Returns
+
+[`Queue`](Queue.md)
+
+___
+
+### add
+
+▸ **add**(`task`): [`Queue`](Queue.md)
+
+Add a task to the queue.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `task` | [`QueueTask`](../README.md#queuetask) |
+
+#### Returns
+
+[`Queue`](Queue.md)
+
+▸ **add**(`task`): [`Queue`](Queue.md)
+
+Add a promise to the queue.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `task` | [`QueueTaskPromise`](../README.md#queuetaskpromise) |
+
+#### Returns
+
+[`Queue`](Queue.md)
+
+▸ **add**(`task`, `args`): [`Queue`](Queue.md)
+
+Add a Function to the queue, along with its arguments.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `task` | [`QueueTaskFunction`](../README.md#queuetaskfunction) |
+| `args` | `any`[] |
+
+#### Returns
+
+[`Queue`](Queue.md)
+
+▸ **add**(`task`, `thisArg`, `args`): [`Queue`](Queue.md)
+
+Add a Function to the queue, with its "this" context and arguments.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `task` | [`QueueTaskFunction`](../README.md#queuetaskfunction) |
+| `thisArg` | `any` |
+| `args` | `any`[] |
 
 #### Returns
 
@@ -193,74 +257,15 @@ ___
 
 ### push
 
-▸ **push**(`task`): [`Queue`](Queue.md)
+▸ **push**(...`tasks`): [`Queue`](Queue.md)
 
-Push a task to the queue.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `task` | [`QueueTask`](../README.md#queuetask) |
-
-#### Returns
-
-[`Queue`](Queue.md)
-
-▸ **push**(`tasks`): [`Queue`](Queue.md)
-
-Push an array of tasks to the queue.
+Push a task or set of tasks to the queue.
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `tasks` | [`QueueTask`](../README.md#queuetask)[] |
-
-#### Returns
-
-[`Queue`](Queue.md)
-
-▸ **push**(`task`): [`Queue`](Queue.md)
-
-Push a promise to the queue.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `task` | [`QueueTaskPromise`](../README.md#queuetaskpromise) |
-
-#### Returns
-
-[`Queue`](Queue.md)
-
-▸ **push**(`task`, `args`): [`Queue`](Queue.md)
-
-Push a Function to the queue, along with its arguments.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `task` | [`QueueTaskFunction`](../README.md#queuetaskfunction) |
-| `args` | `any`[] |
-
-#### Returns
-
-[`Queue`](Queue.md)
-
-▸ **push**(`task`, `thisArg`, `args`): [`Queue`](Queue.md)
-
-Push a Function to the queue, with its "this" context and arguments.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `task` | [`QueueTaskFunction`](../README.md#queuetaskfunction) |
-| `thisArg` | `any` |
-| `args` | `any`[] |
+| `...tasks` | [`QueueTask`](../README.md#queuetask)[] |
 
 #### Returns
 
