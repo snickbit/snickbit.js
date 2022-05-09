@@ -230,57 +230,53 @@ export class Queue {
 	}
 
 	/**
-	 * Push a task to the queue.
+	 * Push a task or set of tasks to the queue.
+	 * @param {...QueueTask[]} tasks
+	 */
+	push(...tasks: QueueTask[]): this {
+		for (let key in tasks) {
+			const taskDefinition: QueueTaskDefinition = {task: tasks[key]}
+			this.tasks++
+			console.log('size before push', this.queue.size())
+			this.queue.enqueue(taskDefinition)
+			console.log('size after push', this.queue.size())
+		}
+
+		if (this.options.autoStart) {
+			this.run()
+		}
+
+		return this
+	}
+
+	/**
+	 * Add a task to the queue.
 	 * @param {QueueTask} task
 	 */
-	push(task: QueueTask): this;
+	add(task: QueueTask): this;
 
 	/**
-	 * Push an array of tasks to the queue.
-	 * @param {QueueTask[]} tasks
-	 */
-	push(tasks: QueueTask[]): this;
-
-	/**
-	 * Push a promise to the queue.
+	 * Add a promise to the queue.
 	 * @param {QueueTaskPromise} task
 	 */
-	push(task: QueueTaskPromise): this;
+	add(task: QueueTaskPromise): this;
 
 	/**
-	 * Push a Function to the queue, along with its arguments.
+	 * Add a Function to the queue, along with its arguments.
 	 * @param {QueueTaskFunction} task
 	 * @param {any[]} args
 	 */
-	push(task: QueueTaskFunction, args: any[]): this;
+	add(task: QueueTaskFunction, args: any[]): this;
 
 	/**
-	 * Push a Function to the queue, with its "this" context and arguments.
+	 * Add a Function to the queue, with its "this" context and arguments.
 	 * @param {QueueTaskFunction} task
 	 * @param {any} thisArg
 	 * @param {any[]} args
 	 */
-	push(task: QueueTaskFunction, thisArg: any, args: any[]): this;
+	add(task: QueueTaskFunction, thisArg: any, args: any[]): this;
 
-	push(taskOrTasks: QueueTask | QueueTask[], thisArgOrArgs?: any | any[], args?: any[]): this {
-		if (Array.isArray(taskOrTasks)) {
-			taskOrTasks.map((task: QueueTask) => {
-				switch (typeof task) {
-					case 'function':
-						this.push(task, thisArgOrArgs, args)
-						break
-					case 'object':
-						this.push(task)
-						break
-					default:
-						throw new QueueException(`Invalid task type: ${typeof task}`)
-				}
-			})
-			return this
-		}
-		const task = taskOrTasks as QueueTask
-
-
+	add(task: QueueTask, thisArgOrArgs?: any | any[], args?: any[]): this {
 		const taskDefinition: QueueTaskDefinition = {task}
 
 		if (Array.isArray(thisArgOrArgs)) {
@@ -375,29 +371,29 @@ export class Queue {
 			this.process = new QueuePromise(async (resolve, reject) => {
 				this.#reject = reject
 				this.processes = 0
-					const promises = []
+				const promises = []
 				while (this.queue.size() > 0) {
 					const task = this.queue.dequeue()
 
-						if (this.aborted) {
-							break
-						}
-						if (this.options.concurrency >= 0 && this.processes >= this.options.concurrency) {
+					if (this.aborted) {
+						break
+					}
+					if (this.options.concurrency >= 0 && this.processes >= this.options.concurrency) {
 						// queue is full, wait for the next promise to finish
-							await this.wait()
-						}
+						await this.wait()
+					}
 
-						this.processes++
-						promises.push(this.executeTask(task))
+					this.processes++
+					promises.push(this.executeTask(task))
 
 					while (this.queue.size() === 0 && this.processes > 0) {
 						// while the queue is empty and there are processes running, wait for the next promise to finish
 						await this.wait()
 					}
-					}
+				}
 
 				// Double check that there are no more promises to wait for
-					await Promise.all(promises)
+				await Promise.all(promises)
 
 				resolve(this.#results)
 			}, this)
