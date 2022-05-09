@@ -375,31 +375,29 @@ export class Queue {
 			this.process = new QueuePromise(async (resolve, reject) => {
 				this.#reject = reject
 				this.processes = 0
-				const processQueue = async () => {
 					const promises = []
-					for (let task of this.queue.drainingIterator()) {
+				while (this.queue.size() > 0) {
+					const task = this.queue.dequeue()
+
 						if (this.aborted) {
 							break
 						}
 						if (this.options.concurrency >= 0 && this.processes >= this.options.concurrency) {
-							// wait for the next promise to finish
+						// queue is full, wait for the next promise to finish
 							await this.wait()
 						}
 
 						this.processes++
 						promises.push(this.executeTask(task))
+
+					while (this.queue.size() === 0 && this.processes > 0) {
+						// while the queue is empty and there are processes running, wait for the next promise to finish
+						await this.wait()
+					}
 					}
 
-					// Wait for all processes to finish
+				// Double check that there are no more promises to wait for
 					await Promise.all(promises)
-				}
-
-				do {
-					if (this.aborted) {
-						break
-					}
-					await processQueue()
-				} while (this.queue.size() > 0)
 
 				resolve(this.#results)
 			}, this)
