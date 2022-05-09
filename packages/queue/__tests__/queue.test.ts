@@ -51,7 +51,7 @@ describe('Queue', () => {
 
 	it('should be able to accept a task', () => {
 		const queue = new Queue()
-		queue.push(() => {
+		queue.add(() => {
 			console.log('Queue task 1')
 		})
 		expect(queue.length).toBe(1)
@@ -69,17 +69,16 @@ describe('Queue', () => {
 	})
 
 
-	it('should be able to accept multiple tasks as an array', () => {
+	it('should be able to accept multiple tasks', () => {
 		const queue = new Queue()
 		queue.push(
-			[
-				() => {
-					console.log('Queue task 1')
-				},
-				() => {
-					console.log('Queue task 2')
-				}
-			])
+			() => {
+				console.log('Queue task 1')
+			},
+			() => {
+				console.log('Queue task 2')
+			}
+		)
 		expect(queue.length).toBe(2)
 	})
 
@@ -94,10 +93,10 @@ describe('Queue', () => {
 
 	it('should be able to run multiple tasks', () => {
 		const queue = new Queue()
-		queue.push(() => {
+		queue.add(() => {
 			console.log('Queue task 1')
 		})
-		queue.push(() => {
+		queue.add(() => {
 			console.log('Queue task 2')
 		})
 		queue.run().then(() => expect(queue.active).toBe(0))
@@ -121,7 +120,7 @@ describe('Queue', () => {
 	it('should be able to run promises out of order', async () => {
 		const queue = new Queue()
 		const results: number[] = []
-		queue.push([
+		queue.push(
 			async () => {
 				console.log('start queue promise 1')
 				await sleep(400)
@@ -134,9 +133,15 @@ describe('Queue', () => {
 				console.log('end queue promise 2')
 				results.push(2)
 			}
-		])
+		)
+		queue.push(async () => {
+			console.log('start queue promise 3')
+			await sleep(100)
+			console.log('end queue promise 3')
+			results.push(3)
+		})
 		await queue.run()
-		expect(results).toStrictEqual([2, 1])
+		expect(results).toStrictEqual([2, 3, 1])
 	})
 
 
