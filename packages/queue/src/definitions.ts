@@ -41,7 +41,7 @@ export type QueueOption = keyof QueueConfiguration
 export type QueueOptionsValue = QueueOptions[keyof QueueOptions]
 
 export type QueueTaskPromise = Promise<any>
-export type QueueTaskFunction = () => QueueTaskPromise | any
+export type QueueTaskFunction = (...args: any[]) => QueueTaskPromise | any
 export type QueueTask = QueueTaskPromise | QueueTaskFunction
 
 export type ThenCallback = (result: any) => any | Promise<any>
