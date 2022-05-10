@@ -1,5 +1,13 @@
 # @snickbit/queue Changelog
 
+## 1.1.1
+
+### Patch Changes
+
+- [11890cf](https://github.com/snickbit/snickbit.js/commit/11890cf) **docs**:  update
+- [fd4905b](https://github.com/snickbit/snickbit.js/commit/fd4905b) **fix**:  add variadic args to QueueTaskFunction type definition
+
+
 ## 1.1.0
 
 ### Minor Changes
