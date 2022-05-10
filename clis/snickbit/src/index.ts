@@ -61,6 +61,10 @@ cli()
 		type: 'select',
 		choices: [
 			{
+				title: 'Check out my Website',
+				value: 'website'
+			},
+			{
 				title: 'Check out my GitHub',
 				value: 'github'
 			},
@@ -80,6 +84,9 @@ cli()
 	})
 
 	switch (answer) {
+		case 'website':
+			await open(data.website, {wait: true})
+			break
 		case 'github':
 			await open(data.github, {wait: true})
 			break
