@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 
 import {cli} from '@snickbit/node-cli'
-import {ask} from '@snickbit/node-utilities'
+import {ask, spinner} from '@snickbit/node-utilities'
 import {Out} from '@snickbit/out'
 import {template} from 'ansi-styles-template'
 import figlet from 'figlet'
 import banner from 'figlet/importable-fonts/Banner.js'
 import open from 'open'
+import fetch from 'node-fetch'
+import isEmail from 'is-email'
 
 figlet.parseFont('Banner', banner)
 
@@ -77,6 +79,10 @@ cli()
 				value: 'email'
 			},
 			{
+				title: 'Request a copy of my resume',
+				value: 'resume'
+			},
+			{
 				title: 'Exit',
 				value: 'exit'
 			}
@@ -96,6 +102,40 @@ cli()
 		case 'email':
 			await open(`mailto:${data.email}`, {wait: true})
 			break
+		case 'resume': {
+			let name: string
+			while (!name) {
+				name = await ask(`What's your name? (required)`)
+			}
+
+			let email: string
+			while (!email) {
+				email = await ask(`What email should I send it to? (required)`)
+
+				if(!isEmail(email)) {
+					$out.error('Invalid email address')
+					email = null
+				}
+			}
+
+			const $spinner = spinner('Sending...').start()
+			try {
+				await fetch('https://api.snickbit.com/resume', {
+					method: 'post',
+					body: JSON.stringify({
+						name,
+						email
+					}),
+					headers: {'Content-Type': 'application/json'}
+				})
+				$spinner.finish('Sent!')
+			} catch (e) {
+				$spinner.fail('Uh oh, this is embarrassing...')
+				$out.error(`There was an error. Please head to my website ${data.website} or try again later.`)
+			}
+
+			break
+		}
 	}
 
 	// noinspection TypeScriptValidateJSTypes
