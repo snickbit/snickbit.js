@@ -114,11 +114,17 @@ ___
 
 ### QueueTaskFunction
 
-Ƭ **QueueTaskFunction**: () => [`QueueTaskPromise`](README.md#queuetaskpromise) \| `any`
+Ƭ **QueueTaskFunction**: (...`args`: `any`[]) => [`QueueTaskPromise`](README.md#queuetaskpromise) \| `any`
 
 #### Type declaration
 
-▸ (): [`QueueTaskPromise`](README.md#queuetaskpromise) \| `any`
+▸ (...`args`): [`QueueTaskPromise`](README.md#queuetaskpromise) \| `any`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `...args` | `any`[] |
 
 ##### Returns
 
