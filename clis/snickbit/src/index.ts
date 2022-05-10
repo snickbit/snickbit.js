@@ -2,7 +2,7 @@
 
 import {cli} from '@snickbit/node-cli'
 import {ask} from '@snickbit/node-utilities'
-import {out} from '@snickbit/out'
+import {Out} from '@snickbit/out'
 import {template} from 'ansi-styles-template'
 import figlet from 'figlet'
 import banner from 'figlet/importable-fonts/Banner.js'
@@ -17,6 +17,10 @@ const goodbyes = [
 	'So long, and thanks for all the fish!'
 ]
 
+type Data = Record<string, string>
+
+const $out = new Out()
+
 cli()
 .name(figlet.textSync('Nick Lowe', {
 	font: 'Banner',
@@ -27,32 +31,13 @@ cli()
 }))
 .run()
 .then(async (/* argv */) => {
-
-	const data = {
-		name: {
-			color: 'red',
-			value: 'Nick Lowe'
-		},
-		handle: {
-			color: 'redBright',
-			value: '@snickbit'
-		},
-		email: {
-			color: 'cyan',
-			value: 'nicklowe@snickbit.com'
-		},
-		github: {
-			color: 'greenBright',
-			value: 'https://github.com/snickbit'
-		},
-		linkedin: {
-			color: 'yellowBright',
-			value: 'https://www.linkedin.com/in/snickbit'
-		},
-		npx: {
-			color: 'yellow',
-			value: 'npx snickbit'
-		}
+	const data: Data = {
+		name: 'Nick Lowe',
+		handle: '@snickbit',
+		website: 'https://snickbit.com',
+		github: 'https://github.com/snickbit',
+		linkedin: 'https://www.linkedin.com/in/snickbit',
+		npx: 'npx snickbit (<-- you are here)',
 	}
 
 	const keys = Object.keys(data)
@@ -61,11 +46,16 @@ cli()
 	const shortest = keys.reduce((a, b) => a.length < b.length ? a : b)
 	const padding = longest.length - shortest.length + 5
 
-	let message = Object.entries(data).map(([key, value]) => template(`{bold}${key}{/bold}:${' '.repeat(Math.max(2, padding - key.length))}{${value.color}}${value.value}{/${value.color}}`)).join('\n')
+	let message: string[] = []
 
-	message += '\n\nI\'m actively looking for new opportunities,\nso please don\'t hesitate to get in contact!\n'
+	for(let [key, value] of Object.entries(data)) {
+		const itemPadding = ' '.repeat(Math.max(2, padding - key.length))
+		message.push(`${key}:${itemPadding}${value}`)
+	}
 
-	out.block.noExit.fatal.label('').write(message)
+	message.push('', '', `I'm actively looking for new opportunities,`, `so please don't hesitate to get in contact!`)
+
+	$out.block.noExit.fatal.label('').write(template(message.join('\n')))
 
 	const answer = await ask('What next?', {
 		type: 'select',
@@ -88,18 +78,20 @@ cli()
 			}
 		]
 	})
+
 	switch (answer) {
 		case 'github':
-			await open(data.github.value, {wait: true})
+			await open(data.github, {wait: true})
 			break
 		case 'linkedin':
-			await open(data.linkedin.value, {wait: true})
+			await open(data.linkedin, {wait: true})
 			break
 		case 'email':
-			await open(`mailto:${data.email.value}`, {wait: true})
+			await open(`mailto:${data.email}`, {wait: true})
 			break
 	}
 
-	out.exit.success(goodbyes[Math.floor(Math.random() * goodbyes.length)])
+	// noinspection TypeScriptValidateJSTypes
+	$out.exit.success(goodbyes[Math.floor(Math.random() * goodbyes.length)])
 })
-.catch(err => out.error(err))
+.catch(err => $out.error(err))
