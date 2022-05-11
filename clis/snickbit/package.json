@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"preferGlobal": true,
 	"bin": {
-		"snickbit": "./bin/snickbit.js"
+		"snickbit": "./bin/snickbit"
 	},
 	"main": "./bin/snickbit.js",
 	"files": [
@@ -17,7 +17,7 @@
 	"scripts": {
 		"start": "node bin/snickbit.js",
 		"clean": "shx rm -rf ./dist",
-		"esbuild": "esbuild --bundle --outfile=bin/snickbit.js src/index.ts --target=node12 --platform=node",
+		"esbuild": "esbuild --bundle --outfile=bin/snickbit src/index.ts --target=node12 --platform=node",
 		"build": "npm run esbuild",
 		"build:meta": "npm run build -- --minify --metafile=.meta.json",
 		"prod": "npm run build -- --minify",
