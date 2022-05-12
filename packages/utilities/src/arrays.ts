@@ -125,3 +125,13 @@ export function arrayMergeDeep(...arrs: any[][]): any[] {
 	}
 	return toReturn
 }
+
+/**
+ * Get the reverse of a filtered array
+ * @category Arrays
+ */
+export function arrayReject(arr: any[], callback: (...args: any[]) => boolean): any[] {
+	return arr.filter(function (...args: any[]): boolean {
+		return !callback.apply(this, args)
+	})
+}
