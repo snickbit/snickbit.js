@@ -1,12 +1,20 @@
 # snickbit
 
+## 0.0.20
+
+### Patch Changes
+
+- [ce1d089](https://github.com/snickbit/snickbit.js/commit/ce1d089) **refactor**:  adjust bin file
+- [a1d7eef](https://github.com/snickbit/snickbit.js/commit/a1d7eef) **feat**:  add ability to request my resume
+- [d930f65](https://github.com/snickbit/snickbit.js/commit/d930f65) **feat**:  add ability to go to my website
+- [d5a942c](https://github.com/snickbit/snickbit.js/commit/d5a942c) **refactor**:  simplify outputs, make code more readable
+
 ## 0.0.19
 
 ### Patch Changes
 
 - [da8a0b3](https://github.com/snickbit/snickbit.js/commit/da8a0b3) **style**:  reformat
 - [d4a042e](https://github.com/snickbit/snickbit.js/commit/d4a042e) **chore**:  update dependencies
-
 
 ## 0.0.18
 
