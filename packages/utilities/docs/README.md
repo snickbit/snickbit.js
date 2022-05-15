@@ -52,6 +52,7 @@
 - [arrayDuplicates](README.md#arrayduplicates)
 - [arrayMerge](README.md#arraymerge)
 - [arrayMergeDeep](README.md#arraymergedeep)
+- [arrayReject](README.md#arrayreject)
 - [arrayRemove](README.md#arrayremove)
 - [arrayShuffle](README.md#arrayshuffle)
 - [arrayToObject](README.md#arraytoobject)
@@ -408,6 +409,25 @@ Merge two or more arrays together, recursing child values
 | Name | Type |
 | :------ | :------ |
 | `...arrs` | `any`[][] |
+
+#### Returns
+
+`any`[]
+
+___
+
+### arrayReject
+
+▸ **arrayReject**(`arr`, `callback`): `any`[]
+
+Get the reverse of a filtered array
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `arr` | `any`[] |
+| `callback` | (...`args`: `any`[]) => `boolean` |
 
 #### Returns
 
