@@ -1,12 +1,18 @@
 # @snickbit/dates
 
+## 1.0.37
+
+### Patch Changes
+
+- [4ca542a](https://github.com/snickbit/snickbit.js/commit/4ca542a) **build**:  switch to pnpm for running
+- [6de13f8](https://github.com/snickbit/snickbit.js/commit/6de13f8) **docs**:  update
+
 ## 1.0.36
 
 ### Patch Changes
 
 - [7e02502](https://github.com/snickbit/snickbit.js/commit/7e02502) **chore**(dep):  update dependencies
 - [da8a0b3](https://github.com/snickbit/snickbit.js/commit/da8a0b3) **style**:  reformat
-
 
 ## 1.0.35
 

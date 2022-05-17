@@ -1,5 +1,11 @@
 # snickbit
 
+## 0.0.21
+
+### Patch Changes
+
+- [4ca542a](https://github.com/snickbit/snickbit.js/commit/4ca542a) **build**:  switch to pnpm for running
+
 ## 0.0.20
 
 ### Patch Changes

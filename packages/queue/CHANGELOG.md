@@ -1,12 +1,18 @@
 # @snickbit/queue Changelog
 
+## 1.1.2
+
+### Patch Changes
+
+- [cc708d3](https://github.com/snickbit/snickbit.js/commit/cc708d3) **fix**:  remove debugging console logs
+- [4ca542a](https://github.com/snickbit/snickbit.js/commit/4ca542a) **build**:  switch to pnpm for running
+
 ## 1.1.1
 
 ### Patch Changes
 
 - [11890cf](https://github.com/snickbit/snickbit.js/commit/11890cf) **docs**:  update
 - [fd4905b](https://github.com/snickbit/snickbit.js/commit/fd4905b) **fix**:  add variadic args to QueueTaskFunction type definition
-
 
 ## 1.1.0
 
@@ -17,7 +23,6 @@
 - [743e8a3](https://github.com/snickbit/snickbit.js/commit/743e8a3) **test**:  update tests to reflect recent changes
 - [49c4a7c](https://github.com/snickbit/snickbit.js/commit/49c4a7c) **feat**:  implement Queue.add(), change behavior of Queue.push()
 - [42f18c6](https://github.com/snickbit/snickbit.js/commit/42f18c6) **fix**:  improve queue processing to be more consistent
-
 
 ## 1.0.1
 
@@ -33,7 +38,6 @@
 - [acab7dd](https://github.com/snickbit/snickbit.js/commit/acab7dd) **fix**:  remove console log
 - [5a2ea58](https://github.com/snickbit/snickbit.js/commit/5a2ea58) **feat**:  make wait method public
 - [d4a042e](https://github.com/snickbit/snickbit.js/commit/d4a042e) **chore**:  update dependencies
-
 
 ## 1.0.0
 

@@ -1,6 +1,6 @@
 {
 	"name": "@snickbit/cycle",
-	"version": "0.0.18",
+	"version": "0.0.19",
 	"description": "Helper function and class to cycle through an array of values",
 	"license": "MIT",
 	"main": "./dist/index.js",

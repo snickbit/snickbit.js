@@ -1,11 +1,18 @@
 # @snickbit/utilities
 
+## 3.0.19
+
+### Patch Changes
+
+- [4ca542a](https://github.com/snickbit/snickbit.js/commit/4ca542a) **build**:  switch to pnpm for running
+- [d479dbb](https://github.com/snickbit/snickbit.js/commit/d479dbb) **docs**:  update
+- [28b8137](https://github.com/snickbit/snickbit.js/commit/28b8137) **feat**:  add array reject helper
+
 ## 3.0.18
 
 ### Patch Changes
 
 - [da8a0b3](https://github.com/snickbit/snickbit.js/commit/da8a0b3) **style**:  reformat
-
 
 ## 3.0.17
 

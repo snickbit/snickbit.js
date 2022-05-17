@@ -1,5 +1,11 @@
 # @snickbit/upwords
 
+## 2.0.16
+
+### Patch Changes
+
+- [4ca542a](https://github.com/snickbit/snickbit.js/commit/4ca542a) **build**:  switch to pnpm for running
+
 ## 2.0.15
 
 ### Patch Changes
@@ -7,7 +13,6 @@
 - [da8a0b3](https://github.com/snickbit/snickbit.js/commit/da8a0b3) **style**:  reformat
 - [d4a042e](https://github.com/snickbit/snickbit.js/commit/d4a042e) **chore**:  update dependencies
 - [c6f76f8](https://github.com/snickbit/snickbit.js/commit/c6f76f8) **build**:  add dev watcher scripts with source maps
-
 
 ## 2.0.14
 
