@@ -21,11 +21,11 @@
 		"clean": "shx rm -rf ./dist",
 		"test": "jest",
 		"build": "tsup",
-		"meta": "npm run prod -- --metafile",
-		"prod": "npm run build -- --minify",
+		"meta": "pnpm run prod --metafile",
+		"prod": "pnpm run build --minify",
 		"depcheck": "depcheck",
-		"dev": "npm run build -- --sourcemap",
-		"watch": "npm run dev -- --watch"
+		"dev": "pnpm run build --sourcemap",
+		"watch": "pnpm run dev --watch"
 	},
 	"devDependencies": {
 		"@types/jest": "^27.4.1",
