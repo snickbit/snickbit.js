@@ -237,9 +237,7 @@ export class Queue {
 		for (let key in tasks) {
 			const taskDefinition: QueueTaskDefinition = {task: tasks[key]}
 			this.tasks++
-			console.log('size before push', this.queue.size())
 			this.queue.enqueue(taskDefinition)
-			console.log('size after push', this.queue.size())
 		}
 
 		if (this.options.autoStart) {
