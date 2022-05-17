@@ -27,7 +27,7 @@
 		"watch": "pnpm run dev --watch",
 		"docs": "typedoc",
 		"depcheck": "depcheck",
-		"index": "indexer src"
+		"index": "indexer"
 	},
 	"dependencies": {
 		"just-camel-case": "^6.0.1",
@@ -35,7 +35,7 @@
 		"pluralize": "^8.0.0"
 	},
 	"devDependencies": {
-		"@remedyred/indexer": "^2.0.79",
+		"@remedyred/indexer": "^2.2.6",
 		"@types/jest": "^27.4.1",
 		"jest": "^27.5.1",
 		"shx": "^0.3.4",

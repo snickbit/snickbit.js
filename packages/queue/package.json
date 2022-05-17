@@ -26,7 +26,7 @@
 		"dev": "pnpm run build --sourcemap",
 		"watch": "pnpm run dev --watch",
 		"prod": "pnpm run clean && npm run build --minify",
-		"index": "indexer src",
+		"index": "indexer",
 		"docs": "typedoc"
 	},
 	"dependencies": {
@@ -34,7 +34,7 @@
 		"lite-fifo": "^0.3.0"
 	},
 	"devDependencies": {
-		"@remedyred/indexer": "^2.0.79",
+		"@remedyred/indexer": "^2.2.6",
 		"@types/jest": "^27.4.1",
 		"jest": "^27.5.1",
 		"shx": "^0.3.4",

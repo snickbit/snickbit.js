@@ -1,20 +1,7 @@
-[
-	{
-		"index": "src/data/index.ts",
-		"files": [
-			{
-				"export": "individual",
-				"dir": "src/data"
-			}
-		]
-	},
-	{
-		"index": "src/index.ts",
-		"files": [
-			{
-				"export": "individual",
-				"dir": "src"
-			}
-		]
-	}
-]
+{
+	"typescript": true,
+	"source": "src/**/*.ts",
+	"output": "src/index.ts",
+	"type": "wildcard",
+	"recursive": true
+}
