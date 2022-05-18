@@ -16,7 +16,6 @@ export interface SpinnerConfig {
 /** @category Spinner */
 export type SpinnerOptions = Partial<SpinnerConfig>
 
-
 const updateText = throttle((instance, text) => {
 	instance.update({text})
 }, 150)

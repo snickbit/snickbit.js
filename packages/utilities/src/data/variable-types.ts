@@ -40,7 +40,6 @@ export const all: VariableType[] = [
 	...callable
 ]
 
-
 export default {
 	all,
 	basic,

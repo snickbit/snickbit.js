@@ -159,20 +159,6 @@ export class Model {
 		}
 	}
 
-	protected async prepareData() {
-		if (!this.data) {
-			throw new Error('No data to save')
-		}
-
-		if (this.options.strict) {
-			await this.validate()
-		}
-
-		this.applyTimestamps()
-
-		return this.toJSON()
-	}
-
 	/**
 	 * Get the entire model's data
 	 */
@@ -182,7 +168,6 @@ export class Model {
 	 * Get a path from an object
 	 */
 	get(key: ModelKey): ModelValue;
-
 	get(key?: ModelKey): ModelValue {
 		const parsedKey = this.checkKey(key)
 		const data = this.data.get(parsedKey)
@@ -210,7 +195,6 @@ export class Model {
 	 * Find specific data in the model
 	 */
 	find(key: ModelKey, predicate: ObjectPredicate): ModelValue;
-
 	find(keyOrPredicate: ModelKey | ObjectPredicate, predicate?: ObjectPredicate): ModelValue {
 		let key: ModelKey
 		if (isFunction(keyOrPredicate)) {
@@ -236,7 +220,6 @@ export class Model {
 	 * Find a key/index matching a value
 	 */
 	findKey(key: ModelKey, predicate: ObjectPredicate): ModelValue;
-
 	findKey(keyOrPredicate: ModelKey | ObjectPredicate, predicate?: ObjectPredicate): string | symbol | number | undefined {
 		let key: ModelKey
 		if (isFunction(keyOrPredicate)) {
@@ -262,7 +245,6 @@ export class Model {
 	 * Get the first value in a set
 	 */
 	first(key?: ModelKey): ModelValue;
-
 	first(key?: ModelKey): ModelValue {
 		const value = this.get(key)
 		if (isObject(value)) {
@@ -282,7 +264,6 @@ export class Model {
 	 * Get the last value in a set
 	 */
 	last(key: ModelKey): ModelValue;
-
 	last(key?: ModelKey): ModelValue {
 		const value = this.get(key)
 		if (isObject(value)) {
@@ -302,7 +283,6 @@ export class Model {
 	 * Set the value of a key
 	 */
 	set(key: ModelKey, value: ModelValue, overwrite?: boolean): this;
-
 	set(keyOrData: object | Model | ModelKey, value?: ModelValue, overwrite = true): this {
 		if (isObject(keyOrData)) {
 			let data = keyOrData as object | Model
@@ -358,7 +338,6 @@ export class Model {
 	 * Count the items in a set
 	 */
 	count(key: ModelKey): number;
-
 	count(key?: ModelKey): number {
 		const value = this.get(key)
 		if (isArray(value)) {
@@ -379,7 +358,6 @@ export class Model {
 	 * Remove all the items in a set
 	 */
 	empty(key: ModelKey): this
-
 	empty(key?: ModelKey): this {
 		this.data.empty(this.checkKey(key))
 		return this
@@ -394,7 +372,6 @@ export class Model {
 	 * Get the first non-undefined property of a set
 	 */
 	coalesce(key: ModelKey, defaultValue?: ModelValue): ModelValue
-
 	coalesce(key?: ModelKey, defaultValue?: ModelValue): ModelValue {
 		return this.data.coalesce(this.checkKey(key), defaultValue)
 	}
@@ -433,7 +410,6 @@ export class Model {
 	 * Patch/merge the value of a path
 	 */
 	patch(key: ModelKey, value: ModelValue): this
-
 	patch(keyOrData: object | ModelKey, value?: ModelValue): this {
 		let data
 		let key: ModelKey
@@ -501,6 +477,38 @@ export class Model {
 	}
 
 	/**
+	 * Convert the model to a JSON string
+	 */
+toString() {
+		return JSON.stringify(this.toJSON())
+	}
+/**
+	 * Convert the model to a JSON object. This is the same as calling `.get()
+	 */
+toJSON() {
+		return this.get()
+	}
+protected async prepareData() {
+		if (!this.data) {
+			throw new Error('No data to save')
+		}
+
+		if (this.options.strict) {
+			await this.validate()
+		}
+
+		this.applyTimestamps()
+
+		return this.toJSON()
+	}
+
+	
+	
+
+	
+	
+
+	/**
 	 * Validate the model against the schema
 	 */
 	async validate() {
@@ -561,19 +569,5 @@ export class Model {
 		} else {
 			return errors.length ? errors : true
 		}
-	}
-
-	/**
-	 * Convert the model to a JSON string
-	 */
-	toString() {
-		return JSON.stringify(this.toJSON())
-	}
-
-	/**
-	 * Convert the model to a JSON object. This is the same as calling `.get()
-	 */
-	toJSON() {
-		return this.get()
 	}
 }

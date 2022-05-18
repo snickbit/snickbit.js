@@ -12,7 +12,6 @@ interface ErrorProperties extends Omit<QueueErrorJSON, 'message'> {
 	type: string;
 }
 
-
 /**
  * @noInheritDoc
  */
@@ -60,7 +59,6 @@ export class QueueError extends Error {
 	}
 }
 
-
 /**
  * @noInheritDoc
  */
@@ -70,7 +68,6 @@ export class QueueException extends QueueError {
 	}
 }
 
-
 /**
  * @noInheritDoc
  */
@@ -79,5 +76,3 @@ export class AbortQueueError extends QueueError {
 		super(message, 'AbortQueueError', data)
 	}
 }
-
-

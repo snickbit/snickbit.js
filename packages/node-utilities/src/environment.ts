@@ -39,14 +39,12 @@ export const bashrc_path = `${home_dir}/.bashrc`
  */
 export const isElectronApp = (): boolean => !!process.versions.electron
 
-
 /**
  * Check if the current process is a bundled Electron app.
  * @category Environment
  */
 // @ts-ignore
 export const isBundledElectronApp = (): boolean => isElectronApp() && !process?.defaultApp
-
 
 /**
  * interpolate string with env variables, optionally pass an object of default values

@@ -45,6 +45,7 @@ export class Queue {
 	static readonly defaultOptions: QueueConfiguration = {
 		...defaultOptions
 	}
+
 	private stopped: boolean
 	private tasks = 0
 	#results: any[] = []
@@ -78,18 +79,6 @@ export class Queue {
 		this.makeQueue()
 	}
 
-	get length(): number {
-		return this.tasks
-	}
-
-	get active(): number {
-		return this.processes
-	}
-
-	get pending() {
-		return this.queue.size()
-	}
-
 	/**
 	 * Set the default options for the queue
 	 * @param {QueueOptions} options
@@ -102,7 +91,6 @@ export class Queue {
 	 * @param {QueueOptionsValue} value
 	 */
 	static config(option: QueueOption, value: QueueOptionsValue): void;
-
 	static config(optionOrOptions: QueueOption | QueueOptions, value?: QueueOptionsValue): void {
 		const options: any = typeof optionOrOptions === 'string' ? {[optionOrOptions]: value} : optionOrOptions
 		for (const option in options) {
@@ -113,6 +101,19 @@ export class Queue {
 				throw new QueueException(`Invalid configuration option: ${option}. Valid options are: ${Object.keys(Queue.defaultOptions).join(', ')}`)
 			}
 		}
+	}
+
+
+	get length(): number {
+		return this.tasks
+	}
+
+	get active(): number {
+		return this.processes
+	}
+
+	get pending() {
+		return this.queue.size()
 	}
 
 	private makeQueue() {
@@ -167,61 +168,6 @@ export class Queue {
 		return earliestTime - now
 	}
 
-	private async executeTask(taskDefinition: QueueTaskDefinition): Promise<void> {
-		let result: any
-
-		const abortTask = (e?: any) => {
-			if (this.waiting) {
-				this.waiting.reject(new QueueException('Queue has been aborted'))
-			}
-
-			throw new AbortQueueError(e)
-		}
-
-		if (this.options.throttle) {
-			await sleep(this.options.strict ? this.strictDelay() : this.windowedDelay())
-		}
-
-		if (this.aborted) {
-			abortTask()
-		}
-
-		try {
-			if (typeof taskDefinition.task === 'function') {
-				result = await Promise.resolve(taskDefinition.task.apply(taskDefinition.thisArg, taskDefinition.args))
-			} else {
-				result = await Promise.resolve(taskDefinition.task)
-			}
-			this.processes--
-
-			if (this.handlers.thenEach) {
-				await Promise.resolve(this.handlers.thenEach(result))
-			}
-
-			if (this.handlers.finallyEach) {
-				await this.handlers.finallyEach()
-			}
-		} catch (e) {
-			if (this.handlers.catchEach) {
-				await Promise.resolve(this.handlers.catchEach(new QueueException(e)))
-			}
-
-			if (this.handlers.finallyEach) {
-				await this.handlers.finallyEach()
-			}
-
-			if (this.options.abortOnError) {
-				abortTask(e)
-			}
-		}
-
-		if (this.waiting) {
-			this.waiting.resolve(result)
-		}
-
-		this.#results.push(result)
-	}
-
 	/**
 	 * Wait for the next task to complete.
 	 */
@@ -273,7 +219,6 @@ export class Queue {
 	 * @param {any[]} args
 	 */
 	add(task: QueueTaskFunction, thisArg: any, args: any[]): this;
-
 	add(task: QueueTask, thisArgOrArgs?: any | any[], args?: any[]): this {
 		const taskDefinition: QueueTaskDefinition = {task}
 
@@ -424,6 +369,61 @@ export class Queue {
 	finallyEach(callback: FinallyCallback): this {
 		this.handlers.finallyEach = callback
 		return this
+	}
+
+	private async executeTask(taskDefinition: QueueTaskDefinition): Promise<void> {
+		let result: any
+
+		const abortTask = (e?: any) => {
+			if (this.waiting) {
+				this.waiting.reject(new QueueException('Queue has been aborted'))
+			}
+
+			throw new AbortQueueError(e)
+		}
+
+		if (this.options.throttle) {
+			await sleep(this.options.strict ? this.strictDelay() : this.windowedDelay())
+		}
+
+		if (this.aborted) {
+			abortTask()
+		}
+
+		try {
+			if (typeof taskDefinition.task === 'function') {
+				result = await Promise.resolve(taskDefinition.task.apply(taskDefinition.thisArg, taskDefinition.args))
+			} else {
+				result = await Promise.resolve(taskDefinition.task)
+			}
+			this.processes--
+
+			if (this.handlers.thenEach) {
+				await Promise.resolve(this.handlers.thenEach(result))
+			}
+
+			if (this.handlers.finallyEach) {
+				await this.handlers.finallyEach()
+			}
+		} catch (e) {
+			if (this.handlers.catchEach) {
+				await Promise.resolve(this.handlers.catchEach(new QueueException(e)))
+			}
+
+			if (this.handlers.finallyEach) {
+				await this.handlers.finallyEach()
+			}
+
+			if (this.options.abortOnError) {
+				abortTask(e)
+			}
+		}
+
+		if (this.waiting) {
+			this.waiting.resolve(result)
+		}
+
+		this.#results.push(result)
 	}
 }
 

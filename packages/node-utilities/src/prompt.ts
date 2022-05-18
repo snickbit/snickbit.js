@@ -134,7 +134,6 @@ export async function prompt(questions: Question[] | QuestionRecords): Promise<A
 	return prompts(questions)
 }
 
-
 /**
  * Prompt the user for confirmation using Prompts.
  * @see https://github.com/terkelg/prompts

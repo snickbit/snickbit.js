@@ -87,7 +87,6 @@ export interface MultiProgressChildConfig extends ProgressConfig {
 
 export type MultiProgressChildOptions = Partial<MultiProgressChildConfig>
 
-
 /**
  * @internal
  */

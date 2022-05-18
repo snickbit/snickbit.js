@@ -34,7 +34,6 @@ describe('Queue', () => {
 		})
 	})
 
-
 	it('should be instantiable', () => expect(new Queue()).toBeInstanceOf(Queue))
 	it('should have property options', () => expect(new Queue()).toHaveProperty('options'))
 	it('should have default concurrency of 4', () => expect(new Queue().options.concurrency).toBe(4))
@@ -47,7 +46,6 @@ describe('Queue', () => {
 	it('should have a run method', () => expect(new Queue().run).toBeInstanceOf(Function))
 	it('should have a clear method', () => expect(new Queue().clear).toBeInstanceOf(Function))
 	it('should have a clear method', () => expect(new Queue().clear).toBeInstanceOf(Function))
-
 
 	it('should be able to accept a task', () => {
 		const queue = new Queue()
@@ -67,7 +65,6 @@ describe('Queue', () => {
 		})
 		expect(queue.length).toBe(2)
 	})
-
 
 	it('should be able to accept multiple tasks', () => {
 		const queue = new Queue()
@@ -90,7 +87,6 @@ describe('Queue', () => {
 		queue.run().then(() => expect(queue.active).toBe(0))
 	})
 
-
 	it('should be able to run multiple tasks', () => {
 		const queue = new Queue()
 		queue.add(() => {
@@ -101,7 +97,6 @@ describe('Queue', () => {
 		})
 		queue.run().then(() => expect(queue.active).toBe(0))
 	})
-
 
 	it('should be able to run a hook after each task using thenEach', async () => {
 		const queue = new Queue()
@@ -143,7 +138,6 @@ describe('Queue', () => {
 		await queue.run()
 		expect(results).toStrictEqual([2, 3, 1])
 	})
-
 
 	it('should work through queue, fifo', async () => {
 		const queue = new Queue({autoStart: false})
