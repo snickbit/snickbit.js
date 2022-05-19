@@ -1,28 +1,24 @@
 {
 	"name": "snickbit",
-	"description": "My personal npx business card",
 	"version": "0.0.21",
+	"description": "My personal npx business card",
 	"license": "MIT",
-	"preferGlobal": true,
+	"main": "./bin/snickbit.js",
 	"bin": {
 		"snickbit": "./bin/snickbit"
 	},
-	"main": "./bin/snickbit.js",
 	"files": [
 		"bin"
 	],
-	"engines": {
-		"node": ">= 12"
-	},
 	"scripts": {
-		"start": "node bin/snickbit.js",
-		"clean": "shx rm -rf ./dist",
-		"esbuild": "esbuild --bundle --outfile=bin/snickbit src/index.ts --target=node12 --platform=node",
 		"build": "npm run esbuild",
 		"build:meta": "pnpm run build --minify --metafile=.meta.json",
-		"prod": "pnpm run build --minify",
+		"clean": "shx rm -rf ./dist",
 		"depcheck": "depcheck",
 		"dev": "pnpm run build --sourcemap",
+		"esbuild": "esbuild --bundle --outfile=bin/snickbit src/index.ts --target=node12 --platform=node",
+		"prod": "pnpm run build --minify",
+		"start": "node bin/snickbit.js",
 		"watch": "pnpm run dev --watch"
 	},
 	"dependencies": {
@@ -40,6 +36,10 @@
 		"shx": "^0.3.4",
 		"typescript": "^4.6.3"
 	},
+	"engines": {
+		"node": ">= 12"
+	},
+	"preferGlobal": true,
 	"nx": {
 		"implicitDependencies": [
 			"@snickbit/node-cli",

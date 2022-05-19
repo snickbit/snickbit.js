@@ -3,29 +3,30 @@
 	"version": "4.3.4",
 	"description": "A collection of simple Node.js helpers",
 	"license": "MIT",
+	"exports": {
+		"require": "./dist/index.js",
+		"import": "./dist/index.mjs",
+		"types": "./dist/index.d.ts"
+	},
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
 	"files": [
 		"dist"
 	],
-	"exports": {
-		"require": "./dist/index.js",
-		"import": "./dist/index.mjs",
-		"types": "./dist/index.d.ts"
-	},
-	"engines": {
-		"node": ">= 12"
-	},
 	"scripts": {
-		"clean": "shx rm -rf ./dist",
 		"build": "tsup",
+		"clean": "shx rm -rf ./dist",
+		"depcheck": "depcheck",
+		"dev": "pnpm run build --sourcemap",
+		"docs": "typedoc",
 		"meta": "pnpm run prod --metafile",
 		"prod": "pnpm run build --minify",
-		"dev": "pnpm run build --sourcemap",
-		"watch": "pnpm run dev --watch",
-		"docs": "typedoc",
-		"depcheck": "depcheck"
+		"watch": "pnpm run dev --watch"
+	},
+	"jest": {
+		"preset": "ts-jest",
+		"testEnvironment": "node"
 	},
 	"dependencies": {
 		"@snickbit/out": "^2.0.25",
@@ -48,9 +49,14 @@
 		"typedoc-plugin-markdown": "^3.12.0",
 		"typescript": "^4.6.3"
 	},
-	"jest": {
-		"preset": "ts-jest",
-		"testEnvironment": "node"
+	"engines": {
+		"node": ">= 12"
+	},
+	"nx": {
+		"implicitDependencies": [
+			"@snickbit/out",
+			"@snickbit/utilities"
+		]
 	},
 	"tsup": {
 		"entry": [
@@ -61,12 +67,6 @@
 		"format": [
 			"esm",
 			"cjs"
-		]
-	},
-	"nx": {
-		"implicitDependencies": [
-			"@snickbit/out",
-			"@snickbit/utilities"
 		]
 	}
 }

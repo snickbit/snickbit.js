@@ -3,31 +3,32 @@
 	"version": "0.0.19",
 	"description": "Helper function and class to cycle through an array of values",
 	"license": "MIT",
+	"exports": {
+		"require": "./dist/index.js",
+		"import": "./dist/index.mjs",
+		"types": "./dist/index.d.ts"
+	},
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
 	"files": [
 		"dist"
 	],
-	"exports": {
-		"require": "./dist/index.js",
-		"import": "./dist/index.mjs",
-		"types": "./dist/index.d.ts"
-	},
-	"engines": {
-		"node": ">= 12"
-	},
 	"scripts": {
-		"start": "node ./examples/index.js",
-		"clean": "shx rm -rf ./dist",
-		"test": "jest",
-		"docs": "typedoc",
-		"depcheck": "depcheck",
 		"build": "tsup",
+		"clean": "shx rm -rf ./dist",
+		"depcheck": "depcheck",
+		"dev": "pnpm run build --sourcemap",
+		"docs": "typedoc",
 		"meta": "pnpm run prod --metafile",
 		"prod": "pnpm run build --minify",
-		"dev": "pnpm run build --sourcemap",
+		"start": "node ./examples/index.js",
+		"test": "jest",
 		"watch": "pnpm run dev --watch"
+	},
+	"jest": {
+		"preset": "ts-jest",
+		"testEnvironment": "node"
 	},
 	"dependencies": {
 		"@snickbit/utilities": "^3.0.17"
@@ -42,9 +43,13 @@
 		"typedoc-plugin-markdown": "^3.12.0",
 		"typescript": "^4.6.3"
 	},
-	"jest": {
-		"preset": "ts-jest",
-		"testEnvironment": "node"
+	"engines": {
+		"node": ">= 12"
+	},
+	"nx": {
+		"implicitDependencies": [
+			"@snickbit/utilities"
+		]
 	},
 	"tsup": {
 		"entry": [
@@ -55,11 +60,6 @@
 		"format": [
 			"esm",
 			"cjs"
-		]
-	},
-	"nx": {
-		"implicitDependencies": [
-			"@snickbit/utilities"
 		]
 	}
 }
