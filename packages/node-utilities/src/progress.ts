@@ -32,6 +32,16 @@ interface CLIProgressOptions {
 	formatValue?: (v, options, type) => any
 }
 
+const defaultCliProgressConfig = {
+	format: undefined,
+	etaBuffer: 10,
+	fps: 10,
+	barCompleteChar: '\u2588',
+	barIncompleteChar: '\u2591',
+	hideCursor: true,
+	linewrap: null
+}
+
 /**
  * @internal
  */
@@ -41,15 +51,7 @@ export const default_progress_options: ProgressConfig = {
 	total: 100,
 	current: 0,
 	valueFormat: 'number',
-	config: {
-		format: undefined,
-		etaBuffer: 10,
-		fps: 10,
-		barCompleteChar: '\u2588',
-		barIncompleteChar: '\u2591',
-		hideCursor: true,
-		linewrap: null
-	}
+	config: {...defaultCliProgressConfig}
 }
 
 /**
@@ -73,6 +75,7 @@ export function makeProgressFormat(options) {
  */
 export function makeProgressConfig(options) {
 	return {
+		...defaultCliProgressConfig,
 		...options.config,
 		format: makeProgressFormat(options)
 	}
