@@ -12,7 +12,7 @@ export interface ProgressConfig {
 	total: number
 	current: number
 	out?: Out
-	config: CLIProgressOptions
+	config: Partial<CLIProgressOptions>
 }
 
 export type ProgressOptions = Partial<ProgressConfig>
