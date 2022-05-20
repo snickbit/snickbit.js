@@ -16,15 +16,15 @@
 ## Table of Contents
 
 * [CLIs](#clis)
-	- [npx snickbit](#npx-snickbit)
+  - [npx snickbit](#npx-snickbit)
 * [Libraries](#libraries)
-	- [@snickbit/cycle](#snickbit-cycle)
-	- [@snickbit/dates](#snickbit-dates)
-	- [@snickbit/model](#snickbit-model)
-	- [@snickbit/node-utilities](#snickbit-node-utilities)
-	- [@snickbit/queue](#snickbit-queue)
-	- [@snickbit/upwords](#snickbit-upwords)
-	- [@snickbit/utilities](#snickbit-utilities)
+  - [@snickbit/cycle](#snickbit-cycle)
+  - [@snickbit/dates](#snickbit-dates)
+  - [@snickbit/model](#snickbit-model)
+  - [@snickbit/node-utilities](#snickbit-node-utilities)
+  - [@snickbit/queue](#snickbit-queue)
+  - [@snickbit/upwords](#snickbit-upwords)
+  - [@snickbit/utilities](#snickbit-utilities)
 
 <!--END_SECTION:readmes-toc-->
 
@@ -43,6 +43,7 @@
 </div>
 
 My personal npx business card
+
 
 ## Libraries
 

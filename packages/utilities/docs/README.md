@@ -1177,7 +1177,7 @@ Parse a variable into a JSON string
 | Name | Type | Default value |
 | :------ | :------ | :------ |
 | `data` | `any` | `undefined` |
-| `options` | `Partial`<`JSONStringifyOptions`\> | `false` |
+| `options` | `JSONStringifyOptions` | `false` |
 
 #### Returns
 
