@@ -58,13 +58,13 @@ ___
 
 ### DynamicError
 
-Ƭ **DynamicError**: `Error` & { `[key: string]`: `any`; }
+Ƭ **DynamicError**: `Error` & { `[key: string]`: `any`;  }
 
 ___
 
 ### ErrorMessage
 
-Ƭ **ErrorMessage**: `string` \| [`DynamicError`](README.md#dynamicerror) \| { `[key: string]`: `any`; } \| `any`[]
+Ƭ **ErrorMessage**: `string` \| [`DynamicError`](README.md#dynamicerror) \| { `[key: string]`: `any`;  } \| `any`[]
 
 ___
 
