@@ -61,16 +61,17 @@ export function JSONParse(json: string, strict?: boolean): object | any[] | unde
 	return json as unknown as object | any[]
 }
 
-type JSONStringifyOptions = boolean | { force: boolean; pretty: boolean | number }
+type JSONStringifyOptions = boolean | { force?: boolean; pretty?: boolean | number }
 
 /**
  * Parse a variable into a JSON string
  * @category Parsing
  */
-export function JSONStringify(data: any, options: Partial<JSONStringifyOptions> = false): string {
+export function JSONStringify(data: any, options: JSONStringifyOptions = false): string {
 	if (!isDefined(data)) return data
+	if(typeof options === 'boolean') options = {force: options}
 
-	const parsedOptions = parseOptions(options, {force: false, pretty: undefined}, 'force')
+	const parsedOptions = parseOptions(options, {force: false, pretty: undefined})
 
 	parsedOptions.pretty = parsedOptions.pretty === true ? 2 : parsedOptions.pretty
 
