@@ -1,5 +1,12 @@
 # @snickbit/dates
 
+## 1.0.38
+
+### Patch Changes
+
+- [ae72619](https://github.com/snickbit/snickbit.js/commit/ae72619) **build**:  remove nx
+- [ff43f0d](https://github.com/snickbit/snickbit.js/commit/ff43f0d) **style**:  sort package.json
+
 ## 1.0.37
 
 ### Patch Changes

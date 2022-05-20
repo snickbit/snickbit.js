@@ -1,5 +1,11 @@
 # @snickbit/upwords
 
+## 2.0.17
+
+### Patch Changes
+
+- [ff43f0d](https://github.com/snickbit/snickbit.js/commit/ff43f0d) **style**:  sort package.json
+
 ## 2.0.16
 
 ### Patch Changes

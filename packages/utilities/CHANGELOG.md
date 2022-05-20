@@ -1,5 +1,18 @@
 # @snickbit/utilities
 
+## 3.0.20
+
+### Patch Changes
+
+- [e114dc3](https://github.com/snickbit/snickbit.js/commit/e114dc3) **docs**:  update
+- [d6a1f20](https://github.com/snickbit/snickbit.js/commit/d6a1f20) **fix**:  options parsing and type definition
+- [d0f6c5d](https://github.com/snickbit/snickbit.js/commit/d0f6c5d) **style**:  shorten import
+- [de1532c](https://github.com/snickbit/snickbit.js/commit/de1532c) **test**:  add arrayReject test
+- [facbd0c](https://github.com/snickbit/snickbit.js/commit/facbd0c) **fix**:  convert to arrow function
+- [ff43f0d](https://github.com/snickbit/snickbit.js/commit/ff43f0d) **style**:  sort package.json
+- [769e3b9](https://github.com/snickbit/snickbit.js/commit/769e3b9) **style**:  relint
+- [3bf8776](https://github.com/snickbit/snickbit.js/commit/3bf8776) **chore**:  update indexer and indexer config
+
 ## 3.0.19
 
 ### Patch Changes

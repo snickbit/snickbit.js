@@ -1,5 +1,13 @@
 # @snickbit/model
 
+## 1.0.40
+
+### Patch Changes
+
+- [ae72619](https://github.com/snickbit/snickbit.js/commit/ae72619) **build**:  remove nx
+- [ff43f0d](https://github.com/snickbit/snickbit.js/commit/ff43f0d) **style**:  sort package.json
+- [769e3b9](https://github.com/snickbit/snickbit.js/commit/769e3b9) **style**:  relint
+
 ## 1.0.39
 
 ### Patch Changes

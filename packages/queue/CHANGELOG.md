@@ -1,5 +1,16 @@
 # @snickbit/queue Changelog
 
+## 1.1.3
+
+### Patch Changes
+
+- [bd50abe](https://github.com/snickbit/snickbit.js/commit/bd50abe) **fix**:  add catch blocks
+- [e872cfb](https://github.com/snickbit/snickbit.js/commit/e872cfb) **docs**:  update
+- [ae72619](https://github.com/snickbit/snickbit.js/commit/ae72619) **build**:  remove nx
+- [ff43f0d](https://github.com/snickbit/snickbit.js/commit/ff43f0d) **style**:  sort package.json
+- [769e3b9](https://github.com/snickbit/snickbit.js/commit/769e3b9) **style**:  relint
+- [3bf8776](https://github.com/snickbit/snickbit.js/commit/3bf8776) **chore**:  update indexer and indexer config
+
 ## 1.1.2
 
 ### Patch Changes

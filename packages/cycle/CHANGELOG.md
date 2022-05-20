@@ -1,5 +1,12 @@
 # @snickbit/utilities
 
+## 0.0.20
+
+### Patch Changes
+
+- [ae72619](https://github.com/snickbit/snickbit.js/commit/ae72619) **build**:  remove nx
+- [ff43f0d](https://github.com/snickbit/snickbit.js/commit/ff43f0d) **style**:  sort package.json
+
 ## 0.0.19
 
 ### Patch Changes
