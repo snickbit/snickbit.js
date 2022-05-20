@@ -131,7 +131,5 @@ export function arrayMergeDeep(...arrs: any[][]): any[] {
  * @category Arrays
  */
 export function arrayReject(arr: any[], callback: (...args: any[]) => boolean): any[] {
-	return arr.filter(function (...args: any[]): boolean {
-		return !callback.apply(this, args)
-	})
+	return arr.filter((...args: any[]) => !callback.apply(arr, args))
 }
