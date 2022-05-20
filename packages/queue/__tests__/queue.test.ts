@@ -84,7 +84,9 @@ describe('Queue', () => {
 		queue.push(() => {
 			console.log('Queue task 1')
 		})
-		queue.run().then(() => expect(queue.active).toBe(0))
+		queue.run().then(() => expect(queue.active).toBe(0)).catch(() => {
+			throw new Error('Queue run failed')
+		})
 	})
 
 	it('should be able to run multiple tasks', () => {
@@ -95,7 +97,9 @@ describe('Queue', () => {
 		queue.add(() => {
 			console.log('Queue task 2')
 		})
-		queue.run().then(() => expect(queue.active).toBe(0))
+		queue.run().then(() => expect(queue.active).toBe(0)).catch(() => {
+			throw new Error('Queue run failed')
+		})
 	})
 
 	it('should be able to run a hook after each task using thenEach', async () => {
@@ -109,7 +113,9 @@ describe('Queue', () => {
 		})
 		queue.run().thenEach(() => {
 			count++
-		}).then(() => expect(count).toBe(2))
+		}).then(() => expect(count).toBe(2)).catch(() => {
+			throw new Error('Queue run failed')
+		})
 	})
 
 	it('should be able to run promises out of order', async () => {
