@@ -39,12 +39,5 @@
 	"engines": {
 		"node": ">= 12"
 	},
-	"preferGlobal": true,
-	"nx": {
-		"implicitDependencies": [
-			"@snickbit/node-cli",
-			"@snickbit/node-utilities",
-			"@snickbit/out"
-		]
-	}
+	"preferGlobal": true
 }
