@@ -1,5 +1,16 @@
 # @snickbit/node-utilities
 
+## 4.3.5
+
+### Patch Changes
+
+- [48718e0](https://github.com/snickbit/snickbit.js/commit/48718e0) **docs**:  update
+- [ae72619](https://github.com/snickbit/snickbit.js/commit/ae72619) **build**:  remove nx
+- [1bc9f98](https://github.com/snickbit/snickbit.js/commit/1bc9f98) **fix**:  merge defaultCliProgressConfig when sending to cli-progress
+- [c57a457](https://github.com/snickbit/snickbit.js/commit/c57a457) **fix**:  make CLIProgressOptions partial
+- [ff43f0d](https://github.com/snickbit/snickbit.js/commit/ff43f0d) **style**:  sort package.json
+- [769e3b9](https://github.com/snickbit/snickbit.js/commit/769e3b9) **style**:  relint
+
 ## 4.3.4
 
 ### Patch Changes
