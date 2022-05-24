@@ -11,7 +11,7 @@
 		"bin"
 	],
 	"scripts": {
-		"build": "npm run esbuild",
+		"build": "pnpm run esbuild",
 		"build:meta": "pnpm run build --minify --metafile=.meta.json",
 		"clean": "shx rm -rf ./dist",
 		"depcheck": "depcheck",
