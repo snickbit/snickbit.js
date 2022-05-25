@@ -643,7 +643,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `questions` | [`Question`](interfaces/Question.md)[] \| [`QuestionRecords`](interfaces/QuestionRecords.md) |
+| `questions` | [`QuestionRecords`](interfaces/QuestionRecords.md) \| [`Question`](interfaces/Question.md)[] |
 
 #### Returns
 

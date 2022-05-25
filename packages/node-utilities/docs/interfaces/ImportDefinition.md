@@ -33,7 +33,7 @@
 
 ### default
 
-• **default**: `any`[] \| [`AnyFunction`](../README.md#anyfunction) \| [`IObject`](../README.md#iobject)
+• **default**: `any`[] \| [`IObject`](../README.md#iobject) \| [`AnyFunction`](../README.md#anyfunction)
 
 ___
 

@@ -299,7 +299,7 @@ Docs: https://day.js.org/docs/en/display/difference
 | Name | Type |
 | :------ | :------ |
 | `date?` | `string` \| `number` \| `Date` \| `Dayjs` |
-| `unit?` | ``"millisecond"`` \| ``"second"`` \| ``"minute"`` \| ``"hour"`` \| ``"day"`` \| ``"month"`` \| ``"year"`` \| ``"date"`` \| ``"milliseconds"`` \| ``"seconds"`` \| ``"minutes"`` \| ``"hours"`` \| ``"days"`` \| ``"months"`` \| ``"years"`` \| ``"dates"`` \| ``"d"`` \| ``"D"`` \| ``"M"`` \| ``"y"`` \| ``"h"`` \| ``"m"`` \| ``"s"`` \| ``"ms"`` \| ``"week"`` \| ``"weeks"`` \| ``"w"`` \| ``"quarter"`` \| ``"quarters"`` \| ``"Q"`` |
+| `unit?` | ``"Q"`` \| ``"s"`` \| ``"day"`` \| ``"hour"`` \| ``"minute"`` \| ``"month"`` \| ``"second"`` \| ``"year"`` \| ``"years"`` \| ``"quarter"`` \| ``"quarters"`` \| ``"months"`` \| ``"week"`` \| ``"weeks"`` \| ``"days"`` \| ``"hours"`` \| ``"minutes"`` \| ``"seconds"`` \| ``"d"`` \| ``"D"`` \| ``"M"`` \| ``"y"`` \| ``"h"`` \| ``"m"`` \| ``"ms"`` \| ``"millisecond"`` \| ``"date"`` \| ``"milliseconds"`` \| ``"dates"`` \| ``"w"`` |
 | `float?` | `boolean` |
 
 #### Returns

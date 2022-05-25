@@ -1,8 +1,15 @@
-# Class: Model
+# Class: Model<T, D\>
 
 Create a simple object model
 
 **`description`** @snickbit/model
+
+## Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `object` = `any` |
+| `D` | `Partial`<`T`\> |
 
 ## Table of contents
 
@@ -30,7 +37,9 @@ Create a simple object model
 - [findKey](Model.md#findkey)
 - [first](Model.md#first)
 - [get](Model.md#get)
+- [getError](Model.md#geterror)
 - [has](Model.md#has)
+- [hasError](Model.md#haserror)
 - [increment](Model.md#increment)
 - [insert](Model.md#insert)
 - [keys](Model.md#keys)
@@ -48,13 +57,20 @@ Create a simple object model
 
 ### constructor
 
-• **new Model**(`data?`, `options?`)
+• **new Model**<`T`, `D`\>(`data?`, `options?`)
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `object` = `any` |
+| `D` | `Partial`<`T`\> |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `data?` | `object` |
+| `data?` | `T` |
 | `options?` | `Partial`<[`ModelOptions`](../interfaces/ModelOptions.md)\> |
 
 ## Properties
@@ -67,7 +83,7 @@ ___
 
 ### data
 
-• **data**: `ObjectPathBound`<`object`\>
+• **data**: `ObjectPathBound`<`T`\>
 
 ## Accessors
 
@@ -138,7 +154,7 @@ ___
 
 ### decrement
 
-▸ **decrement**(`key`, `value?`): [`Model`](Model.md)
+▸ **decrement**(`key`, `value?`): [`Model`](Model.md)<`T`, `D`\>
 
 Decrement a number path
 
@@ -151,21 +167,21 @@ Decrement a number path
 
 #### Returns
 
-[`Model`](Model.md)
+[`Model`](Model.md)<`T`, `D`\>
 
 ___
 
 ### empty
 
-▸ **empty**(): [`Model`](Model.md)
+▸ **empty**(): [`Model`](Model.md)<`T`, `D`\>
 
 Remove all the items in a set
 
 #### Returns
 
-[`Model`](Model.md)
+[`Model`](Model.md)<`T`, `D`\>
 
-▸ **empty**(`key`): [`Model`](Model.md)
+▸ **empty**(`key`): [`Model`](Model.md)<`T`, `D`\>
 
 Remove all the items in a set
 
@@ -177,13 +193,13 @@ Remove all the items in a set
 
 #### Returns
 
-[`Model`](Model.md)
+[`Model`](Model.md)<`T`, `D`\>
 
 ___
 
 ### ensureExists
 
-▸ **ensureExists**(`key`, `value`): [`Model`](Model.md)
+▸ **ensureExists**(`key`, `value`): [`Model`](Model.md)<`T`, `D`\>
 
 Set a value if it doesn't exist, do nothing if it does
 
@@ -196,7 +212,7 @@ Set a value if it doesn't exist, do nothing if it does
 
 #### Returns
 
-[`Model`](Model.md)
+[`Model`](Model.md)<`T`, `D`\>
 
 ___
 
@@ -318,6 +334,24 @@ Get a path from an object
 
 ___
 
+### getError
+
+▸ **getError**(`key`): `string`
+
+Get the error for a key, if there is one
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `key` | `string` |
+
+#### Returns
+
+`string`
+
+___
+
 ### has
 
 ▸ **has**(`key`): `boolean`
@@ -336,9 +370,27 @@ Tests path existence
 
 ___
 
+### hasError
+
+▸ **hasError**(`key`): `boolean`
+
+Check if a key has an error
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `key` | `string` |
+
+#### Returns
+
+`boolean`
+
+___
+
 ### increment
 
-▸ **increment**(`key`, `value?`): [`Model`](Model.md)
+▸ **increment**(`key`, `value?`): [`Model`](Model.md)<`T`, `D`\>
 
 Increment a number path
 
@@ -351,13 +403,13 @@ Increment a number path
 
 #### Returns
 
-[`Model`](Model.md)
+[`Model`](Model.md)<`T`, `D`\>
 
 ___
 
 ### insert
 
-▸ **insert**(`key`, `value`, `at?`): [`Model`](Model.md)
+▸ **insert**(`key`, `value`, `at?`): [`Model`](Model.md)<`T`, `D`\>
 
 Insert an item in an array path
 
@@ -371,7 +423,7 @@ Insert an item in an array path
 
 #### Returns
 
-[`Model`](Model.md)
+[`Model`](Model.md)<`T`, `D`\>
 
 ___
 
@@ -415,7 +467,7 @@ ___
 
 ### patch
 
-▸ **patch**(`data`): [`Model`](Model.md)
+▸ **patch**(`data`): [`Model`](Model.md)<`T`, `D`\>
 
 Patch/merge the value of a path
 
@@ -423,13 +475,13 @@ Patch/merge the value of a path
 
 | Name | Type |
 | :------ | :------ |
-| `data` | `object` |
+| `data` | `D` |
 
 #### Returns
 
-[`Model`](Model.md)
+[`Model`](Model.md)<`T`, `D`\>
 
-▸ **patch**(`key`, `value`): [`Model`](Model.md)
+▸ **patch**(`key`, `value`): [`Model`](Model.md)<`T`, `D`\>
 
 Patch/merge the value of a path
 
@@ -442,7 +494,7 @@ Patch/merge the value of a path
 
 #### Returns
 
-[`Model`](Model.md)
+[`Model`](Model.md)<`T`, `D`\>
 
 ___
 
@@ -467,7 +519,7 @@ ___
 
 ### push
 
-▸ **push**(`key`, ...`values`): [`Model`](Model.md)
+▸ **push**(`key`, ...`values`): [`Model`](Model.md)<`T`, `D`\>
 
 Push a value to an array path
 
@@ -480,13 +532,13 @@ Push a value to an array path
 
 #### Returns
 
-[`Model`](Model.md)
+[`Model`](Model.md)<`T`, `D`\>
 
 ___
 
 ### remove
 
-▸ **remove**(`key`): [`Model`](Model.md)
+▸ **remove**(`key`): [`Model`](Model.md)<`T`, `D`\>
 
 Remove a value from a path
 
@@ -498,13 +550,13 @@ Remove a value from a path
 
 #### Returns
 
-[`Model`](Model.md)
+[`Model`](Model.md)<`T`, `D`\>
 
 ___
 
 ### set
 
-▸ **set**(`data`): [`Model`](Model.md)
+▸ **set**(`data`): [`Model`](Model.md)<`T`, `D`\>
 
 Overwrite the entire object
 
@@ -512,13 +564,13 @@ Overwrite the entire object
 
 | Name | Type |
 | :------ | :------ |
-| `data` | `object` |
+| `data` | `T` \| `D` |
 
 #### Returns
 
-[`Model`](Model.md)
+[`Model`](Model.md)<`T`, `D`\>
 
-▸ **set**(`key`, `value`, `overwrite?`): [`Model`](Model.md)
+▸ **set**(`key`, `value`, `overwrite?`): [`Model`](Model.md)<`T`, `D`\>
 
 Set the value of a key
 
@@ -532,7 +584,7 @@ Set the value of a key
 
 #### Returns
 
-[`Model`](Model.md)
+[`Model`](Model.md)<`T`, `D`\>
 
 ___
 
@@ -562,10 +614,12 @@ ___
 
 ### validate
 
-▸ **validate**(): `Promise`<``true`` \| `any`[]\>
+▸ **validate**(): `Promise`<``true`` \| [`ModelErrors`](../README.md#modelerrors)\>
 
 Validate the model against the schema
 
+**`throws`** {Error} If the model is invalid and strict mode is enabled
+
 #### Returns
 
-`Promise`<``true`` \| `any`[]\>
+`Promise`<``true`` \| [`ModelErrors`](../README.md#modelerrors)\>

@@ -14,6 +14,7 @@
 
 ### Type aliases
 
+- [ModelErrors](README.md#modelerrors)
 - [ModelId](README.md#modelid)
 - [ModelKey](README.md#modelkey)
 - [ModelPath](README.md#modelpath)
@@ -25,6 +26,12 @@
 - [model](README.md#model)
 
 ## Type aliases
+
+### ModelErrors
+
+Ƭ **ModelErrors**: `Record`<`string`, `string`\>
+
+___
 
 ### ModelId
 
@@ -75,19 +82,25 @@ ___
 
 ### model
 
-▸ **model**(`data`, `options?`): [`Model`](classes/Model.md)
+▸ **model**<`T`\>(`data`, `options?`): [`Model`](classes/Model.md)<`T`, `Partial`<`T`\>\>
 
 Create a simple object model
 
 **`description`** @snickbit/model
 
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `object` |
+
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `data` | `object` |
+| `data` | `T` |
 | `options?` | `Partial`<[`ModelOptions`](interfaces/ModelOptions.md)\> |
 
 #### Returns
 
-[`Model`](classes/Model.md)
+[`Model`](classes/Model.md)<`T`, `Partial`<`T`\>\>
