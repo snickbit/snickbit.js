@@ -2,6 +2,5 @@
 	"typescript": true,
 	"source": "src/**/*.ts",
 	"output": "src/index.ts",
-	"type": "wildcard",
-	"recursive": true
+	"type": "wildcard"
 }

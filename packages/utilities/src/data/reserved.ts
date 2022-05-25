@@ -1,4 +1,4 @@
-export default [
+export const reserved = [
 	'await',
 	'break',
 	'case',
@@ -49,3 +49,5 @@ export default [
 	'with',
 	'yield'
 ]
+
+export default reserved

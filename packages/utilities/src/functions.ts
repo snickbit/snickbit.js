@@ -1,7 +1,7 @@
 import {arrayUnique} from './arrays'
 import {IObject} from './objects'
 import {isArray, isEmpty, isObject, isType} from './validations'
-import {VariableType} from './data'
+import {VariableType} from './data/variable-types'
 
 /**
  * Parse options for a function
