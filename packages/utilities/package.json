@@ -22,7 +22,7 @@
 		"docs": "typedoc",
 		"index": "indexer",
 		"meta": "pnpm run prod --metafile",
-		"prod": "pnpm run build --minify",
+		"prod": "pnpm run index && pnpm run build --minify",
 		"test": "jest",
 		"watch": "pnpm run dev --watch"
 	},
