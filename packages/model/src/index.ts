@@ -78,24 +78,25 @@ function defaultValues(schema: Partial<ModelSchema>) {
  * Create a simple object model
  * @description @snickbit/model
  */
-export function model(data: object, options?: Partial<ModelOptions>) {
-	return new Model(data, options)
+export function model<T extends object>(data: T, options?: Partial<ModelOptions>) {
+	return new Model<T>(data, options)
 }
 
 /**
  * Create a simple object model
  * @description @snickbit/model
  */
-export class Model {
+export class Model<T extends object = any, D = Partial<T>> {
 	protected options: ModelOptions = {}
 	protected readonly defaults: { [key: string]: ModelValue }
 	protected is_new: boolean
 	protected out: Out
 	protected schema: Partial<ModelSchema>
-	data: ObjectPathBound<object>
+
+	data: ObjectPathBound<T>
 	append: string[] = []
 
-	constructor(data?: object, options?: Partial<ModelOptions>) {
+	constructor(data?: T, options?: Partial<ModelOptions>) {
 		this.options = {
 			name: this.constructor.name,
 			id: '_id',
@@ -109,8 +110,8 @@ export class Model {
 
 		this.out = new Out(this.options.name)
 
-		this.defaults = defaultValues(this.options.schema)
-		this.set({...this.defaults, ...(data || {})})
+		this.defaults = defaultValues(this.options.schema || {})
+		this.set({...this.defaults, ...(data || {})} as T)
 
 		this.is_new = !this.id
 		if (this.is_new && this.options.autoId) this.set(`.${this.options.id}`, uuid())
@@ -277,15 +278,15 @@ export class Model {
 	/**
 	 * Overwrite the entire object
 	 */
-	set(data: object): this;
+	set(data: T | D): this;
 
 	/**
 	 * Set the value of a key
 	 */
 	set(key: ModelKey, value: ModelValue, overwrite?: boolean): this;
-	set(keyOrData: object | Model | ModelKey, value?: ModelValue, overwrite = true): this {
+	set(keyOrData: T | D | Model | ModelKey, value?: ModelValue, overwrite = true): this {
 		if (isObject(keyOrData)) {
-			let data = keyOrData as object | Model
+			let data = keyOrData as T | Model
 
 			// warn if the value is set
 			if (value !== undefined) this.out.extra({data, value}).warn('Cannot set an object and a value at the same time. Value is ignored.')
@@ -294,7 +295,7 @@ export class Model {
 			if (overwrite !== true) this.out.extra({data, overwrite}).warn('Overwrite is ignored. All data will be overwritten.')
 
 			// check if the data is a Model, parse if it is
-			if (objectHasMethod(data, 'toJSON')) data = (data as Model).toJSON() as object
+			if (objectHasMethod(data, 'toJSON')) data = (data as Model).toJSON() as T
 
 			// set the data
 			if (this.options.root) {
@@ -404,13 +405,13 @@ export class Model {
 	/**
 	 * Patch/merge the value of a path
 	 */
-	patch(data: object): this
+	patch(data: D): this
 
 	/**
 	 * Patch/merge the value of a path
 	 */
 	patch(key: ModelKey, value: ModelValue): this
-	patch(keyOrData: object | ModelKey, value?: ModelValue): this {
+	patch(keyOrData: D | ModelKey, value?: ModelValue): this {
 		let data
 		let key: ModelKey
 		if (isObject(keyOrData)) {
@@ -425,7 +426,7 @@ export class Model {
 		}
 
 		// check if the data is a Model, parse if it is
-		if (objectHasMethod(data, 'toJSON')) data = (data as Model).toJSON() as object
+		if (objectHasMethod(data, 'toJSON')) data = (data as Model).toJSON() as T
 
 		// get the current value
 		const current = this.get(key)
@@ -502,11 +503,6 @@ protected async prepareData() {
 		return this.toJSON()
 	}
 
-	
-	
-
-	
-	
 
 	/**
 	 * Validate the model against the schema
