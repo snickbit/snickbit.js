@@ -10,6 +10,8 @@ export type ModelPath = number | string | symbol;
 
 export type ModelValue = any;
 
+export type ModelErrors = Record<string, string>
+
 /**
  * Model Schema
  * @property {ModelValidationMethod | ModelSchemaRecord} [*]
@@ -92,6 +94,7 @@ export class Model<T extends object = any, D = Partial<T>> {
 	protected is_new: boolean
 	protected out: Out
 	protected schema: Partial<ModelSchema>
+	protected errors: ModelErrors = {}
 
 	data: ObjectPathBound<T>
 	append: string[] = []
@@ -158,6 +161,20 @@ export class Model<T extends object = any, D = Partial<T>> {
 			this.set('_created', this.coalesce('_created', new Date()))
 			this.set('_updated', new Date())
 		}
+	}
+
+	/**
+	 * Get the error for a key, if there is one
+	 */
+	getError(key: string): string {
+		return this.errors[key] || ''
+	}
+
+	/**
+	 * Check if a key has an error
+	 */
+	hasError(key: string): boolean {
+		return key in this.errors
 	}
 
 	/**
@@ -506,9 +523,10 @@ protected async prepareData() {
 
 	/**
 	 * Validate the model against the schema
+	 * @throws {Error} If the model is invalid and strict mode is enabled
 	 */
-	async validate() {
-		const errors = []
+	async validate(): Promise<true | ModelErrors> {
+		this.errors = {}
 		const schema = this.options.schema
 
 		for (let [key, definition] of Object.entries(schema)) {
@@ -518,7 +536,7 @@ protected async prepareData() {
 				const validate = definition as ModelValidationMethod
 				const result = validate(key, value)
 				if (result !== true) {
-					errors.push(result)
+					this.errors[key] = result || `${key} is invalid`
 				}
 			} else if (isObject(definition)) {
 				definition = definition as ModelSchemaRecord
@@ -526,44 +544,45 @@ protected async prepareData() {
 				if ('validate' in definition && isFunction(definition.validate)) {
 					const result = definition.validate(key, value)
 					if (result !== true) {
-						errors.push(result)
+						this.errors[key] = result || `${key} is invalid`
 					}
 				}
 
 				const {type, message, required} = definition
 				if (required && isEmpty(value)) {
-					errors.push(message || `${key} is required`)
+					this.errors[key] = message || `${key} is required`
 				}
 
 				if (type === 'date') {
 					if (!isDate(value)) {
-						errors.push(message || `${key} is not a valid date`)
+						this.errors[key] = message || `${key} is not a valid date`
 					}
 				} else {
 					const value_type = typeOf(value)
 					if (value && !type.includes(value_type)) {
-						errors.push(message || `${key} must be of type ${type}, got ${value_type}`)
+						this.errors[key] = message || `${key} must be of type ${type}, received ${value_type}`
 					}
 				}
 			}
 		}
 
 		const schema_keys = Object.keys(schema)
-		let has_extra_keys = false
+		let extra_keys = []
 		for (const key of this.keys()) {
 			if (!schema_keys.includes(key)) {
-				errors.push(`Unknown key ${key}`)
-				has_extra_keys = true
+				extra_keys.push(key)
 			}
 		}
-		if (has_extra_keys) {
-			errors.push('Allowed keys: ' + schema_keys.join(', '))
+		if (extra_keys.length) {
+			this.errors.extra = `Found ${extra_keys.length} extra keys. Allowed keys: ${schema_keys.join(', ')}`
 		}
 
-		if (this.options.strict && errors.length > 0) {
-			this.out.throw(...errors)
+		if (isEmpty(this.errors)) {
+			return true
+		} else if (this.options.strict) {
+			this.out.throw(this.errors)
 		} else {
-			return errors.length ? errors : true
+			return this.errors
 		}
 	}
 }
