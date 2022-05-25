@@ -90,14 +90,18 @@ export function padString(text: string, padding = 2, character = ' '): string {
  * Create a safe javascript variable name from a string
  * @category Parsing
  */
-export function safeVarName(str: string): string {
-	str = str.split(/[\W\s_-]/) // Split on non-word characters
-	.join('_') // Join words with underscores
-	.replace(/__/g, '_') // Replace double underscores with single underscore
+export function safeVarName(str: string, replacer = ''): string {
+	// check that replacer itself is valid
+	replacer = replacer.split(/[\W\s_-]/).join('')
 
-	// If the first character is a number or if full str is a reserved word, add an underscore in front
+	str = str.split(/[\W\s_-]/) // Split on non-word characters
+		.join(replacer) // Join words with replacer
+		.replace(new RegExp(replacer + replacer, 'g'), replacer) // Replace double replacer with single replacer
+
+	// If the first character is a number or if full str is a reserved word, add a replacer in front
 	if (/^\d/.test(str) || reserved.includes(str)) {
-		str = '_' + str
+		// if replacer is empty, use an underscore
+		str = (replacer || '_') + str
 	}
 
 	return str
