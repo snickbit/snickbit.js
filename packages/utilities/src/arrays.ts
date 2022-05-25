@@ -1,4 +1,5 @@
-import {isFunction, mergeDeep, typeOf} from './variables'
+import {isFunction} from './validations'
+import {mergeDeep, typeOf} from './variables'
 
 /** @category Arrays */
 export type ArrayPredicate = (value: any, index?: number, array?: any[]) => unknown

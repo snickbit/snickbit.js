@@ -1,5 +1,6 @@
-import {isDefined, isJSONString, isType} from './variables'
 import {parseOptions} from './functions'
+import {isJSONString} from './variables'
+import {isDefined, isType} from './validations'
 
 /**
  * Parse a string into it's primitive type if possible. If not, return the original variable.

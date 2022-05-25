@@ -1,5 +1,6 @@
-import {isFunction, isObject, mergeDeep, typeOf} from './variables'
 import {JSONParse, JSONStringify} from './parsing'
+import {isFunction, isObject} from './validations'
+import {mergeDeep, typeOf} from './variables'
 
 /** @category Objects */
 export type IObject = {

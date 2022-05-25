@@ -1,6 +1,6 @@
 import {arrayUnique} from './arrays'
-import {isArray, isEmpty, isObject, isType} from './variables'
 import {IObject} from './objects'
+import {isArray, isEmpty, isObject, isType} from './validations'
 import {VariableType} from './data'
 
 /**
