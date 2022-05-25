@@ -1,5 +1,13 @@
 # @snickbit/model
 
+## 1.0.41
+
+### Patch Changes
+
+- [195670f](https://github.com/snickbit/snickbit.js/commit/195670f) **docs**:  update
+- [ac1680a](https://github.com/snickbit/snickbit.js/commit/ac1680a) **fix**:  improve error handling for validations
+- [86c5ee1](https://github.com/snickbit/snickbit.js/commit/86c5ee1) **fix**:  type definitions
+
 ## 1.0.40
 
 ### Patch Changes
