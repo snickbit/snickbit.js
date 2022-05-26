@@ -33,8 +33,7 @@
 	"dependencies": {
 		"@snickbit/plural": "workspace:^0.0.0",
 		"just-camel-case": "^6.0.1",
-		"nanoid": "^3.3.2",
-		"plur": "^5.1.0"
+		"nanoid": "^3.3.2"
 	},
 	"devDependencies": {
 		"@remedyred/indexer": "^2.4.0",
