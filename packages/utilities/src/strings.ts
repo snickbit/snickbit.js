@@ -131,3 +131,20 @@ export function slugify(text: string, replace = '-'): string {
 		.replace(new RegExp(`^${replace}+`), '') // Trim - from start of text
 		.replace(new RegExp(`${replace}+$`), '') // Trim - from end of text
 }
+
+/**
+ * Return the index of the first difference between two strings
+ * @param first
+ * @param second
+ * @returns {number} -1 if no difference
+ */
+export function findFirstDiff(first, second): number {
+	let i = 0
+	if (first === second) {
+		return -1
+	}
+	while (first[i] === second[i]) {
+		i++
+	}
+	return i
+}
