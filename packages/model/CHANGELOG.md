@@ -1,5 +1,12 @@
 # @snickbit/model
 
+## 1.0.42
+
+### Patch Changes
+
+- [ca07e6b](https://github.com/snickbit/snickbit.js/commit/ca07e6b) **style**:  heavy code restyling
+- [5665547](https://github.com/snickbit/snickbit.js/commit/5665547) **chore**:  bump dependencies
+
 ## 1.0.41
 
 ### Patch Changes

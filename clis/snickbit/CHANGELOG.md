@@ -1,5 +1,12 @@
 # snickbit
 
+## 0.0.25
+
+### Patch Changes
+
+- [ca07e6b](https://github.com/snickbit/snickbit.js/commit/ca07e6b) **style**:  heavy code restyling
+- [62f99d7](https://github.com/snickbit/snickbit.js/commit/62f99d7) **build**:  switch to pnpm
+
 ## 0.0.21
 
 ### Patch Changes

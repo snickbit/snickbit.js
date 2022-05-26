@@ -1,5 +1,18 @@
 # @snickbit/utilities
 
+## 3.0.21
+
+### Patch Changes
+
+- [ca07e6b](https://github.com/snickbit/snickbit.js/commit/ca07e6b) **style**:  heavy code restyling
+- [5665547](https://github.com/snickbit/snickbit.js/commit/5665547) **chore**:  bump dependencies
+- [b7a81fe](https://github.com/snickbit/snickbit.js/commit/b7a81fe) **fix**:  remove default underscore from safeVarName and replace with optional string
+- [7347cef](https://github.com/snickbit/snickbit.js/commit/7347cef) **chore**:  update indexer config
+- [b3676ba](https://github.com/snickbit/snickbit.js/commit/b3676ba) **refactor**:  split all is* methods into validations
+- [1f54b0e](https://github.com/snickbit/snickbit.js/commit/1f54b0e) **chore**:  bump indexer version, and rerun
+- [a932b4f](https://github.com/snickbit/snickbit.js/commit/a932b4f) **chore**:  bump indexer version
+- [cffb49e](https://github.com/snickbit/snickbit.js/commit/cffb49e) **build**:  rebuild indexes on prod
+
 ## 3.0.20
 
 ### Patch Changes

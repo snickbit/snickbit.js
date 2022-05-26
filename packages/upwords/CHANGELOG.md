@@ -1,5 +1,12 @@
 # @snickbit/upwords
 
+## 2.0.18
+
+### Patch Changes
+
+- [ca07e6b](https://github.com/snickbit/snickbit.js/commit/ca07e6b) **style**:  heavy code restyling
+- [5665547](https://github.com/snickbit/snickbit.js/commit/5665547) **chore**:  bump dependencies
+
 ## 2.0.17
 
 ### Patch Changes

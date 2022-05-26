@@ -1,5 +1,13 @@
 # @snickbit/node-utilities
 
+## 4.3.7
+
+### Patch Changes
+
+- [ca07e6b](https://github.com/snickbit/snickbit.js/commit/ca07e6b) **style**:  heavy code restyling
+- [5665547](https://github.com/snickbit/snickbit.js/commit/5665547) **chore**:  bump dependencies
+- [195670f](https://github.com/snickbit/snickbit.js/commit/195670f) **docs**:  update
+
 ## 4.3.5
 
 ### Patch Changes

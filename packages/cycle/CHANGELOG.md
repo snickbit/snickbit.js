@@ -1,5 +1,12 @@
 # @snickbit/utilities
 
+## 0.0.21
+
+### Patch Changes
+
+- [ca07e6b](https://github.com/snickbit/snickbit.js/commit/ca07e6b) **style**:  heavy code restyling
+- [5665547](https://github.com/snickbit/snickbit.js/commit/5665547) **chore**:  bump dependencies
+
 ## 0.0.20
 
 ### Patch Changes
