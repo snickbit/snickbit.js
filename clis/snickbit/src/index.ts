@@ -103,18 +103,18 @@ cli()
 				await open(`mailto:${data.email}`, {wait: true})
 				break
 			case 'resume': {
-				let name: string
+				let name = ''
 				while (!name) {
 					name = await ask(`What's your name? (required)`)
 				}
 
-				let email: string
+				let email = ''
 				while (!email) {
 					email = await ask(`What email should I send it to? (required)`)
 
 					if (!isEmail(email)) {
 						$out.error('Invalid email address')
-						email = null
+						email = ''
 					}
 				}
 
