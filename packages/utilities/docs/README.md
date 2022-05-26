@@ -74,6 +74,10 @@
 - [randomString](undefined)
 - [uuid](undefined)
 
+### Modules Functions
+
+- [findFirstDiff](undefined)
+
 ### Numbers Functions
 
 - [formatBytes](undefined)
@@ -749,6 +753,29 @@ string
 
 ___
 
+## Modules Functions
+
+### findFirstDiff
+
+▸ **findFirstDiff**(`first`, `second`): number
+
+Return the index of the first difference between two strings
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `first` | any |
+| `second` | any |
+
+#### Returns
+
+number
+
+-1 if no difference
+
+___
+
 ## Numbers Functions
 
 ### formatBytes
@@ -1328,19 +1355,32 @@ ___
 
 ### plural
 
-▸ **plural**(`text`, `count?`, `inclusive?`): any
+▸ **plural**(`word`, `count?`): any
 
 Create a pluralized string
 
-**`see`** https://github.com/plurals/pluralize
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `word` | string |
+| `count?` | number |
+
+#### Returns
+
+any
+
+▸ **plural**(`word`, `pluralized`, `count?`): any
+
+Create a pluralized string
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `text` | string | `undefined` |
-| `count` | number | `2` |
-| `inclusive?` | boolean | `undefined` |
+| Name | Type |
+| :------ | :------ |
+| `word` | string |
+| `pluralized` | string |
+| `count?` | number |
 
 #### Returns
 
@@ -1369,7 +1409,7 @@ ___
 
 ### singular
 
-▸ **singular**(`str`, `inclusive?`): any
+▸ **singular**(`word`, `count?`): any
 
 Create a singularized string
 
@@ -1377,8 +1417,24 @@ Create a singularized string
 
 | Name | Type |
 | :------ | :------ |
-| `str` | string |
-| `inclusive?` | boolean |
+| `word` | string |
+| `count?` | number |
+
+#### Returns
+
+any
+
+▸ **singular**(`word`, `singularized`, `count?`): any
+
+Create a singularized string
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `word` | string |
+| `singularized` | string |
+| `count?` | number |
 
 #### Returns
 
