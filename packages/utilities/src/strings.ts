@@ -1,5 +1,5 @@
+import {plural as pluralize, singular as singularize} from '@snickbit/plural'
 import {default as justCamelCase} from 'just-camel-case'
-import plur from 'plur'
 import reserved from './data/reserved'
 
 /**
@@ -39,17 +39,15 @@ export const camelCase = (text: string): string => justCamelCase(text)
 
 /**
  * Create a pluralized string
- * @see https://github.com/sindresorhus/plur
  * @category Parsing
  */
-export const plural = (text: string, count = 2) => plur(text, count)
+export const plural = pluralize
 
 /**
  * Create a singularized string
- * @see https://github.com/sindresorhus/plur
  * @category Parsing
  */
-export const singular = (str: string) => plur(str, 1)
+export const singular = singularize
 
 /**
  * Convert a string to initials
