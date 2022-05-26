@@ -1,8 +1,8 @@
-import variableTypes, {BasicVariableType, PrimitiveVariableType, VariableType} from './data/variable-types'
 import {typeOf} from './variables'
+import variableTypes, {BasicVariableType, PrimitiveVariableType, VariableType} from './data/variable-types'
 
 /** @category Validation */
-export type VariableTypeDefinition = { name: string }
+export type VariableTypeDefinition = {name: string}
 
 /**
  * Check if a value is undefined
@@ -14,7 +14,7 @@ export const isDefined = (value: any): boolean => typeof value !== 'undefined' &
  * Check if a value is empty
  * @category Validation
  */
-export const isEmpty = (value: any): boolean => isNullDefined(value) || value === '' || (Array.isArray(value) && !value.length) || (isObject(value) && !Object.keys(value).length)
+export const isEmpty = (value: any): boolean => isNullDefined(value) || value === '' || Array.isArray(value) && !value.length || isObject(value) && !Object.keys(value).length
 
 /**
  * Check if a value is null or undefined
@@ -74,7 +74,7 @@ export const isNumber = (value: any) => !isNaN(parseInt(value))
  * Check if a variable is a function
  * @category Validation
  */
-export const isFunction = (value: any, strict?: boolean) => strict ? value instanceof Function : typeof value === 'function' || (typeof value?.call === 'function' && typeof value?.apply === 'function')
+export const isFunction = (value: any, strict?: boolean) => strict ? value instanceof Function : typeof value === 'function' || typeof value?.call === 'function' && typeof value?.apply === 'function'
 
 /**
  * Check if a variable is a class
@@ -92,7 +92,7 @@ export const isSet = (value: any) => value instanceof Set
  * Check if a variable is the given type
  * @category Validation
  */
-export const isType = (value: any, type: VariableType | string | VariableTypeDefinition): boolean => typeOf(value) === (isObject(type) ? (type as VariableTypeDefinition).name.toLowerCase() : type)
+export const isType = (value: any, type: VariableType | VariableTypeDefinition | string): boolean => typeOf(value) === (isObject(type) ? (type as VariableTypeDefinition).name.toLowerCase() : type)
 
 /**
  * Check if a variable is a Base64 string

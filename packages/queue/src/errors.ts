@@ -1,15 +1,15 @@
 export interface QueueErrorJSON {
-	name: string;
-	message: string;
-	data?: any;
-	errors?: any;
+	name: string
+	message: string
+	data?: any
+	errors?: any
 }
 
-export type DynamicError = Error & { [key: string]: any };
-export type ErrorMessage = string | DynamicError | { [key: string]: any } | any[];
+export type DynamicError = Error & Record<string, any>
+export type ErrorMessage = any[] | DynamicError | Record<string, any> | string
 
 interface ErrorProperties extends Omit<QueueErrorJSON, 'message'> {
-	type: string;
+	type: string
 }
 
 /**
@@ -17,7 +17,9 @@ interface ErrorProperties extends Omit<QueueErrorJSON, 'message'> {
  */
 export class QueueError extends Error {
 	readonly type: string
+
 	readonly data: any
+
 	readonly errors: any
 
 	constructor(err: ErrorMessage, name: string, _data: any) {
@@ -64,7 +66,7 @@ export class QueueError extends Error {
  */
 export class QueueException extends QueueError {
 	constructor(message?: ErrorMessage, data?: any) {
-		super(message, 'QueueException', data)
+		super(message || 'An exception has occurred', 'QueueException', data)
 	}
 }
 
@@ -73,6 +75,6 @@ export class QueueException extends QueueError {
  */
 export class AbortQueueError extends QueueError {
 	constructor(message?: ErrorMessage, data?: any) {
-		super(message, 'AbortQueueError', data)
+		super(message || 'The queue has been aborted', 'AbortQueueError', data)
 	}
 }

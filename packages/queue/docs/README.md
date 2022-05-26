@@ -38,11 +38,11 @@
 
 ### CatchCallback
 
-Ƭ **CatchCallback**: (`error`: [`QueueException`](classes/QueueException.md)) => `any` \| `Promise`<`any`\>
+Ƭ **CatchCallback**: (`error`: [`QueueException`](classes/QueueException.md)) => `Promise`<`any`\> \| `any`
 
 #### Type declaration
 
-▸ (`error`): `any` \| `Promise`<`any`\>
+▸ (`error`): `Promise`<`any`\> \| `any`
 
 ##### Parameters
 
@@ -52,33 +52,33 @@
 
 ##### Returns
 
-`any` \| `Promise`<`any`\>
+`Promise`<`any`\> \| `any`
 
 ___
 
 ### DynamicError
 
-Ƭ **DynamicError**: `Error` & { `[key: string]`: `any`;  }
+Ƭ **DynamicError**: `Error` & `Record`<`string`, `any`\>
 
 ___
 
 ### ErrorMessage
 
-Ƭ **ErrorMessage**: `string` \| [`DynamicError`](README.md#dynamicerror) \| { `[key: string]`: `any`;  } \| `any`[]
+Ƭ **ErrorMessage**: `any`[] \| [`DynamicError`](README.md#dynamicerror) \| `Record`<`string`, `any`\> \| `string`
 
 ___
 
 ### FinallyCallback
 
-Ƭ **FinallyCallback**: () => `any` \| `Promise`<`any`\>
+Ƭ **FinallyCallback**: () => `Promise`<`any`\> \| `any`
 
 #### Type declaration
 
-▸ (): `any` \| `Promise`<`any`\>
+▸ (): `Promise`<`any`\> \| `any`
 
 ##### Returns
 
-`any` \| `Promise`<`any`\>
+`Promise`<`any`\> \| `any`
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 ### QueueTask
 
-Ƭ **QueueTask**: [`QueueTaskPromise`](README.md#queuetaskpromise) \| [`QueueTaskFunction`](README.md#queuetaskfunction)
+Ƭ **QueueTask**: [`QueueTaskFunction`](README.md#queuetaskfunction) \| [`QueueTaskPromise`](README.md#queuetaskpromise)
 
 ___
 
@@ -140,11 +140,11 @@ ___
 
 ### ThenCallback
 
-Ƭ **ThenCallback**: (`result`: `any`) => `any` \| `Promise`<`any`\>
+Ƭ **ThenCallback**: (`result`: `any`) => `Promise`<`any`\> \| `any`
 
 #### Type declaration
 
-▸ (`result`): `any` \| `Promise`<`any`\>
+▸ (`result`): `Promise`<`any`\> \| `any`
 
 ##### Parameters
 
@@ -154,7 +154,7 @@ ___
 
 ##### Returns
 
-`any` \| `Promise`<`any`\>
+`Promise`<`any`\> \| `any`
 
 ## Functions
 

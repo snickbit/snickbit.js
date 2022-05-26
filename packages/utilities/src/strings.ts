@@ -1,6 +1,6 @@
 import {default as justCamelCase} from 'just-camel-case'
-import reserved from './data/reserved'
 import pluralize from 'pluralize'
+import reserved from './data/reserved'
 
 // noinspection PhpCoveredCharacterInClassInspection
 /**
@@ -55,8 +55,7 @@ export const singular = (str: string, inclusive?: boolean) => pluralize(str, 1, 
  * Convert a string to initials
  * @category Parsing
  */
-export const initials = (str: string): string =>
-	str
+export const initials = (str: string): string => str
 	.split(/[^a-zA-Z]/)
 	.filter(Boolean)
 	.map(word => word[0].toUpperCase())
@@ -115,9 +114,9 @@ export function spaceCase(str: string): string {
 	// force the variable to be a string
 	str = String(str)
 	// treat cap + lower as the start of new word
-	str = str.replace(capital_plus_lower, match => ' ' + (match[0].toLowerCase() || match[0]) + match[1]) // the match is one cap followed by one non-cap
+	str = str.replace(capital_plus_lower, match => ` ${match[0].toLowerCase() || match[0]}${match[1]}`) // the match is one cap followed by one non-cap
 	// treat all remaining capitals as words
-	str = str.replace(capitals, match => ' ' + match.toLowerCase()) // match is a series of caps
+	str = str.replace(capitals, match => ` ${match.toLowerCase()}`) // match is a series of caps
 	return str.trim() // trim leading and trailing spaces
 }
 
@@ -127,10 +126,10 @@ export function spaceCase(str: string): string {
  */
 export function slugify(text: string, replace = '-'): string {
 	return spaceCase(text)
-	.toLowerCase()
-	.replace(/\s+/g, replace) // Replace spaces with -
-	.replace(/[^\w-]+/g, replace) // Remove all non-word chars
-	.replace(new RegExp(`${replace}${replace}+`, 'g'), replace) // Replace - with a single -
-	.replace(new RegExp(`^${replace}+`), '') // Trim - from start of text
-	.replace(new RegExp(`${replace}+$`), '') // Trim - from end of text
+		.toLowerCase()
+		.replace(/\s+/g, replace) // Replace spaces with -
+		.replace(/[^\w-]+/g, replace) // Remove all non-word chars
+		.replace(new RegExp(`${replace}${replace}+`, 'g'), replace) // Replace - with a single -
+		.replace(new RegExp(`^${replace}+`), '') // Trim - from start of text
+		.replace(new RegExp(`${replace}+$`), '') // Trim - from end of text
 }

@@ -56,7 +56,7 @@ ___
 
 ### strategy
 
-• **strategy**: ``"dynamic"`` \| ``"chunked"``
+• **strategy**: ``"chunked"`` \| ``"dynamic"``
 
 Queueing strategy to be used based on the lite-fifo package. The default strategy is "dynamic" or "DynamicCyclicQueue". \
 You can switch to "chunked" or "ChunkedQueue" for a slightly reduced memory footprint, but with a slightly slower performance.

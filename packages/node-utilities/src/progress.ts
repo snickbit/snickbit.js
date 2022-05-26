@@ -1,6 +1,6 @@
-import out, {Out} from '@snickbit/out'
 import {formatBytes, parseOptions} from '@snickbit/utilities'
 import {template} from 'ansi-styles-template'
+import out, {Out} from '@snickbit/out'
 import cliProgress, {SingleBar} from 'cli-progress'
 
 /** @category Progress */
@@ -17,17 +17,15 @@ export interface ProgressConfig {
 
 export type ProgressOptions = Partial<ProgressConfig>
 
-export interface ProgressPayload {
-	[key: string]: any
-}
+export type ProgressPayload = Record<string, any>
 
 interface CLIProgressOptions {
-	format: any,
-	etaBuffer: number,
-	fps: number,
-	barCompleteChar: string,
-	barIncompleteChar: string,
-	hideCursor: boolean,
+	format: any
+	etaBuffer: number
+	fps: number
+	barCompleteChar: string
+	barIncompleteChar: string
+	hideCursor: boolean
 	linewrap: string
 	formatValue?: (v, options, type) => any
 }
@@ -38,8 +36,7 @@ const defaultCliProgressConfig = {
 	fps: 10,
 	barCompleteChar: '\u2588',
 	barIncompleteChar: '\u2591',
-	hideCursor: true,
-	linewrap: null
+	hideCursor: true
 }
 
 /**
@@ -97,7 +94,9 @@ export function progress(options?: ProgressOptions) {
  */
 export class Progress {
 	options: ProgressConfig
+
 	out: Out
+
 	bar: SingleBar
 
 	constructor(options?: ProgressOptions) {
@@ -131,7 +130,7 @@ export class Progress {
 	/**
 	 * Get the ETA
 	 */
-	eta(): string | number {
+	eta(): number | string {
 		return this.bar ? this.bar.eta.getTime() : 0
 	}
 
@@ -139,19 +138,23 @@ export class Progress {
 	 * Start the progress bar
 	 */
 	start(options?: ProgressOptions): this {
-		options = parseOptions(options, this.options)
-		if (options.message) this.out.debug(options.message)
-		if (this.bar) this.bar.start(options.total, options.current, options)
+		const parsed: ProgressOptions = parseOptions(options, this.options)
+		if (parsed.message) {
+			this.out.debug(parsed.message)
+		}
+		if (this.bar) {
+			this.bar.start(parsed.total, parsed.current, options)
+		}
 		return this
 	}
 
 	/**
 	 * Tick the progress
 	 */
-	tick(payload: ProgressPayload): this;
+	tick(payload: ProgressPayload): this
 	tick(value?: number, payload?: ProgressPayload): this
 	tick(message: string, payload?: ProgressPayload): this
-	tick(valueMessageOrPayload: string | number | ProgressPayload, payload?: ProgressPayload): this {
+	tick(valueMessageOrPayload?: ProgressPayload | number | string, payload?: ProgressPayload): this {
 		let value = 1
 
 		if (typeof valueMessageOrPayload === 'object') {
@@ -161,12 +164,14 @@ export class Progress {
 				delete payload.value
 			}
 		} else if (typeof valueMessageOrPayload === 'string') {
-			payload = {message: valueMessageOrPayload, ...(payload || {})}
+			payload = {message: valueMessageOrPayload, ...payload || {}}
 		} else if (typeof valueMessageOrPayload === 'number') {
 			value = valueMessageOrPayload
 		}
 
-		if (this.bar) this.bar.increment(value, payload)
+		if (this.bar) {
+			this.bar.increment(value, payload)
+		}
 		if (payload) {
 			this.out.verbose(`Increment progress by ${value} and payload to:`, payload)
 		} else {
@@ -212,7 +217,9 @@ export class Progress {
 	 * Set the progress bar total
 	 */
 	setTotal(total: number): this {
-		if (this.bar) this.bar.setTotal(total)
+		if (this.bar) {
+			this.bar.setTotal(total)
+		}
 		this.out.verbose(`Set progress total to ${total}`)
 		return this
 	}
@@ -221,7 +228,9 @@ export class Progress {
 	 * Fail and stop the progress bar
 	 */
 	fail(...messages: any[]): this {
-		if (this.bar) this.bar.stop()
+		if (this.bar) {
+			this.bar.stop()
+		}
 		if (messages.length) {
 			this.out.error(...messages)
 		}
@@ -232,7 +241,9 @@ export class Progress {
 	 * Stop the progress bar
 	 */
 	stop(...messages: any[]): this {
-		if (this.bar) this.bar.stop()
+		if (this.bar) {
+			this.bar.stop()
+		}
 		if (messages.length) {
 			this.out.info(...messages)
 		}
@@ -243,7 +254,9 @@ export class Progress {
 	 * Succeed and stop the progress bar
 	 */
 	finish(...messages: any[]): this {
-		if (this.bar) this.bar.stop()
+		if (this.bar) {
+			this.bar.stop()
+		}
 		if (messages.length) {
 			this.out.success(...messages)
 		}

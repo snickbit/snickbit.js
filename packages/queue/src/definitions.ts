@@ -1,6 +1,7 @@
 import {QueueException} from './errors'
 
 export interface QueueConfiguration {
+
 	/** The maximum number of concurrent tasks to run. */
 	concurrency: number
 
@@ -26,7 +27,7 @@ export interface QueueConfiguration {
 	 * You can switch to "chunked" or "ChunkedQueue" for a slightly reduced memory footprint, but with a slightly slower performance.
 	 * @see https://github.com/kleinron/lite-fifo
 	 */
-	strategy: 'dynamic' | 'chunked'
+	strategy: 'chunked' | 'dynamic'
 
 	/** `true` to the queue immediately, or `false` to wait for `run()` to be called. Default is `true` */
 	autoStart: boolean
@@ -42,8 +43,8 @@ export type QueueOptionsValue = QueueOptions[keyof QueueOptions]
 
 export type QueueTaskPromise = Promise<any>
 export type QueueTaskFunction = (...args: any[]) => QueueTaskPromise | any
-export type QueueTask = QueueTaskPromise | QueueTaskFunction
+export type QueueTask = QueueTaskFunction | QueueTaskPromise
 
-export type ThenCallback = (result: any) => any | Promise<any>
-export type FinallyCallback = () => any | Promise<any>
-export type CatchCallback = (error: QueueException) => any | Promise<any>
+export type ThenCallback = (result: any) => Promise<any> | any
+export type FinallyCallback = () => Promise<any> | any
+export type CatchCallback = (error: QueueException) => Promise<any> | any

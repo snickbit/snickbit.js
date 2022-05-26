@@ -1,5 +1,5 @@
-import {Queue} from './queue'
 import {CatchCallback, FinallyCallback, ThenCallback} from './definitions'
+import {Queue} from './queue'
 
 /**
  * @noInheritDoc
@@ -7,7 +7,7 @@ import {CatchCallback, FinallyCallback, ThenCallback} from './definitions'
 export class QueuePromise<T> extends Promise<T> {
 	private queue: Queue
 
-	constructor(executor: (resolve: (value: T | PromiseLike<T>) => void, reject: (reason?: any) => void) => void, queue: Queue) {
+	constructor(executor: (resolve: (value: PromiseLike<T> | T) => void, reject: (reason?: any) => void) => void, queue: Queue) {
 		super(executor)
 		this.queue = queue
 	}
@@ -17,7 +17,7 @@ export class QueuePromise<T> extends Promise<T> {
 	 * @param onfulfilled
 	 * @param onrejected
 	 */
-	then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => (PromiseLike<TResult1> | TResult1)) | undefined | null, onrejected?: ((reason: any) => (PromiseLike<TResult2> | TResult2)) | undefined | null): Promise<TResult1 | TResult2> {
+	then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => (PromiseLike<TResult1> | TResult1)) | null | undefined, onrejected?: ((reason: any) => (PromiseLike<TResult2> | TResult2)) | null | undefined): Promise<TResult1 | TResult2> {
 		return super.then(onfulfilled, onrejected)
 	}
 
@@ -25,7 +25,7 @@ export class QueuePromise<T> extends Promise<T> {
 	 * Attaches a callback for only the rejection of the Queue as a whole.
 	 * @param onrejected
 	 */
-	catch<TResult = never>(onrejected?: ((reason: any) => (PromiseLike<TResult> | TResult)) | undefined | null): Promise<T | TResult> {
+	catch<TResult = never>(onrejected?: ((reason: any) => (PromiseLike<TResult> | TResult)) | null | undefined): Promise<T | TResult> {
 		return super.catch(onrejected)
 	}
 
@@ -33,7 +33,7 @@ export class QueuePromise<T> extends Promise<T> {
 	 * Attaches a callback that is invoked when the Queue as a whole is settled (fulfilled or rejected). The resolved value cannot be modified from the callback.
 	 * @param onfulfilled
 	 */
-	finally(onfulfilled?: (() => void) | undefined | null): Promise<T> {
+	finally(onfulfilled?: (() => void) | null | undefined): Promise<T> {
 		return super.finally(onfulfilled)
 	}
 

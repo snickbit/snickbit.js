@@ -1,8 +1,8 @@
-import variableTypes, {PrimitiveVariableType, VariableType} from './data/variable-types'
+import {arrayMerge, arrayMergeDeep} from './arrays'
 import {parseOptions} from './functions'
 import {IObject, objectFilter, objectMerge, objectMergeDeep} from './objects'
-import {arrayMerge, arrayMergeDeep} from './arrays'
 import {isArray, isAsyncFunction, isFunction, isNullDefined, isNumber, isObject, isSet} from './validations'
+import variableTypes, {PrimitiveVariableType, VariableType} from './data/variable-types'
 
 /**
  * Count the number of keys in an object \
@@ -21,9 +21,8 @@ export function count(value: any, strict = true): number {
 			value = objectFilter(value, v => !isFunction(v))
 		}
 		return Object.keys(value).length
-	} else {
-		return value.length
 	}
+	return value.length
 }
 
 /**
@@ -45,12 +44,23 @@ export function isJSONString(value: any, returnValue = false) {
  */
 export function typeOf(value: any): VariableType {
 	const varType = typeof value
-	if (variableTypes.primitive.includes(varType as PrimitiveVariableType)) return varType
-	if (Array.isArray(value)) return 'array'
-	if (value instanceof Date) return 'date'
-	if (value instanceof Promise) return 'promise'
-	if (varType === 'function' && value.constructor.name === 'AsyncFunction') return 'asyncfunction'
-	return Object.prototype.toString?.call(value).slice(8, -1).toLowerCase()
+	if (variableTypes.primitive.includes(varType as PrimitiveVariableType)) {
+		return varType
+	}
+	if (Array.isArray(value)) {
+		return 'array'
+	}
+	if (value instanceof Date) {
+		return 'date'
+	}
+	if (value instanceof Promise) {
+		return 'promise'
+	}
+	if (varType === 'function' && value.constructor.name === 'AsyncFunction') {
+		return 'asyncfunction'
+	}
+	return Object.prototype.toString?.call(value).slice(8, -1)
+		.toLowerCase()
 }
 
 interface isCallableOptions {
@@ -63,29 +73,28 @@ interface isCallableOptions {
  * @category Variables
  */
 export function isCallable(value: any, options?: Partial<isCallableOptions> | boolean): boolean {
-	if (!value) return false
+	if (!value) {
+		return false
+	}
 
-	options = parseOptions(
-		options,
+	options = parseOptions(options,
 		{
 			strict: false,
 			async: false
 		},
-		'async'
-	) as Partial<isCallableOptions>
+		'async') as Partial<isCallableOptions>
 
 	if (options.async) {
 		return isAsyncFunction(value) || isFunction(value, options.strict)
-	} else {
-		return isFunction(value, options.strict)
 	}
+	return isFunction(value, options.strict)
 }
 
 /**
  * Merge two or more variables together
  * @category Variables
  */
-export function merge(...values: IObject[] | any[]): IObject | any[] {
+export function merge(...values: any[] | IObject[]): any[] | IObject {
 	let toReturn
 	let returnType
 	for (const value of values) {
@@ -111,7 +120,7 @@ export function merge(...values: IObject[] | any[]): IObject | any[] {
  * Merge two or more variables together, recursing child values
  * @category Variables
  */
-export function mergeDeep(...values: IObject[] | any[]): IObject | any[] {
+export function mergeDeep(...values: any[] | IObject[]): any[] | IObject {
 	let toReturn
 	let returnType
 	for (const value of values) {
@@ -141,8 +150,7 @@ export function clone(value: any): any {
 	if (isArray(value)) {
 		return value.slice()
 	} else if (isObject(value)) {
-		return Object.assign({}, value)
-	} else {
-		return value
+		return {...value}
 	}
+	return value
 }

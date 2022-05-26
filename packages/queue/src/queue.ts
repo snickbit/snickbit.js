@@ -1,23 +1,23 @@
-import {AbortQueueError, QueueException} from './errors'
 import {sleep} from '@snickbit/utilities'
 import {ChunkedQueue, DynamicCyclicQueue} from 'lite-fifo'
-import {QueuePromise} from './queue.promise'
 import {CatchCallback, FinallyCallback, QueueConfiguration, QueueOption, QueueOptions, QueueOptionsValue, QueueTask, QueueTaskFunction, QueueTaskPromise, ThenCallback} from './definitions'
+import {AbortQueueError, QueueException} from './errors'
+import {QueuePromise} from './queue.promise'
 
 interface QueueTaskDefinition {
-	task: QueueTask,
-	thisArg?: any,
+	task: QueueTask
+	thisArg?: any
 	args?: any[]
 }
 
 interface QueueTicks {
-	current: number,
-	active: number,
+	current: number
+	active: number
 	strict: number[]
 }
 
 type Waiting = {
-	resolve: (value: unknown) => void,
+	resolve: (value: unknown) => void
 	reject: (error: unknown) => void
 }
 
@@ -42,38 +42,40 @@ const defaultOptions: QueueConfiguration = {
 }
 
 export class Queue {
-	static readonly defaultOptions: QueueConfiguration = {
-		...defaultOptions
-	}
+	static readonly defaultOptions: QueueConfiguration = {...defaultOptions}
 
 	private stopped: boolean
+
 	private tasks = 0
+
 	#results: any[] = []
-	private queue: DynamicCyclicQueue | ChunkedQueue
+
+	private queue: ChunkedQueue | DynamicCyclicQueue
+
 	private aborted = false
+
 	private processes = 0
+
 	private process: QueuePromise<any>
-	private handlers: QueueHandlers = {
-		then: null,
-		thenEach: null,
-		finally: null,
-		finallyEach: null,
-		catch: null,
-		catchEach: null
-	}
+
+	private handlers = {} as QueueHandlers
+
 	private ticks: QueueTicks = {
 		current: 0,
 		active: 0,
 		strict: []
 	}
+
 	private waiting: Waiting | null
-	#reject: ((error: QueueException) => void) | ((reason?: any) => void)
+
+	#reject: ((error: QueueException) => void) | ((reason?: any) => void) | undefined
+
 	readonly options: QueueConfiguration
 
 	constructor(options?: QueueOptions) {
 		this.options = {
 			...Queue.defaultOptions,
-			...(options || {})
+			...options || {}
 		}
 		this.options.throttle = !!this.options.limit && !!this.options.interval
 		this.makeQueue()
@@ -83,26 +85,24 @@ export class Queue {
 	 * Set the default options for the queue
 	 * @param {QueueOptions} options
 	 */
-	static config(options: QueueOptions): void;
+	static config(options: QueueOptions): void
 
 	/**
 	 * Set a default option for the queue
 	 * @param {QueueOption} option
 	 * @param {QueueOptionsValue} value
 	 */
-	static config(option: QueueOption, value: QueueOptionsValue): void;
+	static config(option: QueueOption, value: QueueOptionsValue): void
 	static config(optionOrOptions: QueueOption | QueueOptions, value?: QueueOptionsValue): void {
 		const options: any = typeof optionOrOptions === 'string' ? {[optionOrOptions]: value} : optionOrOptions
 		for (const option in options) {
 			if (option in Queue.defaultOptions) {
-				// @ts-ignore
 				Queue.defaultOptions[option] = options[option]
 			} else {
 				throw new QueueException(`Invalid configuration option: ${option}. Valid options are: ${Object.keys(Queue.defaultOptions).join(', ')}`)
 			}
 		}
 	}
-
 
 	get length(): number {
 		return this.tasks
@@ -133,7 +133,7 @@ export class Queue {
 	private windowedDelay() {
 		const now = Date.now()
 
-		if ((now - this.ticks.current) > this.options.interval) {
+		if (now - this.ticks.current > this.options.interval) {
 			this.ticks.active = 1
 			this.ticks.current = now
 			return 0
@@ -157,7 +157,7 @@ export class Queue {
 			return 0
 		}
 
-		const earliestTime = this.ticks.strict.shift() + this.options.interval
+		const earliestTime = (this.ticks.strict?.shift() || 0) + this.options.interval
 
 		if (now >= earliestTime) {
 			this.ticks.strict.push(now)
@@ -197,20 +197,20 @@ export class Queue {
 	 * Add a task to the queue.
 	 * @param {QueueTask} task
 	 */
-	add(task: QueueTask): this;
+	add(task: QueueTask): this
 
 	/**
 	 * Add a promise to the queue.
 	 * @param {QueueTaskPromise} task
 	 */
-	add(task: QueueTaskPromise): this;
+	add(task: QueueTaskPromise): this
 
 	/**
 	 * Add a Function to the queue, along with its arguments.
 	 * @param {QueueTaskFunction} task
 	 * @param {any[]} args
 	 */
-	add(task: QueueTaskFunction, args: any[]): this;
+	add(task: QueueTaskFunction, args: any[]): this
 
 	/**
 	 * Add a Function to the queue, with its "this" context and arguments.
@@ -218,8 +218,8 @@ export class Queue {
 	 * @param {any} thisArg
 	 * @param {any[]} args
 	 */
-	add(task: QueueTaskFunction, thisArg: any, args: any[]): this;
-	add(task: QueueTask, thisArgOrArgs?: any | any[], args?: any[]): this {
+	add(task: QueueTaskFunction, thisArg: any, args: any[]): this
+	add(task: QueueTask, thisArgOrArgs?: any[] | any, args?: any[]): this {
 		const taskDefinition: QueueTaskDefinition = {task}
 
 		if (Array.isArray(thisArgOrArgs)) {
@@ -292,7 +292,9 @@ export class Queue {
 		this.options.limit = limit
 		this.options.interval = interval
 		this.options.throttle = !!this.options.limit && !!this.options.interval
-		if (strict !== undefined) this.options.strict = strict
+		if (strict !== undefined) {
+			this.options.strict = strict
+		}
 		return this
 	}
 
@@ -301,7 +303,7 @@ export class Queue {
 	 * @see https://github.com/kleinron/lite-fifo lite-fifo for benchmarks
 	 * @param {'dynamic' | 'chunked'} strategy
 	 */
-	strategy(strategy: 'dynamic' | 'chunked'): this {
+	strategy(strategy: 'chunked' | 'dynamic'): this {
 		this.options.strategy = strategy
 		return this
 	}
@@ -311,10 +313,10 @@ export class Queue {
 	 */
 	run(): QueuePromise<any> {
 		if (!this.process) {
-			this.process = new QueuePromise(async (resolve, reject) => {
+			this.process = new QueuePromise(async(resolve, reject) => {
 				this.#reject = reject
 				this.processes = 0
-				const promises = []
+				const promises: Promise<any>[] = []
 				while (this.queue.size() > 0) {
 					const task = this.queue.dequeue()
 

@@ -144,7 +144,7 @@ Set the progress bar current value
 | Name | Type |
 | :------ | :------ |
 | `value` | `number` |
-| `payload?` | [`ProgressPayload`](../interfaces/ProgressPayload.md) |
+| `payload?` | [`ProgressPayload`](../README.md#progresspayload) |
 
 #### Returns
 
@@ -216,7 +216,7 @@ Tick the progress
 
 | Name | Type |
 | :------ | :------ |
-| `payload` | [`ProgressPayload`](../interfaces/ProgressPayload.md) |
+| `payload` | [`ProgressPayload`](../README.md#progresspayload) |
 
 #### Returns
 
@@ -229,7 +229,7 @@ Tick the progress
 | Name | Type |
 | :------ | :------ |
 | `value?` | `number` |
-| `payload?` | [`ProgressPayload`](../interfaces/ProgressPayload.md) |
+| `payload?` | [`ProgressPayload`](../README.md#progresspayload) |
 
 #### Returns
 
@@ -242,7 +242,7 @@ Tick the progress
 | Name | Type |
 | :------ | :------ |
 | `message` | `string` |
-| `payload?` | [`ProgressPayload`](../interfaces/ProgressPayload.md) |
+| `payload?` | [`ProgressPayload`](../README.md#progresspayload) |
 
 #### Returns
 
@@ -260,7 +260,7 @@ Update the progress bar
 
 | Name | Type |
 | :------ | :------ |
-| `payload?` | [`ProgressPayload`](../interfaces/ProgressPayload.md) |
+| `payload?` | [`ProgressPayload`](../README.md#progresspayload) |
 
 #### Returns
 

@@ -1,6 +1,6 @@
 import {parseOptions} from './functions'
-import {isJSONString} from './variables'
 import {isDefined, isType} from './validations'
+import {isJSONString} from './variables'
 
 /**
  * Parse a string into it's primitive type if possible. If not, return the original variable.
@@ -47,8 +47,10 @@ export function parse(value: any): any {
  * Parse a string into JSON
  * @category Parsing
  */
-export function JSONParse(json: string, strict?: boolean): object | any[] | undefined {
-	if (!isDefined(json)) return json as undefined
+export function JSONParse(json: string, strict?: boolean): any[] | object | undefined {
+	if (!isDefined(json)) {
+		return undefined
+	}
 
 	try {
 		json = JSON.parse(json)
@@ -59,18 +61,22 @@ export function JSONParse(json: string, strict?: boolean): object | any[] | unde
 			return undefined
 		}
 	}
-	return json as unknown as object | any[]
+	return json as unknown as any[] | object
 }
 
-type JSONStringifyOptions = boolean | { force?: boolean; pretty?: boolean | number }
+type JSONStringifyOptions = boolean | {force?: boolean; pretty?: boolean | number}
 
 /**
  * Parse a variable into a JSON string
  * @category Parsing
  */
 export function JSONStringify(data: any, options: JSONStringifyOptions = false): string {
-	if (!isDefined(data)) return data
-	if(typeof options === 'boolean') options = {force: options}
+	if (!isDefined(data)) {
+		return ''
+	}
+	if (typeof options === 'boolean') {
+		options = {force: options}
+	}
 
 	const parsedOptions = parseOptions(options, {force: false, pretty: undefined})
 
@@ -80,15 +86,15 @@ export function JSONStringify(data: any, options: JSONStringifyOptions = false):
 		try {
 			data = JSON.stringify(data, null, parsedOptions.pretty)
 		} catch (e) {
-			return undefined
+			return ''
 		}
 	}
 
-	return !isJSONString(data) && parsedOptions.force ? [data] : data
+	return data
 }
 
 /**
  * Pretty print a JSON string
  * @category Parsing
  */
-export const JSONPrettify = (data: any, spacer = 2): string => JSONStringify(data, {pretty: spacer})
+export const JSONPrettify = (data: Record<string, unknown>, spacer = 2): string => JSONStringify(data, {pretty: spacer})

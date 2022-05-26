@@ -1,14 +1,12 @@
-import out from '@snickbit/out'
 import {parseOptions, uuid} from '@snickbit/utilities'
-import cliProgress, {MultiBar} from 'cli-progress'
 import {makeProgressConfig, Progress, ProgressConfig, ProgressOptions} from './progress'
+import cliProgress, {MultiBar} from 'cli-progress'
+import out from '@snickbit/out'
 
 const _instances = {}
 
 /** @category Progress */
-interface MultiProgressBars {
-	[key: string]: MultiProgressChild
-}
+type MultiProgressBars = Record<string, MultiProgressChild>
 
 /**
  * Multi-Progress bar. Uses cli-progress to create multiple progress bars.
@@ -26,7 +24,9 @@ export function multiprogress(options?: ProgressOptions): MultiProgress {
  */
 export class MultiProgress extends Progress {
 	id: string
+
 	bars: MultiProgressBars
+
 	multibar: MultiBar
 
 	constructor(options?: ProgressOptions) {
@@ -92,6 +92,7 @@ export type MultiProgressChildOptions = Partial<MultiProgressChildConfig>
  */
 export class MultiProgressChild extends Progress {
 	id: string
+
 	declare options: MultiProgressChildConfig
 
 	constructor(options?: MultiProgressChildOptions) {
@@ -108,6 +109,8 @@ export class MultiProgressChild extends Progress {
 	 * Remove this child progress bar
 	 */
 	remove() {
-		if (_instances[this.options.parent]) _instances[this.options.parent].remove(this)
+		if (_instances[this.options.parent]) {
+			_instances[this.options.parent].remove(this)
+		}
 	}
 }

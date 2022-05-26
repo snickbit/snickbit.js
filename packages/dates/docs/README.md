@@ -26,7 +26,7 @@ ___
 
 ### DateInput
 
-Ƭ **DateInput**: `string` \| `number` \| `Date` \| `dayjs.Dayjs` \| [`Dates`](interfaces/Dates.md) \| [`ConfigType`](README.md#configtype)
+Ƭ **DateInput**: [`ConfigType`](README.md#configtype) \| `Date` \| [`Dates`](interfaces/Dates.md) \| `dayjs.Dayjs` \| `number` \| `string`
 
 ___
 

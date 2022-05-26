@@ -1,16 +1,16 @@
 import {Out} from '@snickbit/out'
-import throttle from 'lodash.throttle'
-import {createSpinner} from 'nanospinner'
 import {isString} from '@snickbit/utilities'
+import {createSpinner} from 'nanospinner'
+import throttle from 'lodash.throttle'
 
 /** @category Spinner */
 export interface SpinnerConfig {
-	text: string;
-	color: string;
-	stream: any;
-	interval: number;
-	frames: string[];
-	mark: string;
+	text: string
+	color: string
+	stream: any
+	interval: number
+	frames: string[]
+	mark: string
 }
 
 /** @category Spinner */
@@ -40,20 +40,22 @@ export function spinner(options?: SpinnerOptions | string) {
  */
 export class Spinner {
 	spinner
+
 	preload_message = ''
+
 	out: Out
 
 	constructor(options?: SpinnerOptions | string) {
-		options = this.#parseOptions(options)
-		this.preload_message = options.text
-		this.spinner = createSpinner(options.text, options)
+		const parsed = this.#parseOptions(options)
+		this.preload_message = parsed.text
+		this.spinner = createSpinner(parsed.text, parsed)
 		this.out = new Out('spinner')
 	}
 
 	/**
 	 * Parse the options
 	 */
-	#parseOptions(options?: SpinnerOptions | string, fallback_text?: string) {
+	#parseOptions(options?: SpinnerOptions | string, fallback_text?: string): SpinnerConfig {
 		if (!options) {
 			options = {}
 		}
@@ -67,7 +69,7 @@ export class Spinner {
 			options.text = this.#getMessage(options.text, fallback_text)
 		}
 
-		return options
+		return options as SpinnerConfig
 	}
 
 	/**
@@ -98,12 +100,12 @@ export class Spinner {
 	 * Start the spinner
 	 */
 	start(options?: SpinnerOptions | string): this {
-		options = this.#parseOptions(options)
-		this.preload_message = options.text
+		const parsed = this.#parseOptions(options)
+		this.preload_message = parsed.text
 		if (this.spinner) {
-			this.spinner.start(options)
-		} else if (options.text) {
-			this.out.info(options.text)
+			this.spinner.start(parsed)
+		} else if (parsed.text) {
+			this.out.info(parsed.text)
 		}
 		return this
 	}

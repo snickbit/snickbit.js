@@ -1,7 +1,7 @@
 import {arrayUnique} from './arrays'
-import {IObject} from './objects'
-import {isArray, isEmpty, isObject, isType} from './validations'
 import {VariableType} from './data/variable-types'
+import {IObject} from './objects'
+import {isArray, isObject, isType} from './validations'
 
 /**
  * Parse options for a function
@@ -15,7 +15,7 @@ import {VariableType} from './data/variable-types'
  * const options = parseOptions(true, {param: 'default'}, 'my_param')
  * // {param: 'default', my_param: true}
  */
-export function parseOptions(given: IObject | any, defaults: IObject, non_object_key?: string): object | any {
+export function parseOptions(given: IObject | any, defaults: IObject, non_object_key?: string): any | object {
 	if (!isObject(defaults)) {
 		throw new TypeError('defaults must be an object')
 	}
@@ -26,7 +26,7 @@ export function parseOptions(given: IObject | any, defaults: IObject, non_object
 	}
 
 	// if given is not an object, assign it to the non_object_key
-	if (!isObject(given)) {
+	if (!isObject(given) && non_object_key) {
 		given = {[non_object_key]: given}
 	}
 
@@ -65,7 +65,7 @@ export function tryWait(fn: TryWaitFunction, ...args: any[][]): Promise<any> {
  * @category Functions
  */
 export function functionClone(fn: FunctionType): FunctionType {
-	return function (...args: any[]): any {
+	return function(...args: any[]): any {
 		return fn.apply(this, ...args)
 	}
 }
@@ -74,13 +74,14 @@ export function functionClone(fn: FunctionType): FunctionType {
  * Send each item in an array to a function, await the results
  * @category Functions
  */
-export function promiseAll(arr: any[], fn: (value: any, index: number, array: any[]) => any): Promise<Awaited<any>[]> {
-	return isArray(arr) && !isEmpty(arr) && Promise.all(arr.map(fn))
+export async function promiseAll(arr: any[], fn: (value: any, index: number, array: any[]) => any): Promise<Awaited<unknown>[]> {
+	if (!isArray(arr)) {
+		return []
+	}
+	return Promise.all(arr.map(fn))
 }
 
-export interface OverloadSchema {
-	[key: string]: VariableType
-}
+export type OverloadSchema = Record<string, VariableType>
 
 /**
  * Parses an array of arguments for an overloaded function into an object

@@ -1,15 +1,15 @@
+import duration, {DatesDuration} from './duration'
+import limitedRelativeTime, {LimitedRelativeOptions} from './limited-relative-time'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
+import isTomorrow from 'dayjs/plugin/isTomorrow'
+import isYesterday from 'dayjs/plugin/isYesterday'
+import relativeTime from 'dayjs/plugin/relativeTime'
 import updateLocale from 'dayjs/plugin/updateLocale'
-import duration, {DatesDuration} from './duration'
 import quick from './quick'
 import timeago from './timeago'
-import relativeTime from 'dayjs/plugin/relativeTime'
-import isYesterday from 'dayjs/plugin/isYesterday'
-import isTomorrow from 'dayjs/plugin/isTomorrow'
-import limitedRelativeTime, {LimitedRelativeOptions} from './limited-relative-time'
 
-export type DateInput = string | number | Date | dayjs.Dayjs | Dates | ConfigType;
+export type DateInput = ConfigType | Date | Dates | dayjs.Dayjs | number | string
 
 export type ConfigType = dayjs.ConfigType
 export type OptionType = dayjs.OptionType
@@ -17,33 +17,33 @@ export type OptionType = dayjs.OptionType
 export interface Dates extends dayjs.Dayjs {
 	(input?: DateInput): Dates
 
-	isToday(): boolean;
+	isToday: () => boolean
 
-	datestamp(): string;
+	datestamp: () => string
 
-	timestamp(): string;
+	timestamp: () => string
 
-	safeTimestamp(): string;
+	safeTimestamp: () => string
 
-	time(): string;
+	time: () => string
 
-	shorttime(): string;
+	shorttime: () => string
 
-	shortdate(): string;
+	shortdate: () => string
 
-	shortdatetime(): string;
+	shortdatetime: () => string
 
-	duration(input: DateInput, unit?: string): DatesDuration;
+	duration: (input: DateInput, unit?: string) => DatesDuration
 
-	toLimited(input: DateInput, options: Partial<LimitedRelativeOptions>): string;
+	toLimited: (input: DateInput, options: Partial<LimitedRelativeOptions>) => string
 
-	fromLimited(input: DateInput, options: Partial<LimitedRelativeOptions>): string;
+	fromLimited: (input: DateInput, options: Partial<LimitedRelativeOptions>) => string
 
-	toNowLimited(options: Partial<LimitedRelativeOptions>): string;
+	toNowLimited: (options: Partial<LimitedRelativeOptions>) => string
 
-	fromNowLimited(options: Partial<LimitedRelativeOptions>): string;
+	fromNowLimited: (options: Partial<LimitedRelativeOptions>) => string
 
-	relativeToday(fallbackFormat: string): string;
+	relativeToday: (fallbackFormat: string) => string
 }
 
 dayjs.extend(isYesterday)

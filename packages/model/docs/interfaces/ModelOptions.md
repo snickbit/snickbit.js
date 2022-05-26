@@ -50,7 +50,7 @@ ___
 
 ### root
 
-• `Optional` **root**: `string`
+• `Optional` **root**: ``null`` \| `string`
 
 ___
 

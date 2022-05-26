@@ -298,8 +298,8 @@ Docs: https://day.js.org/docs/en/display/difference
 
 | Name | Type |
 | :------ | :------ |
-| `date?` | `string` \| `number` \| `Date` \| `Dayjs` |
-| `unit?` | ``"Q"`` \| ``"s"`` \| ``"day"`` \| ``"hour"`` \| ``"minute"`` \| ``"month"`` \| ``"second"`` \| ``"year"`` \| ``"years"`` \| ``"quarter"`` \| ``"quarters"`` \| ``"months"`` \| ``"week"`` \| ``"weeks"`` \| ``"days"`` \| ``"hours"`` \| ``"minutes"`` \| ``"seconds"`` \| ``"d"`` \| ``"D"`` \| ``"M"`` \| ``"y"`` \| ``"h"`` \| ``"m"`` \| ``"ms"`` \| ``"millisecond"`` \| ``"date"`` \| ``"milliseconds"`` \| ``"dates"`` \| ``"w"`` |
+| `date?` | ``null`` \| `string` \| `number` \| `Date` \| `Dayjs` |
+| `unit?` | ``"Q"`` \| ``"s"`` \| ``"day"`` \| ``"hour"`` \| ``"minute"`` \| ``"month"`` \| ``"second"`` \| ``"year"`` \| ``"years"`` \| ``"quarter"`` \| ``"quarters"`` \| ``"months"`` \| ``"week"`` \| ``"weeks"`` \| ``"days"`` \| ``"hours"`` \| ``"minutes"`` \| ``"seconds"`` \| ``"date"`` \| ``"millisecond"`` \| ``"milliseconds"`` \| ``"dates"`` \| ``"d"`` \| ``"D"`` \| ``"M"`` \| ``"y"`` \| ``"h"`` \| ``"m"`` \| ``"ms"`` \| ``"w"`` |
 | `float?` | `boolean` |
 
 #### Returns
@@ -395,7 +395,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `compared` | `string` \| `number` \| `Date` \| `Dayjs` |
+| `compared` | `undefined` \| ``null`` \| `string` \| `number` \| `Date` \| `Dayjs` |
 | `withoutSuffix?` | `boolean` |
 
 #### Returns
@@ -565,7 +565,7 @@ Docs: https://day.js.org/docs/en/query/is-after
 
 | Name | Type |
 | :------ | :------ |
-| `date` | `string` \| `number` \| `Date` \| `Dayjs` |
+| `date` | `undefined` \| ``null`` \| `string` \| `number` \| `Date` \| `Dayjs` |
 | `unit?` | `OpUnitType` |
 
 #### Returns
@@ -598,7 +598,7 @@ Docs: https://day.js.org/docs/en/query/is-before
 
 | Name | Type |
 | :------ | :------ |
-| `date` | `string` \| `number` \| `Date` \| `Dayjs` |
+| `date` | `undefined` \| ``null`` \| `string` \| `number` \| `Date` \| `Dayjs` |
 | `unit?` | `OpUnitType` |
 
 #### Returns
@@ -629,7 +629,7 @@ Docs: https://day.js.org/docs/en/query/is-same
 
 | Name | Type |
 | :------ | :------ |
-| `date` | `string` \| `number` \| `Date` \| `Dayjs` |
+| `date` | `undefined` \| ``null`` \| `string` \| `number` \| `Date` \| `Dayjs` |
 | `unit?` | `OpUnitType` |
 
 #### Returns
@@ -1123,7 +1123,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `compared` | `string` \| `number` \| `Date` \| `Dayjs` |
+| `compared` | `undefined` \| ``null`` \| `string` \| `number` \| `Date` \| `Dayjs` |
 | `withoutSuffix?` | `boolean` |
 
 #### Returns

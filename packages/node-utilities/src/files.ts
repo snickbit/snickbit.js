@@ -6,7 +6,7 @@ import path from 'path'
  * Save file to disk as JSON
  * @category Files
  */
-export const saveFileJson = (filepath: PathOrFileDescriptor, content: any, options: WriteFileOptions = 'utf8') => saveFile(filepath, JSON.stringify(content, null, '\t') + '\n', options)
+export const saveFileJson = (filepath: PathOrFileDescriptor, content: any, options: WriteFileOptions = 'utf8') => saveFile(filepath, `${JSON.stringify(content, null, '\t')}\n`, options)
 
 /** @category Files */
 export const fileExists = (filepath: PathLike) => fs.existsSync(filepath)
@@ -18,7 +18,7 @@ export const isDirectory = (filepath: PathLike) => fileExists(filepath) && fs.ls
  * Save file to disk
  * @category Files
  */
-export function saveFile(filepath: PathOrFileDescriptor, content: string | NodeJS.ArrayBufferView, options: WriteFileOptions = 'utf8') {
+export function saveFile(filepath: PathOrFileDescriptor, content: NodeJS.ArrayBufferView | string, options: WriteFileOptions = 'utf8') {
 	if (!fs.existsSync(path.dirname(filepath as string))) {
 		fs.mkdirSync(path.dirname(filepath as string), {recursive: true})
 	}
@@ -70,7 +70,7 @@ export interface FindUpOptions {
 }
 
 /** @category Files */
-export function findUp(name: string | PathLike, options?: Partial<FindUpOptions> | boolean | string): any {
+export function findUp(name: PathLike | string, options?: Partial<FindUpOptions> | boolean | string): any {
 	options = parseOptions(options, {
 		cwd: process.cwd(),
 		distance: false
@@ -87,9 +87,8 @@ export function findUp(name: string | PathLike, options?: Partial<FindUpOptions>
 		} : resolved
 	} else if (parsed.root === directory) {
 		return null
-	} else {
-		options.d++
-		options.cwd = path.dirname(directory)
-		return findUp(name, options)
 	}
+	options.d++
+	options.cwd = path.dirname(directory)
+	return findUp(name, options)
 }

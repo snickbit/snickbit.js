@@ -17,7 +17,7 @@ function useEmitter() {
 export function beforeExit(callback: () => void) {
 	const emitter = useEmitter()
 
-	//so the program will not close instantly
+	// so the program will not close instantly
 	process.stdin.resume()
 
 	// attach user callback to the process event emitter
@@ -31,6 +31,6 @@ export function beforeExit(callback: () => void) {
 	// catch ctrl+c event and exit normally
 	process.on('SIGINT', () => process.exit(2))
 
-	//catch uncaught exceptions, trace, then exit normally
+	// catch uncaught exceptions, trace, then exit normally
 	process.on('uncaughtException', () => process.exit(99))
 }

@@ -1,5 +1,5 @@
-import isToday from 'dayjs/plugin/isToday'
 import {Dates} from './index'
+import isToday from 'dayjs/plugin/isToday'
 
 const formats = {
 	datestamp: 'YYYY-MM-DD',
@@ -16,25 +16,24 @@ export default (_option, Dayjs, dayjs) => {
 
 	for (const [name, definition] of Object.entries(formats)) {
 		dayjs[name] = () => dayjs.format(definition)
-		Dayjs.prototype[name] = function () {
+		Dayjs.prototype[name] = function() {
 			return this.format(definition)
 		}
 	}
 
 	const oldFormat = Dayjs.prototype.format
 
-	Dayjs.prototype.format = function (this: Dates, template): string {
+	Dayjs.prototype.format = function(this: Dates, template): string {
 		return oldFormat.bind(this)(formats[template] || template)
 	}
 
 	/**
 	 * Simple date formatting
 	 */
-	Dayjs.prototype.simple = function (this: Dates): string {
+	Dayjs.prototype.simple = function(this: Dates): string {
 		if (this.isToday()) {
 			return this.shorttime()
-		} else {
-			return this.shortdatetime()
 		}
+		return this.shortdatetime()
 	}
 }

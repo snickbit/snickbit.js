@@ -6,4 +6,4 @@ Model Schema
 
 ## Indexable
 
-▪ [key: `string`]: [`ModelValidationMethod`](../README.md#modelvalidationmethod) \| [`ModelSchemaRecord`](ModelSchemaRecord.md)
+▪ [key: `string`]: [`ModelSchemaRecord`](ModelSchemaRecord.md) \| [`ModelValidationMethod`](../README.md#modelvalidationmethod)

@@ -1,34 +1,32 @@
-import prompts from 'prompts'
 import {isObject, parseOptions} from '@snickbit/utilities'
+import prompts from 'prompts'
 import Stream from 'stream'
 
 export type PromptsFunction = (prev: string, answers: Answers, previousQuestion: Question) => string
 export type PromptsPromise = (prev: string, answers: Answers, previousQuestion: Question) => Promise<string>
 
-export type PromptType = 'text' | 'password' | 'invisible' | 'number' | 'confirm' | 'list' | 'toggle' | 'select' | 'multiselect' | 'autocompleteMultiselect' | 'autocomplete' | 'date'
+export type PromptType = 'autocomplete' | 'autocompleteMultiselect' | 'confirm' | 'date' | 'invisible' | 'list' | 'multiselect' | 'number' | 'password' | 'select' | 'text' | 'toggle'
 
 /** @category Prompts */
-export interface QuestionRecords {
-	[key: string]: Question
-}
+export type QuestionRecords = Record<string, Question>
 
 /**
  * @category Prompts
  * @see https://github.com/terkelg/prompts
  */
 export interface Question {
-	type: PromptType | ((prev: string, answers: Answers, previousQuestion: Question) => PromptType),
-	name: string | PromptsFunction,
-	message: string | PromptsFunction,
-	initial: string | PromptsFunction | PromptsPromise,
-	format: PromptsFunction | PromptsPromise,
+	type: PromptType | ((prev: string, answers: Answers, previousQuestion: Question) => PromptType)
+	name: PromptsFunction | string
+	message: PromptsFunction | string
+	initial: PromptsFunction | PromptsPromise | string
+	format: PromptsFunction | PromptsPromise
 	onRender: (this: prompts, kluer: any) => void
 	onState: (state: PromptState) => void
 	stdin: Stream
 	stdout: Stream
 
 	// text
-	style: 'default' | 'password' | 'invisible' | 'emoji'
+	style: 'default' | 'emoji' | 'invisible' | 'password'
 
 	// number
 	float: boolean
@@ -53,7 +51,7 @@ export interface Question {
 	mask: string
 
 	// multiselect
-	instructions: string | boolean
+	instructions: boolean | string
 	optionsPerPage: number
 
 	// number | multiselect
@@ -70,21 +68,17 @@ export interface Question {
 
 /** @category Prompts */
 export interface PromptsLocales {
-	months: string[],
-	monthsShort: string[],
-	weekdays: string[],
+	months: string[]
+	monthsShort: string[]
+	weekdays: string[]
 	weekdaysShort: string[]
 }
 
 /** @category Prompts */
-export interface Answers {
-	[key: string]: string
-}
+export type Answers = Record<string, string>
 
 /** @category Prompts */
-export interface ChoiceRecords {
-	[key: string]: ChoiceOption
-}
+export type ChoiceRecords = Record<string, ChoiceOption>
 
 /** @category Prompts */
 export interface ChoiceDefinition {
@@ -98,7 +92,7 @@ export interface PromptState {
 }
 
 /** @category Prompts */
-export type ChoiceOption = string | ChoiceDefinition
+export type ChoiceOption = ChoiceDefinition | string
 
 /**
  * @category Prompts
@@ -139,8 +133,8 @@ export async function prompt(questions: Question[] | QuestionRecords): Promise<A
  * @see https://github.com/terkelg/prompts
  * @category Prompts
  */
-export async function confirm(question: string, defaultAnswer?: boolean): Promise<boolean>;
-export async function confirm(question: string, options?: Partial<Question>): Promise<boolean>;
+export async function confirm(question: string, defaultAnswer?: boolean): Promise<boolean>
+export async function confirm(question: string, options?: Partial<Question>): Promise<boolean>
 export async function confirm(question: string, optionsOrDefault?: Partial<Question> | boolean): Promise<boolean> {
 	const options = parseOptions(optionsOrDefault, {
 		...defaultPromptOptions,
@@ -161,9 +155,9 @@ export async function confirm(question: string, optionsOrDefault?: Partial<Quest
  * @see https://github.com/terkelg/prompts
  * @category Prompts
  */
-export async function ask(question: string, defaultAnswer?: string): Promise<string | any>;
-export async function ask(question: string, options?: Partial<Question>): Promise<string | any>;
-export async function ask(question: string, optionsOrDefault?: Partial<Question> | string): Promise<string | any> {
+export async function ask(question: string, defaultAnswer?: string): Promise<any | string>
+export async function ask(question: string, options?: Partial<Question>): Promise<any | string>
+export async function ask(question: string, optionsOrDefault?: Partial<Question> | string): Promise<any | string> {
 	const options = parseOptions(optionsOrDefault, {
 		...defaultPromptOptions,
 		style: 'default',

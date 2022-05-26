@@ -17,7 +17,7 @@ export const escapeRegExp = (str: string) => String(str).replace(/[.*+?^${}()|[\
 export const escapeReplacement = (str: string) => String(str).replace(/\$/g, '$$$$')
 
 /** @category Templating */
-export type interpolateReplacements = Record<string, string | number | any>
+export type interpolateReplacements = Record<string, any | number | string>
 
 /**
  * interpolate string with data from object using {{key}} syntax or ${key} syntax
@@ -27,10 +27,10 @@ export function interpolate(str: string, replacements: interpolateReplacements):
 	for (let [from, to] of Object.entries(objectFlatten(replacements))) {
 		to = escapeReplacement(to)
 		if (!from.startsWith('{{')) {
-			str = str.replace(new RegExp(escapeRegExp('{{' + from + '}}'), 'g'), to)
+			str = str.replace(new RegExp(escapeRegExp(`{{${from}}}`), 'g'), to)
 		}
 		if (!from.startsWith('${')) {
-			str = str.replace(new RegExp(escapeRegExp('${' + from + '}'), 'g'), to)
+			str = str.replace(new RegExp(escapeRegExp(`\${${from}}`), 'g'), to)
 		}
 	}
 	return str

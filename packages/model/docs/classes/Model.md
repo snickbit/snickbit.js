@@ -326,7 +326,7 @@ Get a path from an object
 
 | Name | Type |
 | :------ | :------ |
-| `key` | [`ModelKey`](../README.md#modelkey) |
+| `key` | `undefined` \| [`ModelKey`](../README.md#modelkey) |
 
 #### Returns
 
@@ -578,7 +578,7 @@ Set the value of a key
 
 | Name | Type |
 | :------ | :------ |
-| `key` | [`ModelKey`](../README.md#modelkey) |
+| `key` | `undefined` \| [`ModelKey`](../README.md#modelkey) |
 | `value` | `any` |
 | `overwrite?` | `boolean` |
 

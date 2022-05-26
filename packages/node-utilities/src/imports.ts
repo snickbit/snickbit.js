@@ -8,13 +8,11 @@ export const isImportDefinition = (data: any) => 'run' in data || 'handler' in d
 
 export type AnyFunction = (...args: any[]) => any
 
-export type IObject = {
-	[key: string]: any
-}
+export type IObject = Record<string, any>
 
 /** @category Imports */
 export interface ImportDefinition {
-	default: IObject | AnyFunction | Array<any>
+	default: AnyFunction | Array<any> | IObject
 	name?: string
 	description?: string
 	describe?: string
@@ -25,7 +23,7 @@ export interface ImportDefinition {
 }
 
 /** @category Imports */
-export type ImportRecords = Record<string, ImportDefinition | AnyFunction>
+export type ImportRecords = Record<string, AnyFunction | ImportDefinition>
 
 /** @category Imports */
 export type RecordOfImportRecords = Record<string, ImportRecords>

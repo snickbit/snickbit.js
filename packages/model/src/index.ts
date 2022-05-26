@@ -1,14 +1,14 @@
+import {Out} from '@snickbit/out'
 import {isArray, isCallable, isDate, isEmpty, isFunction, isObject, objectFind, objectFindKey, objectHasMethod, ObjectPredicate, typeOf, uuid, VariableType} from '@snickbit/utilities'
 import objectPath, {ObjectPathBound} from 'object-path'
-import {Out} from '@snickbit/out'
 
 export type ModelId = number | string | undefined
 
 export type ModelKey = Array<ModelPath> | ModelPath
 
-export type ModelPath = number | string | symbol;
+export type ModelPath = number | string | symbol
 
-export type ModelValue = any;
+export type ModelValue = any
 
 export type ModelErrors = Record<string, string>
 
@@ -17,7 +17,7 @@ export type ModelErrors = Record<string, string>
  * @property {ModelValidationMethod | ModelSchemaRecord} [*]
  */
 export interface ModelSchema {
-	[key: string]: ModelValidationMethod | ModelSchemaRecord
+	[key: string]: ModelSchemaRecord | ModelValidationMethod
 }
 
 /**
@@ -67,7 +67,9 @@ export interface ModelOptions {
 function defaultValues(schema: Partial<ModelSchema>) {
 	const defaults = {}
 	for (let [key, schemaItem] of Object.entries(schema)) {
-		if (!isObject(schemaItem)) continue
+		if (!isObject(schemaItem)) {
+			continue
+		}
 		schemaItem = schemaItem as ModelSchemaRecord
 		if (schemaItem.default !== undefined) {
 			defaults[key] = schemaItem.default
@@ -90,13 +92,19 @@ export function model<T extends object>(data: T, options?: Partial<ModelOptions>
  */
 export class Model<T extends object = any, D = Partial<T>> {
 	protected options: ModelOptions = {}
-	protected readonly defaults: { [key: string]: ModelValue }
+
+	protected readonly defaults: {[key: string]: ModelValue}
+
 	protected is_new: boolean
+
 	protected out: Out
+
 	protected schema: Partial<ModelSchema>
+
 	protected errors: ModelErrors = {}
 
 	data: ObjectPathBound<T>
+
 	append: string[] = []
 
 	constructor(data?: T, options?: Partial<ModelOptions>) {
@@ -114,10 +122,12 @@ export class Model<T extends object = any, D = Partial<T>> {
 		this.out = new Out(this.options.name)
 
 		this.defaults = defaultValues(this.options.schema || {})
-		this.set({...this.defaults, ...(data || {})} as T)
+		this.set({...this.defaults, ...data || {}} as T)
 
 		this.is_new = !this.id
-		if (this.is_new && this.options.autoId) this.set(`.${this.options.id}`, uuid())
+		if (this.is_new && this.options.autoId) {
+			this.set(`.${this.options.id}`, uuid())
+		}
 		this.resetOut()
 	}
 
@@ -127,7 +137,9 @@ export class Model<T extends object = any, D = Partial<T>> {
 	get id(): ModelId {
 		const id_fields = [`.${this.options.id}`, '._id', '.id']
 		for (const id_field of id_fields) {
-			if (this.has(id_field)) return this.get(id_field)
+			if (this.has(id_field)) {
+				return this.get(id_field)
+			}
 		}
 		return undefined
 	}
@@ -136,23 +148,27 @@ export class Model<T extends object = any, D = Partial<T>> {
 		this.out = new Out(`${this.options.name}#${this.is_new || !this.id ? 'new' : this.id}`)
 	}
 
-	protected checkKey(key): string | undefined {
+	protected checkKey(key): string {
 		if (typeOf(key) === 'string' && key.startsWith('.')) {
 			key = key.substring(1)
 		} else if (this.options.root) {
 			if (typeOf(key) === 'string' && key !== this.options.root) {
 				if (!key.startsWith(`${this.options.root}.`)) {
 					key = `${this.options.root}.${key}`
-				} else if (typeOf(key) === 'array' && key.slice().shift() !== this.options.root) {
+				} else if (typeOf(key) === 'array' && key.slice()
+					.shift() !== this.options.root) {
 					key = [this.options.root, key]
 				}
-			} else if (typeOf(key) === 'array' && key.slice().shift() !== this.options.root) {
+			} else if (typeOf(key) === 'array' && key.slice()
+				.shift() !== this.options.root) {
 				key = [this.options.root, key]
 			} else {
 				key = this.options.root
 			}
 		}
-		if (!key) key = undefined
+		if (!key) {
+			key = ''
+		}
 		return key
 	}
 
@@ -185,8 +201,8 @@ export class Model<T extends object = any, D = Partial<T>> {
 	/**
 	 * Get a path from an object
 	 */
-	get(key: ModelKey): ModelValue;
-	get(key?: ModelKey): ModelValue {
+	get(key: ModelKey | undefined): ModelValue
+	get(key?: ModelKey | undefined): ModelValue {
 		const parsedKey = this.checkKey(key)
 		const data = this.data.get(parsedKey)
 		if (!parsedKey && this.append && this.append.length) {
@@ -207,14 +223,14 @@ export class Model<T extends object = any, D = Partial<T>> {
 	/**
 	 * Find specific data in the model
 	 */
-	find(predicate: ObjectPredicate): ModelValue;
+	find(predicate: ObjectPredicate): ModelValue
 
 	/**
 	 * Find specific data in the model
 	 */
-	find(key: ModelKey, predicate: ObjectPredicate): ModelValue;
+	find(key: ModelKey, predicate: ObjectPredicate): ModelValue
 	find(keyOrPredicate: ModelKey | ObjectPredicate, predicate?: ObjectPredicate): ModelValue {
-		let key: ModelKey
+		let key: ModelKey = ''
 		if (isFunction(keyOrPredicate)) {
 			predicate = keyOrPredicate as ObjectPredicate
 		} else {
@@ -222,7 +238,7 @@ export class Model<T extends object = any, D = Partial<T>> {
 		}
 		const value = this.get(key)
 		if (isObject(value)) {
-			return objectFind(value, predicate)
+			return objectFind(value, predicate as ObjectPredicate)
 		} else if (isArray(value)) {
 			return value.find(predicate)
 		}
@@ -232,14 +248,14 @@ export class Model<T extends object = any, D = Partial<T>> {
 	/**
 	 * Find a key/index matching a value
 	 */
-	findKey(predicate: ObjectPredicate): ModelValue;
+	findKey(predicate: ObjectPredicate): ModelValue
 
 	/**
 	 * Find a key/index matching a value
 	 */
-	findKey(key: ModelKey, predicate: ObjectPredicate): ModelValue;
-	findKey(keyOrPredicate: ModelKey | ObjectPredicate, predicate?: ObjectPredicate): string | symbol | number | undefined {
-		let key: ModelKey
+	findKey(key: ModelKey, predicate: ObjectPredicate): ModelValue
+	findKey(keyOrPredicate: ModelKey | ObjectPredicate, predicate?: ObjectPredicate): number | string | symbol | undefined {
+		let key: ModelKey = ''
 		if (isFunction(keyOrPredicate)) {
 			predicate = keyOrPredicate as ObjectPredicate
 		} else {
@@ -247,7 +263,7 @@ export class Model<T extends object = any, D = Partial<T>> {
 		}
 		const value = this.get(key)
 		if (isObject(value)) {
-			return objectFindKey(value, predicate)
+			return objectFindKey(value, predicate as ObjectPredicate)
 		} else if (isArray(value)) {
 			return value.findIndex(predicate)
 		}
@@ -257,18 +273,20 @@ export class Model<T extends object = any, D = Partial<T>> {
 	/**
 	 * Get the first value in a set
 	 */
-	first(): ModelValue;
+	first(): ModelValue
 
 	/**
 	 * Get the first value in a set
 	 */
-	first(key?: ModelKey): ModelValue;
+	first(key?: ModelKey): ModelValue
 	first(key?: ModelKey): ModelValue {
 		const value = this.get(key)
 		if (isObject(value)) {
-			return Object.values(value).shift()
+			return Object.values(value)
+				.shift()
 		} else if (isArray(value)) {
-			return value.slice().shift()
+			return value.slice()
+				.shift()
 		}
 		return undefined
 	}
@@ -276,18 +294,20 @@ export class Model<T extends object = any, D = Partial<T>> {
 	/**
 	 * Get the last value in a set
 	 */
-	last(): ModelValue;
+	last(): ModelValue
 
 	/**
 	 * Get the last value in a set
 	 */
-	last(key: ModelKey): ModelValue;
+	last(key: ModelKey): ModelValue
 	last(key?: ModelKey): ModelValue {
 		const value = this.get(key)
 		if (isObject(value)) {
-			return Object.values(value).pop()
+			return Object.values(value)
+				.pop()
 		} else if (isArray(value)) {
-			return value.slice().pop()
+			return value.slice()
+				.pop()
 		}
 		return undefined
 	}
@@ -295,24 +315,38 @@ export class Model<T extends object = any, D = Partial<T>> {
 	/**
 	 * Overwrite the entire object
 	 */
-	set(data: T | D): this;
+	set(data: D | T): this
 
 	/**
 	 * Set the value of a key
 	 */
-	set(key: ModelKey, value: ModelValue, overwrite?: boolean): this;
-	set(keyOrData: T | D | Model | ModelKey, value?: ModelValue, overwrite = true): this {
+	set(key: ModelKey | undefined, value: ModelValue, overwrite?: boolean): this
+	set(keyOrData: D | Model | ModelKey | T | undefined, value?: ModelValue, overwrite = true): this {
 		if (isObject(keyOrData)) {
-			let data = keyOrData as T | Model
+			let data = keyOrData as Model | T
 
 			// warn if the value is set
-			if (value !== undefined) this.out.extra({data, value}).warn('Cannot set an object and a value at the same time. Value is ignored.')
+			if (value !== undefined) {
+				this.out.extra({
+					data,
+					value
+				})
+					.warn('Cannot set an object and a value at the same time. Value is ignored.')
+			}
 
 			// warn if overwrite is set
-			if (overwrite !== true) this.out.extra({data, overwrite}).warn('Overwrite is ignored. All data will be overwritten.')
+			if (overwrite !== true) {
+				this.out.extra({
+					data,
+					overwrite
+				})
+					.warn('Overwrite is ignored. All data will be overwritten.')
+			}
 
 			// check if the data is a Model, parse if it is
-			if (objectHasMethod(data, 'toJSON')) data = (data as Model).toJSON() as T
+			if (objectHasMethod(data, 'toJSON')) {
+				data = (data as Model).toJSON() as T
+			}
 
 			// set the data
 			if (this.options.root) {
@@ -337,7 +371,7 @@ export class Model<T extends object = any, D = Partial<T>> {
 	/**
 	 * Get the keys of the data
 	 */
-	keys(): string[];
+	keys(): string[]
 
 	/**
 	 * Get the keys under a specific path in the model
@@ -350,21 +384,20 @@ export class Model<T extends object = any, D = Partial<T>> {
 	/**
 	 * Count the items in a set
 	 */
-	count(): number;
+	count(): number
 
 	/**
 	 * Count the items in a set
 	 */
-	count(key: ModelKey): number;
+	count(key: ModelKey): number
 	count(key?: ModelKey): number {
 		const value = this.get(key)
 		if (isArray(value)) {
 			return value.length
 		} else if (isObject(value)) {
 			return Object.keys(value).length
-		} else {
-			return (value || '').length
 		}
+		return (value || '').length
 	}
 
 	/**
@@ -430,20 +463,27 @@ export class Model<T extends object = any, D = Partial<T>> {
 	patch(key: ModelKey, value: ModelValue): this
 	patch(keyOrData: D | ModelKey, value?: ModelValue): this {
 		let data
-		let key: ModelKey
+		let key: ModelKey = ''
 		if (isObject(keyOrData)) {
 			data = keyOrData
-			key = null
 
 			// warn if the value is set
-			if (value !== undefined) this.out.extra({data, value}).warn('Cannot set an object and a value at the same time. Value is ignored.')
+			if (value !== undefined) {
+				this.out.extra({
+					data,
+					value
+				})
+					.warn('Cannot set an object and a value at the same time. Value is ignored.')
+			}
 		} else {
 			key = keyOrData as ModelKey
 			data = value
 		}
 
 		// check if the data is a Model, parse if it is
-		if (objectHasMethod(data, 'toJSON')) data = (data as Model).toJSON() as T
+		if (objectHasMethod(data, 'toJSON')) {
+			data = (data as Model).toJSON() as T
+		}
 
 		// get the current value
 		const current = this.get(key)
@@ -465,7 +505,9 @@ export class Model<T extends object = any, D = Partial<T>> {
 	 */
 	increment(key: ModelKey, value = 1): this {
 		let current = this.get(key)
-		if (Number.isNaN(current)) current = 0
+		if (Number.isNaN(current)) {
+			current = 0
+		}
 		return this.set(key, current + value)
 	}
 
@@ -474,7 +516,9 @@ export class Model<T extends object = any, D = Partial<T>> {
 	 */
 	decrement(key: ModelKey, value = 1): this {
 		let current = this.get(key)
-		if (Number.isNaN(current)) current = 0
+		if (Number.isNaN(current)) {
+			current = 0
+		}
 		return this.set(key, current - value)
 	}
 
@@ -497,16 +541,18 @@ export class Model<T extends object = any, D = Partial<T>> {
 	/**
 	 * Convert the model to a JSON string
 	 */
-toString() {
+	toString() {
 		return JSON.stringify(this.toJSON())
 	}
-/**
+
+	/**
 	 * Convert the model to a JSON object. This is the same as calling `.get()
 	 */
-toJSON() {
+	toJSON() {
 		return this.get()
 	}
-protected async prepareData() {
+
+	protected async prepareData() {
 		if (!this.data) {
 			throw new Error('No data to save')
 		}
@@ -520,14 +566,13 @@ protected async prepareData() {
 		return this.toJSON()
 	}
 
-
 	/**
 	 * Validate the model against the schema
 	 * @throws {Error} If the model is invalid and strict mode is enabled
 	 */
-	async validate(): Promise<true | ModelErrors> {
+	async validate(): Promise<ModelErrors | true> {
 		this.errors = {}
-		const schema = this.options.schema
+		const schema = this.options.schema as ModelSchema
 
 		for (let [key, definition] of Object.entries(schema)) {
 			const value = this.get(key)
@@ -541,7 +586,7 @@ protected async prepareData() {
 			} else if (isObject(definition)) {
 				definition = definition as ModelSchemaRecord
 
-				if ('validate' in definition && isFunction(definition.validate)) {
+				if ('validate' in definition && typeof definition.validate === 'function') {
 					const result = definition.validate(key, value)
 					if (result !== true) {
 						this.errors[key] = result || `${key} is invalid`
@@ -567,7 +612,7 @@ protected async prepareData() {
 		}
 
 		const schema_keys = Object.keys(schema)
-		let extra_keys = []
+		let extra_keys: string[] = []
 		for (const key of this.keys()) {
 			if (!schema_keys.includes(key)) {
 				extra_keys.push(key)
@@ -577,12 +622,14 @@ protected async prepareData() {
 			this.errors.extra = `Found ${extra_keys.length} extra keys. Allowed keys: ${schema_keys.join(', ')}`
 		}
 
-		if (isEmpty(this.errors)) {
-			return true
-		} else if (this.options.strict) {
-			this.out.throw(this.errors)
-		} else {
-			return this.errors
+		if (!isEmpty(this.errors)) {
+			if (this.options.strict) {
+				this.out.throw(this.errors)
+			} else {
+				return this.errors
+			}
 		}
+
+		return true
 	}
 }

@@ -68,7 +68,7 @@ Attaches a callback for only the rejection of the Queue as a whole.
 
 | Name | Type |
 | :------ | :------ |
-| `onrejected?` | (`reason`: `any`) => `TResult` \| `PromiseLike`<`TResult`\> |
+| `onrejected?` | ``null`` \| (`reason`: `any`) => `TResult` \| `PromiseLike`<`TResult`\> |
 
 #### Returns
 
@@ -108,7 +108,7 @@ Attaches a callback that is invoked when the Queue as a whole is settled (fulfil
 
 | Name | Type |
 | :------ | :------ |
-| `onfulfilled?` | () => `void` |
+| `onfulfilled?` | ``null`` \| () => `void` |
 
 #### Returns
 
@@ -155,8 +155,8 @@ Attaches callbacks for the resolution and/or rejection of the Queue as a whole.
 
 | Name | Type |
 | :------ | :------ |
-| `onfulfilled?` | (`value`: `T`) => `TResult1` \| `PromiseLike`<`TResult1`\> |
-| `onrejected?` | (`reason`: `any`) => `TResult2` \| `PromiseLike`<`TResult2`\> |
+| `onfulfilled?` | ``null`` \| (`value`: `T`) => `TResult1` \| `PromiseLike`<`TResult1`\> |
+| `onrejected?` | ``null`` \| (`reason`: `any`) => `TResult2` \| `PromiseLike`<`TResult2`\> |
 
 #### Returns
 

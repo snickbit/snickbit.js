@@ -40,13 +40,13 @@ export const arrayUniqueInsensitive = (arr: any[], key?: string): any[] => arr.f
  * arrayToObject([{id: 1, name: 'John'}, {id: 2, name: 'Jane'}], 'name')
  * // {John: {id: 1, name: 'John'}, Jane: {id: 2, name: 'Jane'}}
  */
-export const arrayToObject = (arr: any[], key: string | number, value: string | number): object => arr.reduce((obj, item) => Object.assign(obj, {[item[key]]: value ? item[value] : item}), {})
+export const arrayToObject = (arr: any[], key: number | string, value: number | string): object => arr.reduce((obj, item) => Object.assign(obj, {[item[key]]: value ? item[value] : item}), {})
 
 /**
  * Wrap a variable in an array if it is not already an array
  * @category Arrays
  */
-export const arrayWrap = (values: any[] | any): any[] => (Array.isArray(values) ? values : [values])
+export const arrayWrap = (values: any[] | any): any[] => Array.isArray(values) ? values : [values]
 
 /**
  * Return the duplicate values from an array
@@ -71,7 +71,9 @@ export function arrayDuplicates(arr: any[], predicate?: ArrayPredicate): any[] {
  * @category Arrays
  */
 export function arrayRemove(arr: any[], value: any): any[] {
-	if (!arr || !value) return arr
+	if (!arr || !value) {
+		return arr
+	}
 	const index = arr.indexOf(value)
 	if (index >= 0) {
 		arr.splice(index, 1)

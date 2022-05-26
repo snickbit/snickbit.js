@@ -1,6 +1,6 @@
 import {nanoid} from 'nanoid'
-import {clone} from './variables'
 import {IObject} from './objects'
+import {clone} from './variables'
 
 /**
  * Create uuid
@@ -27,13 +27,12 @@ export function randomString(length = 10): string {
  * @category Generators
  */
 export function makeRandomSegment(): string {
-	return Math.random().toString(36).substring(2, 16)
+	return Math.random().toString(36)
+		.substring(2, 16)
 }
 
 /** @category Generators */
-export type CombinationOptions = {
-	[key: string]: any[]
-}
+export type CombinationOptions = Record<string, any[]>
 
 /**
  * Generate an array of all possible property values. Provide an object with each property as a key and an array of possible values as the value.
@@ -47,7 +46,7 @@ function combinationsLoop(options: CombinationOptions, optionIndex = 0, current:
 	const allKeys = Object.keys(options)
 	const optionKey = allKeys[optionIndex]
 	const values = options[optionKey]
-	const results = []
+	const results: any[] = []
 
 	for (let i = 0; i < values.length; i++) {
 		current[optionKey] = values[i]

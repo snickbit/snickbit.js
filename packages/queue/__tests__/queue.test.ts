@@ -148,7 +148,7 @@ describe('Queue', () => {
 	it('should work through queue, fifo', async () => {
 		const queue = new Queue({autoStart: false})
 		const results: number[] = []
-		const expected = []
+		const expected: number[] = []
 		const tests = 4
 
 		queue.push(async () => {

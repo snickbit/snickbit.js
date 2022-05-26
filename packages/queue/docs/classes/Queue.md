@@ -297,7 +297,7 @@ Set the queueing strategy. Dynamic uses slightly more resources but tends to be 
 
 | Name | Type |
 | :------ | :------ |
-| `strategy` | ``"dynamic"`` \| ``"chunked"`` |
+| `strategy` | ``"chunked"`` \| ``"dynamic"`` |
 
 #### Returns
 

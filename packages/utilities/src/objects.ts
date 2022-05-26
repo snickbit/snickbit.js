@@ -3,9 +3,7 @@ import {isFunction, isObject} from './validations'
 import {mergeDeep, typeOf} from './variables'
 
 /** @category Objects */
-export type IObject = {
-	[key: string]: any
-}
+export type IObject = Record<string, any>
 
 /** @category Objects */
 export type ObjectPredicate = (key: string | symbol, value?: any, obj?: object) => unknown
@@ -14,7 +12,7 @@ export type ObjectPredicate = (key: string | symbol, value?: any, obj?: object) 
  * Finds an object property's name that matches the given predicate
  * @category Objects
  */
-export function objectFindKey(obj: IObject, predicate: string | ObjectPredicate): string | undefined {
+export function objectFindKey(obj: IObject, predicate: ObjectPredicate | string): string | undefined {
 	const results = objectFindEntry(obj, predicate)
 	return results ? results[0] : undefined
 }
@@ -26,7 +24,7 @@ export function objectFindKey(obj: IObject, predicate: string | ObjectPredicate)
  * @returns {any}
  * @category Objects
  */
-export function objectFind(obj: IObject, predicate: string | ObjectPredicate): any | undefined {
+export function objectFind(obj: IObject, predicate: ObjectPredicate | string): any | undefined {
 	const results = objectFindEntry(obj, predicate)
 	return results ? results[1] : undefined
 }
@@ -35,7 +33,7 @@ export function objectFind(obj: IObject, predicate: string | ObjectPredicate): a
  * Finds an object property's entry [key, value] that matches the given predicate
  * @category Objects
  */
-export function objectFindEntry(obj: IObject, predicate: string | ObjectPredicate): any | undefined {
+export function objectFindEntry(obj: IObject, predicate: ObjectPredicate | string): any | undefined {
 	if (!isFunction(predicate)) {
 		const value = predicate
 		predicate = (v: any) => v === value
@@ -57,12 +55,17 @@ export function objectHasMethod(obj: IObject, method: string, strict?: boolean):
  * @category Objects
  */
 export function objectGetMethod(obj: IObject, method: string, strict?: boolean): any {
-	if (!obj || !isObject(obj)) return undefined
-	if (typeOf(method) !== 'string') throw new Error(`Method name must be a string, got ${typeOf(method)}`)
+	if (!obj || !isObject(obj)) {
+		return undefined
+	}
+	if (typeOf(method) !== 'string') {
+		throw new Error(`Method name must be a string, got ${typeOf(method)}`)
+	}
 	return objectMethods(obj)
-	.map(method_name => ({original: method_name, lower: method_name.toLowerCase()}))
-	.filter(method_def => (strict ? method_def.original === method : method_def.lower === method.toLowerCase()))
-	.map(method_def => obj[method_def.original]).pop()
+		.map(method_name => ({original: method_name, lower: method_name.toLowerCase()}))
+		.filter(method_def => strict ? method_def.original === method : method_def.lower === method.toLowerCase())
+		.map(method_def => obj[method_def.original])
+		.pop()
 }
 
 /**
@@ -70,8 +73,12 @@ export function objectGetMethod(obj: IObject, method: string, strict?: boolean):
  * @category Objects
  */
 export function objectFilter(obj: IObject, predicate: ObjectPredicate = () => true): IObject {
-	if (!isObject(obj)) throw new TypeError('objectFilter: obj must be an object')
-	if (!isFunction(predicate)) throw new TypeError('objectFilter: predicate must be a function')
+	if (!isObject(obj)) {
+		throw new TypeError('objectFilter: obj must be an object')
+	}
+	if (!isFunction(predicate)) {
+		throw new TypeError('objectFilter: predicate must be a function')
+	}
 
 	const toReturn: IObject = {}
 
@@ -154,8 +161,8 @@ export const objectClone = (...objects: IObject[]): IObject => {
  * Copy object as JSON (uses JSON.parse/JSON.stringify but won't throw any errors)
  * @category Objects
  */
-export function objectCopy(obj: IObject, force?: boolean): IObject | any[] | undefined {
-	return JSONParse(JSONStringify(obj, force))
+export function objectCopy(obj: IObject, force?: boolean): any[] | IObject | undefined {
+	return JSONParse(JSONStringify(obj, force) || '{}')
 }
 
 /**
@@ -196,11 +203,12 @@ export function objectMergeDeep(...objects: IObject[]): IObject {
  * @category Objects
  */
 export function objectMethods(obj: IObject): string[] {
-	const properties = new Set()
+	const properties = new Set<string>()
 	let currentObj = obj
 	do {
 		Object.getOwnPropertyNames(currentObj).map(item => properties.add(item))
-	} while ((currentObj = Object.getPrototypeOf(currentObj)))
+		// eslint-disable-next-line no-cond-assign
+	} while (currentObj = Object.getPrototypeOf(currentObj))
 
 	const keys: string[] = Array.from(properties.keys()).map(item => item.toString())
 
@@ -212,7 +220,9 @@ export function objectMethods(obj: IObject): string[] {
  * @category Objects
  */
 export function objectPull(obj: IObject, key: string): any {
-	if (!obj || !key || !isObject(obj) || !(key in obj)) return undefined
+	if (!obj || !key || !isObject(obj) || !(key in obj)) {
+		return undefined
+	}
 	const value = obj[key]
 	delete obj[key]
 	return value

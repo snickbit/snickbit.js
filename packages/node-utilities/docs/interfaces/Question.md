@@ -187,7 +187,7 @@ ___
 
 ### type
 
-• **type**: [`PromptType`](../README.md#prompttype) \| (`prev`: `string`, `answers`: [`Answers`](Answers.md), `previousQuestion`: [`Question`](Question.md)) => [`PromptType`](../README.md#prompttype)
+• **type**: [`PromptType`](../README.md#prompttype) \| (`prev`: `string`, `answers`: [`Answers`](../README.md#answers), `previousQuestion`: [`Question`](Question.md)) => [`PromptType`](../README.md#prompttype)
 
 ___
 

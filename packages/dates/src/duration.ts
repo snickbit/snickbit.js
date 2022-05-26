@@ -1,32 +1,28 @@
-import duration from 'dayjs/plugin/duration'
 import {maxDecimals, plural} from '@snickbit/utilities'
 import {Dates} from './index'
+import duration from 'dayjs/plugin/duration'
 
 export interface DatesDuration extends Dates {
-	toWords(): string
+	toWords: (() => string) & ((long: boolean) => string) & ((options: ToWordsOptions) => string)
 
-	toWords(long: boolean): string
+	toObject: () => DurationObject
 
-	toWords(options: ToWordsOptions): string;
+	humanize: (withSuffix?: boolean) => string
 
-	toObject(): DurationObject;
+	format: (formatStr?: string) => string
 
-	humanize(withSuffix?: boolean): string
-
-	format(formatStr?: string): string
-
-	toJSON(): string
+	toJSON: () => string
 }
 
 export interface DurationObject {
-	years: number;
-	months: number;
-	weeks: number;
-	days: number;
-	hours: number;
-	minutes: number;
-	seconds: number;
-	milliseconds: number;
+	years: number
+	months: number
+	weeks: number
+	days: number
+	hours: number
+	minutes: number
+	seconds: number
+	milliseconds: number
 }
 
 interface DateAbbreviations {
@@ -51,9 +47,7 @@ const abbreviations: DateAbbreviations = {
 	year: 'y'
 }
 
-interface DateWords {
-	[key: string]: DateWordsRecord
-}
+type DateWords = Record<string, DateWordsRecord>
 
 interface DateWordsRecord {
 	label: string
@@ -61,9 +55,9 @@ interface DateWordsRecord {
 }
 
 export interface ToWordsOptions {
-	long?: boolean;
-	reduce?: boolean;
-	milliseconds?: boolean;
+	long?: boolean
+	reduce?: boolean
+	milliseconds?: boolean
 }
 
 function toWords(long: boolean): string
@@ -98,7 +92,9 @@ function toWords(longOrOptions?: ToWordsOptions | boolean): string {
 		}
 	}
 
-	const output = Object.values(values).reverse().filter(v => v.value > 0).map(v => `${maxDecimals(v.value, 2)}${v.label}`)
+	const output = Object.values(values).reverse()
+		.filter(v => v.value > 0)
+		.map(v => `${maxDecimals(v.value, 2)}${v.label}`)
 	const last = output.pop() || ''
 	return output.length ? `${output.join(', ')} and ${last}` : last
 }
@@ -131,7 +127,7 @@ export default (option, Dayjs, dayjs) => {
 	 * Create a new duration
 	 * @see https://day.js.org/docs/en/durations/durations
 	 */
-	dayjs.duration = function (input: string | number | object, unit?: string): DatesDuration {
+	dayjs.duration = function(input: number | object | string, unit?: string): DatesDuration {
 		const _duration = this._duration(input, unit)
 		_duration.toWords = toWords
 		_duration.toObject = toObject

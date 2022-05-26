@@ -23,7 +23,6 @@
 ### Modules Interfaces
 
 - [MultiProgressChildConfig](interfaces/MultiProgressChildConfig.md)
-- [ProgressPayload](interfaces/ProgressPayload.md)
 
 ### Progress Interfaces
 
@@ -31,13 +30,10 @@
 
 ### Prompts Interfaces
 
-- [Answers](interfaces/Answers.md)
 - [ChoiceDefinition](interfaces/ChoiceDefinition.md)
-- [ChoiceRecords](interfaces/ChoiceRecords.md)
 - [PromptState](interfaces/PromptState.md)
 - [PromptsLocales](interfaces/PromptsLocales.md)
 - [Question](interfaces/Question.md)
-- [QuestionRecords](interfaces/QuestionRecords.md)
 
 ### Spinner Interfaces
 
@@ -55,13 +51,17 @@
 - [MultiProgressChildOptions](README.md#multiprogresschildoptions)
 - [ParsedImportRecords](README.md#parsedimportrecords)
 - [ProgressOptions](README.md#progressoptions)
+- [ProgressPayload](README.md#progresspayload)
 - [PromptType](README.md#prompttype)
 - [PromptsFunction](README.md#promptsfunction)
 - [PromptsPromise](README.md#promptspromise)
 
 ### Prompts Type aliases
 
+- [Answers](README.md#answers)
 - [ChoiceOption](README.md#choiceoption)
+- [ChoiceRecords](README.md#choicerecords)
+- [QuestionRecords](README.md#questionrecords)
 
 ### Spinner Type aliases
 
@@ -134,7 +134,7 @@
 
 ### ImportRecords
 
-Ƭ **ImportRecords**: `Record`<`string`, [`ImportDefinition`](interfaces/ImportDefinition.md) \| [`AnyFunction`](README.md#anyfunction)\>
+Ƭ **ImportRecords**: `Record`<`string`, [`AnyFunction`](README.md#anyfunction) \| [`ImportDefinition`](interfaces/ImportDefinition.md)\>
 
 ___
 
@@ -168,11 +168,7 @@ ___
 
 ### IObject
 
-Ƭ **IObject**: `Object`
-
-#### Index signature
-
-▪ [key: `string`]: `any`
+Ƭ **IObject**: `Record`<`string`, `any`\>
 
 ___
 
@@ -194,15 +190,21 @@ ___
 
 ___
 
+### ProgressPayload
+
+Ƭ **ProgressPayload**: `Record`<`string`, `any`\>
+
+___
+
 ### PromptType
 
-Ƭ **PromptType**: ``"text"`` \| ``"password"`` \| ``"invisible"`` \| ``"number"`` \| ``"confirm"`` \| ``"list"`` \| ``"toggle"`` \| ``"select"`` \| ``"multiselect"`` \| ``"autocompleteMultiselect"`` \| ``"autocomplete"`` \| ``"date"``
+Ƭ **PromptType**: ``"autocomplete"`` \| ``"autocompleteMultiselect"`` \| ``"confirm"`` \| ``"date"`` \| ``"invisible"`` \| ``"list"`` \| ``"multiselect"`` \| ``"number"`` \| ``"password"`` \| ``"select"`` \| ``"text"`` \| ``"toggle"``
 
 ___
 
 ### PromptsFunction
 
-Ƭ **PromptsFunction**: (`prev`: `string`, `answers`: [`Answers`](interfaces/Answers.md), `previousQuestion`: [`Question`](interfaces/Question.md)) => `string`
+Ƭ **PromptsFunction**: (`prev`: `string`, `answers`: [`Answers`](README.md#answers), `previousQuestion`: [`Question`](interfaces/Question.md)) => `string`
 
 #### Type declaration
 
@@ -213,7 +215,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `prev` | `string` |
-| `answers` | [`Answers`](interfaces/Answers.md) |
+| `answers` | [`Answers`](README.md#answers) |
 | `previousQuestion` | [`Question`](interfaces/Question.md) |
 
 ##### Returns
@@ -224,7 +226,7 @@ ___
 
 ### PromptsPromise
 
-Ƭ **PromptsPromise**: (`prev`: `string`, `answers`: [`Answers`](interfaces/Answers.md), `previousQuestion`: [`Question`](interfaces/Question.md)) => `Promise`<`string`\>
+Ƭ **PromptsPromise**: (`prev`: `string`, `answers`: [`Answers`](README.md#answers), `previousQuestion`: [`Question`](interfaces/Question.md)) => `Promise`<`string`\>
 
 #### Type declaration
 
@@ -235,7 +237,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `prev` | `string` |
-| `answers` | [`Answers`](interfaces/Answers.md) |
+| `answers` | [`Answers`](README.md#answers) |
 | `previousQuestion` | [`Question`](interfaces/Question.md) |
 
 ##### Returns
@@ -246,9 +248,27 @@ ___
 
 ## Prompts Type aliases
 
+### Answers
+
+Ƭ **Answers**: `Record`<`string`, `string`\>
+
+___
+
 ### ChoiceOption
 
-Ƭ **ChoiceOption**: `string` \| [`ChoiceDefinition`](interfaces/ChoiceDefinition.md)
+Ƭ **ChoiceOption**: [`ChoiceDefinition`](interfaces/ChoiceDefinition.md) \| `string`
+
+___
+
+### ChoiceRecords
+
+Ƭ **ChoiceRecords**: `Record`<`string`, [`ChoiceOption`](README.md#choiceoption)\>
+
+___
+
+### QuestionRecords
+
+Ƭ **QuestionRecords**: `Record`<`string`, [`Question`](interfaces/Question.md)\>
 
 ___
 
@@ -383,7 +403,7 @@ interpolate string with env variables, optionally pass an object of default valu
 | Name | Type |
 | :------ | :------ |
 | `str` | `string` |
-| `defaultValues` | `Object` |
+| `defaultValues` | `Record`<`string`, `string`\> |
 
 #### Returns
 
@@ -637,17 +657,17 @@ ___
 
 ### prompt
 
-▸ **prompt**(`questions`): `Promise`<[`Answers`](interfaces/Answers.md)\>
+▸ **prompt**(`questions`): `Promise`<[`Answers`](README.md#answers)\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `questions` | [`QuestionRecords`](interfaces/QuestionRecords.md) \| [`Question`](interfaces/Question.md)[] |
+| `questions` | [`QuestionRecords`](README.md#questionrecords) \| [`Question`](interfaces/Question.md)[] |
 
 #### Returns
 
-`Promise`<[`Answers`](interfaces/Answers.md)\>
+`Promise`<[`Answers`](README.md#answers)\>
 
 ___
 
@@ -697,7 +717,7 @@ ___
 
 ### ask
 
-▸ **ask**(`question`, `defaultAnswer?`): `Promise`<`string` \| `any`\>
+▸ **ask**(`question`, `defaultAnswer?`): `Promise`<`any` \| `string`\>
 
 Prompt the user for input using Prompts.
 
@@ -712,9 +732,9 @@ Prompt the user for input using Prompts.
 
 #### Returns
 
-`Promise`<`string` \| `any`\>
+`Promise`<`any` \| `string`\>
 
-▸ **ask**(`question`, `options?`): `Promise`<`string` \| `any`\>
+▸ **ask**(`question`, `options?`): `Promise`<`any` \| `string`\>
 
 #### Parameters
 
@@ -725,7 +745,7 @@ Prompt the user for input using Prompts.
 
 #### Returns
 
-`Promise`<`string` \| `any`\>
+`Promise`<`any` \| `string`\>
 
 ___
 

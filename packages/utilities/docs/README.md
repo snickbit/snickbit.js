@@ -2,180 +2,181 @@
 
 ## Table of contents
 
-### Interfaces
-
-- [OverloadSchema](interfaces/OverloadSchema.md)
-
 ### Arrays Type aliases
 
-- [ArrayPredicate](README.md#arraypredicate)
+- [ArrayPredicate](undefined)
 
 ### Generators Type aliases
 
-- [CombinationOptions](README.md#combinationoptions)
+- [CombinationOptions](undefined)
 
 ### Modules Type aliases
 
-- [AdvancedVariableType](README.md#advancedvariabletype)
-- [BasicVariableType](README.md#basicvariabletype)
-- [CallableVariableType](README.md#callablevariabletype)
-- [EmptyVariableType](README.md#emptyvariabletype)
-- [FunctionType](README.md#functiontype)
-- [PrimitiveVariableType](README.md#primitivevariabletype)
-- [TryWaitFunction](README.md#trywaitfunction)
-- [VariableType](README.md#variabletype)
+- [AdvancedVariableType](undefined)
+- [BasicVariableType](undefined)
+- [CallableVariableType](undefined)
+- [EmptyVariableType](undefined)
+- [FunctionType](undefined)
+- [OverloadSchema](undefined)
+- [PrimitiveVariableType](undefined)
+- [TryWaitFunction](undefined)
+- [VariableType](undefined)
 
 ### Objects Type aliases
 
-- [IObject](README.md#iobject)
-- [ObjectPredicate](README.md#objectpredicate)
+- [IObject](undefined)
+- [ObjectPredicate](undefined)
 
 ### Templating Type aliases
 
-- [interpolateReplacements](README.md#interpolatereplacements)
+- [interpolateReplacements](undefined)
 
-### Variables Type aliases
+### Validation Type aliases
 
-- [VariableTypeDefinition](README.md#variabletypedefinition)
+- [VariableTypeDefinition](undefined)
 
 ### Variables
 
-- [advanced](README.md#advanced)
-- [all](README.md#all)
-- [basic](README.md#basic)
-- [callable](README.md#callable)
-- [empty](README.md#empty)
-- [primitive](README.md#primitive)
+- [advanced](undefined)
+- [all](undefined)
+- [basic](undefined)
+- [callable](undefined)
+- [empty](undefined)
+- [primitive](undefined)
+- [reserved](undefined)
 
 ### Arrays Functions
 
-- [arrayDuplicates](README.md#arrayduplicates)
-- [arrayMerge](README.md#arraymerge)
-- [arrayMergeDeep](README.md#arraymergedeep)
-- [arrayReject](README.md#arrayreject)
-- [arrayRemove](README.md#arrayremove)
-- [arrayShuffle](README.md#arrayshuffle)
-- [arrayToObject](README.md#arraytoobject)
-- [arrayUnique](README.md#arrayunique)
-- [arrayUniqueInsensitive](README.md#arrayuniqueinsensitive)
-- [arrayWrap](README.md#arraywrap)
-- [isSingle](README.md#issingle)
+- [arrayDuplicates](undefined)
+- [arrayMerge](undefined)
+- [arrayMergeDeep](undefined)
+- [arrayReject](undefined)
+- [arrayRemove](undefined)
+- [arrayShuffle](undefined)
+- [arrayToObject](undefined)
+- [arrayUnique](undefined)
+- [arrayUniqueInsensitive](undefined)
+- [arrayWrap](undefined)
+- [isSingle](undefined)
 
 ### Functions Functions
 
-- [functionClone](README.md#functionclone)
-- [overloadOptions](README.md#overloadoptions)
-- [parseOptions](README.md#parseoptions)
-- [promiseAll](README.md#promiseall)
-- [tryWait](README.md#trywait)
+- [functionClone](undefined)
+- [overloadOptions](undefined)
+- [parseOptions](undefined)
+- [promiseAll](undefined)
+- [tryWait](undefined)
 
 ### Generators Functions
 
-- [combinations](README.md#combinations)
-- [makeRandomSegment](README.md#makerandomsegment)
-- [randomString](README.md#randomstring)
-- [uuid](README.md#uuid)
+- [combinations](undefined)
+- [makeRandomSegment](undefined)
+- [randomString](undefined)
+- [uuid](undefined)
 
 ### Numbers Functions
 
-- [formatBytes](README.md#formatbytes)
-- [formatCurrency](README.md#formatcurrency)
-- [formatPercentage](README.md#formatpercentage)
-- [maxDecimals](README.md#maxdecimals)
-- [numberPad](README.md#numberpad)
+- [formatBytes](undefined)
+- [formatCurrency](undefined)
+- [formatPercentage](undefined)
+- [maxDecimals](undefined)
+- [numberPad](undefined)
 
 ### Objects Functions
 
-- [objectClone](README.md#objectclone)
-- [objectCopy](README.md#objectcopy)
-- [objectExcept](README.md#objectexcept)
-- [objectFilter](README.md#objectfilter)
-- [objectFind](README.md#objectfind)
-- [objectFindEntry](README.md#objectfindentry)
-- [objectFindKey](README.md#objectfindkey)
-- [objectFlatten](README.md#objectflatten)
-- [objectGetMethod](README.md#objectgetmethod)
-- [objectHasMethod](README.md#objecthasmethod)
-- [objectMerge](README.md#objectmerge)
-- [objectMergeDeep](README.md#objectmergedeep)
-- [objectMethods](README.md#objectmethods)
-- [objectOnly](README.md#objectonly)
-- [objectPull](README.md#objectpull)
+- [objectClone](undefined)
+- [objectCopy](undefined)
+- [objectExcept](undefined)
+- [objectFilter](undefined)
+- [objectFind](undefined)
+- [objectFindEntry](undefined)
+- [objectFindKey](undefined)
+- [objectFlatten](undefined)
+- [objectGetMethod](undefined)
+- [objectHasMethod](undefined)
+- [objectMerge](undefined)
+- [objectMergeDeep](undefined)
+- [objectMethods](undefined)
+- [objectOnly](undefined)
+- [objectPull](undefined)
 
 ### Parsing Functions
 
-- [JSONParse](README.md#jsonparse)
-- [JSONPrettify](README.md#jsonprettify)
-- [JSONStringify](README.md#jsonstringify)
-- [camelCase](README.md#camelcase)
-- [initials](README.md#initials)
-- [kebabCase](README.md#kebabcase)
-- [limitString](README.md#limitstring)
-- [limitWords](README.md#limitwords)
-- [padString](README.md#padstring)
-- [parse](README.md#parse)
-- [plural](README.md#plural)
-- [safeVarName](README.md#safevarname)
-- [singular](README.md#singular)
-- [sleep](README.md#sleep)
-- [slugify](README.md#slugify)
-- [snakeCase](README.md#snakecase)
-- [spaceCase](README.md#spacecase)
+- [JSONParse](undefined)
+- [JSONPrettify](undefined)
+- [JSONStringify](undefined)
+- [camelCase](undefined)
+- [initials](undefined)
+- [kebabCase](undefined)
+- [limitString](undefined)
+- [limitWords](undefined)
+- [padString](undefined)
+- [parse](undefined)
+- [plural](undefined)
+- [safeVarName](undefined)
+- [singular](undefined)
+- [sleep](undefined)
+- [slugify](undefined)
+- [snakeCase](undefined)
+- [spaceCase](undefined)
 
 ### Templating Functions
 
-- [escapeRegExp](README.md#escaperegexp)
-- [escapeReplacement](README.md#escapereplacement)
-- [interpolate](README.md#interpolate)
+- [escapeRegExp](undefined)
+- [escapeReplacement](undefined)
+- [interpolate](undefined)
+
+### Validation Functions
+
+- [isArray](undefined)
+- [isAsyncFunction](undefined)
+- [isAwaitable](undefined)
+- [isBase64](undefined)
+- [isClass](undefined)
+- [isDate](undefined)
+- [isDefined](undefined)
+- [isEmpty](undefined)
+- [isFunction](undefined)
+- [isNullDefined](undefined)
+- [isNumber](undefined)
+- [isObject](undefined)
+- [isPrimitive](undefined)
+- [isPromise](undefined)
+- [isSet](undefined)
+- [isString](undefined)
+- [isType](undefined)
 
 ### Variables Functions
 
-- [clone](README.md#clone)
-- [count](README.md#count)
-- [isArray](README.md#isarray)
-- [isAsyncFunction](README.md#isasyncfunction)
-- [isAwaitable](README.md#isawaitable)
-- [isBase64](README.md#isbase64)
-- [isCallable](README.md#iscallable)
-- [isClass](README.md#isclass)
-- [isDate](README.md#isdate)
-- [isDefined](README.md#isdefined)
-- [isEmpty](README.md#isempty)
-- [isFunction](README.md#isfunction)
-- [isJSONString](README.md#isjsonstring)
-- [isNullDefined](README.md#isnulldefined)
-- [isNumber](README.md#isnumber)
-- [isObject](README.md#isobject)
-- [isPrimitive](README.md#isprimitive)
-- [isPromise](README.md#ispromise)
-- [isSet](README.md#isset)
-- [isString](README.md#isstring)
-- [isType](README.md#istype)
-- [merge](README.md#merge)
-- [mergeDeep](README.md#mergedeep)
-- [typeOf](README.md#typeof)
+- [clone](undefined)
+- [count](undefined)
+- [isCallable](undefined)
+- [isJSONString](undefined)
+- [merge](undefined)
+- [mergeDeep](undefined)
+- [typeOf](undefined)
 
 ## Arrays Type aliases
 
 ### ArrayPredicate
 
-Ƭ **ArrayPredicate**: (`value`: `any`, `index?`: `number`, `array?`: `any`[]) => `unknown`
+Ƭ **ArrayPredicate**: Function
 
 #### Type declaration
 
-▸ (`value`, `index?`, `array?`): `unknown`
+▸ (`value`, `index?`, `array?`): unknown
 
 ##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `value` | `any` |
-| `index?` | `number` |
-| `array?` | `any`[] |
+| `value` | any |
+| `index?` | number |
+| `array?` | any[] |
 
 ##### Returns
 
-`unknown`
+unknown
 
 ___
 
@@ -183,11 +184,7 @@ ___
 
 ### CombinationOptions
 
-Ƭ **CombinationOptions**: `Object`
-
-#### Index signature
-
-▪ [key: `string`]: `any`[]
+Ƭ **CombinationOptions**: Record<string, any[]\>
 
 ___
 
@@ -195,77 +192,83 @@ ___
 
 ### AdvancedVariableType
 
-Ƭ **AdvancedVariableType**: ``"array"`` \| ``"object"`` \| ``"symbol"`` \| ``"date"``
+Ƭ **AdvancedVariableType**: "array" \| "date" \| "object" \| "symbol"
 
 ___
 
 ### BasicVariableType
 
-Ƭ **BasicVariableType**: ``"bigint"`` \| ``"boolean"`` \| ``"number"`` \| ``"string"``
+Ƭ **BasicVariableType**: "bigint" \| "boolean" \| "number" \| "string"
 
 ___
 
 ### CallableVariableType
 
-Ƭ **CallableVariableType**: ``"promise"`` \| ``"asyncfunction"`` \| ``"function"``
+Ƭ **CallableVariableType**: "asyncfunction" \| "function" \| "promise"
 
 ___
 
 ### EmptyVariableType
 
-Ƭ **EmptyVariableType**: ``"undefined"`` \| ``"null"``
+Ƭ **EmptyVariableType**: "null" \| "undefined"
 
 ___
 
 ### FunctionType
 
-Ƭ **FunctionType**: (...`args`: `any`[]) => `any`
+Ƭ **FunctionType**: Function
 
 #### Type declaration
 
-▸ (...`args`): `any`
+▸ (...`args`): any
 
 ##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `...args` | `any`[] |
+| `...args` | any[] |
 
 ##### Returns
 
-`any`
+any
+
+___
+
+### OverloadSchema
+
+Ƭ **OverloadSchema**: Record<string, VariableType\>
 
 ___
 
 ### PrimitiveVariableType
 
-Ƭ **PrimitiveVariableType**: [`BasicVariableType`](README.md#basicvariabletype) \| [`EmptyVariableType`](README.md#emptyvariabletype)
+Ƭ **PrimitiveVariableType**: BasicVariableType \| EmptyVariableType
 
 ___
 
 ### TryWaitFunction
 
-Ƭ **TryWaitFunction**: (...`args`: `any`[]) => `Promise`<`any`\> \| `any`
+Ƭ **TryWaitFunction**: Function
 
 #### Type declaration
 
-▸ (...`args`): `Promise`<`any`\> \| `any`
+▸ (...`args`): Promise<any\> \| any
 
 ##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `...args` | `any`[] |
+| `...args` | any[] |
 
 ##### Returns
 
-`Promise`<`any`\> \| `any`
+Promise<any\> \| any
 
 ___
 
 ### VariableType
 
-Ƭ **VariableType**: [`PrimitiveVariableType`](README.md#primitivevariabletype) \| [`AdvancedVariableType`](README.md#advancedvariabletype) \| [`CallableVariableType`](README.md#callablevariabletype)
+Ƭ **VariableType**: AdvancedVariableType \| CallableVariableType \| PrimitiveVariableType
 
 ___
 
@@ -273,33 +276,29 @@ ___
 
 ### IObject
 
-Ƭ **IObject**: `Object`
-
-#### Index signature
-
-▪ [key: `string`]: `any`
+Ƭ **IObject**: Record<string, any\>
 
 ___
 
 ### ObjectPredicate
 
-Ƭ **ObjectPredicate**: (`key`: `string` \| `symbol`, `value?`: `any`, `obj?`: `object`) => `unknown`
+Ƭ **ObjectPredicate**: Function
 
 #### Type declaration
 
-▸ (`key`, `value?`, `obj?`): `unknown`
+▸ (`key`, `value?`, `obj?`): unknown
 
 ##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `key` | `string` \| `symbol` |
-| `value?` | `any` |
-| `obj?` | `object` |
+| `key` | string \| symbol |
+| `value?` | any |
+| `obj?` | object |
 
 ##### Returns
 
-`unknown`
+unknown
 
 ___
 
@@ -307,11 +306,11 @@ ___
 
 ### interpolateReplacements
 
-Ƭ **interpolateReplacements**: `Record`<`string`, `string` \| `number` \| `any`\>
+Ƭ **interpolateReplacements**: Record<string, any \| number \| string\>
 
 ___
 
-## Variables Type aliases
+## Validation Type aliases
 
 ### VariableTypeDefinition
 
@@ -321,49 +320,55 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `name` | `string` |
+| `name` | string |
 
 ## Variables
 
 ### advanced
 
-• `Const` **advanced**: [`AdvancedVariableType`](README.md#advancedvariabletype)[]
+• `Const` **advanced**: AdvancedVariableType[]
 
 ___
 
 ### all
 
-• `Const` **all**: [`VariableType`](README.md#variabletype)[]
+• `Const` **all**: VariableType[]
 
 ___
 
 ### basic
 
-• `Const` **basic**: [`BasicVariableType`](README.md#basicvariabletype)[]
+• `Const` **basic**: BasicVariableType[]
 
 ___
 
 ### callable
 
-• `Const` **callable**: [`CallableVariableType`](README.md#callablevariabletype)[]
+• `Const` **callable**: CallableVariableType[]
 
 ___
 
 ### empty
 
-• `Const` **empty**: [`EmptyVariableType`](README.md#emptyvariabletype)[]
+• `Const` **empty**: EmptyVariableType[]
 
 ___
 
 ### primitive
 
-• `Const` **primitive**: [`PrimitiveVariableType`](README.md#primitivevariabletype)[]
+• `Const` **primitive**: PrimitiveVariableType[]
+
+___
+
+### reserved
+
+• `Const` **reserved**: string[]
 
 ## Arrays Functions
 
 ### arrayDuplicates
 
-▸ **arrayDuplicates**(`arr`, `predicate?`): `any`[]
+▸ **arrayDuplicates**(`arr`, `predicate?`): any[]
 
 Return the duplicate values from an array
 
@@ -371,18 +376,18 @@ Return the duplicate values from an array
 
 | Name | Type |
 | :------ | :------ |
-| `arr` | `any`[] |
-| `predicate?` | [`ArrayPredicate`](README.md#arraypredicate) |
+| `arr` | any[] |
+| `predicate?` | ArrayPredicate |
 
 #### Returns
 
-`any`[]
+any[]
 
 ___
 
 ### arrayMerge
 
-▸ **arrayMerge**(...`arrs`): `any`[]
+▸ **arrayMerge**(...`arrs`): any[]
 
 Merge two or more arrays together
 
@@ -390,17 +395,17 @@ Merge two or more arrays together
 
 | Name | Type |
 | :------ | :------ |
-| `...arrs` | `any`[][] |
+| `...arrs` | any[][] |
 
 #### Returns
 
-`any`[]
+any[]
 
 ___
 
 ### arrayMergeDeep
 
-▸ **arrayMergeDeep**(...`arrs`): `any`[]
+▸ **arrayMergeDeep**(...`arrs`): any[]
 
 Merge two or more arrays together, recursing child values
 
@@ -408,17 +413,17 @@ Merge two or more arrays together, recursing child values
 
 | Name | Type |
 | :------ | :------ |
-| `...arrs` | `any`[][] |
+| `...arrs` | any[][] |
 
 #### Returns
 
-`any`[]
+any[]
 
 ___
 
 ### arrayReject
 
-▸ **arrayReject**(`arr`, `callback`): `any`[]
+▸ **arrayReject**(`arr`, `callback`): any[]
 
 Get the reverse of a filtered array
 
@@ -426,18 +431,18 @@ Get the reverse of a filtered array
 
 | Name | Type |
 | :------ | :------ |
-| `arr` | `any`[] |
-| `callback` | (...`args`: `any`[]) => `boolean` |
+| `arr` | any[] |
+| `callback` | Function |
 
 #### Returns
 
-`any`[]
+any[]
 
 ___
 
 ### arrayRemove
 
-▸ **arrayRemove**(`arr`, `value`): `any`[]
+▸ **arrayRemove**(`arr`, `value`): any[]
 
 Finds and returns an element from an array, removing it in the process
 
@@ -445,18 +450,18 @@ Finds and returns an element from an array, removing it in the process
 
 | Name | Type |
 | :------ | :------ |
-| `arr` | `any`[] |
-| `value` | `any` |
+| `arr` | any[] |
+| `value` | any |
 
 #### Returns
 
-`any`[]
+any[]
 
 ___
 
 ### arrayShuffle
 
-▸ **arrayShuffle**(`arr`): `any`[]
+▸ **arrayShuffle**(`arr`): any[]
 
 Shuffles/randomizes an array
 
@@ -464,17 +469,17 @@ Shuffles/randomizes an array
 
 | Name | Type |
 | :------ | :------ |
-| `arr` | `any`[] |
+| `arr` | any[] |
 
 #### Returns
 
-`any`[]
+any[]
 
 ___
 
 ### arrayToObject
 
-▸ **arrayToObject**(`arr`, `key`, `value`): `object`
+▸ **arrayToObject**(`arr`, `key`, `value`): object
 
 Convert an array to an object using the given key as the property
 
@@ -490,19 +495,19 @@ arrayToObject([{id: 1, name: 'John'}, {id: 2, name: 'Jane'}], 'name')
 
 | Name | Type |
 | :------ | :------ |
-| `arr` | `any`[] |
-| `key` | `string` \| `number` |
-| `value` | `string` \| `number` |
+| `arr` | any[] |
+| `key` | string \| number |
+| `value` | string \| number |
 
 #### Returns
 
-`object`
+object
 
 ___
 
 ### arrayUnique
 
-▸ **arrayUnique**(`arr`, `key?`): `any`[]
+▸ **arrayUnique**(`arr`, `key?`): any[]
 
 Returns unique values from an array. Optionally pass a key when the array is an object array.
 
@@ -510,18 +515,18 @@ Returns unique values from an array. Optionally pass a key when the array is an 
 
 | Name | Type |
 | :------ | :------ |
-| `arr` | `any`[] |
-| `key?` | `string` |
+| `arr` | any[] |
+| `key?` | string |
 
 #### Returns
 
-`any`[]
+any[]
 
 ___
 
 ### arrayUniqueInsensitive
 
-▸ **arrayUniqueInsensitive**(`arr`, `key?`): `any`[]
+▸ **arrayUniqueInsensitive**(`arr`, `key?`): any[]
 
 Returns unique values from an array, ignoring case. Optionally pass a key when the array is an object array.
 
@@ -529,18 +534,18 @@ Returns unique values from an array, ignoring case. Optionally pass a key when t
 
 | Name | Type |
 | :------ | :------ |
-| `arr` | `any`[] |
-| `key?` | `string` |
+| `arr` | any[] |
+| `key?` | string |
 
 #### Returns
 
-`any`[]
+any[]
 
 ___
 
 ### arrayWrap
 
-▸ **arrayWrap**(`values`): `any`[]
+▸ **arrayWrap**(`values`): any[]
 
 Wrap a variable in an array if it is not already an array
 
@@ -548,17 +553,17 @@ Wrap a variable in an array if it is not already an array
 
 | Name | Type |
 | :------ | :------ |
-| `values` | `any` |
+| `values` | any |
 
 #### Returns
 
-`any`[]
+any[]
 
 ___
 
 ### isSingle
 
-▸ **isSingle**(`arr`, `value?`): `boolean`
+▸ **isSingle**(`arr`, `value?`): boolean
 
 Checks if the given array only contains a single value, optionally pass a value or predicate to check against
 
@@ -566,12 +571,12 @@ Checks if the given array only contains a single value, optionally pass a value 
 
 | Name | Type |
 | :------ | :------ |
-| `arr` | `any`[] |
-| `value?` | `any` |
+| `arr` | any[] |
+| `value?` | any |
 
 #### Returns
 
-`boolean`
+boolean
 
 ___
 
@@ -579,7 +584,7 @@ ___
 
 ### functionClone
 
-▸ **functionClone**(`fn`): [`FunctionType`](README.md#functiontype)
+▸ **functionClone**(`fn`): FunctionType
 
 Clone a function
 
@@ -587,17 +592,17 @@ Clone a function
 
 | Name | Type |
 | :------ | :------ |
-| `fn` | [`FunctionType`](README.md#functiontype) |
+| `fn` | FunctionType |
 
 #### Returns
 
-[`FunctionType`](README.md#functiontype)
+FunctionType
 
 ___
 
 ### overloadOptions
 
-▸ **overloadOptions**(`options`, `schemas`): `object`
+▸ **overloadOptions**(`options`, `schemas`): object
 
 Parses an array of arguments for an overloaded function into an object
 
@@ -605,18 +610,18 @@ Parses an array of arguments for an overloaded function into an object
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `any`[] |
-| `schemas` | [`OverloadSchema`](interfaces/OverloadSchema.md)[] |
+| `options` | any[] |
+| `schemas` | OverloadSchema[] |
 
 #### Returns
 
-`object`
+object
 
 ___
 
 ### parseOptions
 
-▸ **parseOptions**(`given`, `defaults`, `non_object_key?`): `object` \| `any`
+▸ **parseOptions**(`given`, `defaults`, `non_object_key?`): any \| object
 
 Parse options for a function
 
@@ -628,19 +633,19 @@ const options = parseOptions(true, {param: 'default'}, 'my_param')
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `given` | `any` | The given options |
-| `defaults` | [`IObject`](README.md#iobject) | The default options |
-| `non_object_key?` | `string` | - |
+| `given` | any | The given options |
+| `defaults` | IObject | The default options |
+| `non_object_key?` | string | - |
 
 #### Returns
 
-`object` \| `any`
+any \| object
 
 ___
 
 ### promiseAll
 
-▸ **promiseAll**(`arr`, `fn`): `Promise`<`Awaited`<`any`\>[]\>
+▸ **promiseAll**(`arr`, `fn`): Promise<Awaited<unknown\>[]\>
 
 Send each item in an array to a function, await the results
 
@@ -648,18 +653,18 @@ Send each item in an array to a function, await the results
 
 | Name | Type |
 | :------ | :------ |
-| `arr` | `any`[] |
-| `fn` | (`value`: `any`, `index`: `number`, `array`: `any`[]) => `any` |
+| `arr` | any[] |
+| `fn` | Function |
 
 #### Returns
 
-`Promise`<`Awaited`<`any`\>[]\>
+Promise<Awaited<unknown\>[]\>
 
 ___
 
 ### tryWait
 
-▸ **tryWait**(`fn`, ...`args`): `Promise`<`any`\>
+▸ **tryWait**(`fn`, ...`args`): Promise<any\>
 
 Catch an async function or promise and force it to resolve, returning undefined if it fails
 
@@ -667,12 +672,12 @@ Catch an async function or promise and force it to resolve, returning undefined 
 
 | Name | Type |
 | :------ | :------ |
-| `fn` | [`TryWaitFunction`](README.md#trywaitfunction) |
-| `...args` | `any`[][] |
+| `fn` | TryWaitFunction |
+| `...args` | any[][] |
 
 #### Returns
 
-`Promise`<`any`\>
+Promise<any\>
 
 ___
 
@@ -680,7 +685,7 @@ ___
 
 ### combinations
 
-▸ **combinations**(`options`): `any`[]
+▸ **combinations**(`options`): any[]
 
 Generate an array of all possible property values. Provide an object with each property as a key and an array of possible values as the value.
 
@@ -688,29 +693,29 @@ Generate an array of all possible property values. Provide an object with each p
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`CombinationOptions`](README.md#combinationoptions) |
+| `options` | CombinationOptions |
 
 #### Returns
 
-`any`[]
+any[]
 
 ___
 
 ### makeRandomSegment
 
-▸ **makeRandomSegment**(): `string`
+▸ **makeRandomSegment**(): string
 
 Generate a random string between 8 and 14 characters long
 
 #### Returns
 
-`string`
+string
 
 ___
 
 ### randomString
 
-▸ **randomString**(`length?`): `string`
+▸ **randomString**(`length?`): string
 
 Generate a random string
 
@@ -718,17 +723,17 @@ Generate a random string
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `length` | `number` | `10` |
+| `length` | number | `10` |
 
 #### Returns
 
-`string`
+string
 
 ___
 
 ### uuid
 
-▸ **uuid**(`prefix?`): `string`
+▸ **uuid**(`prefix?`): string
 
 Create uuid
 
@@ -736,11 +741,11 @@ Create uuid
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `prefix` | `string` | `''` |
+| `prefix` | string | `''` |
 
 #### Returns
 
-`string`
+string
 
 ___
 
@@ -748,7 +753,7 @@ ___
 
 ### formatBytes
 
-▸ **formatBytes**(`bytes`, `decimals?`): `string`
+▸ **formatBytes**(`bytes`, `decimals?`): string
 
 Format a number as bytes.
 
@@ -756,18 +761,18 @@ Format a number as bytes.
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `bytes` | `number` | `undefined` |
-| `decimals` | `number` | `2` |
+| `bytes` | number | `undefined` |
+| `decimals` | number | `2` |
 
 #### Returns
 
-`string`
+string
 
 ___
 
 ### formatCurrency
 
-▸ **formatCurrency**(`amount`, `symbol?`, `decimals?`): `string`
+▸ **formatCurrency**(`amount`, `symbol?`, `decimals?`): string
 
 Format a number as currency.
 
@@ -775,19 +780,19 @@ Format a number as currency.
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `amount` | `number` | `undefined` |
-| `symbol` | `string` | `'$'` |
-| `decimals` | `number` | `2` |
+| `amount` | number | `undefined` |
+| `symbol` | string | `'$'` |
+| `decimals` | number | `2` |
 
 #### Returns
 
-`string`
+string
 
 ___
 
 ### formatPercentage
 
-▸ **formatPercentage**(`amount`, `decimals?`): `string`
+▸ **formatPercentage**(`amount`, `decimals?`): string
 
 Format a number as a percentage.
 
@@ -795,18 +800,18 @@ Format a number as a percentage.
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `amount` | `number` | `undefined` |
-| `decimals` | `number` | `2` |
+| `amount` | number | `undefined` |
+| `decimals` | number | `2` |
 
 #### Returns
 
-`string`
+string
 
 ___
 
 ### maxDecimals
 
-▸ **maxDecimals**(`value`, `max_places?`): `number`
+▸ **maxDecimals**(`value`, `max_places?`): number
 
 limit the amount of decimals to the given number, default 2
 
@@ -814,18 +819,18 @@ limit the amount of decimals to the given number, default 2
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `value` | `number` | `undefined` |
-| `max_places` | `number` | `2` |
+| `value` | number | `undefined` |
+| `max_places` | number | `2` |
 
 #### Returns
 
-`number`
+number
 
 ___
 
 ### numberPad
 
-▸ **numberPad**(`n`): `string` \| `number`
+▸ **numberPad**(`n`): string \| number
 
 Pad a number with zeros.
 
@@ -833,11 +838,11 @@ Pad a number with zeros.
 
 | Name | Type |
 | :------ | :------ |
-| `n` | `number` |
+| `n` | number |
 
 #### Returns
 
-`string` \| `number`
+string \| number
 
 ___
 
@@ -845,7 +850,7 @@ ___
 
 ### objectClone
 
-▸ **objectClone**(...`objects`): [`IObject`](README.md#iobject)
+▸ **objectClone**(...`objects`): IObject
 
 Deep clones an object
 
@@ -853,17 +858,17 @@ Deep clones an object
 
 | Name | Type |
 | :------ | :------ |
-| `...objects` | [`IObject`](README.md#iobject)[] |
+| `...objects` | IObject[] |
 
 #### Returns
 
-[`IObject`](README.md#iobject)
+IObject
 
 ___
 
 ### objectCopy
 
-▸ **objectCopy**(`obj`, `force?`): [`IObject`](README.md#iobject) \| `any`[] \| `undefined`
+▸ **objectCopy**(`obj`, `force?`): any[] \| IObject \| undefined
 
 Copy object as JSON (uses JSON.parse/JSON.stringify but won't throw any errors)
 
@@ -871,18 +876,18 @@ Copy object as JSON (uses JSON.parse/JSON.stringify but won't throw any errors)
 
 | Name | Type |
 | :------ | :------ |
-| `obj` | [`IObject`](README.md#iobject) |
-| `force?` | `boolean` |
+| `obj` | IObject |
+| `force?` | boolean |
 
 #### Returns
 
-[`IObject`](README.md#iobject) \| `any`[] \| `undefined`
+any[] \| IObject \| undefined
 
 ___
 
 ### objectExcept
 
-▸ **objectExcept**(`obj`, `excluded`): [`IObject`](README.md#iobject)
+▸ **objectExcept**(`obj`, `excluded`): IObject
 
 Returns a new object without the excluded properties.
 
@@ -890,18 +895,18 @@ Returns a new object without the excluded properties.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `obj` | [`IObject`](README.md#iobject) | the object to filter |
-| `excluded` | `string`[] | the allowed properties |
+| `obj` | IObject | the object to filter |
+| `excluded` | string[] | the allowed properties |
 
 #### Returns
 
-[`IObject`](README.md#iobject)
+IObject
 
 ___
 
 ### objectFilter
 
-▸ **objectFilter**(`obj`, `predicate?`): [`IObject`](README.md#iobject)
+▸ **objectFilter**(`obj`, `predicate?`): IObject
 
 Filter an object by a given predicate
 
@@ -909,18 +914,18 @@ Filter an object by a given predicate
 
 | Name | Type |
 | :------ | :------ |
-| `obj` | [`IObject`](README.md#iobject) |
-| `predicate` | [`ObjectPredicate`](README.md#objectpredicate) |
+| `obj` | IObject |
+| `predicate` | ObjectPredicate |
 
 #### Returns
 
-[`IObject`](README.md#iobject)
+IObject
 
 ___
 
 ### objectFind
 
-▸ **objectFind**(`obj`, `predicate`): `any` \| `undefined`
+▸ **objectFind**(`obj`, `predicate`): any \| undefined
 
 Finds an object property's value that matches the given predicate
 
@@ -928,18 +933,18 @@ Finds an object property's value that matches the given predicate
 
 | Name | Type |
 | :------ | :------ |
-| `obj` | [`IObject`](README.md#iobject) |
-| `predicate` | `string` \| [`ObjectPredicate`](README.md#objectpredicate) |
+| `obj` | IObject |
+| `predicate` | string \| ObjectPredicate |
 
 #### Returns
 
-`any` \| `undefined`
+any \| undefined
 
 ___
 
 ### objectFindEntry
 
-▸ **objectFindEntry**(`obj`, `predicate`): `any` \| `undefined`
+▸ **objectFindEntry**(`obj`, `predicate`): any \| undefined
 
 Finds an object property's entry [key, value] that matches the given predicate
 
@@ -947,18 +952,18 @@ Finds an object property's entry [key, value] that matches the given predicate
 
 | Name | Type |
 | :------ | :------ |
-| `obj` | [`IObject`](README.md#iobject) |
-| `predicate` | `string` \| [`ObjectPredicate`](README.md#objectpredicate) |
+| `obj` | IObject |
+| `predicate` | string \| ObjectPredicate |
 
 #### Returns
 
-`any` \| `undefined`
+any \| undefined
 
 ___
 
 ### objectFindKey
 
-▸ **objectFindKey**(`obj`, `predicate`): `string` \| `undefined`
+▸ **objectFindKey**(`obj`, `predicate`): string \| undefined
 
 Finds an object property's name that matches the given predicate
 
@@ -966,18 +971,18 @@ Finds an object property's name that matches the given predicate
 
 | Name | Type |
 | :------ | :------ |
-| `obj` | [`IObject`](README.md#iobject) |
-| `predicate` | `string` \| [`ObjectPredicate`](README.md#objectpredicate) |
+| `obj` | IObject |
+| `predicate` | string \| ObjectPredicate |
 
 #### Returns
 
-`string` \| `undefined`
+string \| undefined
 
 ___
 
 ### objectFlatten
 
-▸ **objectFlatten**(`obj`, `prefix?`): [`IObject`](README.md#iobject)
+▸ **objectFlatten**(`obj`, `prefix?`): IObject
 
 Flattens an object into a single level using dot notation for nested properties.
 
@@ -985,18 +990,18 @@ Flattens an object into a single level using dot notation for nested properties.
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `obj` | [`IObject`](README.md#iobject) | `undefined` |
-| `prefix` | `string` | `''` |
+| `obj` | IObject | `undefined` |
+| `prefix` | string | `''` |
 
 #### Returns
 
-[`IObject`](README.md#iobject)
+IObject
 
 ___
 
 ### objectGetMethod
 
-▸ **objectGetMethod**(`obj`, `method`, `strict?`): `any`
+▸ **objectGetMethod**(`obj`, `method`, `strict?`): any
 
 Checks if an object has a method with the given name, and returns the method
 
@@ -1004,19 +1009,19 @@ Checks if an object has a method with the given name, and returns the method
 
 | Name | Type |
 | :------ | :------ |
-| `obj` | [`IObject`](README.md#iobject) |
-| `method` | `string` |
-| `strict?` | `boolean` |
+| `obj` | IObject |
+| `method` | string |
+| `strict?` | boolean |
 
 #### Returns
 
-`any`
+any
 
 ___
 
 ### objectHasMethod
 
-▸ **objectHasMethod**(`obj`, `method`, `strict?`): `boolean`
+▸ **objectHasMethod**(`obj`, `method`, `strict?`): boolean
 
 Checks if an object has a method with the given name
 
@@ -1024,19 +1029,19 @@ Checks if an object has a method with the given name
 
 | Name | Type |
 | :------ | :------ |
-| `obj` | [`IObject`](README.md#iobject) |
-| `method` | `string` |
-| `strict?` | `boolean` |
+| `obj` | IObject |
+| `method` | string |
+| `strict?` | boolean |
 
 #### Returns
 
-`boolean`
+boolean
 
 ___
 
 ### objectMerge
 
-▸ **objectMerge**(...`objects`): [`IObject`](README.md#iobject)
+▸ **objectMerge**(...`objects`): IObject
 
 Merge two or more objects together
 
@@ -1044,17 +1049,17 @@ Merge two or more objects together
 
 | Name | Type |
 | :------ | :------ |
-| `...objects` | [`IObject`](README.md#iobject)[] |
+| `...objects` | IObject[] |
 
 #### Returns
 
-[`IObject`](README.md#iobject)
+IObject
 
 ___
 
 ### objectMergeDeep
 
-▸ **objectMergeDeep**(...`objects`): [`IObject`](README.md#iobject)
+▸ **objectMergeDeep**(...`objects`): IObject
 
 Merge two or more objects together, recursing child values
 
@@ -1062,17 +1067,17 @@ Merge two or more objects together, recursing child values
 
 | Name | Type |
 | :------ | :------ |
-| `...objects` | [`IObject`](README.md#iobject)[] |
+| `...objects` | IObject[] |
 
 #### Returns
 
-[`IObject`](README.md#iobject)
+IObject
 
 ___
 
 ### objectMethods
 
-▸ **objectMethods**(`obj`): `string`[]
+▸ **objectMethods**(`obj`): string[]
 
 Returns an array of the given object's available method names
 
@@ -1080,17 +1085,17 @@ Returns an array of the given object's available method names
 
 | Name | Type |
 | :------ | :------ |
-| `obj` | [`IObject`](README.md#iobject) |
+| `obj` | IObject |
 
 #### Returns
 
-`string`[]
+string[]
 
 ___
 
 ### objectOnly
 
-▸ **objectOnly**(`obj`, `allowed`): [`IObject`](README.md#iobject)
+▸ **objectOnly**(`obj`, `allowed`): IObject
 
 Returns a new object with only the allowed properties.
 
@@ -1098,18 +1103,18 @@ Returns a new object with only the allowed properties.
 
 | Name | Type |
 | :------ | :------ |
-| `obj` | [`IObject`](README.md#iobject) |
-| `allowed` | `string`[] |
+| `obj` | IObject |
+| `allowed` | string[] |
 
 #### Returns
 
-[`IObject`](README.md#iobject)
+IObject
 
 ___
 
 ### objectPull
 
-▸ **objectPull**(`obj`, `key`): `any`
+▸ **objectPull**(`obj`, `key`): any
 
 Remove a property from an object and return the value
 
@@ -1117,12 +1122,12 @@ Remove a property from an object and return the value
 
 | Name | Type |
 | :------ | :------ |
-| `obj` | [`IObject`](README.md#iobject) |
-| `key` | `string` |
+| `obj` | IObject |
+| `key` | string |
 
 #### Returns
 
-`any`
+any
 
 ___
 
@@ -1130,7 +1135,7 @@ ___
 
 ### JSONParse
 
-▸ **JSONParse**(`json`, `strict?`): `object` \| `any`[] \| `undefined`
+▸ **JSONParse**(`json`, `strict?`): any[] \| object \| undefined
 
 Parse a string into JSON
 
@@ -1138,18 +1143,18 @@ Parse a string into JSON
 
 | Name | Type |
 | :------ | :------ |
-| `json` | `string` |
-| `strict?` | `boolean` |
+| `json` | string |
+| `strict?` | boolean |
 
 #### Returns
 
-`object` \| `any`[] \| `undefined`
+any[] \| object \| undefined
 
 ___
 
 ### JSONPrettify
 
-▸ **JSONPrettify**(`data`, `spacer?`): `string`
+▸ **JSONPrettify**(`data`, `spacer?`): string
 
 Pretty print a JSON string
 
@@ -1157,18 +1162,18 @@ Pretty print a JSON string
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `data` | `any` | `undefined` |
-| `spacer` | `number` | `2` |
+| `data` | Record<string, unknown\> | `undefined` |
+| `spacer` | number | `2` |
 
 #### Returns
 
-`string`
+string
 
 ___
 
 ### JSONStringify
 
-▸ **JSONStringify**(`data`, `options?`): `string`
+▸ **JSONStringify**(`data`, `options?`): string
 
 Parse a variable into a JSON string
 
@@ -1176,18 +1181,18 @@ Parse a variable into a JSON string
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `data` | `any` | `undefined` |
-| `options` | `JSONStringifyOptions` | `false` |
+| `data` | any | `undefined` |
+| `options` | JSONStringifyOptions | `false` |
 
 #### Returns
 
-`string`
+string
 
 ___
 
 ### camelCase
 
-▸ **camelCase**(`text`): `string`
+▸ **camelCase**(`text`): string
 
 Convert a string to camelCase
 
@@ -1197,17 +1202,17 @@ Convert a string to camelCase
 
 | Name | Type |
 | :------ | :------ |
-| `text` | `string` |
+| `text` | string |
 
 #### Returns
 
-`string`
+string
 
 ___
 
 ### initials
 
-▸ **initials**(`str`): `string`
+▸ **initials**(`str`): string
 
 Convert a string to initials
 
@@ -1215,17 +1220,17 @@ Convert a string to initials
 
 | Name | Type |
 | :------ | :------ |
-| `str` | `string` |
+| `str` | string |
 
 #### Returns
 
-`string`
+string
 
 ___
 
 ### kebabCase
 
-▸ **kebabCase**(`text`): `string`
+▸ **kebabCase**(`text`): string
 
 Convert a string to kebab-case
 
@@ -1233,17 +1238,17 @@ Convert a string to kebab-case
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `text` | `string` | The string to convert |
+| `text` | string | The string to convert |
 
 #### Returns
 
-`string`
+string
 
 ___
 
 ### limitString
 
-▸ **limitString**(`str`, `limit?`, `suffix?`): `string`
+▸ **limitString**(`str`, `limit?`, `suffix?`): string
 
 Limit a string to a certain length
 
@@ -1251,19 +1256,19 @@ Limit a string to a certain length
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `str` | `string` | `undefined` |
-| `limit` | `number` | `100` |
-| `suffix` | `string` | `'...'` |
+| `str` | string | `undefined` |
+| `limit` | number | `100` |
+| `suffix` | string | `'...'` |
 
 #### Returns
 
-`string`
+string
 
 ___
 
 ### limitWords
 
-▸ **limitWords**(`str`, `limit?`, `suffix?`): `string`
+▸ **limitWords**(`str`, `limit?`, `suffix?`): string
 
 Limit a string to a certain amount of words
 
@@ -1271,19 +1276,19 @@ Limit a string to a certain amount of words
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `str` | `string` | `undefined` |
-| `limit` | `number` | `100` |
-| `suffix` | `string` | `'...'` |
+| `str` | string | `undefined` |
+| `limit` | number | `100` |
+| `suffix` | string | `'...'` |
 
 #### Returns
 
-`string`
+string
 
 ___
 
 ### padString
 
-▸ **padString**(`text`, `padding?`, `character?`): `string`
+▸ **padString**(`text`, `padding?`, `character?`): string
 
 Pad a string on both sides with the given character and length
 
@@ -1291,19 +1296,19 @@ Pad a string on both sides with the given character and length
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `text` | `string` | `undefined` |
-| `padding` | `number` | `2` |
-| `character` | `string` | `' '` |
+| `text` | string | `undefined` |
+| `padding` | number | `2` |
+| `character` | string | `' '` |
 
 #### Returns
 
-`string`
+string
 
 ___
 
 ### parse
 
-▸ **parse**(`value`): `any`
+▸ **parse**(`value`): any
 
 Parse a string into it's primitive type if possible. If not, return the original variable.
 
@@ -1313,17 +1318,17 @@ Parse a string into it's primitive type if possible. If not, return the original
 
 | Name | Type |
 | :------ | :------ |
-| `value` | `any` |
+| `value` | any |
 
 #### Returns
 
-`any`
+any
 
 ___
 
 ### plural
 
-▸ **plural**(`text`, `count?`, `inclusive?`): `any`
+▸ **plural**(`text`, `count?`, `inclusive?`): any
 
 Create a pluralized string
 
@@ -1333,37 +1338,38 @@ Create a pluralized string
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `text` | `string` | `undefined` |
-| `count` | `number` | `2` |
-| `inclusive?` | `boolean` | `undefined` |
+| `text` | string | `undefined` |
+| `count` | number | `2` |
+| `inclusive?` | boolean | `undefined` |
 
 #### Returns
 
-`any`
+any
 
 ___
 
 ### safeVarName
 
-▸ **safeVarName**(`str`): `string`
+▸ **safeVarName**(`str`, `replacer?`): string
 
 Create a safe javascript variable name from a string
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `str` | `string` |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `str` | string | `undefined` |
+| `replacer` | string | `''` |
 
 #### Returns
 
-`string`
+string
 
 ___
 
 ### singular
 
-▸ **singular**(`str`, `inclusive?`): `any`
+▸ **singular**(`str`, `inclusive?`): any
 
 Create a singularized string
 
@@ -1371,18 +1377,18 @@ Create a singularized string
 
 | Name | Type |
 | :------ | :------ |
-| `str` | `string` |
-| `inclusive?` | `boolean` |
+| `str` | string |
+| `inclusive?` | boolean |
 
 #### Returns
 
-`any`
+any
 
 ___
 
 ### sleep
 
-▸ **sleep**(`ms`): `Promise`<`unknown`\>
+▸ **sleep**(`ms`): Promise<unknown\>
 
 sleep for a given time
 
@@ -1390,17 +1396,17 @@ sleep for a given time
 
 | Name | Type |
 | :------ | :------ |
-| `ms` | `number` |
+| `ms` | number |
 
 #### Returns
 
-`Promise`<`unknown`\>
+Promise<unknown\>
 
 ___
 
 ### slugify
 
-▸ **slugify**(`text`, `replace?`): `string`
+▸ **slugify**(`text`, `replace?`): string
 
 Create slug from string
 
@@ -1408,18 +1414,18 @@ Create slug from string
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `text` | `string` | `undefined` |
-| `replace` | `string` | `'-'` |
+| `text` | string | `undefined` |
+| `replace` | string | `'-'` |
 
 #### Returns
 
-`string`
+string
 
 ___
 
 ### snakeCase
 
-▸ **snakeCase**(`text`): `string`
+▸ **snakeCase**(`text`): string
 
 Convert a string to snake_case
 
@@ -1427,17 +1433,17 @@ Convert a string to snake_case
 
 | Name | Type |
 | :------ | :------ |
-| `text` | `string` |
+| `text` | string |
 
 #### Returns
 
-`string`
+string
 
 ___
 
 ### spaceCase
 
-▸ **spaceCase**(`str`): `string`
+▸ **spaceCase**(`str`): string
 
 Convert a string to space-case
 
@@ -1445,11 +1451,11 @@ Convert a string to space-case
 
 | Name | Type |
 | :------ | :------ |
-| `str` | `string` |
+| `str` | string |
 
 #### Returns
 
-`string`
+string
 
 ___
 
@@ -1457,7 +1463,7 @@ ___
 
 ### escapeRegExp
 
-▸ **escapeRegExp**(`str`): `string`
+▸ **escapeRegExp**(`str`): string
 
 escape regexp
 
@@ -1465,17 +1471,17 @@ escape regexp
 
 | Name | Type |
 | :------ | :------ |
-| `str` | `string` |
+| `str` | string |
 
 #### Returns
 
-`string`
+string
 
 ___
 
 ### escapeReplacement
 
-▸ **escapeReplacement**(`str`): `string`
+▸ **escapeReplacement**(`str`): string
 
 escape regexp replacement string
 
@@ -1483,17 +1489,17 @@ escape regexp replacement string
 
 | Name | Type |
 | :------ | :------ |
-| `str` | `string` |
+| `str` | string |
 
 #### Returns
 
-`string`
+string
 
 ___
 
 ### interpolate
 
-▸ **interpolate**(`str`, `replacements`): `string`
+▸ **interpolate**(`str`, `replacements`): string
 
 interpolate string with data from object using {{key}} syntax or ${key} syntax
 
@@ -1501,12 +1507,324 @@ interpolate string with data from object using {{key}} syntax or ${key} syntax
 
 | Name | Type |
 | :------ | :------ |
-| `str` | `string` |
-| `replacements` | [`interpolateReplacements`](README.md#interpolatereplacements) |
+| `str` | string |
+| `replacements` | interpolateReplacements |
 
 #### Returns
 
-`string`
+string
+
+___
+
+## Validation Functions
+
+### isArray
+
+▸ **isArray**(`value`): boolean
+
+Checks if variable is an array and is not empty
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | any |
+
+#### Returns
+
+boolean
+
+___
+
+### isAsyncFunction
+
+▸ **isAsyncFunction**(`value`): boolean
+
+Check if a variable is an async function
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | any |
+
+#### Returns
+
+boolean
+
+___
+
+### isAwaitable
+
+▸ **isAwaitable**(`value`): boolean
+
+Check if a variable can be used with await (a Promise or AsyncFunction)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | any |
+
+#### Returns
+
+boolean
+
+___
+
+### isBase64
+
+▸ **isBase64**(`content`): boolean
+
+Check if a variable is a Base64 string
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `content` | string |
+
+#### Returns
+
+boolean
+
+___
+
+### isClass
+
+▸ **isClass**(`value`): boolean
+
+Check if a variable is a class
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | any |
+
+#### Returns
+
+boolean
+
+___
+
+### isDate
+
+▸ **isDate**(`value`): boolean
+
+Check if a variable is a valid date
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | any |
+
+#### Returns
+
+boolean
+
+___
+
+### isDefined
+
+▸ **isDefined**(`value`): boolean
+
+Check if a value is undefined
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | any |
+
+#### Returns
+
+boolean
+
+___
+
+### isEmpty
+
+▸ **isEmpty**(`value`): boolean
+
+Check if a value is empty
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | any |
+
+#### Returns
+
+boolean
+
+___
+
+### isFunction
+
+▸ **isFunction**(`value`, `strict?`): boolean
+
+Check if a variable is a function
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | any |
+| `strict?` | boolean |
+
+#### Returns
+
+boolean
+
+___
+
+### isNullDefined
+
+▸ **isNullDefined**(`value`): boolean
+
+Check if a value is null or undefined
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | any |
+
+#### Returns
+
+boolean
+
+___
+
+### isNumber
+
+▸ **isNumber**(`value`): boolean
+
+Check if a variable is a number
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | any |
+
+#### Returns
+
+boolean
+
+___
+
+### isObject
+
+▸ **isObject**(`value`, `strict?`): any
+
+Check if a variable is an object and is not null or undefined
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `value` | any | `undefined` |
+| `strict` | boolean | `true` |
+
+#### Returns
+
+any
+
+___
+
+### isPrimitive
+
+▸ **isPrimitive**(`value`, `includeNullUndefined?`): boolean
+
+Check if a variable is a primitive type. i.e. string, boolean, number, or bigint
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | any |
+| `includeNullUndefined?` | boolean |
+
+#### Returns
+
+boolean
+
+___
+
+### isPromise
+
+▸ **isPromise**(`value`): boolean
+
+Check if a variable is a promise
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | any |
+
+#### Returns
+
+boolean
+
+___
+
+### isSet
+
+▸ **isSet**(`value`): boolean
+
+Check if a variable is a Set
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | any |
+
+#### Returns
+
+boolean
+
+___
+
+### isString
+
+▸ **isString**(`value`): boolean
+
+Check if a variable is a string
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | any |
+
+#### Returns
+
+boolean
+
+___
+
+### isType
+
+▸ **isType**(`value`, `type`): boolean
+
+Check if a variable is the given type
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | any |
+| `type` | string \| VariableTypeDefinition |
+
+#### Returns
+
+boolean
 
 ___
 
@@ -1514,7 +1832,7 @@ ___
 
 ### clone
 
-▸ **clone**(`value`): `any`
+▸ **clone**(`value`): any
 
 Clone a variable
 
@@ -1522,17 +1840,17 @@ Clone a variable
 
 | Name | Type |
 | :------ | :------ |
-| `value` | `any` |
+| `value` | any |
 
 #### Returns
 
-`any`
+any
 
 ___
 
 ### count
 
-▸ **count**(`value`, `strict?`): `number`
+▸ **count**(`value`, `strict?`): number
 
 Count the number of keys in an object \
 Count the number of entries in an array \
@@ -1543,90 +1861,18 @@ Get the length of a string
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `value` | `any` | `undefined` |
-| `strict` | `boolean` | `true` |
+| `value` | any | `undefined` |
+| `strict` | boolean | `true` |
 
 #### Returns
 
-`number`
-
-___
-
-### isArray
-
-▸ **isArray**(`value`): `boolean`
-
-Checks if variable is an array and is not empty
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `any` |
-
-#### Returns
-
-`boolean`
-
-___
-
-### isAsyncFunction
-
-▸ **isAsyncFunction**(`value`): `boolean`
-
-Check if a variable is an async function
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `any` |
-
-#### Returns
-
-`boolean`
-
-___
-
-### isAwaitable
-
-▸ **isAwaitable**(`value`): `boolean`
-
-Check if a variable can be used with await (a Promise or AsyncFunction)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `any` |
-
-#### Returns
-
-`boolean`
-
-___
-
-### isBase64
-
-▸ **isBase64**(`content`): `boolean`
-
-Check if a variable is a Base64 string
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `content` | `string` |
-
-#### Returns
-
-`boolean`
+number
 
 ___
 
 ### isCallable
 
-▸ **isCallable**(`value`, `options?`): `boolean`
+▸ **isCallable**(`value`, `options?`): boolean
 
 Check if a variable is callable
 
@@ -1634,109 +1880,18 @@ Check if a variable is callable
 
 | Name | Type |
 | :------ | :------ |
-| `value` | `any` |
-| `options?` | `boolean` \| `Partial`<`isCallableOptions`\> |
+| `value` | any |
+| `options?` | boolean \| Partial<isCallableOptions\> |
 
 #### Returns
 
-`boolean`
-
-___
-
-### isClass
-
-▸ **isClass**(`value`): `boolean`
-
-Check if a variable is a class
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `any` |
-
-#### Returns
-
-`boolean`
-
-___
-
-### isDate
-
-▸ **isDate**(`value`): `boolean`
-
-Check if a variable is a valid date
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `any` |
-
-#### Returns
-
-`boolean`
-
-___
-
-### isDefined
-
-▸ **isDefined**(`value`): `boolean`
-
-Check if a value is undefined
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `any` |
-
-#### Returns
-
-`boolean`
-
-___
-
-### isEmpty
-
-▸ **isEmpty**(`value`): `boolean`
-
-Check if a value is empty
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `any` |
-
-#### Returns
-
-`boolean`
-
-___
-
-### isFunction
-
-▸ **isFunction**(`value`, `strict?`): `boolean`
-
-Check if a variable is a function
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `any` |
-| `strict?` | `boolean` |
-
-#### Returns
-
-`boolean`
+boolean
 
 ___
 
 ### isJSONString
 
-▸ **isJSONString**(`value`, `returnValue?`): `any`
+▸ **isJSONString**(`value`, `returnValue?`): any
 
 Check if a variable is a JSON string
 
@@ -1744,165 +1899,18 @@ Check if a variable is a JSON string
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `value` | `any` | `undefined` |
-| `returnValue` | `boolean` | `false` |
+| `value` | any | `undefined` |
+| `returnValue` | boolean | `false` |
 
 #### Returns
 
-`any`
-
-___
-
-### isNullDefined
-
-▸ **isNullDefined**(`value`): `boolean`
-
-Check if a value is null or undefined
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `any` |
-
-#### Returns
-
-`boolean`
-
-___
-
-### isNumber
-
-▸ **isNumber**(`value`): `boolean`
-
-Check if a variable is a number
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `any` |
-
-#### Returns
-
-`boolean`
-
-___
-
-### isObject
-
-▸ **isObject**(`value`, `strict?`): `boolean`
-
-Check if a variable is an object and is not null or undefined
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `value` | `any` | `undefined` |
-| `strict` | `boolean` | `true` |
-
-#### Returns
-
-`boolean`
-
-___
-
-### isPrimitive
-
-▸ **isPrimitive**(`value`, `includeNullUndefined?`): `boolean`
-
-Check if a variable is a primitive type. i.e. string, boolean, number, or bigint
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `any` |
-| `includeNullUndefined?` | `boolean` |
-
-#### Returns
-
-`boolean`
-
-___
-
-### isPromise
-
-▸ **isPromise**(`value`): `boolean`
-
-Check if a variable is a promise
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `any` |
-
-#### Returns
-
-`boolean`
-
-___
-
-### isSet
-
-▸ **isSet**(`value`): `boolean`
-
-Check if a variable is a Set
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `any` |
-
-#### Returns
-
-`boolean`
-
-___
-
-### isString
-
-▸ **isString**(`value`): `boolean`
-
-Check if a variable is a string
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `any` |
-
-#### Returns
-
-`boolean`
-
-___
-
-### isType
-
-▸ **isType**(`value`, `type`): `boolean`
-
-Check if a variable is the given type
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `any` |
-| `type` | `string` \| [`VariableTypeDefinition`](README.md#variabletypedefinition) |
-
-#### Returns
-
-`boolean`
+any
 
 ___
 
 ### merge
 
-▸ **merge**(...`values`): [`IObject`](README.md#iobject) \| `any`[]
+▸ **merge**(...`values`): any[] \| IObject
 
 Merge two or more variables together
 
@@ -1910,17 +1918,17 @@ Merge two or more variables together
 
 | Name | Type |
 | :------ | :------ |
-| `...values` | `any`[] \| [`IObject`](README.md#iobject)[] |
+| `...values` | any[] \| IObject[] |
 
 #### Returns
 
-[`IObject`](README.md#iobject) \| `any`[]
+any[] \| IObject
 
 ___
 
 ### mergeDeep
 
-▸ **mergeDeep**(...`values`): [`IObject`](README.md#iobject) \| `any`[]
+▸ **mergeDeep**(...`values`): any[] \| IObject
 
 Merge two or more variables together, recursing child values
 
@@ -1928,17 +1936,17 @@ Merge two or more variables together, recursing child values
 
 | Name | Type |
 | :------ | :------ |
-| `...values` | `any`[] \| [`IObject`](README.md#iobject)[] |
+| `...values` | any[] \| IObject[] |
 
 #### Returns
 
-[`IObject`](README.md#iobject) \| `any`[]
+any[] \| IObject
 
 ___
 
 ### typeOf
 
-▸ **typeOf**(`value`): [`VariableType`](README.md#variabletype)
+▸ **typeOf**(`value`): VariableType
 
 Return a variable's type
 
@@ -1946,8 +1954,8 @@ Return a variable's type
 
 | Name | Type |
 | :------ | :------ |
-| `value` | `any` |
+| `value` | any |
 
 #### Returns
 
-[`VariableType`](README.md#variabletype)
+VariableType
