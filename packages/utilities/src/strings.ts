@@ -2,13 +2,12 @@ import {default as justCamelCase} from 'just-camel-case'
 import plur from 'plur'
 import reserved from './data/reserved'
 
-// noinspection PhpCoveredCharacterInClassInspection
 /**
  * @internal
  * @category Parsing
  */
 export const capital_plus_lower = /[A-ZÀ-Ý\u00C0-\u00D6\u00D9-\u00DD][a-zà-ÿ]/g
-// noinspection PhpCoveredCharacterInClassInspection
+
 /**
  * @internal
  * @category Parsing
