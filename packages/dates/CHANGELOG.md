@@ -1,5 +1,14 @@
 # @snickbit/dates
 
+## 1.0.40
+
+### Patch Changes
+
+- [7546e46](https://github.com/snickbit/snickbit.js/commit/7546e46) **chore**(release):  publish
+- [ca07e6b](https://github.com/snickbit/snickbit.js/commit/ca07e6b) **style**:  heavy code restyling
+- [5665547](https://github.com/snickbit/snickbit.js/commit/5665547) **chore**:  bump dependencies
+- [195670f](https://github.com/snickbit/snickbit.js/commit/195670f) **docs**:  update
+
 ## 1.0.39
 
 ### Patch Changes

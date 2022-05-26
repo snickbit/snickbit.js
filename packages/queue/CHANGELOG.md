@@ -1,5 +1,16 @@
 # @snickbit/queue Changelog
 
+## 1.1.5
+
+### Patch Changes
+
+- [7546e46](https://github.com/snickbit/snickbit.js/commit/7546e46) **chore**(release):  publish
+- [ca07e6b](https://github.com/snickbit/snickbit.js/commit/ca07e6b) **style**:  heavy code restyling
+- [5665547](https://github.com/snickbit/snickbit.js/commit/5665547) **chore**:  bump dependencies
+- [1f54b0e](https://github.com/snickbit/snickbit.js/commit/1f54b0e) **chore**:  bump indexer version, and rerun
+- [a3f1d7a](https://github.com/snickbit/snickbit.js/commit/a3f1d7a) **chore**:  bump indexer version
+- [62f99d7](https://github.com/snickbit/snickbit.js/commit/62f99d7) **build**:  switch to pnpm
+
 ## 1.1.4
 
 ### Patch Changes

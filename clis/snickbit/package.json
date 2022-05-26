@@ -1,6 +1,6 @@
 {
 	"name": "snickbit",
-	"version": "0.0.25",
+	"version": "0.0.26",
 	"description": "My personal npx business card",
 	"license": "MIT",
 	"main": "./bin/snickbit.js",

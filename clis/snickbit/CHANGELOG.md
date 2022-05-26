@@ -1,5 +1,13 @@
 # snickbit
 
+## 0.0.26
+
+### Patch Changes
+
+- [7546e46](https://github.com/snickbit/snickbit.js/commit/7546e46) **chore**(release):  publish
+- [ca07e6b](https://github.com/snickbit/snickbit.js/commit/ca07e6b) **style**:  heavy code restyling
+- [62f99d7](https://github.com/snickbit/snickbit.js/commit/62f99d7) **build**:  switch to pnpm
+
 ## 0.0.25
 
 ### Patch Changes
