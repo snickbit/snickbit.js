@@ -1,5 +1,5 @@
 import {default as justCamelCase} from 'just-camel-case'
-import pluralize from 'pluralize'
+import plur from 'plur'
 import reserved from './data/reserved'
 
 // noinspection PhpCoveredCharacterInClassInspection
@@ -40,16 +40,17 @@ export const camelCase = (text: string): string => justCamelCase(text)
 
 /**
  * Create a pluralized string
- * @see https://github.com/plurals/pluralize
+ * @see https://github.com/sindresorhus/plur
  * @category Parsing
  */
-export const plural = (text: string, count = 2, inclusive?: boolean) => pluralize(text, count, inclusive)
+export const plural = (text: string, count = 2) => plur(text, count)
 
 /**
  * Create a singularized string
+ * @see https://github.com/sindresorhus/plur
  * @category Parsing
  */
-export const singular = (str: string, inclusive?: boolean) => pluralize(str, 1, inclusive)
+export const singular = (str: string) => plur(str, 1)
 
 /**
  * Convert a string to initials
