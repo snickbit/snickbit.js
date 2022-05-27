@@ -35,7 +35,7 @@
 		"lite-fifo": "^0.3.0"
 	},
 	"devDependencies": {
-		"@remedyred/indexer": "^2.4.0",
+		"@remedyred/indexer": "^2.4.1",
 		"@types/jest": "^27.4.1",
 		"jest": "^28.1.0",
 		"shx": "^0.3.4",
