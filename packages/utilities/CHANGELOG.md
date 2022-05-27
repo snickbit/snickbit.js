@@ -1,5 +1,12 @@
 # @snickbit/utilities
 
+## 3.0.23
+
+### Patch Changes
+
+- [a8694ff](https://github.com/snickbit/snickbit.js/commit/a8694ff) **fix**:  remove workspace protocol
+- [6fe1985](https://github.com/snickbit/snickbit.js/commit/6fe1985) **chore**:  bump dependencies
+
 ## 3.0.22
 
 ### Patch Changes
