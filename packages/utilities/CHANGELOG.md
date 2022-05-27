@@ -1,5 +1,18 @@
 # @snickbit/utilities
 
+## 3.0.22
+
+### Patch Changes
+
+- [5ae5d0a](https://github.com/snickbit/snickbit.js/commit/5ae5d0a) **chore**:  bump dependencies
+- [1b4e5bf](https://github.com/snickbit/snickbit.js/commit/1b4e5bf) **docs**:  update
+- [3c0265a](https://github.com/snickbit/snickbit.js/commit/3c0265a) **chore**:  remove plur dependency
+- [2c2ffb7](https://github.com/snickbit/snickbit.js/commit/2c2ffb7) **chore**:  add workspace protocol
+- [ad3e17c](https://github.com/snickbit/snickbit.js/commit/ad3e17c) **feat**:  add findFirstDiff helper
+- [9905c96](https://github.com/snickbit/snickbit.js/commit/9905c96) **feat**:  replace plur with @snickbit/plural
+- [af8be48](https://github.com/snickbit/snickbit.js/commit/af8be48) **chore**:  remove ide inspection comments
+- [d1a5e3a](https://github.com/snickbit/snickbit.js/commit/d1a5e3a) **fix**:  replace pluralize with plur
+
 ## 3.0.21
 
 ### Patch Changes
