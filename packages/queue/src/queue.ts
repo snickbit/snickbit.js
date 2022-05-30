@@ -17,8 +17,8 @@ interface QueueTicks {
 }
 
 type Waiting = {
-	resolve: (value: unknown) => void
-	reject: (error: unknown) => void
+	resolve(value: unknown): void
+	reject(error: unknown): void
 }
 
 interface QueueHandlers {
@@ -313,7 +313,7 @@ export class Queue {
 	 */
 	run(): QueuePromise<any> {
 		if (!this.process) {
-			this.process = new QueuePromise(async(resolve, reject) => {
+			this.process = new QueuePromise(async (resolve, reject) => {
 				this.#reject = reject
 				this.processes = 0
 				const promises: Promise<any>[] = []

@@ -27,7 +27,7 @@ interface CLIProgressOptions {
 	barIncompleteChar: string
 	hideCursor: boolean
 	linewrap: string
-	formatValue?: (v, options, type) => any
+	formatValue?(v, options, type): any
 }
 
 const defaultCliProgressConfig = {

@@ -32,7 +32,7 @@ cli()
 		whitespaceBreak: true
 	}))
 	.run()
-	.then(async(/* argv */) => {
+	.then(async (/* argv */) => {
 		const data: Data = {
 			name: 'Nick Lowe',
 			handle: '@snickbit',

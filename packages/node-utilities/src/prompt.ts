@@ -20,8 +20,8 @@ export interface Question {
 	message: PromptsFunction | string
 	initial: PromptsFunction | PromptsPromise | string
 	format: PromptsFunction | PromptsPromise
-	onRender: (this: prompts, kluer: any) => void
-	onState: (state: PromptState) => void
+	onRender(this: prompts, kluer: any): void
+	onState(state: PromptState): void
 	stdin: Stream
 	stdout: Stream
 
@@ -41,7 +41,7 @@ export interface Question {
 	inactive: string
 
 	// autocomplete
-	suggest: (input, choices) => Promise<string[]>
+	suggest(input, choices): Promise<string[]>
 	limit: number
 	clearFirst: boolean
 	fallback: string

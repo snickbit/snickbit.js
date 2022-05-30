@@ -17,33 +17,33 @@ export type OptionType = dayjs.OptionType
 export interface Dates extends dayjs.Dayjs {
 	(input?: DateInput): Dates
 
-	isToday: () => boolean
+	isToday(): boolean
 
-	datestamp: () => string
+	datestamp(): string
 
-	timestamp: () => string
+	timestamp(): string
 
-	safeTimestamp: () => string
+	safeTimestamp(): string
 
-	time: () => string
+	time(): string
 
-	shorttime: () => string
+	shorttime(): string
 
-	shortdate: () => string
+	shortdate(): string
 
-	shortdatetime: () => string
+	shortdatetime(): string
 
-	duration: (input: DateInput, unit?: string) => DatesDuration
+	duration(input: DateInput, unit?: string): DatesDuration
 
-	toLimited: (input: DateInput, options: Partial<LimitedRelativeOptions>) => string
+	toLimited(input: DateInput, options: Partial<LimitedRelativeOptions>): string
 
-	fromLimited: (input: DateInput, options: Partial<LimitedRelativeOptions>) => string
+	fromLimited(input: DateInput, options: Partial<LimitedRelativeOptions>): string
 
-	toNowLimited: (options: Partial<LimitedRelativeOptions>) => string
+	toNowLimited(options: Partial<LimitedRelativeOptions>): string
 
-	fromNowLimited: (options: Partial<LimitedRelativeOptions>) => string
+	fromNowLimited(options: Partial<LimitedRelativeOptions>): string
 
-	relativeToday: (fallbackFormat: string) => string
+	relativeToday(fallbackFormat: string): string
 }
 
 dayjs.extend(isYesterday)

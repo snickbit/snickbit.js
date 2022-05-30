@@ -5,13 +5,13 @@ import duration from 'dayjs/plugin/duration'
 export interface DatesDuration extends Dates {
 	toWords: (() => string) & ((long: boolean) => string) & ((options: ToWordsOptions) => string)
 
-	toObject: () => DurationObject
+	toObject(): DurationObject
 
-	humanize: (withSuffix?: boolean) => string
+	humanize(withSuffix?: boolean): string
 
-	format: (formatStr?: string) => string
+	format(formatStr?: string): string
 
-	toJSON: () => string
+	toJSON(): string
 }
 
 export interface DurationObject {
