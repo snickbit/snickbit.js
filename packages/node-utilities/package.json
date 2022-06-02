@@ -1,6 +1,6 @@
 {
 	"name": "@snickbit/node-utilities",
-	"version": "4.3.10",
+	"version": "4.3.11",
 	"description": "A collection of simple Node.js helpers",
 	"license": "MIT",
 	"exports": {
@@ -29,8 +29,8 @@
 		"testEnvironment": "node"
 	},
 	"dependencies": {
-		"@snickbit/out": "^2.0.30",
-		"@snickbit/utilities": "^3.0.24",
+		"@snickbit/out": "^2.0.31",
+		"@snickbit/utilities": "^3.0.25",
 		"ansi-styles-template": "^1.0.0",
 		"cli-progress": "^3.11.1",
 		"is-wsl": "^2.2.0",
