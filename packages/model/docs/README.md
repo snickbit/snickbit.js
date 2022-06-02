@@ -12,7 +12,7 @@
 - [ModelSchema](interfaces/ModelSchema.md)
 - [ModelSchemaRecord](interfaces/ModelSchemaRecord.md)
 
-### Type aliases
+### Type Aliases
 
 - [ModelErrors](README.md#modelerrors)
 - [ModelId](README.md#modelid)
@@ -25,7 +25,7 @@
 
 - [model](README.md#model)
 
-## Type aliases
+## Type Aliases
 
 ### ModelErrors
 

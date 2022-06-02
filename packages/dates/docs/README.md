@@ -6,7 +6,7 @@
 
 - [Dates](interfaces/Dates.md)
 
-### Type aliases
+### Type Aliases
 
 - [ConfigType](README.md#configtype)
 - [DateInput](README.md#dateinput)
@@ -16,7 +16,7 @@
 
 - [dates](README.md#dates)
 
-## Type aliases
+## Type Aliases
 
 ### ConfigType
 

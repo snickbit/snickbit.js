@@ -15,7 +15,7 @@
 - [QueueConfiguration](interfaces/QueueConfiguration.md)
 - [QueueErrorJSON](interfaces/QueueErrorJSON.md)
 
-### Type aliases
+### Type Aliases
 
 - [CatchCallback](README.md#catchcallback)
 - [DynamicError](README.md#dynamicerror)
@@ -34,7 +34,7 @@
 
 - [queue](README.md#queue)
 
-## Type aliases
+## Type Aliases
 
 ### CatchCallback
 

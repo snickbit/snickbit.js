@@ -39,12 +39,12 @@
 
 - [SpinnerConfig](interfaces/SpinnerConfig.md)
 
-### Imports Type aliases
+### Imports Type Aliases
 
 - [ImportRecords](README.md#importrecords)
 - [RecordOfImportRecords](README.md#recordofimportrecords)
 
-### Modules Type aliases
+### Modules Type Aliases
 
 - [AnyFunction](README.md#anyfunction)
 - [IObject](README.md#iobject)
@@ -56,14 +56,14 @@
 - [PromptsFunction](README.md#promptsfunction)
 - [PromptsPromise](README.md#promptspromise)
 
-### Prompts Type aliases
+### Prompts Type Aliases
 
 - [Answers](README.md#answers)
 - [ChoiceOption](README.md#choiceoption)
 - [ChoiceRecords](README.md#choicerecords)
 - [QuestionRecords](README.md#questionrecords)
 
-### Spinner Type aliases
+### Spinner Type Aliases
 
 - [SpinnerOptions](README.md#spinneroptions)
 
@@ -130,7 +130,7 @@
 
 - [spinner](README.md#spinner)
 
-## Imports Type aliases
+## Imports Type Aliases
 
 ### ImportRecords
 
@@ -144,7 +144,7 @@ ___
 
 ___
 
-## Modules Type aliases
+## Modules Type Aliases
 
 ### AnyFunction
 
@@ -246,7 +246,7 @@ ___
 
 ___
 
-## Prompts Type aliases
+## Prompts Type Aliases
 
 ### Answers
 
@@ -272,7 +272,7 @@ ___
 
 ___
 
-## Spinner Type aliases
+## Spinner Type Aliases
 
 ### SpinnerOptions
 
