@@ -1,5 +1,12 @@
 # snickbit
 
+## 0.0.29
+
+### Patch Changes
+
+- [66624f1](https://github.com/snickbit/snickbit.js/commit/66624f1) **chore**:  update dependencies
+- [550b1d0](https://github.com/snickbit/snickbit.js/commit/550b1d0) **style**:  lint
+
 ## 0.0.26
 
 ### Patch Changes

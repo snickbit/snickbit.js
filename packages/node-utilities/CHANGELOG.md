@@ -1,5 +1,13 @@
 # @snickbit/node-utilities
 
+## 4.3.10
+
+### Patch Changes
+
+- [66624f1](https://github.com/snickbit/snickbit.js/commit/66624f1) **chore**:  update dependencies
+- [f7e55ec](https://github.com/snickbit/snickbit.js/commit/f7e55ec) **docs**:  update
+- [550b1d0](https://github.com/snickbit/snickbit.js/commit/550b1d0) **style**:  lint
+
 ## 4.3.7
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @snickbit/utilities
 
+## 3.0.24
+
+### Patch Changes
+
+- [66624f1](https://github.com/snickbit/snickbit.js/commit/66624f1) **chore**:  update dependencies
+- [f7e55ec](https://github.com/snickbit/snickbit.js/commit/f7e55ec) **docs**:  update
+
 ## 3.0.23
 
 ### Patch Changes

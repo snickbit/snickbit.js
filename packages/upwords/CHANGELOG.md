@@ -1,5 +1,11 @@
 # @snickbit/upwords
 
+## 2.0.20
+
+### Patch Changes
+
+- [66624f1](https://github.com/snickbit/snickbit.js/commit/66624f1) **chore**:  update dependencies
+
 ## 2.0.19
 
 ### Patch Changes

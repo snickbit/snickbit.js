@@ -1,5 +1,12 @@
 # @snickbit/model
 
+## 1.0.46
+
+### Patch Changes
+
+- [66624f1](https://github.com/snickbit/snickbit.js/commit/66624f1) **chore**:  update dependencies
+- [f7e55ec](https://github.com/snickbit/snickbit.js/commit/f7e55ec) **docs**:  update
+
 ## 1.0.43
 
 ### Patch Changes
