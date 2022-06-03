@@ -6,7 +6,7 @@ export const isImport = (data: any) => typeof data === 'function' || data?.const
 /** @category Imports */
 export const isImportDefinition = (data: any) => data && data['run'] || data['handler'] || data['method']
 
-export type AnyFunction = (...args: any[]) => any
+export type AnyFunction = (...args: any[]) => Promise<any> | any
 
 export type IObject = Record<string, any>
 
