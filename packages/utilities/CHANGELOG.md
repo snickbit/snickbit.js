@@ -1,5 +1,11 @@
 # @snickbit/utilities
 
+## 3.0.27
+
+### Patch Changes
+
+- [3cf4eae](https://github.com/snickbit/snickbit.js/commit/3cf4eae) **fix**:  remove workspace protocol
+
 ## 3.0.26
 
 ### Patch Changes
