@@ -1189,7 +1189,7 @@ Pretty print a JSON string
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `data` | `Record`<`string`, `unknown`\> | `undefined` |
+| `data` | `any` | `undefined` |
 | `spacer` | `number` | `2` |
 
 #### Returns
