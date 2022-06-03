@@ -145,7 +145,7 @@ export class Progress {
 			this.out.debug(parsed.message)
 		}
 		if (this.bar) {
-			this.bar.start(parsed.total, parsed.current, options)
+			this.bar.start(parsed.total, parsed.current, parsed)
 		}
 		return this
 	}
