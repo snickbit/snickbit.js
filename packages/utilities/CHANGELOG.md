@@ -1,5 +1,14 @@
 # @snickbit/utilities
 
+## 3.0.26
+
+### Patch Changes
+
+- [1aa47de](https://github.com/snickbit/snickbit.js/commit/1aa47de) **docs**:  update
+- [a05ea6b](https://github.com/snickbit/snickbit.js/commit/a05ea6b) **chore**:  update dependencies
+- [afe2581](https://github.com/snickbit/snickbit.js/commit/afe2581) **fix**:  update type to be any
+- [db8b8b5](https://github.com/snickbit/snickbit.js/commit/db8b8b5) **chore**:  update dependencies
+
 ## 3.0.25
 
 ### Patch Changes
