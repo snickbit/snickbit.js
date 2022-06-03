@@ -63,10 +63,6 @@ export function parseImports(imports: ImportRecords | RecordOfImportRecords, par
 		if (isImport(data) || isImportDefinition(data)) {
 			let unparsed = data as UnparsedImport
 
-			while (isObject(unparsed) && Object.keys(unparsed).includes('default') && isImportDefinition(unparsed.default)) {
-				unparsed = unparsed.default as UnparsedImport
-			}
-
 			const parsed = {} as ParsedImport
 			let subImportName = unparsed.name || importName
 
