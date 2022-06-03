@@ -111,7 +111,9 @@ export class Progress {
 
 	#create(): this {
 		if (!this.out.isVerbose()) {
-			this.bar = new cliProgress.SingleBar(makeProgressConfig(this.options), cliProgress.Presets.shades_classic)
+			const progressConfig = makeProgressConfig(this.options)
+			this.out.debug(`Creating progress bar with config:`, progressConfig)
+			this.bar = new cliProgress.SingleBar(progressConfig, cliProgress.Presets.shades_classic)
 		}
 		return this
 	}
