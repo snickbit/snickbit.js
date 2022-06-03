@@ -30,6 +30,8 @@ export type ImportRecords<Args = any, Results = any> = Record<string, ImportDefi
 /** @category Imports */
 export type RecordOfImportRecords<Args = any, Results = any> = Record<string, ImportRecords<Args, Results>>
 
+export type RawImports<Args = any, Results = any> = ImportRecords<Args, Results> | RecordOfImportRecords<Args, Results> | any
+
 /** @category Imports */
 export interface ParsedImport<Args = any, Results = any> {
 	name: string
@@ -56,7 +58,7 @@ export interface UnparsedImport {
  * Parse imports from `import * as name from 'path'` statements into a more manageable format.
  * @category Imports
  */
-export function parseImports<Args = any, Results = any>(imports: ImportRecords<Args, Results> | RecordOfImportRecords<Args, Results>, parent?: string): ParsedImportRecords<Args, Results> {
+export function parseImports<Args = any, Results = any>(imports: RawImports, parent?: string): ParsedImportRecords<Args, Results> {
 	const importRecords = {}
 	for (const [importItem, data] of Object.entries(imports)) {
 		let parent_name = parent ? parent : ''
