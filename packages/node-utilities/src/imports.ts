@@ -1,4 +1,4 @@
-import {arrayUnique} from '@snickbit/utilities'
+import {arrayUnique, isCallable} from '@snickbit/utilities'
 
 /** @category Imports */
 export const isImport = (data: any) => typeof data === 'function' || data?.constructor.name === 'AsyncFunction' || Array.isArray(data)
@@ -76,9 +76,9 @@ export function parseImports<Args = any, Results = any>(imports: ImportRecords<A
 			parsed.name = parent_name ? `${parent_name}:${subImportName}` : subImportName
 			parsed.aliases = arrayUnique([unparsed?.alias, ...unparsed.aliases || []].flat()).filter(Boolean)
 			parsed.description = unparsed.description || unparsed.describe
-			const handler = unparsed.handler || unparsed.method || unparsed.run || unparsed.default
-			if (handler) {
-				parsed.handler = handler
+			const handler = unparsed.handler || unparsed.method || unparsed.run || unparsed.default || unparsed
+			if (handler && isCallable(handler)) {
+				parsed.handler = handler as ImportMethod<Args, Results>
 			} else {
 				parsed.handler = () => {
 					console.warn(`No handler found for ${parsed.name}`)
