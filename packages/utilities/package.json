@@ -31,7 +31,7 @@
 		"testEnvironment": "node"
 	},
 	"dependencies": {
-		"@snickbit/plural": "workspace:^0.0.2",
+		"@snickbit/plural": "^0.0.2",
 		"just-camel-case": "^6.0.1",
 		"nanoid": "^3.3.4"
 	},
