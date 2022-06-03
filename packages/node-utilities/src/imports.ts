@@ -1,10 +1,10 @@
-import {arrayUnique, isObject, objectExcept} from '@snickbit/utilities'
+import {arrayUnique, isObject} from '@snickbit/utilities'
 
 /** @category Imports */
 export const isImport = (data: any) => typeof data === 'function' || data?.constructor.name === 'AsyncFunction' || Array.isArray(data)
 
 /** @category Imports */
-export const isImportDefinition = (data: any) => 'run' in data || 'handler' in data || 'default' in data
+export const isImportDefinition = (data: any) => data && data['run'] || data['handler'] || data['method']
 
 export type AnyFunction = (...args: any[]) => any
 
@@ -38,6 +38,18 @@ export interface ParsedImport {
 
 export type ParsedImportRecords = Record<string, ParsedImport>
 
+export interface UnparsedImport {
+	name?: string
+	aliases?: string[]
+	alias?: string
+	description?: string
+	describe?: string
+	handler?: AnyFunction
+	method?: AnyFunction
+	default?: AnyFunction
+	run?: AnyFunction
+}
+
 /**
  * Parse imports from `import * as name from 'path'` statements into a more manageable format.
  * @category Imports
@@ -45,16 +57,36 @@ export type ParsedImportRecords = Record<string, ParsedImport>
 export function parseImports(imports: ImportRecords | RecordOfImportRecords, parent?: string): ParsedImportRecords {
 	const importRecords = {}
 	for (const [importItem, data] of Object.entries(imports)) {
-		const parent_name = parent ? parent : ''
-		const importName = importItem !== 'default' ? importItem : ''
+		let parent_name = parent ? parent : ''
+		let importName = importItem !== 'default' ? importItem : ''
+
 		if (isImport(data) || isImportDefinition(data)) {
-			const subImportName = data.name || importName
-			const t = isObject(data) ? objectExcept(data, ['run', 'handler', 'default']) : {}
-			t.name = parent_name ? `${parent_name}:${subImportName}` : subImportName
-			t.aliases = arrayUnique([t?.alias, ...t.aliases || []].flat()).filter(Boolean)
-			t.description = t.description || t.describe
-			t.handler = data.run || data.handler || data.default || data
-			importRecords[t.name] = t
+			let unparsed = data as UnparsedImport
+
+			while (isObject(unparsed) && Object.keys(unparsed).includes('default') && isImportDefinition(unparsed.default)) {
+				unparsed = unparsed.default as UnparsedImport
+			}
+
+			const parsed = {} as ParsedImport
+			let subImportName = unparsed.name || importName
+
+			if (!subImportName || parent_name && subImportName === `${parent_name}_default`) {
+				subImportName = parent_name
+				parent_name = ''
+			}
+
+			parsed.name = parent_name ? `${parent_name}:${subImportName}` : subImportName
+			parsed.aliases = arrayUnique([unparsed?.alias, ...unparsed.aliases || []].flat()).filter(Boolean)
+			parsed.description = unparsed.description || unparsed.describe
+			const handler = unparsed.handler || unparsed.method || unparsed.run || unparsed.default
+			if (handler) {
+				parsed.handler = handler
+			} else {
+				parsed.handler = () => {
+					console.warn(`No handler found for ${parsed.name}`)
+				}
+			}
+			importRecords[parsed.name] = parsed
 		} else {
 			const subtasks = parseImports(data, importName)
 			Object.assign(importRecords, subtasks)
