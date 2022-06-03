@@ -1,4 +1,4 @@
-import {isObject, objectExcept} from '@snickbit/utilities'
+import {arrayUnique, isObject, objectExcept} from '@snickbit/utilities'
 
 /** @category Imports */
 export const isImport = (data: any) => typeof data === 'function' || data?.constructor.name === 'AsyncFunction' || Array.isArray(data)
@@ -31,6 +31,7 @@ export type RecordOfImportRecords = Record<string, ImportRecords>
 /** @category Imports */
 export interface ParsedImport {
 	name: string
+	aliases: string[]
 	description?: string
 	handler: AnyFunction
 }
@@ -50,6 +51,7 @@ export function parseImports(imports: ImportRecords | RecordOfImportRecords, par
 			const subImportName = data.name || importName
 			const t = isObject(data) ? objectExcept(data, ['run', 'handler', 'default']) : {}
 			t.name = parent_name ? `${parent_name}:${subImportName}` : subImportName
+			t.aliases = arrayUnique([t?.alias, ...t.aliases || []].flat()).filter(Boolean)
 			t.description = t.description || t.describe
 			t.handler = data.run || data.handler || data.default || data
 			importRecords[t.name] = t
