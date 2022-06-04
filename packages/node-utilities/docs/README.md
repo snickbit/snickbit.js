@@ -23,6 +23,7 @@
 ### Modules Interfaces
 
 - [MultiProgressChildConfig](interfaces/MultiProgressChildConfig.md)
+- [UnparsedImport](interfaces/UnparsedImport.md)
 
 ### Progress Interfaces
 
@@ -48,6 +49,7 @@
 
 - [AnyFunction](README.md#anyfunction)
 - [IObject](README.md#iobject)
+- [ImportMethod](README.md#importmethod)
 - [MultiProgressChildOptions](README.md#multiprogresschildoptions)
 - [ParsedImportRecords](README.md#parsedimportrecords)
 - [ProgressOptions](README.md#progressoptions)
@@ -55,6 +57,7 @@
 - [PromptType](README.md#prompttype)
 - [PromptsFunction](README.md#promptsfunction)
 - [PromptsPromise](README.md#promptspromise)
+- [RawImports](README.md#rawimports)
 
 ### Prompts Type Aliases
 
@@ -134,13 +137,27 @@
 
 ### ImportRecords
 
-Ƭ **ImportRecords**: `Record`<`string`, [`AnyFunction`](README.md#anyfunction) \| [`ImportDefinition`](interfaces/ImportDefinition.md)\>
+Ƭ **ImportRecords**<`Args`, `Results`\>: `Record`<`string`, [`ImportDefinition`](interfaces/ImportDefinition.md) \| [`ImportMethod`](README.md#importmethod)<`Args`, `Results`\>\>
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `Args` | `any` |
+| `Results` | `any` |
 
 ___
 
 ### RecordOfImportRecords
 
-Ƭ **RecordOfImportRecords**: `Record`<`string`, [`ImportRecords`](README.md#importrecords)\>
+Ƭ **RecordOfImportRecords**<`Args`, `Results`\>: `Record`<`string`, [`ImportRecords`](README.md#importrecords)<`Args`, `Results`\>\>
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `Args` | `any` |
+| `Results` | `any` |
 
 ___
 
@@ -148,27 +165,67 @@ ___
 
 ### AnyFunction
 
-Ƭ **AnyFunction**: (...`args`: `any`[]) => `any`
+Ƭ **AnyFunction**<`Args`, `Results`\>: (...`args`: `Args`[]) => `Promise`<`Results`\> \| `Results`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `Args` | `any` |
+| `Results` | `any` |
 
 #### Type declaration
 
-▸ (...`args`): `any`
+▸ (...`args`): `Promise`<`Results`\> \| `Results`
 
 ##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `...args` | `any`[] |
+| `...args` | `Args`[] |
 
 ##### Returns
 
-`any`
+`Promise`<`Results`\> \| `Results`
 
 ___
 
 ### IObject
 
-Ƭ **IObject**: `Record`<`string`, `any`\>
+Ƭ **IObject**<`T`\>: `Record`<`string`, `T`\>
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `any` |
+
+___
+
+### ImportMethod
+
+Ƭ **ImportMethod**<`Args`, `Results`\>: (...`args`: `Args`[]) => `Promise`<`Results`\> \| `Results`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `Args` | `any` |
+| `Results` | `any` |
+
+#### Type declaration
+
+▸ (...`args`): `Promise`<`Results`\> \| `Results`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `...args` | `Args`[] |
+
+##### Returns
+
+`Promise`<`Results`\> \| `Results`
 
 ___
 
@@ -180,7 +237,14 @@ ___
 
 ### ParsedImportRecords
 
-Ƭ **ParsedImportRecords**: `Record`<`string`, [`ParsedImport`](interfaces/ParsedImport.md)\>
+Ƭ **ParsedImportRecords**<`Args`, `Results`\>: `Record`<`string`, [`ParsedImport`](interfaces/ParsedImport.md)<`Args`, `Results`\>\>
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `Args` | `any` |
+| `Results` | `any` |
 
 ___
 
@@ -243,6 +307,19 @@ ___
 ##### Returns
 
 `Promise`<`string`\>
+
+___
+
+### RawImports
+
+Ƭ **RawImports**<`Args`, `Results`\>: [`ImportRecords`](README.md#importrecords)<`Args`, `Results`\> \| [`RecordOfImportRecords`](README.md#recordofimportrecords)<`Args`, `Results`\> \| `any`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `Args` | `any` |
+| `Results` | `any` |
 
 ___
 
@@ -620,7 +697,7 @@ ___
 
 ### isImportDefinition
 
-▸ **isImportDefinition**(`data`): `boolean`
+▸ **isImportDefinition**(`data`): `any`
 
 #### Parameters
 
@@ -630,26 +707,33 @@ ___
 
 #### Returns
 
-`boolean`
+`any`
 
 ___
 
 ### parseImports
 
-▸ **parseImports**(`imports`, `parent?`): [`ParsedImportRecords`](README.md#parsedimportrecords)
+▸ **parseImports**<`Args`, `Results`\>(`imports`, `parent?`): [`ParsedImportRecords`](README.md#parsedimportrecords)<`Args`, `Results`\>
 
 Parse imports from `import * as name from 'path'` statements into a more manageable format.
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `Args` | `any` |
+| `Results` | `any` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `imports` | [`ImportRecords`](README.md#importrecords) \| [`RecordOfImportRecords`](README.md#recordofimportrecords) |
+| `imports` | `any` |
 | `parent?` | `string` |
 
 #### Returns
 
-[`ParsedImportRecords`](README.md#parsedimportrecords)
+[`ParsedImportRecords`](README.md#parsedimportrecords)<`Args`, `Results`\>
 
 ___
 

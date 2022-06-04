@@ -1,20 +1,27 @@
-# Interface: ImportDefinition
+# Interface: ImportDefinition<Args, Results\>
+
+## Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `Args` | `any` |
+| `Results` | `any` |
 
 ## Callable
 
 ### ImportDefinition
 
-▸ **ImportDefinition**(...`args`): `any`
+▸ **ImportDefinition**(...`args`): `Results` \| `Promise`<`Results`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `...args` | `any`[] |
+| `...args` | `Args`[] |
 
 #### Returns
 
-`any`
+`Results` \| `Promise`<`Results`\>
 
 ## Indexable
 
@@ -24,22 +31,22 @@
 
 ### Properties
 
+- [aliases](ImportDefinition.md#aliases)
 - [default](ImportDefinition.md#default)
-- [describe](ImportDefinition.md#describe)
 - [description](ImportDefinition.md#description)
 - [name](ImportDefinition.md#name)
 
 ## Properties
 
-### default
+### aliases
 
-• **default**: `any`[] \| [`IObject`](../README.md#iobject) \| [`AnyFunction`](../README.md#anyfunction)
+• `Optional` **aliases**: `string`[]
 
 ___
 
-### describe
+### default
 
-• `Optional` **describe**: `string`
+• **default**: [`ImportDefinition`](ImportDefinition.md)<`Args`, `Results`\> \| [`ImportDefinition`](ImportDefinition.md)<`any`, `any`\>[] \| [`ImportMethod`](../README.md#importmethod)<`Args`, `Results`\>
 
 ___
 
