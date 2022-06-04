@@ -1,5 +1,19 @@
 # @snickbit/node-utilities
 
+## 4.3.13
+
+### Patch Changes
+
+- [92870a6](https://github.com/snickbit/snickbit.js/commit/92870a6) **docs**:  update
+- [0773345](https://github.com/snickbit/snickbit.js/commit/0773345) **fix**:  use any import type
+- [9ddfa01](https://github.com/snickbit/snickbit.js/commit/9ddfa01) **fix**:  use any import type
+- [3737b24](https://github.com/snickbit/snickbit.js/commit/3737b24) **fix**:  verify handler is callable
+- [662adad](https://github.com/snickbit/snickbit.js/commit/662adad) **fix**:  add generics to typings
+- [93dc29b](https://github.com/snickbit/snickbit.js/commit/93dc29b) **fix**:  remove useless loop
+- [2cde981](https://github.com/snickbit/snickbit.js/commit/2cde981) **fix**:  add promises to import methods
+- [4e14fd9](https://github.com/snickbit/snickbit.js/commit/4e14fd9) **fix**:  improve import parsing
+- [ae04845](https://github.com/snickbit/snickbit.js/commit/ae04845) **feat**:  add aliases to imports
+
 ## 4.3.10
 
 ### Patch Changes

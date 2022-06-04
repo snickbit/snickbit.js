@@ -1,6 +1,6 @@
 {
 	"name": "snickbit",
-	"version": "0.0.31",
+	"version": "0.0.32",
 	"description": "My personal npx business card",
 	"license": "MIT",
 	"main": "./bin/snickbit.js",
@@ -22,8 +22,8 @@
 		"watch": "pnpm run dev --watch"
 	},
 	"dependencies": {
-		"@snickbit/node-cli": "^1.0.55",
-		"@snickbit/node-utilities": "^4.3.12",
+		"@snickbit/node-cli": "^1.0.56",
+		"@snickbit/node-utilities": "^4.3.13",
 		"@snickbit/out": "^2.0.32",
 		"ansi-styles-template": "^1.0.0",
 		"figlet": "^1.5.2",
