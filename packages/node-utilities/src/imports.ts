@@ -60,22 +60,22 @@ export interface UnparsedImport {
  */
 export function parseImports<Args = any, Results = any>(imports: RawImports, parent?: string): ParsedImportRecords<Args, Results> {
 	const importRecords = {}
-	for (const [importItem, data] of Object.entries(imports)) {
+	for (const [import_item, data] of Object.entries(imports)) {
 		let parent_name = parent ? parent : ''
-		let importName = importItem !== 'default' ? importItem : ''
+		let import_name = import_item !== 'default' ? import_item : ''
 
 		if (isImport(data) || isImportDefinition(data)) {
 			let unparsed = data as UnparsedImport
 
 			const parsed = {} as ParsedImport
-			let subImportName = unparsed.name || importName
+			let sub_import_name = unparsed.name || import_name
 
-			if (!subImportName || parent_name && subImportName === `${parent_name}_default`) {
-				subImportName = parent_name
+			if (!sub_import_name || parent_name && sub_import_name === `${parent_name}_default`) {
+				sub_import_name = parent_name
 				parent_name = ''
 			}
 
-			parsed.name = parent_name ? `${parent_name}:${subImportName}` : subImportName
+			parsed.name = parent_name ? `${parent_name}:${sub_import_name}` : sub_import_name
 			parsed.aliases = arrayUnique([unparsed?.alias, ...unparsed.aliases || []].flat()).filter(Boolean)
 			parsed.description = unparsed.description || unparsed.describe
 			const handler = unparsed.handler || unparsed.method || unparsed.run || unparsed.default || unparsed
@@ -88,7 +88,7 @@ export function parseImports<Args = any, Results = any>(imports: RawImports, par
 			}
 			importRecords[parsed.name] = parsed
 		} else {
-			const subtasks = parseImports(data, importName)
+			const subtasks = parseImports(data, import_name)
 			Object.assign(importRecords, subtasks)
 		}
 	}
