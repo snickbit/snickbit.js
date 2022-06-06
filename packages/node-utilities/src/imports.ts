@@ -62,13 +62,20 @@ export function parseImports<Args = any, Results = any>(imports: RawImports, par
 	const importRecords = {}
 	for (const [import_item, data] of Object.entries(imports)) {
 		let parent_name = parent ? parent : ''
-		let import_name = import_item !== 'default' ? import_item : ''
+		let import_name: string
+
+		if (import_item !== 'default') {
+			import_name = import_item
+		} else {
+			import_name = parent_name
+			parent_name = ''
+		}
 
 		if (isImport(data) || isImportDefinition(data)) {
 			let unparsed = data as UnparsedImport
 
 			const parsed = {} as ParsedImport
-			let sub_import_name = unparsed.name || import_name
+			let sub_import_name = isImportDefinition(data) && unparsed.name ? unparsed.name : import_name
 
 			if (!sub_import_name || parent_name && sub_import_name === `${parent_name}_default`) {
 				sub_import_name = parent_name
