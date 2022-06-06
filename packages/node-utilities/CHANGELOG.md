@@ -1,5 +1,13 @@
 # @snickbit/node-utilities
 
+## 4.3.14
+
+### Patch Changes
+
+- [d3f318a](https://github.com/snickbit/snickbit.js/commit/d3f318a) **fix**:  only use provided name if it's an import definition
+- [1a64c84](https://github.com/snickbit/snickbit.js/commit/1a64c84) **fix**:  use consistent variable names
+- [9bf343e](https://github.com/snickbit/snickbit.js/commit/9bf343e) **chore**:  bump deps
+
 ## 4.3.13
 
 ### Patch Changes
