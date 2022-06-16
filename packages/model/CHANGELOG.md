@@ -1,5 +1,13 @@
 # @snickbit/model
 
+## 1.0.49
+
+### Patch Changes
+
+- [c5a5cf2](https://github.com/snickbit/snickbit.js/commit/c5a5cf2) **chore**:  bump dependencies
+- [dadd932](https://github.com/snickbit/snickbit.js/commit/dadd932) **chore**:  bump dependencies
+- [9bf343e](https://github.com/snickbit/snickbit.js/commit/9bf343e) **chore**:  bump deps
+
 ## 1.0.46
 
 ### Patch Changes

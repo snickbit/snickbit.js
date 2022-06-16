@@ -1,5 +1,13 @@
 # @snickbit/node-utilities
 
+## 4.3.15
+
+### Patch Changes
+
+- [ad55cdf](https://github.com/snickbit/snickbit.js/commit/ad55cdf) **fix**:  migrate to @snickbit/indexer
+- [c5a5cf2](https://github.com/snickbit/snickbit.js/commit/c5a5cf2) **chore**:  bump dependencies
+- [dadd932](https://github.com/snickbit/snickbit.js/commit/dadd932) **chore**:  bump dependencies
+
 ## 4.3.14
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @snickbit/queue Changelog
 
+## 1.1.11
+
+### Patch Changes
+
+- [ad55cdf](https://github.com/snickbit/snickbit.js/commit/ad55cdf) **fix**:  migrate to @snickbit/indexer
+- [c5a5cf2](https://github.com/snickbit/snickbit.js/commit/c5a5cf2) **chore**:  bump dependencies
+- [dadd932](https://github.com/snickbit/snickbit.js/commit/dadd932) **chore**:  bump dependencies
+- [9bf343e](https://github.com/snickbit/snickbit.js/commit/9bf343e) **chore**:  bump deps
+
 ## 1.1.8
 
 ### Patch Changes

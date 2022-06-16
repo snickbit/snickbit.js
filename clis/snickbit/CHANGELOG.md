@@ -1,5 +1,12 @@
 # snickbit
 
+## 0.0.35
+
+### Patch Changes
+
+- [c5a5cf2](https://github.com/snickbit/snickbit.js/commit/c5a5cf2) **chore**:  bump dependencies
+- [dadd932](https://github.com/snickbit/snickbit.js/commit/dadd932) **chore**:  bump dependencies
+
 ## 0.0.29
 
 ### Patch Changes
