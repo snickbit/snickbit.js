@@ -2,5 +2,5 @@
 
 export * from './definitions'
 export * from './errors'
-export * from './queue.promise'
 export * from './queue'
+export * from './queue.promise'
