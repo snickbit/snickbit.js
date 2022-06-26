@@ -85,6 +85,7 @@
 - [formatPercentage](README.md#formatpercentage)
 - [maxDecimals](README.md#maxdecimals)
 - [numberPad](README.md#numberpad)
+- [randomBetween](README.md#randombetween)
 
 ### Objects Functions
 
@@ -782,14 +783,14 @@ ___
 
 ▸ **formatBytes**(`bytes`, `decimals?`): `string`
 
-Format a number as bytes.
+Format a number in bytes.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `bytes` | `number` | `undefined` |
-| `decimals` | `number` | `2` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `bytes` | `number` | `undefined` | The number of bytes. |
+| `decimals` | `number` | `2` | - |
 
 #### Returns
 
@@ -805,11 +806,11 @@ Format a number as currency.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `amount` | `number` | `undefined` |
-| `symbol` | `string` | `'$'` |
-| `decimals` | `number` | `2` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `amount` | `number` | `undefined` | The number to format. |
+| `symbol` | `string` | `'$'` | - |
+| `decimals` | `number` | `2` | - |
 
 #### Returns
 
@@ -825,10 +826,10 @@ Format a number as a percentage.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `amount` | `number` | `undefined` |
-| `decimals` | `number` | `2` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `amount` | `number` | `undefined` | The number to format. |
+| `decimals` | `number` | `2` | - |
 
 #### Returns
 
@@ -840,14 +841,14 @@ ___
 
 ▸ **maxDecimals**(`value`, `max_places?`): `number`
 
-limit the amount of decimals to the given number, default 2
+limit the amount of decimals to the given number
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `value` | `number` | `undefined` |
-| `max_places` | `number` | `2` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `value` | `number` | `undefined` | the number to limit |
+| `max_places` | `number` | `2` | - |
 
 #### Returns
 
@@ -857,19 +858,40 @@ ___
 
 ### numberPad
 
-▸ **numberPad**(`n`): `string` \| `number`
+▸ **numberPad**(`num`, `length?`): `string`
 
 Pad a number with zeros.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `n` | `number` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `num` | `string` \| `number` | `undefined` | The number to pad. |
+| `length` | `number` | `2` | - |
 
 #### Returns
 
-`string` \| `number`
+`string`
+
+___
+
+### randomBetween
+
+▸ **randomBetween**(`min`, `max`, `inclusive?`): `number`
+
+Generate a random number between min and max.
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `min` | `number` | `undefined` | The minimum number. |
+| `max` | `number` | `undefined` | The maximum number. |
+| `inclusive` | `boolean` | `true` | - |
+
+#### Returns
+
+`number`
 
 ___
 
