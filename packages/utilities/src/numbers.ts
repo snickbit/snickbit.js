@@ -2,7 +2,11 @@
  * Pad a number with zeros.
  * @category Numbers
  */
-export const numberPad = (n: number): number | string => n < 10 ? `0${n}` : n
+export function numberPad(num: number | string, length = 2): string {
+	num = String(num)
+	const pad_length = length - num.length
+	return pad_length > 0 ? '0'.repeat(pad_length) + num : num
+}
 
 /**
  * Format a number as bytes.
