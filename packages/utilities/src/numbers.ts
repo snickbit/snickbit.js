@@ -49,3 +49,16 @@ export const formatPercentage = (amount: number, decimals = 2) => `${parseFloat(
  * @category Numbers
  */
 export const maxDecimals = (value: number, max_places = 2) => +parseFloat(String(value)).toFixed(max_places)
+
+/**
+ * Generate a random number between min and max.
+ * @param min - The minimum number.
+ * @param max - The maximum number.
+ * @param [inclusive=true] - Whether to include the max value in the range.
+ * @category Numbers
+ */
+export function randomBetween(min: number, max: number, inclusive = true): number {
+	min = Math.ceil(min)
+	max = Math.floor(max)
+	return Math.floor(Math.random() * (max - min + (inclusive ? 1 : 0)) + min)
+}
