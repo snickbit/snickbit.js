@@ -1,5 +1,16 @@
 # @snickbit/utilities
 
+## 3.1.0
+
+### Minor Changes
+
+- [92edee6](https://github.com/snickbit/snickbit.js/commit/92edee6) **docs**:  update
+- [4f04a11](https://github.com/snickbit/snickbit.js/commit/4f04a11) **docs**:  update jsDoc definitions for numbers
+- [516291b](https://github.com/snickbit/snickbit.js/commit/516291b) **test**:  add numberPad tests
+- [f46edd1](https://github.com/snickbit/snickbit.js/commit/f46edd1) **feat**:  allow numberPad to pad to more than 2 characters
+- [f835d9c](https://github.com/snickbit/snickbit.js/commit/f835d9c) **feat**:  add randomBetween helper function
+- [07b67e3](https://github.com/snickbit/snickbit.js/commit/07b67e3) **chore**:  update dependencies
+
 ## 3.0.28
 
 ### Patch Changes
