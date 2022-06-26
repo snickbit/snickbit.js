@@ -1,5 +1,7 @@
 /**
  * Pad a number with zeros.
+ * @param num - The number to pad.
+ * @param [length=2] - The length of the resulting string.
  * @category Numbers
  */
 export function numberPad(num: number | string, length = 2): string {
@@ -9,7 +11,9 @@ export function numberPad(num: number | string, length = 2): string {
 }
 
 /**
- * Format a number as bytes.
+ * Format a number in bytes.
+ * @param bytes - The number of bytes.
+ * @param [decimals=2] - The number of decimals.
  * @category Numbers
  */
 export function formatBytes(bytes: number, decimals = 2): string {
@@ -38,18 +42,25 @@ export function formatBytes(bytes: number, decimals = 2): string {
 
 /**
  * Format a number as currency.
+ * @param amount - The number to format.
+ * @param [symbol='$'] - The currency symbol.
+ * @param [decimals=2] - The number of decimals.
  * @category Numbers
  */
 export const formatCurrency = (amount: number, symbol = '$', decimals = 2) => symbol + parseFloat(String(amount || '0')).toFixed(decimals)
 
 /**
  * Format a number as a percentage.
+ * @param amount - The number to format.
+ * @param [decimals=2] - The number of decimals to show.
  * @category Numbers
  */
 export const formatPercentage = (amount: number, decimals = 2) => `${parseFloat(String(amount || '0')).toFixed(decimals)}%`
 
 /**
- * limit the amount of decimals to the given number, default 2
+ * limit the amount of decimals to the given number
+ * @param value - the number to limit
+ * @param [max_places=2] - the maximum number of decimals
  * @category Numbers
  */
 export const maxDecimals = (value: number, max_places = 2) => +parseFloat(String(value)).toFixed(max_places)
