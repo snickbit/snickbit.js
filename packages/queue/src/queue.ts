@@ -376,6 +376,10 @@ export class Queue {
 	private async executeTask(taskDefinition: QueueTaskDefinition): Promise<void> {
 		let result: any
 
+		if (!taskDefinition) {
+			throw new QueueException('Task definition is undefined')
+		}
+
 		const abortTask = (e?: any) => {
 			if (this.waiting) {
 				this.waiting.reject(new QueueException('Queue has been aborted'))
