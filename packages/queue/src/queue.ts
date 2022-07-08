@@ -220,6 +220,10 @@ export class Queue {
 	 */
 	add(task: QueueTaskFunction, thisArg: any, args: any[]): this
 	add(task: QueueTask, thisArgOrArgs?: any[] | any, args?: any[]): this {
+		if (!task) {
+			throw new QueueException('Task must be a function or object')
+		}
+
 		const taskDefinition: QueueTaskDefinition = {task}
 
 		if (Array.isArray(thisArgOrArgs)) {
@@ -319,6 +323,9 @@ export class Queue {
 				const promises: Promise<any>[] = []
 				while (this.queue.size() > 0) {
 					const task = this.queue.dequeue()
+					if (!task) {
+						throw new QueueException(`Task must be a function or object. Found: ${typeof task}`)
+					}
 
 					if (this.aborted) {
 						break
