@@ -1,5 +1,13 @@
 # @snickbit/queue Changelog
 
+## 1.1.13
+
+### Patch Changes
+
+- [ff19f84](https://github.com/snickbit/snickbit.js/commit/ff19f84) **fix**:  check for empty queue loop
+- [7a2b7df](https://github.com/snickbit/snickbit.js/commit/7a2b7df) **fix**:  throw error on undefined task definition
+- [616d065](https://github.com/snickbit/snickbit.js/commit/616d065) **fix**:  throw error on undefined task definition
+
 ## 1.1.11
 
 ### Patch Changes
