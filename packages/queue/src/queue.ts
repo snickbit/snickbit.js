@@ -323,11 +323,7 @@ export class Queue {
 				const promises: Promise<any>[] = []
 				while (this.queue.size() > 0) {
 					const task = this.queue.dequeue()
-					if (!task) {
-						throw new QueueException(`Task must be a function or object. Found: ${typeof task}`)
-					}
-
-					if (this.aborted) {
+					if (this.aborted || !task) {
 						break
 					}
 					if (this.options.concurrency >= 0 && this.processes >= this.options.concurrency) {
