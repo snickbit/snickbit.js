@@ -116,7 +116,7 @@ export interface PasswordQuestion extends BaseQuestion {
 }
 
 /** @category Prompts */
-export interface SelectQuestion extends BaseQuestion<number>, QuestionHints, QuestionChoices {
+export interface SelectQuestion extends BaseQuestion<number | string>, QuestionHints, QuestionChoices {
 	type: PromptTypeMethod<'select'> | 'select'
 }
 
@@ -178,6 +178,8 @@ export interface PromptState {
 /** @category Prompts */
 export type ChoiceOption = ChoiceDefinition | string
 
+type LazyChoice = number | string
+
 /**
  * @category Prompts
  * @see https://github.com/terkelg/prompts/issues/252
@@ -229,9 +231,9 @@ export async function confirm(question: string, optionsOrDefault?: Partial<Quest
  * @see https://github.com/terkelg/prompts
  * @category Prompts
  */
-export async function ask(question: string, defaultAnswer?: boolean | string): Promise<any | string>
-export async function ask(question: string, options?: Partial<Question>): Promise<any | string>
-export async function ask(question: string, optionsOrDefault?: Partial<Question> | boolean | string): Promise<any | string> {
+export async function ask(question: string, defaultAnswer?: boolean | string): Promise<any>
+export async function ask(question: string, options?: Partial<Question>): Promise<any>
+export async function ask(question: string, optionsOrDefault?: Partial<Question> | boolean | string): Promise<any> {
 	const options = parseOptions(optionsOrDefault, {
 		...defaultPromptOptions,
 		style: 'default',
@@ -243,13 +245,41 @@ export async function ask(question: string, optionsOrDefault?: Partial<Question>
 		options.name = 'value'
 	}
 
+	if (options.type === 'multiselect' && options.initial) {
+		throw new Error('Cannot use initial with multiselect')
+	}
+
+	let choices: any[] = []
+	let useIndexes = false
 	if (options.choices) {
-		options.type = 'select'
+		if (typeof options.initial !== 'number') {
+			options.initial = options.choices.indexOf(options.initial)
+			if (options.initial === -1) {
+				delete options.initial
+			}
+		}
+
+		choices = options.choices.slice()
+		useIndexes = choices.some(isLazyChoice)
+		options.choices = []
+		for (const choice of choices) {
+			if (isLazyChoice(choice)) {
+				options.choices.push({title: choice, value: choice})
+			} else {
+				options.choices.push(choice)
+			}
+		}
 	}
 
-	if (options.type === 'select' && options.initial) {
-		throw new Error('Cannot use initial with select')
+	const answer = (await prompts(options))?.value
+
+	if (useIndexes && choices && answer && choices[answer]) {
+		return choices[answer]?.value || choices[answer] || answer
 	}
 
-	return (await prompts(options))?.value ?? ''
+	return answer
+}
+
+function isLazyChoice(choice: any): choice is LazyChoice {
+	return typeof choice === 'number' || typeof choice === 'string'
 }
