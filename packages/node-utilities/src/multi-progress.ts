@@ -6,7 +6,7 @@ import out from '@snickbit/out'
 const _instances = {}
 
 /** @category Progress */
-type MultiProgressBars = Record<string, MultiProgressChild>
+export type MultiProgressBars = Record<string, MultiProgressChild>
 
 /**
  * Multi-Progress bar. Uses cli-progress to create multiple progress bars.
