@@ -6,41 +6,35 @@ export const isImport = (data: any) => typeof data === 'function' || data?.const
 /** @category Imports */
 export const isImportDefinition = (data: any) => data && data['run'] || data['handler'] || data['method']
 
-export type AnyFunction<Args = any, Results = any> = (...args: Args[]) => Promise<Results> | Results
-
 export type ImportMethod<Args = any, Results = any> = (...args: Args[]) => Promise<Results> | Results
 
-export type IObject<T = any> = Record<string, T>
-
 /** @category Imports */
-export interface ImportDefinition<Args = any, Results = any> {
-	default: Array<ImportDefinition> | ImportDefinition<Args, Results> | ImportMethod<Args, Results>
+export interface ImportDefinition<I extends ImportMethod = ImportMethod, Args = any, Results = any> extends ImportMethod<Args, Results> {
+	default: Array<ImportDefinition> | I | ImportDefinition<I> | ImportMethod<Args, Results>
 	name?: string
 	description?: string
 	aliases?: string[]
 
 	[key: string]: any
-
-	(...args: Args[]): Promise<Results> | Results
 }
 
 /** @category Imports */
-export type ImportRecords<Args = any, Results = any> = Record<string, ImportDefinition | ImportMethod<Args, Results>>
+export type ImportRecords<I extends ImportMethod = ImportMethod> = Record<string, I | ImportDefinition<I>>
 
 /** @category Imports */
-export type RecordOfImportRecords<Args = any, Results = any> = Record<string, ImportRecords<Args, Results>>
+export type RecordOfImportRecords<I extends ImportMethod = ImportMethod> = Record<string, ImportRecords<I>>
 
-export type RawImports<Args = any, Results = any> = ImportRecords<Args, Results> | RecordOfImportRecords<Args, Results> | any
+export type RawImports<I extends ImportMethod = ImportMethod> = ImportRecords<I> | RecordOfImportRecords<I> | any
 
 /** @category Imports */
-export interface ParsedImport<Args = any, Results = any> {
+export interface ParsedImport<I extends ImportMethod = ImportMethod> {
 	name: string
 	aliases: string[]
 	description?: string
-	handler: ImportMethod<Args, Results>
+	handler: I
 }
 
-export type ParsedImportRecords<Args = any, Results = any> = Record<string, ParsedImport<Args, Results>>
+export type ParsedImportRecords<I extends ImportMethod = ImportMethod> = Record<string, ParsedImport<I>>
 
 export interface UnparsedImport {
 	name?: string
@@ -58,7 +52,7 @@ export interface UnparsedImport {
  * Parse imports from `import * as name from 'path'` statements into a more manageable format.
  * @category Imports
  */
-export function parseImports<Args = any, Results = any>(imports: RawImports, parent?: string): ParsedImportRecords<Args, Results> {
+export function parseImports<I extends ImportMethod = ImportMethod>(imports: RawImports, parent?: string): ParsedImportRecords<I> {
 	const importRecords = {}
 	for (const [import_item, data] of Object.entries(imports)) {
 		let parent_name = parent ? parent : ''
@@ -87,7 +81,7 @@ export function parseImports<Args = any, Results = any>(imports: RawImports, par
 			parsed.description = unparsed.description || unparsed.describe
 			const handler = unparsed.handler || unparsed.method || unparsed.run || unparsed.default || unparsed
 			if (handler && isCallable(handler)) {
-				parsed.handler = handler as ImportMethod<Args, Results>
+				parsed.handler = handler as I
 			} else {
 				parsed.handler = () => {
 					console.warn(`No handler found for ${parsed.name}`)
