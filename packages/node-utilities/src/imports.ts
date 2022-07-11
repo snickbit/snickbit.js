@@ -36,16 +36,16 @@ export interface ParsedImport<I extends ImportMethod = ImportMethod> {
 
 export type ParsedImportRecords<I extends ImportMethod = ImportMethod> = Record<string, ParsedImport<I>>
 
-export interface UnparsedImport {
+export interface UnparsedImport<I extends ImportMethod = ImportMethod> {
 	name?: string
 	aliases?: string[]
 	alias?: string
 	description?: string
 	describe?: string
-	handler?: ImportMethod
-	method?: ImportMethod
-	default?: ImportMethod
-	run?: ImportMethod
+	handler?: I
+	method?: I
+	default?: I
+	run?: I
 }
 
 /**
