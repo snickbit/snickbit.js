@@ -22,6 +22,8 @@ export class QueueError extends Error {
 
 	readonly errors: any
 
+	readonly spread = false
+
 	constructor(err: ErrorMessage, name: string, _data: any) {
 		let msg = typeof err === 'string' ? err : 'Error'
 		const properties: ErrorProperties = {
@@ -44,13 +46,20 @@ export class QueueError extends Error {
 	}
 
 	toJSON() {
-		const result: QueueErrorJSON = {
+		let result: QueueErrorJSON = {
 			name: this.name,
 			message: this.message
 		}
 
 		if (this.data !== undefined) {
-			result.data = this.data
+			if (this.spread) {
+				result = {
+					...result,
+					...this.data
+				}
+			} else {
+				result.data = this.data
+			}
 		}
 
 		if (this.errors !== undefined) {
