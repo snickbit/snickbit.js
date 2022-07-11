@@ -254,7 +254,7 @@ ___
 
 ### AnswerTypes
 
-Ƭ **AnswerTypes**: `string` \| `number` \| `boolean` \| `Date`
+Ƭ **AnswerTypes**: `Date` \| `boolean` \| `number` \| `string`
 
 ___
 

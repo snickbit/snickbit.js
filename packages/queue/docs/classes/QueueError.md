@@ -20,6 +20,7 @@
 
 - [data](QueueError.md#data)
 - [errors](QueueError.md#errors)
+- [spread](QueueError.md#spread)
 - [type](QueueError.md#type)
 
 ### Methods
@@ -55,6 +56,12 @@ ___
 ### errors
 
 • `Readonly` **errors**: `any`
+
+___
+
+### spread
+
+• `Readonly` **spread**: ``false``
 
 ___
 

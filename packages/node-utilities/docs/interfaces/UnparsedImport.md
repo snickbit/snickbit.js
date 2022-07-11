@@ -1,4 +1,10 @@
-# Interface: UnparsedImport
+# Interface: UnparsedImport<I\>
+
+## Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `I` | extends [`ImportMethod`](../README.md#importmethod) = [`ImportMethod`](../README.md#importmethod) |
 
 ## Table of contents
 
@@ -30,7 +36,7 @@ ___
 
 ### default
 
-• `Optional` **default**: [`ImportMethod`](../README.md#importmethod)<`any`, `any`\>
+• `Optional` **default**: `I`
 
 ___
 
@@ -48,13 +54,13 @@ ___
 
 ### handler
 
-• `Optional` **handler**: [`ImportMethod`](../README.md#importmethod)<`any`, `any`\>
+• `Optional` **handler**: `I`
 
 ___
 
 ### method
 
-• `Optional` **method**: [`ImportMethod`](../README.md#importmethod)<`any`, `any`\>
+• `Optional` **method**: `I`
 
 ___
 
@@ -66,4 +72,4 @@ ___
 
 ### run
 
-• `Optional` **run**: [`ImportMethod`](../README.md#importmethod)<`any`, `any`\>
+• `Optional` **run**: `I`
