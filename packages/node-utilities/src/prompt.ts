@@ -9,7 +9,7 @@ export type PromptsMethod = (prev: string, answers: Answers, previousQuestion: Q
 export type PromptType = 'autocomplete' | 'autocompleteMultiselect' | 'confirm' | 'date' | 'invisible' | 'list' | 'multiselect' | 'number' | 'password' | 'select' | 'text' | 'toggle'
 
 /** @category Prompts */
-export type AnswerTypes = string | number | boolean | Date
+export type AnswerTypes = Date | boolean | number | string
 
 /** @category Prompts */
 export type QuestionRecords = Record<string, Question>
