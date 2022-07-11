@@ -18,7 +18,7 @@ export interface Question {
 	type: PromptType | ((prev: string, answers: Answers, previousQuestion: Question) => PromptType)
 	name: PromptsFunction | string
 	message: PromptsFunction | string
-	initial: PromptsFunction | PromptsPromise | string
+	initial: PromptsFunction | PromptsPromise | boolean | string
 	format: PromptsFunction | PromptsPromise
 	onRender(this: prompts, kluer: any): void
 	onState(state: PromptState): void
@@ -136,18 +136,8 @@ export async function prompt(questions: Question[] | QuestionRecords): Promise<A
 export async function confirm(question: string, defaultAnswer?: boolean): Promise<boolean>
 export async function confirm(question: string, options?: Partial<Question>): Promise<boolean>
 export async function confirm(question: string, optionsOrDefault?: Partial<Question> | boolean): Promise<boolean> {
-	const options = parseOptions(optionsOrDefault, {
-		...defaultPromptOptions,
-		type: 'confirm',
-		message: question
-	}, 'initial')
-
-	// double check that it has a name
-	if (!options.name) {
-		options.name = 'value'
-	}
-
-	return (await prompts(options))?.value ?? false
+	const options = typeof optionsOrDefault === 'object' ? {...optionsOrDefault, type: 'confirm'} : {type: 'confirm', initial: optionsOrDefault}
+	return ask(question, options as Question)
 }
 
 /**
@@ -155,9 +145,9 @@ export async function confirm(question: string, optionsOrDefault?: Partial<Quest
  * @see https://github.com/terkelg/prompts
  * @category Prompts
  */
-export async function ask(question: string, defaultAnswer?: string): Promise<any | string>
+export async function ask(question: string, defaultAnswer?: boolean | string): Promise<any | string>
 export async function ask(question: string, options?: Partial<Question>): Promise<any | string>
-export async function ask(question: string, optionsOrDefault?: Partial<Question> | string): Promise<any | string> {
+export async function ask(question: string, optionsOrDefault?: Partial<Question> | boolean | string): Promise<any | string> {
 	const options = parseOptions(optionsOrDefault, {
 		...defaultPromptOptions,
 		style: 'default',
