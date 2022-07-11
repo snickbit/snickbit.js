@@ -1,5 +1,13 @@
 # @snickbit/queue Changelog
 
+## 1.2.0
+
+### Minor Changes
+
+- [fbb0222](https://github.com/snickbit/snickbit.js/commit/fbb0222) **chore**:  bump dependencies
+- [31a276c](https://github.com/snickbit/snickbit.js/commit/31a276c) **docs**:  update
+- [1d60e7e](https://github.com/snickbit/snickbit.js/commit/1d60e7e) **feat**:  improve error data by spreading
+
 ## 1.1.13
 
 ### Patch Changes

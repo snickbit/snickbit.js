@@ -1,5 +1,19 @@
 # @snickbit/node-utilities
 
+## 4.4.0
+
+### Minor Changes
+
+- [31a276c](https://github.com/snickbit/snickbit.js/commit/31a276c) **docs**:  update
+- [10309c2](https://github.com/snickbit/snickbit.js/commit/10309c2) **style**:  lint
+- [d334fe5](https://github.com/snickbit/snickbit.js/commit/d334fe5) **fix**:  add generic to unparsed import
+- [e7d156f](https://github.com/snickbit/snickbit.js/commit/e7d156f) **docs**:  update
+- [4dac598](https://github.com/snickbit/snickbit.js/commit/4dac598) **docs**:  export MultiProgressBars type
+- [288c368](https://github.com/snickbit/snickbit.js/commit/288c368) **docs**:  update jsdoc comments
+- [a4e1453](https://github.com/snickbit/snickbit.js/commit/a4e1453) **fix**:  overhaul prompt types for better type checking, add better error handling
+- [e2cf7c4](https://github.com/snickbit/snickbit.js/commit/e2cf7c4) **feat**:  replace Args and Results generics with single type generic
+- [de624fe](https://github.com/snickbit/snickbit.js/commit/de624fe) **fix**:  improve confirm handling
+
 ## 4.3.15
 
 ### Patch Changes
