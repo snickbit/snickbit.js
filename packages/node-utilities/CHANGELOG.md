@@ -1,5 +1,12 @@
 # @snickbit/node-utilities
 
+## 4.4.1
+
+### Patch Changes
+
+- [c05c0f2](https://github.com/snickbit/snickbit.js/commit/c05c0f2) **docs**:  update
+- [f0acbda](https://github.com/snickbit/snickbit.js/commit/f0acbda) **fix**:  better handling of select/choices
+
 ## 4.4.0
 
 ### Minor Changes
