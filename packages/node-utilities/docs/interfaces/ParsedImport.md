@@ -1,11 +1,10 @@
-# Interface: ParsedImport<Args, Results\>
+# Interface: ParsedImport<I\>
 
 ## Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `Args` | `any` |
-| `Results` | `any` |
+| `I` | extends [`ImportMethod`](../README.md#importmethod) = [`ImportMethod`](../README.md#importmethod) |
 
 ## Table of contents
 
@@ -32,7 +31,7 @@ ___
 
 ### handler
 
-• **handler**: [`ImportMethod`](../README.md#importmethod)<`Args`, `Results`\>
+• **handler**: `I`
 
 ___
 

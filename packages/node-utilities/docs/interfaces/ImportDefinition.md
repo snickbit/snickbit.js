@@ -1,11 +1,18 @@
-# Interface: ImportDefinition<Args, Results\>
+# Interface: ImportDefinition<I, Args, Results\>
 
 ## Type parameters
 
 | Name | Type |
 | :------ | :------ |
+| `I` | extends [`ImportMethod`](../README.md#importmethod) = [`ImportMethod`](../README.md#importmethod) |
 | `Args` | `any` |
 | `Results` | `any` |
+
+## Hierarchy
+
+- [`ImportMethod`](../README.md#importmethod)<`Args`, `Results`\>
+
+  ↳ **`ImportDefinition`**
 
 ## Callable
 
@@ -46,7 +53,7 @@ ___
 
 ### default
 
-• **default**: [`ImportDefinition`](ImportDefinition.md)<`Args`, `Results`\> \| [`ImportDefinition`](ImportDefinition.md)<`any`, `any`\>[] \| [`ImportMethod`](../README.md#importmethod)<`Args`, `Results`\>
+• **default**: `I` \| [`ImportMethod`](../README.md#importmethod)<`Args`, `Results`\> \| [`ImportDefinition`](ImportDefinition.md)<[`ImportMethod`](../README.md#importmethod)<`any`, `any`\>, `any`, `any`\>[] \| [`ImportDefinition`](ImportDefinition.md)<`I`, `any`, `any`\>
 
 ___
 

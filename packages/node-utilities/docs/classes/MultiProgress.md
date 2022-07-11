@@ -70,7 +70,7 @@ ___
 
 ### bars
 
-• **bars**: `MultiProgressBars`
+• **bars**: [`MultiProgressBars`](../README.md#multiprogressbars)
 
 ___
 

@@ -22,6 +22,7 @@
 
 ### Modules Interfaces
 
+- [AutoCompleteQuestion](interfaces/AutoCompleteQuestion.md)
 - [MultiProgressChildConfig](interfaces/MultiProgressChildConfig.md)
 - [UnparsedImport](interfaces/UnparsedImport.md)
 
@@ -31,10 +32,21 @@
 
 ### Prompts Interfaces
 
+- [AutoCompleteMultiSelectQuestion](interfaces/AutoCompleteMultiSelectQuestion.md)
 - [ChoiceDefinition](interfaces/ChoiceDefinition.md)
+- [ConfirmQuestion](interfaces/ConfirmQuestion.md)
+- [DateQuestion](interfaces/DateQuestion.md)
+- [InvisibleQuestion](interfaces/InvisibleQuestion.md)
+- [ListQuestion](interfaces/ListQuestion.md)
+- [MultiSelectQuestion](interfaces/MultiSelectQuestion.md)
+- [NumberQuestion](interfaces/NumberQuestion.md)
+- [PasswordQuestion](interfaces/PasswordQuestion.md)
 - [PromptState](interfaces/PromptState.md)
+- [PromptTypeMethod](interfaces/PromptTypeMethod.md)
 - [PromptsLocales](interfaces/PromptsLocales.md)
-- [Question](interfaces/Question.md)
+- [SelectQuestion](interfaces/SelectQuestion.md)
+- [TextQuestion](interfaces/TextQuestion.md)
+- [ToggleQuestion](interfaces/ToggleQuestion.md)
 
 ### Spinner Interfaces
 
@@ -47,23 +59,26 @@
 
 ### Modules Type Aliases
 
-- [AnyFunction](README.md#anyfunction)
-- [IObject](README.md#iobject)
 - [ImportMethod](README.md#importmethod)
 - [MultiProgressChildOptions](README.md#multiprogresschildoptions)
 - [ParsedImportRecords](README.md#parsedimportrecords)
 - [ProgressOptions](README.md#progressoptions)
 - [ProgressPayload](README.md#progresspayload)
-- [PromptType](README.md#prompttype)
-- [PromptsFunction](README.md#promptsfunction)
-- [PromptsPromise](README.md#promptspromise)
 - [RawImports](README.md#rawimports)
+
+### Progress Type Aliases
+
+- [MultiProgressBars](README.md#multiprogressbars)
 
 ### Prompts Type Aliases
 
+- [AnswerTypes](README.md#answertypes)
 - [Answers](README.md#answers)
 - [ChoiceOption](README.md#choiceoption)
 - [ChoiceRecords](README.md#choicerecords)
+- [PromptType](README.md#prompttype)
+- [PromptsMethod](README.md#promptsmethod)
+- [Question](README.md#question)
 - [QuestionRecords](README.md#questionrecords)
 
 ### Spinner Type Aliases
@@ -115,10 +130,6 @@
 - [isImportDefinition](README.md#isimportdefinition)
 - [parseImports](README.md#parseimports)
 
-### Modules Functions
-
-- [prompt](README.md#prompt)
-
 ### Progress Functions
 
 - [multiprogress](README.md#multiprogress)
@@ -128,6 +139,7 @@
 
 - [ask](README.md#ask)
 - [confirm](README.md#confirm)
+- [prompt](README.md#prompt)
 
 ### Spinner Functions
 
@@ -137,70 +149,29 @@
 
 ### ImportRecords
 
-Ƭ **ImportRecords**<`Args`, `Results`\>: `Record`<`string`, [`ImportDefinition`](interfaces/ImportDefinition.md) \| [`ImportMethod`](README.md#importmethod)<`Args`, `Results`\>\>
+Ƭ **ImportRecords**<`I`\>: `Record`<`string`, `I` \| [`ImportDefinition`](interfaces/ImportDefinition.md)<`I`\>\>
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `Args` | `any` |
-| `Results` | `any` |
+| `I` | extends [`ImportMethod`](README.md#importmethod) = [`ImportMethod`](README.md#importmethod) |
 
 ___
 
 ### RecordOfImportRecords
 
-Ƭ **RecordOfImportRecords**<`Args`, `Results`\>: `Record`<`string`, [`ImportRecords`](README.md#importrecords)<`Args`, `Results`\>\>
+Ƭ **RecordOfImportRecords**<`I`\>: `Record`<`string`, [`ImportRecords`](README.md#importrecords)<`I`\>\>
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `Args` | `any` |
-| `Results` | `any` |
+| `I` | extends [`ImportMethod`](README.md#importmethod) = [`ImportMethod`](README.md#importmethod) |
 
 ___
 
 ## Modules Type Aliases
-
-### AnyFunction
-
-Ƭ **AnyFunction**<`Args`, `Results`\>: (...`args`: `Args`[]) => `Promise`<`Results`\> \| `Results`
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `Args` | `any` |
-| `Results` | `any` |
-
-#### Type declaration
-
-▸ (...`args`): `Promise`<`Results`\> \| `Results`
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `...args` | `Args`[] |
-
-##### Returns
-
-`Promise`<`Results`\> \| `Results`
-
-___
-
-### IObject
-
-Ƭ **IObject**<`T`\>: `Record`<`string`, `T`\>
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `T` | `any` |
-
-___
 
 ### ImportMethod
 
@@ -237,14 +208,13 @@ ___
 
 ### ParsedImportRecords
 
-Ƭ **ParsedImportRecords**<`Args`, `Results`\>: `Record`<`string`, [`ParsedImport`](interfaces/ParsedImport.md)<`Args`, `Results`\>\>
+Ƭ **ParsedImportRecords**<`I`\>: `Record`<`string`, [`ParsedImport`](interfaces/ParsedImport.md)<`I`\>\>
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `Args` | `any` |
-| `Results` | `any` |
+| `I` | extends [`ImportMethod`](README.md#importmethod) = [`ImportMethod`](README.md#importmethod) |
 
 ___
 
@@ -260,70 +230,33 @@ ___
 
 ___
 
-### PromptType
-
-Ƭ **PromptType**: ``"autocomplete"`` \| ``"autocompleteMultiselect"`` \| ``"confirm"`` \| ``"date"`` \| ``"invisible"`` \| ``"list"`` \| ``"multiselect"`` \| ``"number"`` \| ``"password"`` \| ``"select"`` \| ``"text"`` \| ``"toggle"``
-
-___
-
-### PromptsFunction
-
-Ƭ **PromptsFunction**: (`prev`: `string`, `answers`: [`Answers`](README.md#answers), `previousQuestion`: [`Question`](interfaces/Question.md)) => `string`
-
-#### Type declaration
-
-▸ (`prev`, `answers`, `previousQuestion`): `string`
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `prev` | `string` |
-| `answers` | [`Answers`](README.md#answers) |
-| `previousQuestion` | [`Question`](interfaces/Question.md) |
-
-##### Returns
-
-`string`
-
-___
-
-### PromptsPromise
-
-Ƭ **PromptsPromise**: (`prev`: `string`, `answers`: [`Answers`](README.md#answers), `previousQuestion`: [`Question`](interfaces/Question.md)) => `Promise`<`string`\>
-
-#### Type declaration
-
-▸ (`prev`, `answers`, `previousQuestion`): `Promise`<`string`\>
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `prev` | `string` |
-| `answers` | [`Answers`](README.md#answers) |
-| `previousQuestion` | [`Question`](interfaces/Question.md) |
-
-##### Returns
-
-`Promise`<`string`\>
-
-___
-
 ### RawImports
 
-Ƭ **RawImports**<`Args`, `Results`\>: [`ImportRecords`](README.md#importrecords)<`Args`, `Results`\> \| [`RecordOfImportRecords`](README.md#recordofimportrecords)<`Args`, `Results`\> \| `any`
+Ƭ **RawImports**<`I`\>: [`ImportRecords`](README.md#importrecords)<`I`\> \| [`RecordOfImportRecords`](README.md#recordofimportrecords)<`I`\> \| `any`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `Args` | `any` |
-| `Results` | `any` |
+| `I` | extends [`ImportMethod`](README.md#importmethod) = [`ImportMethod`](README.md#importmethod) |
+
+___
+
+## Progress Type Aliases
+
+### MultiProgressBars
+
+Ƭ **MultiProgressBars**: `Record`<`string`, `MultiProgressChild`\>
 
 ___
 
 ## Prompts Type Aliases
+
+### AnswerTypes
+
+Ƭ **AnswerTypes**: `string` \| `number` \| `boolean` \| `Date`
+
+___
 
 ### Answers
 
@@ -343,9 +276,43 @@ ___
 
 ___
 
+### PromptType
+
+Ƭ **PromptType**: ``"autocomplete"`` \| ``"autocompleteMultiselect"`` \| ``"confirm"`` \| ``"date"`` \| ``"invisible"`` \| ``"list"`` \| ``"multiselect"`` \| ``"number"`` \| ``"password"`` \| ``"select"`` \| ``"text"`` \| ``"toggle"``
+
+___
+
+### PromptsMethod
+
+Ƭ **PromptsMethod**: (`prev`: `string`, `answers`: [`Answers`](README.md#answers), `previousQuestion`: [`Question`](README.md#question)) => `Promise`<`string`\> \| `string`
+
+#### Type declaration
+
+▸ (`prev`, `answers`, `previousQuestion`): `Promise`<`string`\> \| `string`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `prev` | `string` |
+| `answers` | [`Answers`](README.md#answers) |
+| `previousQuestion` | [`Question`](README.md#question) |
+
+##### Returns
+
+`Promise`<`string`\> \| `string`
+
+___
+
+### Question
+
+Ƭ **Question**: [`AutoCompleteMultiSelectQuestion`](interfaces/AutoCompleteMultiSelectQuestion.md) \| [`AutoCompleteQuestion`](interfaces/AutoCompleteQuestion.md) \| [`ConfirmQuestion`](interfaces/ConfirmQuestion.md) \| [`DateQuestion`](interfaces/DateQuestion.md) \| [`InvisibleQuestion`](interfaces/InvisibleQuestion.md) \| [`ListQuestion`](interfaces/ListQuestion.md) \| [`MultiSelectQuestion`](interfaces/MultiSelectQuestion.md) \| [`NumberQuestion`](interfaces/NumberQuestion.md) \| [`PasswordQuestion`](interfaces/PasswordQuestion.md) \| [`SelectQuestion`](interfaces/SelectQuestion.md) \| [`TextQuestion`](interfaces/TextQuestion.md) \| [`ToggleQuestion`](interfaces/ToggleQuestion.md)
+
+___
+
 ### QuestionRecords
 
-Ƭ **QuestionRecords**: `Record`<`string`, [`Question`](interfaces/Question.md)\>
+Ƭ **QuestionRecords**: `Record`<`string`, [`Question`](README.md#question)\>
 
 ___
 
@@ -713,7 +680,7 @@ ___
 
 ### parseImports
 
-▸ **parseImports**<`Args`, `Results`\>(`imports`, `parent?`): [`ParsedImportRecords`](README.md#parsedimportrecords)<`Args`, `Results`\>
+▸ **parseImports**<`I`\>(`imports`, `parent?`): [`ParsedImportRecords`](README.md#parsedimportrecords)<`I`\>
 
 Parse imports from `import * as name from 'path'` statements into a more manageable format.
 
@@ -721,8 +688,7 @@ Parse imports from `import * as name from 'path'` statements into a more managea
 
 | Name | Type |
 | :------ | :------ |
-| `Args` | `any` |
-| `Results` | `any` |
+| `I` | extends [`ImportMethod`](README.md#importmethod)<`any`, `any`\> = [`ImportMethod`](README.md#importmethod)<`any`, `any`\> |
 
 #### Parameters
 
@@ -733,25 +699,7 @@ Parse imports from `import * as name from 'path'` statements into a more managea
 
 #### Returns
 
-[`ParsedImportRecords`](README.md#parsedimportrecords)<`Args`, `Results`\>
-
-___
-
-## Modules Functions
-
-### prompt
-
-▸ **prompt**(`questions`): `Promise`<[`Answers`](README.md#answers)\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `questions` | [`QuestionRecords`](README.md#questionrecords) \| [`Question`](interfaces/Question.md)[] |
-
-#### Returns
-
-`Promise`<[`Answers`](README.md#answers)\>
+[`ParsedImportRecords`](README.md#parsedimportrecords)<`I`\>
 
 ___
 
@@ -812,7 +760,7 @@ Prompt the user for input using Prompts.
 | Name | Type |
 | :------ | :------ |
 | `question` | `string` |
-| `defaultAnswer?` | `string` |
+| `defaultAnswer?` | `string` \| `boolean` |
 
 #### Returns
 
@@ -825,7 +773,7 @@ Prompt the user for input using Prompts.
 | Name | Type |
 | :------ | :------ |
 | `question` | `string` |
-| `options?` | `Partial`<[`Question`](interfaces/Question.md)\> |
+| `options?` | `Partial`<[`Question`](README.md#question)\> |
 
 #### Returns
 
@@ -859,11 +807,27 @@ Prompt the user for confirmation using Prompts.
 | Name | Type |
 | :------ | :------ |
 | `question` | `string` |
-| `options?` | `Partial`<[`Question`](interfaces/Question.md)\> |
+| `options?` | `Partial`<[`Question`](README.md#question)\> |
 
 #### Returns
 
 `Promise`<`boolean`\>
+
+___
+
+### prompt
+
+▸ **prompt**(`questions`): `Promise`<[`Answers`](README.md#answers)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `questions` | [`QuestionRecords`](README.md#questionrecords) \| [`Question`](README.md#question)[] |
+
+#### Returns
+
+`Promise`<[`Answers`](README.md#answers)\>
 
 ___
 
