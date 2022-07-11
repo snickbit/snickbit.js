@@ -2,24 +2,24 @@ import {isObject, parseOptions} from '@snickbit/utilities'
 import prompts from 'prompts'
 import Stream from 'stream'
 
+/** @category Prompts */
 export type PromptsMethod = (prev: string, answers: Answers, previousQuestion: Question) => Promise<string> | string
 
+/** @category Prompts */
 export type PromptType = 'autocomplete' | 'autocompleteMultiselect' | 'confirm' | 'date' | 'invisible' | 'list' | 'multiselect' | 'number' | 'password' | 'select' | 'text' | 'toggle'
 
+/** @category Prompts */
 export type AnswerTypes = string | number | boolean | Date
 
 /** @category Prompts */
 export type QuestionRecords = Record<string, Question>
 
+/** @category Prompts */
 export interface PromptTypeMethod<P = PromptType> {
 	(prev: string, answers: Answers, previousQuestion: Question): P
 }
 
-/**
- * @category Prompts
- * @see https://github.com/terkelg/prompts
- */
-export interface BaseQuestion<InitialType = string> {
+interface BaseQuestion<InitialType = string> {
 	name: PromptsMethod | string
 	message: PromptsMethod | string
 	initial: InitialType | PromptsMethod
@@ -34,7 +34,6 @@ export interface BaseQuestion<InitialType = string> {
 }
 
 // Question extensions
-
 interface QuestionMinMax {
 	// number | multiselect
 	min: number
@@ -64,14 +63,17 @@ export interface AutoCompleteQuestion extends BaseQuestion<number | string>, Que
 	fallback: string
 }
 
+/** @category Prompts */
 export interface AutoCompleteMultiSelectQuestion extends Omit<MultiSelectQuestion, 'type'> {
 	type: PromptTypeMethod<'autocompleteMultiselect'> | 'autocompleteMultiselect'
 }
 
+/** @category Prompts */
 export interface ConfirmQuestion extends BaseQuestion<boolean>, QuestionChoices {
 	type: PromptTypeMethod<'confirm'> | 'confirm'
 }
 
+/** @category Prompts */
 export interface DateQuestion extends BaseQuestion<Date>, QuestionMinMax {
 	// date
 	type: PromptTypeMethod<'date'> | 'date'
@@ -79,16 +81,19 @@ export interface DateQuestion extends BaseQuestion<Date>, QuestionMinMax {
 	mask: string
 }
 
+/** @category Prompts */
 export interface InvisibleQuestion extends BaseQuestion {
 	type: PromptTypeMethod<'invisible'> | 'invisible'
 }
 
+/** @category Prompts */
 export interface ListQuestion extends BaseQuestion {
 	// list
 	type: PromptTypeMethod<'list'> | 'list'
 	separator: string
 }
 
+/** @category Prompts */
 export interface MultiSelectQuestion extends Omit<BaseQuestion, 'initial'>, QuestionMinMax, QuestionHints, QuestionChoices {
 	// multiselect
 	type: PromptTypeMethod<'multiselect'> | 'multiselect'
@@ -96,6 +101,7 @@ export interface MultiSelectQuestion extends Omit<BaseQuestion, 'initial'>, Ques
 	optionsPerPage: number
 }
 
+/** @category Prompts */
 export interface NumberQuestion extends BaseQuestion<number> {
 	// number
 	type: PromptTypeMethod<'number'> | 'number'
@@ -104,20 +110,24 @@ export interface NumberQuestion extends BaseQuestion<number> {
 	increment: number
 }
 
+/** @category Prompts */
 export interface PasswordQuestion extends BaseQuestion {
 	type: PromptTypeMethod<'password'> | 'password'
 }
 
+/** @category Prompts */
 export interface SelectQuestion extends BaseQuestion<number>, QuestionHints, QuestionChoices {
 	type: PromptTypeMethod<'select'> | 'select'
 }
 
+/** @category Prompts */
 export interface TextQuestion extends BaseQuestion {
 	// text
 	type: PromptTypeMethod<'text'> | 'text'
 	style: 'default' | 'emoji' | 'invisible' | 'password'
 }
 
+/** @category Prompts */
 export interface ToggleQuestion extends BaseQuestion<boolean> {
 	// toggle
 	type: PromptTypeMethod<'toggle'> | 'toggle'
@@ -125,6 +135,7 @@ export interface ToggleQuestion extends BaseQuestion<boolean> {
 	inactive: string
 }
 
+/** @category Prompts */
 export type Question =
 	AutoCompleteMultiSelectQuestion |
 	AutoCompleteQuestion |
@@ -181,13 +192,13 @@ function onState(state: PromptState) {
 	}
 }
 
-/** @internal */
 const defaultPromptOptions = {
 	type: 'text',
 	name: 'value',
 	onState
 }
 
+/** @category Prompts */
 export async function prompt(questions: Question[] | QuestionRecords): Promise<Answers> {
 	if (isObject(questions)) {
 		const answers: Answers = {}
