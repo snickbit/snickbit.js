@@ -2,69 +2,142 @@ import {isObject, parseOptions} from '@snickbit/utilities'
 import prompts from 'prompts'
 import Stream from 'stream'
 
-export type PromptsFunction = (prev: string, answers: Answers, previousQuestion: Question) => string
-export type PromptsPromise = (prev: string, answers: Answers, previousQuestion: Question) => Promise<string>
+export type PromptsMethod = (prev: string, answers: Answers, previousQuestion: Question) => Promise<string> | string
 
 export type PromptType = 'autocomplete' | 'autocompleteMultiselect' | 'confirm' | 'date' | 'invisible' | 'list' | 'multiselect' | 'number' | 'password' | 'select' | 'text' | 'toggle'
 
+export type AnswerTypes = string | number | boolean | Date
+
 /** @category Prompts */
 export type QuestionRecords = Record<string, Question>
+
+export interface PromptTypeMethod<P = PromptType> {
+	(prev: string, answers: Answers, previousQuestion: Question): P
+}
 
 /**
  * @category Prompts
  * @see https://github.com/terkelg/prompts
  */
-export interface Question {
-	type: PromptType | ((prev: string, answers: Answers, previousQuestion: Question) => PromptType)
-	name: PromptsFunction | string
-	message: PromptsFunction | string
-	initial: PromptsFunction | PromptsPromise | boolean | string
-	format: PromptsFunction | PromptsPromise
+export interface BaseQuestion<InitialType = string> {
+	name: PromptsMethod | string
+	message: PromptsMethod | string
+	initial: InitialType | PromptsMethod
+	format: PromptsMethod
+
 	onRender(this: prompts, kluer: any): void
+
 	onState(state: PromptState): void
+
 	stdin: Stream
 	stdout: Stream
+}
 
-	// text
-	style: 'default' | 'emoji' | 'invisible' | 'password'
+// Question extensions
 
-	// number
-	float: boolean
-	round: number
-	increment: number
-
-	// list
-	separator: string
-
-	// toggle
-	active: string
-	inactive: string
-
-	// autocomplete
-	suggest(input, choices): Promise<string[]>
-	limit: number
-	clearFirst: boolean
-	fallback: string
-
-	// date
-	locales: PromptsLocales
-	mask: string
-
-	// multiselect
-	instructions: boolean | string
-	optionsPerPage: number
-
+interface QuestionMinMax {
 	// number | multiselect
 	min: number
 	max: number
+}
 
-	// select | multiselect | autocomplete
-	choices: ChoiceDefinition | ChoiceOption[]
-
+interface QuestionHints {
 	//  select | multiselect
 	hint: string
 	warn: string
 }
+
+interface QuestionChoices {
+	// select | multiselect | autocomplete
+	choices: ChoiceDefinition | ChoiceOption[]
+}
+
+// Question types
+export interface AutoCompleteQuestion extends BaseQuestion<number | string>, QuestionChoices {
+	// autocomplete
+	type: PromptTypeMethod<'autocomplete'> | 'autocomplete'
+
+	suggest(input, choices): Promise<string[]>
+
+	limit: number
+	clearFirst: boolean
+	fallback: string
+}
+
+export interface AutoCompleteMultiSelectQuestion extends Omit<MultiSelectQuestion, 'type'> {
+	type: PromptTypeMethod<'autocompleteMultiselect'> | 'autocompleteMultiselect'
+}
+
+export interface ConfirmQuestion extends BaseQuestion<boolean>, QuestionChoices {
+	type: PromptTypeMethod<'confirm'> | 'confirm'
+}
+
+export interface DateQuestion extends BaseQuestion<Date>, QuestionMinMax {
+	// date
+	type: PromptTypeMethod<'date'> | 'date'
+	locales: PromptsLocales
+	mask: string
+}
+
+export interface InvisibleQuestion extends BaseQuestion {
+	type: PromptTypeMethod<'invisible'> | 'invisible'
+}
+
+export interface ListQuestion extends BaseQuestion {
+	// list
+	type: PromptTypeMethod<'list'> | 'list'
+	separator: string
+}
+
+export interface MultiSelectQuestion extends Omit<BaseQuestion, 'initial'>, QuestionMinMax, QuestionHints, QuestionChoices {
+	// multiselect
+	type: PromptTypeMethod<'multiselect'> | 'multiselect'
+	instructions: boolean | string
+	optionsPerPage: number
+}
+
+export interface NumberQuestion extends BaseQuestion<number> {
+	// number
+	type: PromptTypeMethod<'number'> | 'number'
+	float: boolean
+	round: number
+	increment: number
+}
+
+export interface PasswordQuestion extends BaseQuestion {
+	type: PromptTypeMethod<'password'> | 'password'
+}
+
+export interface SelectQuestion extends BaseQuestion<number>, QuestionHints, QuestionChoices {
+	type: PromptTypeMethod<'select'> | 'select'
+}
+
+export interface TextQuestion extends BaseQuestion {
+	// text
+	type: PromptTypeMethod<'text'> | 'text'
+	style: 'default' | 'emoji' | 'invisible' | 'password'
+}
+
+export interface ToggleQuestion extends BaseQuestion<boolean> {
+	// toggle
+	type: PromptTypeMethod<'toggle'> | 'toggle'
+	active: string
+	inactive: string
+}
+
+export type Question =
+	AutoCompleteMultiSelectQuestion |
+	AutoCompleteQuestion |
+	ConfirmQuestion |
+	DateQuestion |
+	InvisibleQuestion |
+	ListQuestion |
+	MultiSelectQuestion |
+	NumberQuestion |
+	PasswordQuestion |
+	SelectQuestion |
+	TextQuestion |
+	ToggleQuestion
 
 /** @category Prompts */
 export interface PromptsLocales {
@@ -157,6 +230,14 @@ export async function ask(question: string, optionsOrDefault?: Partial<Question>
 	// double check that it has a name
 	if (!options.name) {
 		options.name = 'value'
+	}
+
+	if (options.choices) {
+		options.type = 'select'
+	}
+
+	if (options.type === 'select' && options.initial) {
+		throw new Error('Cannot use initial with select')
 	}
 
 	return (await prompts(options))?.value ?? ''
