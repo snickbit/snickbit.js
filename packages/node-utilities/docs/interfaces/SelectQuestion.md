@@ -2,7 +2,7 @@
 
 ## Hierarchy
 
-- `BaseQuestion`<`number`\>
+- `BaseQuestion`<`number` \| `string`\>
 
 - `QuestionHints`
 
@@ -64,7 +64,7 @@ ___
 
 ### initial
 
-• **initial**: `number` \| [`PromptsMethod`](../README.md#promptsmethod)
+• **initial**: `string` \| `number` \| [`PromptsMethod`](../README.md#promptsmethod)
 
 #### Inherited from
 

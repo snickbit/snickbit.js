@@ -749,7 +749,7 @@ ___
 
 ### ask
 
-▸ **ask**(`question`, `defaultAnswer?`): `Promise`<`any` \| `string`\>
+▸ **ask**(`question`, `defaultAnswer?`): `Promise`<`any`\>
 
 Prompt the user for input using Prompts.
 
@@ -764,9 +764,9 @@ Prompt the user for input using Prompts.
 
 #### Returns
 
-`Promise`<`any` \| `string`\>
+`Promise`<`any`\>
 
-▸ **ask**(`question`, `options?`): `Promise`<`any` \| `string`\>
+▸ **ask**(`question`, `options?`): `Promise`<`any`\>
 
 #### Parameters
 
@@ -777,7 +777,7 @@ Prompt the user for input using Prompts.
 
 #### Returns
 
-`Promise`<`any` \| `string`\>
+`Promise`<`any`\>
 
 ___
 
