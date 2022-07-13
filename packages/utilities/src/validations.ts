@@ -76,7 +76,7 @@ export const isAwaitable = <T = any>(value: any): value is AsyncFunction<T> | Pr
  * @category Validation
  */
 export function isPrimitive(value: any, includeNullUndefined: true): value is BasicVariableType
-export function isPrimitive(value: any, includeNullUndefined: false): value is PrimitiveVariableType
+export function isPrimitive(value: any, includeNullUndefined?: false): value is PrimitiveVariableType
 export function isPrimitive(value: any, includeNullUndefined?: boolean): value is BasicVariableType | PrimitiveVariableType {
 	return !includeNullUndefined ? variableTypes.basic.includes(<BasicVariableType>typeOf(value)) : variableTypes.primitive.includes(<PrimitiveVariableType>typeOf(value))
 }
