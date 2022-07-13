@@ -1,5 +1,4 @@
-import {arrayShuffle} from '@snickbit/utilities'
-import {isString} from 'fast-glob/out/utils/string'
+import {arrayShuffle, isString} from '@snickbit/utilities'
 import * as presets from './presets'
 
 export class Cycle {
