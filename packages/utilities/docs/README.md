@@ -2,6 +2,11 @@
 
 ## Table of contents
 
+### Validation Interfaces
+
+- [AnyFunction](interfaces/AnyFunction.md)
+- [AsyncFunction](interfaces/AsyncFunction.md)
+
 ### Arrays Type Aliases
 
 - [ArrayPredicate](README.md#arraypredicate)
@@ -33,6 +38,10 @@
 
 ### Validation Type Aliases
 
+- [AnyClass](README.md#anyclass)
+- [ArrayWithValues](README.md#arraywithvalues)
+- [EmptyArray](README.md#emptyarray)
+- [EmptyObject](README.md#emptyobject)
 - [VariableTypeDefinition](README.md#variabletypedefinition)
 
 ### Variables
@@ -316,6 +325,30 @@ ___
 ___
 
 ## Validation Type Aliases
+
+### AnyClass
+
+Ƭ **AnyClass**: `Object`
+
+___
+
+### ArrayWithValues
+
+Ƭ **ArrayWithValues**: [`any`, ...any]
+
+___
+
+### EmptyArray
+
+Ƭ **EmptyArray**: `never`[]
+
+___
+
+### EmptyObject
+
+Ƭ **EmptyObject**: `Record`<`any`, `never`\>
+
+___
 
 ### VariableTypeDefinition
 
@@ -1598,7 +1631,7 @@ ___
 
 ### isArray
 
-▸ **isArray**(`value`): `boolean`
+▸ **isArray**(`value`): value is [any, ...any[]]
 
 Checks if variable is an array and is not empty
 
@@ -1610,15 +1643,21 @@ Checks if variable is an array and is not empty
 
 #### Returns
 
-`boolean`
+value is [any, ...any[]]
 
 ___
 
 ### isAsyncFunction
 
-▸ **isAsyncFunction**(`value`): `boolean`
+▸ **isAsyncFunction**<`T`\>(`value`): value is AsyncFunction<T\>
 
 Check if a variable is an async function
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `any` |
 
 #### Parameters
 
@@ -1628,15 +1667,21 @@ Check if a variable is an async function
 
 #### Returns
 
-`boolean`
+value is AsyncFunction<T\>
 
 ___
 
 ### isAwaitable
 
-▸ **isAwaitable**(`value`): `boolean`
+▸ **isAwaitable**<`T`\>(`value`): value is AsyncFunction<T\> \| Promise<T\>
 
 Check if a variable can be used with await (a Promise or AsyncFunction)
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `any` |
 
 #### Parameters
 
@@ -1646,7 +1691,7 @@ Check if a variable can be used with await (a Promise or AsyncFunction)
 
 #### Returns
 
-`boolean`
+value is AsyncFunction<T\> \| Promise<T\>
 
 ___
 
@@ -1670,7 +1715,7 @@ ___
 
 ### isClass
 
-▸ **isClass**(`value`): `boolean`
+▸ **isClass**(`value`): value is AnyClass
 
 Check if a variable is a class
 
@@ -1682,13 +1727,13 @@ Check if a variable is a class
 
 #### Returns
 
-`boolean`
+value is AnyClass
 
 ___
 
 ### isDate
 
-▸ **isDate**(`value`): `boolean`
+▸ **isDate**(`value`): value is Date
 
 Check if a variable is a valid date
 
@@ -1700,13 +1745,13 @@ Check if a variable is a valid date
 
 #### Returns
 
-`boolean`
+value is Date
 
 ___
 
 ### isDefined
 
-▸ **isDefined**(`value`): `boolean`
+▸ **isDefined**(`value`): value is undefined
 
 Check if a value is undefined
 
@@ -1718,13 +1763,13 @@ Check if a value is undefined
 
 #### Returns
 
-`boolean`
+value is undefined
 
 ___
 
 ### isEmpty
 
-▸ **isEmpty**(`value`): `boolean`
+▸ **isEmpty**(`value`): value is undefined \| null \| EmptyObject
 
 Check if a value is empty
 
@@ -1736,13 +1781,37 @@ Check if a value is empty
 
 #### Returns
 
-`boolean`
+value is undefined \| null \| EmptyObject
+
+▸ **isEmpty**(`value`): value is ""
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `string` |
+
+#### Returns
+
+value is ""
+
+▸ **isEmpty**(`value`): value is EmptyArray
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `any`[] |
+
+#### Returns
+
+value is EmptyArray
 
 ___
 
 ### isFunction
 
-▸ **isFunction**(`value`, `strict?`): `boolean`
+▸ **isFunction**(`value`, `strict?`): value is AnyFunction<any\>
 
 Check if a variable is a function
 
@@ -1751,17 +1820,30 @@ Check if a variable is a function
 | Name | Type |
 | :------ | :------ |
 | `value` | `any` |
-| `strict?` | `boolean` |
+| `strict?` | ``false`` |
 
 #### Returns
 
-`boolean`
+value is AnyFunction<any\>
+
+▸ **isFunction**(`value`, `strict`): value is Function
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `any` |
+| `strict` | ``true`` |
+
+#### Returns
+
+value is Function
 
 ___
 
 ### isNullDefined
 
-▸ **isNullDefined**(`value`): `boolean`
+▸ **isNullDefined**(`value`): value is undefined \| null
 
 Check if a value is null or undefined
 
@@ -1773,13 +1855,13 @@ Check if a value is null or undefined
 
 #### Returns
 
-`boolean`
+value is undefined \| null
 
 ___
 
 ### isNumber
 
-▸ **isNumber**(`value`): `boolean`
+▸ **isNumber**(`value`): value is number
 
 Check if a variable is a number
 
@@ -1791,32 +1873,45 @@ Check if a variable is a number
 
 #### Returns
 
-`boolean`
+value is number
 
 ___
 
 ### isObject
 
-▸ **isObject**(`value`, `strict?`): `any`
+▸ **isObject**(`value`, `strict?`): value is Record<any, any\>
 
 Check if a variable is an object and is not null or undefined
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `value` | `any` | `undefined` |
-| `strict` | `boolean` | `true` |
+| Name | Type |
+| :------ | :------ |
+| `value` | `any` |
+| `strict?` | ``true`` |
 
 #### Returns
 
-`any`
+value is Record<any, any\>
+
+▸ **isObject**(`value`, `strict`): value is Date \| AnyFunction<any\> \| Record<any, any\> \| [any, ...any[]]
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `any` |
+| `strict` | ``false`` |
+
+#### Returns
+
+value is Date \| AnyFunction<any\> \| Record<any, any\> \| [any, ...any[]]
 
 ___
 
 ### isPrimitive
 
-▸ **isPrimitive**(`value`, `includeNullUndefined?`): `boolean`
+▸ **isPrimitive**(`value`, `includeNullUndefined`): value is BasicVariableType
 
 Check if a variable is a primitive type. i.e. string, boolean, number, or bigint
 
@@ -1825,19 +1920,38 @@ Check if a variable is a primitive type. i.e. string, boolean, number, or bigint
 | Name | Type |
 | :------ | :------ |
 | `value` | `any` |
-| `includeNullUndefined?` | `boolean` |
+| `includeNullUndefined` | ``true`` |
 
 #### Returns
 
-`boolean`
+value is BasicVariableType
+
+▸ **isPrimitive**(`value`, `includeNullUndefined`): value is PrimitiveVariableType
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `any` |
+| `includeNullUndefined` | ``false`` |
+
+#### Returns
+
+value is PrimitiveVariableType
 
 ___
 
 ### isPromise
 
-▸ **isPromise**(`value`): `boolean`
+▸ **isPromise**<`T`\>(`value`): value is Promise<T\>
 
 Check if a variable is a promise
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `any` |
 
 #### Parameters
 
@@ -1847,15 +1961,21 @@ Check if a variable is a promise
 
 #### Returns
 
-`boolean`
+value is Promise<T\>
 
 ___
 
 ### isSet
 
-▸ **isSet**(`value`): `boolean`
+▸ **isSet**<`T`\>(`value`): value is Set<T\>
 
 Check if a variable is a Set
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `any` |
 
 #### Parameters
 
@@ -1865,13 +1985,13 @@ Check if a variable is a Set
 
 #### Returns
 
-`boolean`
+value is Set<T\>
 
 ___
 
 ### isString
 
-▸ **isString**(`value`): `boolean`
+▸ **isString**(`value`): value is string
 
 Check if a variable is a string
 
@@ -1883,13 +2003,13 @@ Check if a variable is a string
 
 #### Returns
 
-`boolean`
+value is string
 
 ___
 
 ### isType
 
-▸ **isType**(`value`, `type`): `boolean`
+▸ **isType**(`value`, `type`): value is VariableType
 
 Check if a variable is the given type
 
@@ -1902,7 +2022,7 @@ Check if a variable is the given type
 
 #### Returns
 
-`boolean`
+value is VariableType
 
 ___
 
