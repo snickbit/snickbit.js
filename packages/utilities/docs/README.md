@@ -146,6 +146,7 @@
 - [isAsyncFunction](README.md#isasyncfunction)
 - [isAwaitable](README.md#isawaitable)
 - [isBase64](README.md#isbase64)
+- [isBoolean](README.md#isboolean)
 - [isClass](README.md#isclass)
 - [isDate](README.md#isdate)
 - [isDefined](README.md#isdefined)
@@ -1713,6 +1714,24 @@ Check if a variable is a Base64 string
 
 ___
 
+### isBoolean
+
+▸ **isBoolean**(`value`): value is boolean
+
+Check if a variable is a boolean
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `any` |
+
+#### Returns
+
+value is boolean
+
+___
+
 ### isClass
 
 ▸ **isClass**(`value`): value is AnyClass
@@ -1926,14 +1945,14 @@ Check if a variable is a primitive type. i.e. string, boolean, number, or bigint
 
 value is BasicVariableType
 
-▸ **isPrimitive**(`value`, `includeNullUndefined`): value is PrimitiveVariableType
+▸ **isPrimitive**(`value`, `includeNullUndefined?`): value is PrimitiveVariableType
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `value` | `any` |
-| `includeNullUndefined` | ``false`` |
+| `includeNullUndefined?` | ``false`` |
 
 #### Returns
 
