@@ -229,16 +229,23 @@ export class Model<T extends object = any, D = Partial<T>> {
 	 * Find specific data in the model
 	 */
 	find(key: ModelKey, predicate: ObjectPredicate): ModelValue
-	find(keyOrPredicate: ModelKey | ObjectPredicate, predicate?: ObjectPredicate): ModelValue {
+	find(keyOrPredicate: ModelKey | ObjectPredicate, optionalPredicate?: ObjectPredicate): ModelValue {
 		let key: ModelKey = ''
+		let predicate: ObjectPredicate
+
 		if (isFunction(keyOrPredicate)) {
-			predicate = keyOrPredicate as ObjectPredicate
-		} else {
+			predicate = keyOrPredicate
+		} else if (optionalPredicate) {
 			key = keyOrPredicate as ModelKey
+			predicate = optionalPredicate
+		} else {
+			throw new Error('Missing predicate')
 		}
+
 		const value = this.get(key)
+
 		if (isObject(value)) {
-			return objectFind(value, predicate as ObjectPredicate)
+			return objectFind(value, predicate)
 		} else if (isArray(value)) {
 			return value.find(predicate)
 		}
@@ -254,19 +261,27 @@ export class Model<T extends object = any, D = Partial<T>> {
 	 * Find a key/index matching a value
 	 */
 	findKey(key: ModelKey, predicate: ObjectPredicate): ModelValue
-	findKey(keyOrPredicate: ModelKey | ObjectPredicate, predicate?: ObjectPredicate): number | string | symbol | undefined {
+	findKey(keyOrPredicate: ModelKey | ObjectPredicate, optionalPredicate?: ObjectPredicate): number | string | symbol | undefined {
 		let key: ModelKey = ''
+		let predicate: ObjectPredicate
+
 		if (isFunction(keyOrPredicate)) {
-			predicate = keyOrPredicate as ObjectPredicate
-		} else {
+			predicate = keyOrPredicate
+		} else if (optionalPredicate) {
 			key = keyOrPredicate as ModelKey
+			predicate = optionalPredicate
+		} else {
+			throw new Error('Missing predicate')
 		}
+
 		const value = this.get(key)
+
 		if (isObject(value)) {
-			return objectFindKey(value, predicate as ObjectPredicate)
+			return objectFindKey(value, predicate)
 		} else if (isArray(value)) {
 			return value.findIndex(predicate)
 		}
+
 		return -1
 	}
 
