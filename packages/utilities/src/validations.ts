@@ -110,6 +110,12 @@ export const isString = (value: any): value is string => typeof value === 'strin
 export const isNumber = (value: any): value is number => !isNaN(parseInt(value))
 
 /**
+ * Check if a variable is a boolean
+ * @category Validation
+ */
+export const isBoolean = (value: any): value is boolean => typeof value === 'boolean'
+
+/**
  * Check if a variable is a function
  * @category Validation
  */
