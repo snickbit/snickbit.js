@@ -1,5 +1,12 @@
 # @snickbit/utilities
 
+## 0.0.29
+
+### Patch Changes
+
+- [dd22855](https://github.com/snickbit/snickbit.js/commit/dd22855) **fix**:  use correct isString import
+- [fe0a883](https://github.com/snickbit/snickbit.js/commit/fe0a883) **fix**:  replace isType with specific helper classes
+
 ## 0.0.27
 
 ### Patch Changes

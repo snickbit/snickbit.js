@@ -1,5 +1,11 @@
 # @snickbit/model
 
+## 1.0.52
+
+### Patch Changes
+
+- [c19b9d5](https://github.com/snickbit/snickbit.js/commit/c19b9d5) **fix**:  throw error on missing find predicate
+
 ## 1.0.49
 
 ### Patch Changes

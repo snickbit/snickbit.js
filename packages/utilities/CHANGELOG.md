@@ -1,5 +1,17 @@
 # @snickbit/utilities
 
+## 3.2.0
+
+### Minor Changes
+
+- [6e47996](https://github.com/snickbit/snickbit.js/commit/6e47996) **docs**:  update
+- [e6aab6b](https://github.com/snickbit/snickbit.js/commit/e6aab6b) **feat**:  add isBoolean
+- [1a3a6c4](https://github.com/snickbit/snickbit.js/commit/1a3a6c4) **fix**:  make includeNullUndefined optional for isPrimitive
+- [d8f9235](https://github.com/snickbit/snickbit.js/commit/d8f9235) **docs**:  update
+- [fe0a883](https://github.com/snickbit/snickbit.js/commit/fe0a883) **fix**:  replace isType with specific helper classes
+- [07af361](https://github.com/snickbit/snickbit.js/commit/07af361) **fix**:  overhaul validations to include typescript predicates
+- [fbb0222](https://github.com/snickbit/snickbit.js/commit/fbb0222) **chore**:  bump dependencies
+
 ## 3.1.0
 
 ### Minor Changes
