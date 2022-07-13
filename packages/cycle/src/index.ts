@@ -1,4 +1,5 @@
-import {arrayShuffle, isType} from '@snickbit/utilities'
+import {arrayShuffle} from '@snickbit/utilities'
+import {isString} from 'fast-glob/out/utils/string'
 import * as presets from './presets'
 
 export class Cycle {
@@ -15,9 +16,9 @@ export class Cycle {
 		this.index = 0
 		if (!itemsOrPreset) {
 			this.items = []
-		} else if (isType(itemsOrPreset, 'array')) {
-			this.items = (itemsOrPreset as Array<any>).slice()
-		} else if (isType(itemsOrPreset, 'string')) {
+		} else if (Array.isArray(itemsOrPreset)) {
+			this.items = itemsOrPreset.slice()
+		} else if (isString(itemsOrPreset)) {
 			this.items = presets[itemsOrPreset as keyof typeof presets]
 		} else {
 			throw new TypeError('Invalid type for items, expected array or string')
